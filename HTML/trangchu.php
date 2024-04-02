@@ -25,12 +25,76 @@
                     <a href="#">Laptop Gaming</a>
                     <a href="#">Xem tất cả ></a>
                 </div>
+                <div class="mid-show-sanpham">
+                    <div class="product">
+                        <img src="../image/10001.jpg" alt="">
+                        <h2>Laptop ACER</h2>
+                        <div class="price">2000Vnd</div>
+                        <button class="addCart">Thêm <i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <div class="product">
+                        <img src="../image/10001.jpg" alt="">
+                        <h2>Laptop ACER</h2>
+                        <div class="price">2000Vnd</div>
+                        <button class="addCart">Thêm <i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <div class="product">
+                        <img src="../image/10001.jpg" alt="">
+                        <h2>Laptop ACER</h2>
+                        <div class="price">2000Vnd</div>
+                        <button class="addCart">Thêm <i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <div class="product">
+                        <img src="../image/10001.jpg" alt="">
+                        <h2>Laptop ACER</h2>
+                        <div class="price">2000Vnd</div>
+                        <button class="addCart">Thêm <i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <div class="product">
+                        <img src="../image/10001.jpg" alt="">
+                        <h2>Laptop ACER</h2>
+                        <div class="price">2000Vnd</div>
+                        <button class="addCart">Thêm <i class="fa-solid fa-plus"></i></button>
+                    </div>
+                </div>
             </div>
             <div class="show-sanpham">
                 <img alt="LAPTOP GAMING" src="https://lh3.googleusercontent.com/MX4EIYSDGrPytnzFOekQNgEScPD0aWg3kE0fnnN95fydTrvHOllvCBNrOEvF1sUO9BGK7AKCfxItTHHGjQVOE1yu3X_FwtXQ=w1232" width="100%" height="100%" class="show-sanpham-img">
                 <div class="top-show-sanpham">
                     <a href="#">Laptop Gaming</a>
                     <a href="#">Xem tất cả ></a>
+                </div>
+                <div class="mid-show-sanpham">
+                    <div class="product">
+                        <img src="../image/10001.jpg" alt="">
+                        <h2>Laptop ACER</h2>
+                        <div class="price">2000Vnd</div>
+                        <button class="addCart">Thêm <i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <div class="product">
+                        <img src="../image/10001.jpg" alt="">
+                        <h2>Laptop ACER</h2>
+                        <div class="price">2000Vnd</div>
+                        <button class="addCart">Thêm <i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <div class="product">
+                        <img src="../image/10001.jpg" alt="">
+                        <h2>Laptop ACER</h2>
+                        <div class="price">2000Vnd</div>
+                        <button class="addCart">Thêm <i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <div class="product">
+                        <img src="../image/10001.jpg" alt="">
+                        <h2>Laptop ACER</h2>
+                        <div class="price">2000Vnd</div>
+                        <button class="addCart">Thêm <i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <div class="product">
+                        <img src="../image/10001.jpg" alt="">
+                        <h2>Laptop ACER</h2>
+                        <div class="price">2000Vnd</div>
+                        <button class="addCart">Thêm <i class="fa-solid fa-plus"></i></button>
+                    </div>
                 </div>
             </div>
             <div class="show-sanpham">
@@ -39,10 +103,42 @@
                     <a href="#">Laptop Gaming</a>
                     <a href="#">Xem tất cả ></a>
                 </div>
+                <div class="mid-show-sanpham">
+                    <div class="product">
+                        <img src="../image/10001.jpg" alt="">
+                        <h2>Laptop ACER</h2>
+                        <div class="price">2000Vnd</div>
+                        <button class="addCart">Thêm <i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <div class="product">
+                        <img src="../image/10001.jpg" alt="">
+                        <h2>Laptop ACER</h2>
+                        <div class="price">2000Vnd</div>
+                        <button class="addCart">Thêm <i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <div class="product">
+                        <img src="../image/10001.jpg" alt="">
+                        <h2>Laptop ACER</h2>
+                        <div class="price">2000Vnd</div>
+                        <button class="addCart">Thêm <i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <div class="product">
+                        <img src="../image/10001.jpg" alt="">
+                        <h2>Laptop ACER</h2>
+                        <div class="price">2000Vnd</div>
+                        <button class="addCart">Thêm <i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <div class="product">
+                        <img src="../image/10001.jpg" alt="">
+                        <h2>Laptop ACER</h2>
+                        <div class="price">2000Vnd</div>
+                        <button class="addCart">Thêm <i class="fa-solid fa-plus"></i></button>
+                    </div>
+                </div>
             </div>
         </div>
         
     </div>
 
 </div>
-<script src="js/app.js"></script>
+<script src="../js/app.js"></script>

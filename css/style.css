@@ -130,8 +130,8 @@ a{
 .show-sanpham{
     position: relative;
     width: 100%;
-    height: 400px;
-    margin: 20px 0;
+    height: 465px;
+    margin: 50px 0;
 }
 
 .show-sanpham-img{
@@ -155,6 +155,62 @@ a{
     padding: 10px 0;
 }
 
+.mid-show-sanpham{
+    position: relative;
+    /* inset: 20px; */
+    /* margin: 20px; */
+    /* min-height: 400px; */
+    height: 410px;
+    display: grid;
+    padding: 15px;
+    grid-template-columns: repeat(5 , 1fr);
+    gap: 20px;
+}
+.product{
+    text-align: center;
+    background-color: var(--mycolor2);
+    padding: 10px;
+    /* height: 390px; */
+    position: relative;
+}
+
+.product img{
+    width: 90%;
+    transition: .4s;
+    cursor: pointer;
+}
+
+.product img:hover{
+    transform: translateY(-10px);
+}
+
+.product h2{
+    font-weight: 500;
+    font-size: larger;
+}
+
+.product .price{
+    letter-spacing: 2px;
+}
+
+.product button{
+    background-color: #333;
+    color: #fff;
+    padding: 8px;
+    margin-top: 10px;
+    border-radius: 12px;
+    /* border: none; */
+    cursor: pointer;
+    position: absolute;
+    inset: auto 10px 10px 10px;
+    transition: .3s;
+}
+
+.product button:hover{
+    background-color: #fff;
+    color: #333;
+    border: 2px solid #333;
+}
 
 /*============================Slider============================*/
 .slider{
