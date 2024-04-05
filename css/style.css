@@ -132,10 +132,12 @@ a{
     width: 100%;
     height: 465px;
     margin: 50px 0;
+    
 }
 
 .show-sanpham-img{
     position: absolute;
+    border-radius: 15px;
 }
 .top-show-sanpham{
     position: relative;
@@ -160,16 +162,27 @@ a{
     /* inset: 20px; */
     /* margin: 20px; */
     /* min-height: 400px; */
+    overflow: hidden;
+    
+    
+}
+
+.list-sanpham{
+    width: 3000px;
     height: 410px;
-    display: grid;
+    display: flex;
+    /* flex-wrap:inherit; */
     padding: 15px;
-    grid-template-columns: repeat(5 , 1fr);
+    /* display: grid;
+    grid-template-columns: repeat(5 , 1fr); */
     gap: 20px;
+    transition: .4s;
 }
 .product{
     text-align: center;
     background-color: var(--mycolor2);
     padding: 10px;
+    width: 244px;
     /* height: 390px; */
     position: relative;
 }
@@ -202,7 +215,7 @@ a{
     /* border: none; */
     cursor: pointer;
     position: absolute;
-    inset: auto 10px 10px 10px;
+    inset: auto 20px 20px 20px;
     transition: .3s;
 }
 
@@ -223,10 +236,11 @@ a{
     transition: .5s;
 }
 .btn{
+    padding: 15px;
     font-size: 50px;
     /* display: flex; */
     position: absolute;
-    color: #999;
+    color: #0f0101;
     top: 50%;
     transform: translateY(-50%);
 }
@@ -422,7 +436,7 @@ input[type="submit"]:hover {
     min-height: 60%;
     margin: 0 8px;
     background-color: var(--mycolor2);
-    border-radius: 20px;
+    border-radius: 15px;
     padding: 20px;
 }
 .menu-left{
