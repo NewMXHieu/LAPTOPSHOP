@@ -1,7 +1,3 @@
-<?php
-  include 'header.php';
-?>
-
 <link rel="stylesheet" href="../../css/style.css">
 
 <div class="log-in">
@@ -19,13 +15,10 @@
       </div>
 
       <div class="item">
-        Chưa có tài khoản? <a href="sign-up.php">Đăng ký ngay</a>
+        Chưa có tài khoản? <a href="?action=sign-up">Đăng ký ngay</a>
       </div>
 
       <input type="submit" value="Đăng nhập">
 
   </form>
 </div>
-<?php
-    include 'footer.php';
-?>

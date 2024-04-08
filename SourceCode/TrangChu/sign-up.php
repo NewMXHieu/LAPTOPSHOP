@@ -1,7 +1,3 @@
-<?php
-  include 'header.php';
-?>
-
 <link rel="stylesheet" href="../../css/style.css">
 
 <div class="log-out">
@@ -36,6 +32,3 @@
     <input type="submit" value="Đăng ký">
   </form>
 </div>
-<?php
-    include 'footer.php';
-?>

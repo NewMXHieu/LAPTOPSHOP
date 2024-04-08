@@ -19,8 +19,8 @@
 
         <div id="nav">
             <ul>
-                <li><a class="nav-link active" href="index.php">Trang chủ</a></li>
-                <li><a class="nav-link" href="product-list.php">Sản phẩm</a></li>
+                <li><a class="nav-link active" href="?action=trangchu">Trang chủ</a></li>
+                <li><a class="nav-link" href="?action=sanpham">Sản phẩm</a></li>
                 <li><a class="nav-link" href="about.php">Giới thiệu</a></li>
                 <li><a class="nav-link" href="contact.php">Liên hệ</a></li>
             </ul>
@@ -49,7 +49,7 @@
             </a>
         </div>
         <div class="login">
-             <a href="sign-in.php">
+             <a href="?action=sign-in">
                 <i class="fa-regular fa-circle-user"></i><br>
                 <!-- <img src="https://img.icons8.com/pulsar-line/48/guest-male.png" alt="guest-male"/><br> -->
                 <span>Đăng nhập</span>

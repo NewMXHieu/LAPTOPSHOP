@@ -1,6 +1,3 @@
-<?php
-include 'header.php';
-?>
 <div class="wrapper">
     <div class="content top-trangchu">
         <div class="menu menu-left">
@@ -132,20 +129,3 @@ include 'header.php';
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<?php
-include 'footer.php';
-?>
