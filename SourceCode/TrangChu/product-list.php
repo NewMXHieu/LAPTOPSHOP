@@ -126,6 +126,35 @@
             <input type="button" value="Kiem">
             <input type="time">
             <button>tim</button>
+            <div class="main">
+                <?php
+                $hang = "";
+                while ($row_sanpham = mysqli_fetch_assoc($query_sanpham)) {
+
+                    if ($row_sanpham['MANCC'] == "1") {
+                        $hang = "ACER";
+                    } else if($row_sanpham['MANCC'] == "4"){
+                        $hang = "DELL";
+                    } else if($row_sanpham['MANCC'] == "6"){
+                        $hang = "HP";
+                    } else if($row_sanpham['MANCC'] == "7"){
+                        $hang = "LENOVO";
+                    } else {
+                        $hang = "Ko co";
+                    }
+                ?>
+                    <div class="product">
+                        <img src="../../image/10001.jpg" alt="">
+                        <div class="clear">
+                            <a href="#"><?php echo $hang ?></a>
+                            <h2><?php echo $row_sanpham['TENSP'] ?></h2>
+                            <div class="price"><?php echo number_format($row_sanpham['GIATIEN'], 0, '', '.') . " Vnd" ?></div>
+                            <button class="addCart">Thêm <i class="fa-solid fa-plus"></i></button>
+                        </div>
+
+                    </div>
+                <?php } ?>
+            </div>
         </div>
     </div>
 </div>
