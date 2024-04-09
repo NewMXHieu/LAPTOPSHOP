@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../css/style.css">
+<link rel="stylesheet" href="static/css/style.css">
 
 <div class="log-out">
 <a href="index.php"><span class="icon-close"><i class="fa fa-times"></i></span></a>

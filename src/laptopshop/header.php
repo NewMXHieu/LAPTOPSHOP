@@ -9,12 +9,12 @@
 // $payment =  execute("SELECT * FROM  image WHERE type = 3 and status = 0 ORDER BY ordering DESC limit 0,5")->fetch_all(MYSQLI_ASSOC);
 ?>
 
-<link rel="stylesheet" href="../../css/style.css">
+<link rel="stylesheet" href="static/css/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
 <div id="header">
         <div class="logo">
-            <a href="index.php"><img width="80" height="80" src="../../image/logo.jpg" alt="laptop--v1"/></a>
+            <a href="index.php"><img width="80" height="80" src="static/image/logo.jpg" alt="laptop--v1"/></a>
         </div>
 
         <div id="nav">

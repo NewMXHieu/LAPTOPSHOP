@@ -144,7 +144,7 @@
                     }
                 ?>
                     <div class="product">
-                        <img src="../../image/10001.jpg" alt="">
+                        <img src="static/image/10001.jpg" alt="">
                         <div class="clear">
                             <a href="#"><?php echo $hang ?></a>
                             <h2><?php echo $row_sanpham['TENSP'] ?></h2>
