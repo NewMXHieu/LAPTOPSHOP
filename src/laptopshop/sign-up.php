@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="static/css/style.css">
 
 <div class="log-out">
-<a href="index.php"><span class="icon-close"><i class="fa fa-times"></i></span></a>
+<a href="trangchu"><span class="icon-close"><i class="fa fa-times"></i></span></a>
   <h1>ĐĂNG KÝ</h1>
   <form action="" method="post">
     <input type="hidden" id="action" value="register">

@@ -9,7 +9,7 @@ if(isset($_SESSION["id"])){
 <link rel="stylesheet" href="static/css/style.css">
 
 <div class="log-in">
-  <a href="index.php"><span class="icon-close"><i class="fa fa-times"></i></span></a>
+  <a href="trangchu"><span class="icon-close"><i class="fa fa-times"></i></span></a>
   <h1>ĐĂNG NHẬP</h1>
   <form autocomplete="off" action="" method="post">
     <input type="hidden" id="action" value="login">

@@ -62,7 +62,7 @@ $username = $_SESSION['username'];
             </div>
         <?php } else {?>
         <div class="login">
-            <a href="login">
+            <a href="sign-in">
                 <i class="fa-regular fa-circle-user"></i><br>
                 <!-- <img src="https://img.icons8.com/pulsar-line/48/guest-male.png" alt="guest-male"/><br> -->
                 <span>Đăng nhập</span>
