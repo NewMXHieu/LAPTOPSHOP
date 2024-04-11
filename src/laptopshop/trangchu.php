@@ -1,3 +1,7 @@
+<?php 
+include 'config.php';
+?>
+
 <div class="wrapper">
     <div class="content content-trangchu">
         <div class="top-trangchu">

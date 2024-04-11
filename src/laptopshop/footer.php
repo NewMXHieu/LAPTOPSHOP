@@ -3,7 +3,7 @@
 
 ?>
 
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="static/css/style.css">
 
 <div id="footer">
     <div class="footer-top">

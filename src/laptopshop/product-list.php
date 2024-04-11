@@ -1,3 +1,8 @@
+<?php
+include 'config.php';
+
+?>
+
 <div class="wrapper">
     <div class="content top-trangchu">
         <div class="menu menu-left">

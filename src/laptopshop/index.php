@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +14,6 @@
 
 <body>
     <?php
-    include 'config.php';
     include 'header.php';
     include 'main.php';
     include 'footer.php';

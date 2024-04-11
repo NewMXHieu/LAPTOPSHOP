@@ -10,4 +10,6 @@ $query_sanpham2 = mysqli_query($conn, $sql_sanpham2);
 $sql_sanpham3 = "SELECT * FROM sanpham, chitietsanpham WHERE sanpham.MASP = chitietsanpham.MASP and sanpham.MANCC = '7'";
 $query_sanpham3 = mysqli_query($conn, $sql_sanpham3);
 
+
 ?>
+
