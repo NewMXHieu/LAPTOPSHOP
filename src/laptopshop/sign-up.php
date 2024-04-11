@@ -1,4 +1,9 @@
-
+<?php
+require 'function.php';
+if(isset($_SESSION["id"])){
+  header("Location: index.php");
+}
+?>
 
 <link rel="stylesheet" href="static/css/style.css">
 
@@ -23,9 +28,9 @@
     </div>
 
       <div class="item">
-      Đã có tài khoản? <a href="sign-in.php">Đăng nhập ngay</a>
+      Đã có tài khoản? <a href="sign-in">Đăng nhập ngay</a>
     </div>
-    <input onclick="submitData()" type="submit" value="Đăng ký">
+    <button onclick="submitData()" type="button" value="Đănbutton">Đăng ký</button>
   </form>
 </div>
 

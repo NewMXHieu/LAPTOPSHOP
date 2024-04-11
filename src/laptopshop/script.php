@@ -3,6 +3,7 @@
 <script type="text/javascript">
   function submitData(){
     $(document).ready(function(){
+      console.log('submitData');
       var data = {
         username: $("#username").val(),
         password: $("#password").val(),
@@ -11,7 +12,7 @@
       };
 
       $.ajax({
-        url: 'function.php',
+        url: 'src/laptopshop/function.php',
         type: 'post',
         data: data,
         success:function(response){

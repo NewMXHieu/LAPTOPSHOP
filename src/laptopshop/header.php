@@ -53,12 +53,16 @@ $username = $_SESSION['username'];
         </div>
 
         <?php if (isset($_SESSION['username'])) { ?>
-            <div class="menu-right">
-                <a href="logout">
-                    <i class="fa-solid fa-sign-out-alt"></i><br>
-                    <!-- <img src="https://img.icons8.com/plasticine/100/sign-out--v1.png" alt="sign-out--v1"/><br> -->
-                    <span>Đăng xuất</span>
-                </a>
+            <div id="account_logged" class="dropdown">
+                <button class="dropbtn">
+                    <i class="fas fa-user"></i>   <?php echo $_SESSION['username']; ?>
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="profile">Thông tin cá nhân</a>
+                    <a href="order">Đơn hàng</a>
+                    <a href="logout">Đăng xuất</a>
+                </div>
             </div>
         <?php } else {?>
         <div class="login">

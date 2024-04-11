@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
 $conn = mysqli_connect("localhost", "root", "", "cuahanglaptop");
 
 // IF
@@ -22,6 +24,7 @@ function register()
   $confirm_password = $_POST["confirm_password"];
   $currentDateTime = date('Y-m-d');
   $state = 1;
+  $accountType = 'KH';
 
   if (empty($username) || empty($password) || empty($confirm_password)) {
     echo "Please Fill Out The Form!";
@@ -38,7 +41,7 @@ function register()
     exit;
   }
 
-  $query = "INSERT INTO taikhoan VALUES('','$currentDateTime', '$username', '$password', '$state')";
+  $query = "INSERT INTO taikhoan VALUES('','$currentDateTime', '$username', '$password', '$state', '$accountType')";
   mysqli_query($conn, $query);
   echo "Registration Successful";
 }
@@ -78,7 +81,7 @@ function login()
 
         // check if user not exists
         if (mysqli_num_rows($userInfoSQLResult) <= 0) {
-          echo "Tài khoản không tồn tại";
+          echo "Tài khoản chưa được kích hoạt hoặc không tồn hoạt. Vui lòng liên hệ với quản trị viên.";
           exit;
         }
 
