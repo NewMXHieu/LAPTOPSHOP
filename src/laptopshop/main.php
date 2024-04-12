@@ -37,6 +37,10 @@ Route::add('/laptopshop/logout', function() {
     require __DIR__ . '/logout.php';
 });
 
+Route::add('/laptopshop/orderstatus', function() {
+    require __DIR__ . '/orderstatus.php';
+});
+
 
 Route::submit();
 

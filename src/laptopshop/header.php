@@ -60,7 +60,7 @@ $username = $_SESSION['username'];
                 </button>
                 <div class="dropdown-content">
                     <a href="profile">Thông tin cá nhân</a>
-                    <a href="order">Đơn hàng</a>
+                    <a href="orderstatus">Đơn hàng</a>
                     <a href="logout">Đăng xuất</a>
                 </div>
             </div>

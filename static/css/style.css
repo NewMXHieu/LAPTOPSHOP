@@ -50,6 +50,12 @@ li{
     font-size: 20px;
 }
 
+.nav-link {
+    display: block;
+    color: #000000;
+    text-decoration: none;
+}
+
 /* .nav-link.active{
     box-shadow:  0 -10px 20px;
     border-radius: 20px 20px 0 0;
@@ -246,11 +252,11 @@ a{
     height: 57px;
 }
 
-.clear a {
+.list-sanpham .clear a {
     padding: 10px;
 }
 
-.clear a:hover{
+.list-sanpham .clear a:hover{
     color: #03a9f4;
 }
 .product .price {
@@ -289,7 +295,7 @@ a{
     display: flex;
     transition: .5s;
 }
-.btn{
+.slider .btn{
     padding: 0 20px;
     font-size: 50px;
     /* display: flex; */
@@ -304,7 +310,7 @@ a{
 .btn-right{
     right: 0;
 }
-.btn:hover::before{
+.btns .btn:hover::before{
     /* color: var(--mycolor2); */
     content: '';
     position: absolute;
