@@ -1,3 +1,7 @@
+<?php 
+include 'config.php';
+?>
+
 <div class="wrapper">
     <div class="content content-trangchu">
         <div class="top-trangchu">
@@ -32,7 +36,7 @@
                         while ($row_sanpham1 = mysqli_fetch_assoc($query_sanpham1)) {
                         ?>
                             <div class="product">
-                                <img src="../../image/10001.jpg" alt="">
+                                <img src="static/image/10001.jpg" alt="">
                                 <div class="clear">
                                     <a href="#">HP</a>
                                     <h2><?php echo $row_sanpham1['TENSP'] ?></h2>
@@ -61,7 +65,7 @@
                         while ($row_sanpham2 = mysqli_fetch_assoc($query_sanpham2)) {
                         ?>
                             <div class="product">
-                                <img src="../../image/10001.jpg" alt="">
+                                <img src="static/image/10001.jpg" alt="">
                                 <div class="clear">
                                     <a href="#">DELL</a>
                                     <h2><?php echo $row_sanpham2['TENSP'] ?></h2>
@@ -89,7 +93,7 @@
                         while ($row_sanpham3 = mysqli_fetch_assoc($query_sanpham3)) {
                         ?>
                             <div class="product">
-                                <img src="../../image/10001.jpg" alt="">
+                                <img src="static/image/10001.jpg" alt="">
                                 <div class="clear">
                                     <a href="#">LENOVO</a>
                                     <h2><?php echo $row_sanpham3['TENSP'] ?></h2>
@@ -114,3 +118,4 @@
 </div>
 
 </div>
+<script src="static/js/app.js"></script>
