@@ -13,6 +13,10 @@ if(isset($_SESSION["id"])){
   <form action="" method="post">
     <input type="hidden" id="action" value="register">
     <div class="item">
+      <input id="fullname" type="text" name="fullname" required>
+      <label>Họ tên</label>
+    </div>
+    <div class="item">
       <input id="username" type="text" name="username" required>
       <label>Tài khoản</label>
     </div>

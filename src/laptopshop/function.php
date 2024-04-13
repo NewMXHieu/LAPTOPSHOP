@@ -18,7 +18,7 @@ function register()
 {
   global $conn;
 
-
+  $fullname = $_POST["fullname"];
   $username = $_POST["username"];
   $password = $_POST["password"];
   $confirm_password = $_POST["confirm_password"];
@@ -44,6 +44,9 @@ function register()
   $query = "INSERT INTO taikhoan VALUES('','$currentDateTime', '$username', '$password', '$state', '$accountType')";
   mysqli_query($conn, $query);
   echo "Registration Successful";
+  $last_id = mysqli_insert_id($conn);
+  $query = "INSERT INTO khachhang VALUES('','$fullname','','','','$last_id','')";
+  mysqli_query($conn, $query);
 }
 
 function getAccountTableName($accountType)
