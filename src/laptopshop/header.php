@@ -1,6 +1,6 @@
 <?php
-// include
-// include
+include "../../config/connect.php";
+include "../../config/function.php";
 
 session_start();
 $username = $_SESSION['username'];
