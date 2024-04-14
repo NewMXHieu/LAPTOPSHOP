@@ -41,6 +41,10 @@ Route::add('/laptopshop/orderstatus', function() {
     require __DIR__ . '/orderstatus.php';
 });
 
+Route::add('/laptopshop/profile', function() {
+    require __DIR__ . '/profile.php';
+});
+
 
 Route::submit();
 
