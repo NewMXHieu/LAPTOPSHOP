@@ -19,5 +19,5 @@
     include 'footer.php';
     ?>
 </body>
-<script src="../../js/app.js"></script>
+<script src="static/js/app.js"></script>
 </html>

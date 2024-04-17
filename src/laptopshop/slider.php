@@ -11,7 +11,7 @@
         <img src="static/image/slider9.jpg" alt="">
         <img src="static/image/slider10.jpg" alt="">
     </div>
-    <div class="btns">
+    <div class="btns-slider">
         <div class="btn-left btn"><i class='bx bx-chevron-left'></i></div>
         <div class="btn-right btn"><i class='bx bx-chevron-right'></i></div>
     </div>
