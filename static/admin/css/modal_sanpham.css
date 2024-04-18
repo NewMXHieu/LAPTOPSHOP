@@ -1,0 +1,133 @@
+.modal{
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 10;
+}
+
+.modal form{
+    max-height: 90vh;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.modal form{
+    background-color: rgb(148, 182, 212);
+}
+
+.modal.AddSanPham form, .modal.editSanPham form{
+    width: 1200px;
+    height: 700px;
+}
+
+.modal.open{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.AddSanPham form,.editSanPham form{
+    display: block;
+}
+
+.modal h2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    position: relative
+}
+
+.detail_product{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.detail_product-items{
+    background-color: rgb(214, 208, 201);
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.detail_product-items-item{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 20px;
+}
+.checkboxList{
+    display: block;
+}
+
+.detail_product-items-item input,.detail_product-items-item select{
+    height: 30px;
+}
+textarea{
+    height: 100px;
+    resize: none;
+}
+.modal-close{
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 65px;
+    bottom: 0;
+    left: 1530px;
+    right: 0;
+    position: absolute;
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 12;
+}
+
+.modal-close-khachhang{
+    top: 225px;
+    bottom: 0;
+    left: 1320px;
+    right: 0;
+}
+
+.modal-close-nhanvien{
+    top: 220px;
+    bottom: 0;
+    left: 1325px;
+    right: 0;
+}
+.modal-close-DonHang{
+    top: 175px;
+    bottom: 0;
+    left: 1320px;
+    right: 0;
+}
+
+
+.modal-close:hover{
+    background-color: rgb(208, 29, 29);
+}
+
+.form-control{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    height: 55px;
+}
+
+.control-btn-form{
+    width: 100px;
+    height: 45px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-btn-form:hover{
+    background-color: rgb(140, 185, 74);
+}
+

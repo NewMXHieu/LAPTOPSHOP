@@ -1,0 +1,38 @@
+td {
+    text-align: center;
+    padding: 10px;
+    border: 2px solid black;
+    max-width: 200px;
+    overflow: hidden;
+}
+th{
+    padding: 10px;
+    border: 2px solid black; 
+}
+
+.control-btn-trangthai{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+.table-control{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border: none;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+}
+
+
+#dataNhanVien {
+    max-height: 200px; /* Định cố định chiều cao của tbody */
+    overflow-y: auto; /* Kích hoạt thanh cuộn dọc khi nội dung dài hơn chiều cao đã định */
+}
+
+

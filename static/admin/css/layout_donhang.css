@@ -1,0 +1,11 @@
+.detail-giohang-list{
+    display: block;
+    height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.detail-giohang-list-data-item{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+}

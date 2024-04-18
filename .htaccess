@@ -1,10 +1,13 @@
 RewriteEngine On
 
-# when the path is /static/**/* redirect to /static/**/*
+# when the path istatic/**/*
 RewriteRule .*/static/(.*)$ static/$1 [L]
 
 # Rules for /api
+RewriteRule .*api/admin/(.*)$ src/admin/functions/$1 [L]
 RewriteRule .*api/(.*)$ src/api/$1 [L]
+
+
 
 # When the path is empty, redirect to index.php
 RewriteRule ^$ src/laptopshop/index.php [L]
@@ -17,4 +20,4 @@ RewriteRule ^$ src/laptopshop/index.php [L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.+)$ src/laptopshop/index.php?uri=$1 [QSA,L]
+RewriteRule ^(.+)$ src/entry.php?uri=$1 [QSA,L]

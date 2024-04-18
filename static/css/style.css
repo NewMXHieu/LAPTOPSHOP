@@ -570,6 +570,7 @@ button[type="button"]:hover {
     width: 70%;
     /* background-color: rgb(3, 169, 244); */
     margin: 0px auto;
+    padding: inherit;
 }
 
 .menu {

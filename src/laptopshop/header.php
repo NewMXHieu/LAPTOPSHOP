@@ -2,8 +2,10 @@
 include "../../config/connect.php";
 include "../../config/function.php";
 
+
 session_start();
-$username = $_SESSION['username'];
+// $username = $_SESSION['username'];
+// $accountType = $_SESSION['accountType'];
 ?>
 
 <?php
@@ -59,6 +61,9 @@ $username = $_SESSION['username'];
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
+                    <?php if ($_SESSION['accountType'] == 'NV') { ?>
+                    <a href="admin">Trang quản trị</a>
+                    <?php } ?>
                     <a href="profile">Thông tin cá nhân</a>
                     <a href="orderstatus">Đơn hàng</a>
                     <a href="logout">Đăng xuất</a>

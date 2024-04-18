@@ -17,16 +17,23 @@
         type: 'post',
         data: data,
         success: function (response) {
-          if (response == "Registration Successful") {
+        response = JSON.parse(response);    
+        console.log("🚀 ~ response:", response)
+          
+          if (response.message == "Registration Successful") {
             alert("Đăng ký thành công. Bạn có muốn đăng nhập ngay không?");
             window.location.href = 'sign-in'; // Chuyển hướng đến trang đăng nhập
           }
-          else if (response == "Login Successful") {
+          else if (response.message == "Login Successful" && response.accountType == 'KH') {
             alert("Đăng nhập thành công. Bạn sẽ được chuyển hướng về trang chủ.");
             window.location.href = 'trangchu'; // Chuyển hướng đến trang chủ
           }
+          else if(response.message == "Login Successful" && response.accountType == 'NV'){
+            alert("Đăng nhập thành công. Bạn sẽ được chuyển hướng về trang quản lý.");
+            window.location.href = 'admin'; // Chuyển hướng đến trang quản lý
+          }
           else {
-            alert(response); // Hiển thị thông báo lỗi
+            alert(response.message); // Hiển thị thông báo lỗi
           }
         }
       });

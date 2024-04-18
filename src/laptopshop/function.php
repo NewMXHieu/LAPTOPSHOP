@@ -89,22 +89,25 @@ function login()
         }
 
         $userInfo = mysqli_fetch_assoc($userInfoSQLResult);
-
-        echo "Login Successful";
+        // response with userInfo and accountType 
+        $dataRespone = json_encode(array("message" => "Login Successful", "userInfo" => $userInfo, "accountType" => $accountType));
+        // echo "Login Successful";
         $_SESSION["login"] = true;
         $_SESSION["id"] = $row["MATK"];
         $_SESSION["username"] = $userInfo["TEN"];
+        $_SESSION["accountType"] = $accountType;
+        echo $dataRespone;
       } else {
-        echo "Mật khẩu không đúng";
+        echo json_encode(array("message" => "Mật khẩu sai"));
         exit;
       }
+      
     } else {
-      echo "Tên đăng nhập hoặc mật khẩu không đúng.";
+      echo json_encode(array("message" => "Tên tài khoản hoặc mật khẩu sai"));
       exit;
     }
   } catch (Exception $e) {
-    echo "Đã có lỗi xảy ra, vui lòng thử lại sau. ";
+    echo json_encode(array("message" => "Đã có lỗi xay ra. Vui lòng thử lại sau."));
   }
-
 }
 ?>

@@ -12,7 +12,7 @@
 ?>
 
 
-<link rel="stylesheet" href="../../static/css/style.css">
+<link rel="stylesheet" href="static/css/style.css">
 
 <div class="detail">
     <!--================ Ảnh và thông tin khuyến mãi ========================-->
