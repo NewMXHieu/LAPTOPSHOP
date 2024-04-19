@@ -42,9 +42,15 @@ $result_brands = mysqli_query($conn, $query_brands);
                     </div>
                     <div class="mid-show-sanpham">
                         <div class="list-sanpham">
-                            <?php while ($product = mysqli_fetch_assoc($result_products)): ?>
+                            <?php while ($product = mysqli_fetch_assoc($result_products)): 
+                                $query_imageProduct = "SELECT * FROM sanpham WHERE MASP = " . $product['MASP'];
+                                $result_imageProduct = mysqli_query($conn, $query_imageProduct);
+                                $imageProduct = mysqli_fetch_assoc($result_imageProduct);
+                                ?>
                                 <div class="product">
-                                    <img src="static/image/10001.jpg" alt="">
+                                    <img alt="LAPTOP <?php echo $brand['TENTHUONGHIEU']; ?>"
+                                        src="static/image/products/<?php echo $imageProduct['HINHSP']; ?>"
+                                    >
                                     <div class="clear">
                                         <a href="#"><?php echo $product['TENSP']; ?></a>
                                         <h2><?php echo $brand['TENTHUONGHIEU']; ?></h2>
