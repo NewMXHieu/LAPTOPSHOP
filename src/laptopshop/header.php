@@ -59,7 +59,7 @@ session_start();
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <?php if ($_SESSION['accountType'] == 'NV') { ?>
+                    <?php if ($_SESSION['MANHOMQUYEN'] == '1') { ?>
                     <a href="admin">Trang quản trị</a>
                     <?php } ?>
                     <a href="profile">Thông tin cá nhân</a>

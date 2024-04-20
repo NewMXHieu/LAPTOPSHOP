@@ -14,6 +14,7 @@ if (isset($_POST["action"])) {
 }
 
 // REGISTER
+
 function register()
 {
   global $conn;
@@ -24,7 +25,6 @@ function register()
   $confirm_password = $_POST["confirm_password"];
   $currentDateTime = date('Y-m-d');
   $state = 1;
-  $accountType = 'KH';
 
   if (empty($username) || empty($password) || empty($confirm_password)) {
     echo "Please Fill Out The Form!";
@@ -41,25 +41,12 @@ function register()
     exit;
   }
 
-  $query = "INSERT INTO taikhoan VALUES('','$currentDateTime', '$username', '$password', '$state', '$accountType')";
+  $query = "INSERT INTO taikhoan VALUES('','$currentDateTime', '$username', '$password', '$state')";
   mysqli_query($conn, $query);
   echo "Registration Successful";
   $last_id = mysqli_insert_id($conn);
   $query = "INSERT INTO khachhang VALUES('','$fullname','','','','$last_id','')";
   mysqli_query($conn, $query);
-}
-
-function getAccountTableName($accountType)
-{
-  if ($accountType == 'NV') {
-    return 'nhanvien';
-  } else if ($accountType == 'KH') {
-    return 'khachhang';
-  }
-  // else if($accountType == 'QL'){
-  //   return 'quanly';
-  // }
-  return 'khachhang';
 }
 
 // LOGIN
@@ -78,8 +65,26 @@ function login()
       $row = mysqli_fetch_assoc($user);
 
       if ($password == $row['MATKHAU']) {
-        $accountType = $row['LOAITK'];
-        $accountTableName = getAccountTableName($accountType);
+        $query_permission = "SELECT * FROM phanquyen WHERE MATK = " . $row['MATK'];
+        $result_permission = mysqli_query($conn, $query_permission);
+        $permission = mysqli_fetch_assoc($result_permission);
+        switch ($permission['MANHOMQUYEN']) {
+          case 1: // Admin
+            $accountTableName = 'nhanvien';
+            break;
+          case 2: // Quản lý
+            $accountTableName = 'nhanvien';
+            break;
+          case 3: // Nhân viên
+            $accountTableName = 'nhanvien';
+            break;
+          case 4: // Thủ kho
+            $accountTableName = 'nhanvien';
+            break;
+          case 5: // Khách hàng
+            $accountTableName = 'khachhang';
+            break;
+        }
         $userInfoSQLResult = mysqli_query($conn, "SELECT * FROM $accountTableName WHERE MATK = '{$row['MATK']}'");
 
         // check if user not exists
@@ -89,13 +94,16 @@ function login()
         }
 
         $userInfo = mysqli_fetch_assoc($userInfoSQLResult);
-        // response with userInfo and accountType 
-        $dataRespone = json_encode(array("message" => "Login Successful", "userInfo" => $userInfo, "accountType" => $accountType));
-        // echo "Login Successful";
+
+        // Get user's role
+        
+
+        // response with userInfo and loginRoute
+        $dataRespone = json_encode(array("message" => "Login Successful", "userInfo" => $userInfo, "loginRoute" => $permission['MANHOMQUYEN']));
         $_SESSION["login"] = true;
         $_SESSION["id"] = $row["MATK"];
         $_SESSION["username"] = $userInfo["TEN"];
-        $_SESSION["accountType"] = $accountType;
+        $_SESSION["MANHOMQUYEN"] = $permission['MANHOMQUYEN'];
         echo $dataRespone;
       } else {
         echo json_encode(array("message" => "Mật khẩu sai"));

@@ -486,7 +486,6 @@ CREATE TABLE `taikhoan` (
   `TENDN` varchar(50) DEFAULT NULL,
   `MATKHAU` varchar(200) DEFAULT NULL,
   `TRANGTHAI` tinyint(1) DEFAULT 1,
-  `LOAITK` varchar(10) NOT NULL COMMENT 'NV: nhan vien, KH: khach hang'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -494,13 +493,13 @@ CREATE TABLE `taikhoan` (
 --
 
 INSERT INTO `taikhoan` (`MATK`, `NGAYTAO`, `TENDN`, `MATKHAU`, `TRANGTHAI`, `LOAITK`) VALUES
-(1, '2024-01-04', 'admin1234', 'admin1234', 1, 'NV'),
-(2, '2024-01-04', 'kh1', '112233', 1, 'KH'),
-(3, '2024-01-04', 'kh2', '776655', 1, 'KH'),
-(4, '2024-04-11', 'Depluto', '13376677', 1, 'KH'),
-(5, '2024-04-12', 'congde', '98789', 1, 'KH'),
-(8, '2024-04-13', 'yauaozoka', '445566', 1, 'KH'),
-(10, '2024-04-13', 'DuSenpai', '454657', 1, 'KH');
+(1, '2024-01-04', 'admin1234', 'admin1234', 1),
+(2, '2024-01-04', 'ql1', '112233', 1),
+(3, '2024-01-04', 'kh2', '776655', 1),
+(4, '2024-04-11', 'Depluto', '13376677', 1),
+(5, '2024-04-12', 'congde', '98789', 1),
+(8, '2024-04-13', 'yauaozoka', '445566', 1),
+(10, '2024-04-13', 'DuSenpai', '454657', 1);
 
 -- --------------------------------------------------------
 
