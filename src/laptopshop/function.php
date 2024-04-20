@@ -27,26 +27,28 @@ function register()
   $state = 1;
 
   if (empty($username) || empty($password) || empty($confirm_password)) {
-    echo "Please Fill Out The Form!";
+    echo json_encode(array("message" => "Please enter your username and password"));
     exit;
   }
   if ($password != $confirm_password) {
-    echo "Passwords Do Not Match";
+    echo json_encode(array("message" => "Passwords do not match"));
     exit;
   }
 
   $user = mysqli_query($conn, "SELECT * FROM taikhoan WHERE tendn = '$username'");
   if (mysqli_num_rows($user) > 0) {
-    echo "Username Has Already Taken";
+    echo json_encode(array("message" => "Username Has Already Taken"));
     exit;
   }
 
   $query = "INSERT INTO taikhoan VALUES('','$currentDateTime', '$username', '$password', '$state')";
   mysqli_query($conn, $query);
-  echo "Registration Successful";
   $last_id = mysqli_insert_id($conn);
   $query = "INSERT INTO khachhang VALUES('','$fullname','','','','$last_id','')";
   mysqli_query($conn, $query);
+  $query = "INSERT INTO phanquyen VALUES('$last_id','5')";
+  mysqli_query($conn, $query);
+  echo json_encode(array("message" => "Registration Successful"));
 }
 
 // LOGIN
@@ -99,7 +101,7 @@ function login()
         
 
         // response with userInfo and loginRoute
-        $dataRespone = json_encode(array("message" => "Login Successful", "userInfo" => $userInfo, "loginRoute" => $permission['MANHOMQUYEN']));
+        $dataRespone = json_encode(array("message" => "Login Successful", "loginRoute" => $permission['MANHOMQUYEN']));
         $_SESSION["login"] = true;
         $_SESSION["id"] = $row["MATK"];
         $_SESSION["username"] = $userInfo["TEN"];
@@ -115,7 +117,7 @@ function login()
       exit;
     }
   } catch (Exception $e) {
-    echo json_encode(array("message" => "Đã có lỗi xay ra. Vui lòng thử lại sau."));
+    echo json_encode(array("message" => "Đã có lỗi xảy ra. Vui lòng thử lại sau."));
   }
 }
 ?>
