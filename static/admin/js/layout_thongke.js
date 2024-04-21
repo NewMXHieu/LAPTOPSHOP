@@ -15,6 +15,7 @@ function getDsThongKe(){
                 thongkes = [];
             } else {
                 // Chuyển đổi dữ liệu JSON nhận được thành đối tượng JavaScript
+                console.log(xhr.responseText);
                 thongkes = JSON.parse(xhr.responseText);
 
             }

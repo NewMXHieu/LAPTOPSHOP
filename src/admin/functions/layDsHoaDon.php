@@ -4,7 +4,7 @@
 $conn = connectToDatabase();
 
 // Truy vấn cơ sở dữ liệu để lấy dữ liệu sản phẩm
-$sql = "SELECT HOADON.MAHD,khachhang.MAKH,khachhang.TENKH,nhanvien.MANV,nhanvien.TENNV,giohang.MAGH,chitiethoadon.NGAYTAO, TRANGTHAI
+$sql = "SELECT HOADON.MAHD,khachhang.MAKH,khachhang.TEN AS TENKH ,nhanvien.MANV ,nhanvien.TEN AS TENNV,giohang.MAGH,CHITIETHOADON.NGAYTAO, CHITIETHOADON.TRANGTHAI
 FROM hoadon INNER JOIN chitiethoadon ON HOADON.MAHD = chitiethoadon.MAHD 
 INNER JOIN giohang ON HOADON.MAGH = giohang.MAGH 
 INNER JOIN khachhang ON HOADON.MAKH = khachhang.MAKH 
@@ -26,7 +26,7 @@ if ($result->num_rows > 0) {
             'MANV' => $row['MANV'],
             'TENNV' => $row['TENNV'],
             'MAGH' => $row['MAGH'],
-            'NGAYTAO' => $row['NGAYTAO'],
+            'NGAYTAO' => $row['NGAYLAP'],
             'TRANGTHAI' => $row['TRANGTHAI']
 
         ];
