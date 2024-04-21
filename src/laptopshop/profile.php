@@ -1,8 +1,7 @@
 <?php
-include 'config.php'; // include your database connection file
-// get the user id from the session or wherever you stored it
 $userId = $_SESSION['id'];
 
+global $conn;
 // create the SQL query
 $query = "SELECT khachhang.*, taikhoan.* FROM khachhang 
           INNER JOIN taikhoan ON khachhang.matk = taikhoan.matk 

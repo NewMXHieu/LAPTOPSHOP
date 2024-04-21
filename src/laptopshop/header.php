@@ -55,26 +55,26 @@ session_start();
         <?php if (isset($_SESSION['username'])) { ?>
             <div id="account_logged" class="dropdown">
                 <button class="dropbtn">
-                    <i class="fas fa-user"></i>   <?php echo $_SESSION['username']; ?>
+                    <i class="fas fa-user"></i> <?php echo $_SESSION['username']; ?>
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <?php if ($_SESSION['accountType'] == 'NV') { ?>
-                    <a href="admin">Trang quản trị</a>
+                    <?php if ($_SESSION['MANHOMQUYEN'] == '1') { ?>
+                        <a href="admin">Trang quản trị</a>
                     <?php } ?>
                     <a href="profile">Thông tin cá nhân</a>
                     <a href="orderstatus">Đơn hàng</a>
                     <a href="logout">Đăng xuất</a>
                 </div>
             </div>
-        <?php } else {?>
-        <div class="login">
-            <a href="sign-in">
-                <i class="fa-regular fa-circle-user"></i><br>
-                <!-- <img src="https://img.icons8.com/pulsar-line/48/guest-male.png" alt="guest-male"/><br> -->
-                <span>Đăng nhập</span>
-            </a>
-        </div>
-        <?php }?>
+        <?php } else { ?>
+            <div class="login">
+                <a href="sign-in">
+                    <i class="fa-regular fa-circle-user"></i><br>
+                    <!-- <img src="https://img.icons8.com/pulsar-line/48/guest-male.png" alt="guest-male"/><br> -->
+                    <span>Đăng nhập</span>
+                </a>
+            </div>
+        <?php } ?>
     </div>
 </div>
