@@ -17,7 +17,7 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $khachhang = [
             'MAKH' => $row['MAKH'],
-            'TENKH' => $row['TENKH'],
+            'TEN' => $row['TEN'],
             'NGAYSINH' => $row['NGAYSINH'],
             'SDT' => $row['SDT'],
             'DIACHI' => $row['DIACHI'],

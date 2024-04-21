@@ -5,7 +5,7 @@
 $conn = connectToDatabase();
 
 // Truy vấn đếm số nhân viên
-$sql = "SELECT SUM(TONGTIEN) AS total FROM ChiTietHoaDon"; 
+$sql = "SELECT SUM(TONGTIEN) AS total FROM chitiethoadon"; 
 $result = mysqli_query($conn, $sql);
 
 // Kiểm tra và gửi kết quả dưới dạng JSON

@@ -10,25 +10,26 @@ phanloaisanpham.MALOAISP,
 phanloaisanpham.TENLOAISP,
 thuonghieu.MATHUONGHIEU,
 thuonghieu.TENTHUONGHIEU,
-giohang.MASP,
+chitietgiohang.MASP,
 chitietsanpham.TENSP, 
-SUM(giohang.SOLUONG) AS TONGSOLUONG, 
-SUM(giohang.SOLUONG * chitietsanpham.GIATIEN) AS TONGGIATIEN 
+SUM(chitietgiohang.SOLUONG) AS TONGSOLUONG, 
+SUM(chitietgiohang.SOLUONG * chitietsanpham.GIATIEN) AS TONGGIATIEN 
 FROM giohang 
-INNER JOIN chitietsanpham ON chitietsanpham.MASP = giohang.MASP 
-INNER JOIN nhomloaisanpham ON nhomloaisanpham.MASP = giohang.MASP
+INNER JOIN chitietgiohang on chitietgiohang.MAGH = giohang.MAGH
+INNER JOIN chitietsanpham ON chitietsanpham.MASP = chitietgiohang.MASP 
+INNER JOIN nhomloaisanpham ON nhomloaisanpham.MASP = chitietgiohang.MASP
 INNER JOIN phanloaisanpham on phanloaisanpham.MALOAISP = nhomloaisanpham.MALOAISP
-INNER JOIN thuonghieu ON thuonghieu.MATHUONGHIEU = giohang.MASP
-GROUP BY giohang.MASP, chitietsanpham.TENSP;";
+INNER JOIN thuonghieu ON thuonghieu.MATHUONGHIEU = chitietgiohang.MASP
+GROUP BY chitietgiohang.MASP, chitietsanpham.TENSP;";
 $result = $conn->query($sql);
-$sanphams = [];
+$thongkes = [];
 
 // Kiểm tra và xử lý kết quả
 if ($result->num_rows > 0) {
     // Chuyển kết quả thành mảng JSON và trả về
     $rows = array();
     while ($row = $result->fetch_assoc()) {
-        $sp = [
+        $tk = [
             'MALOAISP' => $row['MALOAISP'],
             'TENLOAISP' => $row['TENLOAISP'],
             'MATHUONGHIEU' => $row['MATHUONGHIEU'],
@@ -37,11 +38,10 @@ if ($result->num_rows > 0) {
             'TENSP' => $row['TENSP'],
             'TONGSOLUONG' => $row['TONGSOLUONG'],
             'TONGGIATIEN' => $row['TONGGIATIEN'],
-
         ];
-        $sanphams[] = $sp;
+        $thongkes = $tk;
     }
-    echo json_encode($sanphams, JSON_UNESCAPED_UNICODE);
+    echo json_encode($thongkes, JSON_UNESCAPED_UNICODE);
 } 
 
 // Đóng kết nối
