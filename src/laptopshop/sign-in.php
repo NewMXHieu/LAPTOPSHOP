@@ -1,8 +1,8 @@
 <?php
 require 'function.php';
-if(isset($_SESSION["id"])){
-  header("Location: trangchu");
-}
+// if(isset($_SESSION["id"])){
+//   header("Location: trangchu");
+// }
 ?>
 
 

@@ -47,7 +47,7 @@ session_start();
             </a>
         </div>
         <div class="cart">
-            <a href="cart.php">
+            <a href="cart">
                 <i class="fa-solid fa-cart-shopping"></i><br>
                 <!-- <img src="https://img.icons8.com/ios-glyphs/30/shopping-cart--v1.png" alt="shopping-cart--v1"/><br> -->
                 <span>Giỏ hàng</span>

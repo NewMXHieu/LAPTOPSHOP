@@ -1,8 +1,8 @@
 <?php
 require 'function.php';
-if(isset($_SESSION["id"])){
-  header("Location: index.php");
-}
+// if(isset($_SESSION["id"])){
+//   header("Location: index.php");
+// }
 ?>
 
 <link rel="stylesheet" href="static/css/style.css">
