@@ -78,4 +78,3 @@ $result_brands = mysqli_query($conn, $query_brands);
 </div>
 
 </div>
-<script src="static/js/app.js"></script>

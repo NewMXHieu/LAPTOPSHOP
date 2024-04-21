@@ -2,8 +2,7 @@
 if (session_status() == PHP_SESSION_NONE) {
   session_start();
 }
-$conn = mysqli_connect("localhost", "root", "", "cuahanglaptop");
-
+require '../../config/connect.php';
 // IF
 if (isset($_POST["action"])) {
   if ($_POST["action"] == "register") {

@@ -1,5 +1,5 @@
 <?php
-require 'function.php';
+require '../api/login-register.php';
 if(isset($_SESSION["id"])){
   header("Location: trangchu");
 }
@@ -33,40 +33,3 @@ if(isset($_SESSION["id"])){
 </div>
 
 <?php require 'script.php'; ?>
-
-
-<!-- <script type="text/javascript">
-  function onClickSubmitLogin() {
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    if(!username || !password) {
-      alert('Vui lòng nhập đầy đủ thông tin');
-      return;
-    }
-
-    console.log(username, password);
-    fetch('api/login.php', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        username: username,
-        password: password
-      })
-    }).then(response => response.json())
-      .then(data => {
-        console.log('GET Response:', data);
-          if (data.status === 'success') {
-        // Login successful, show a success message and redirect to the home page
-        alert(data.message);
-        window.location.href = 'index.php';
-      } else {
-        // Login failed, show an error message
-        alert(data.message);
-      }
-    })
-}
-
-</script> -->

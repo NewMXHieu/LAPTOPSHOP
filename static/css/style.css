@@ -322,6 +322,15 @@ a {
     border: 2px solid #333;
 }
 
+.product-name{
+    padding: 0 10px;
+    padding: 0 10px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
 /*============================Slider============================*/
 .slider {
     width: 800px;

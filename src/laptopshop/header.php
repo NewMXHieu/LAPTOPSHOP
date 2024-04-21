@@ -2,8 +2,6 @@
 include "../../config/connect.php";
 include "../../config/function.php";
 
-
-session_start();
 ?>
 
 <?php
