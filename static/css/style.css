@@ -332,6 +332,7 @@ a {
     display: flex;
     transition: .5s;
 }
+
 .btn-left {
     left: 0;
 }
@@ -339,6 +340,7 @@ a {
 .btn-right {
     right: 0;
 }
+
 .slider .btn {
     padding: 0 20px;
     font-size: 50px;
@@ -361,6 +363,7 @@ a {
     transition: .5s;
     cursor: pointer;
 }
+
 .btns-product .btn {
     padding: 5px 8px;
     font-size: 30px;
@@ -373,6 +376,7 @@ a {
     top: 50%;
     transform: translateY(-50%);
 }
+
 .btns-product .btn:hover::before {
     /* color: var(--mycolor2); */
     content: '';
@@ -625,7 +629,6 @@ h3 {
     background-color: var(--mycolor2);
     margin: 20px 0 0;
     padding: 50px 15%;
-    min-height: 800px;
     background-color: #d8d8f5;
 }
 
@@ -634,25 +637,76 @@ h3 {
     width: 69%;
     background-color: #fff;
     margin-right: 10px;
-    border: solid violet;
-
+    border: solid #000;
+    justify-content: space-between;
+    padding: 10px 100px;
+    border-radius: 15px;
 }
 
 .detail .information {
     display: block;
     width: 30%;
     background-color: #fff;
-    border: solid violet;
+    border: solid #000;
+    border-radius: 15px;
 
+}
+
+.information h5 {
+    text-align: center;
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.information-list {
+    width: 100%;
+}
+
+.information-list td {
+    border: solid #000;
+    padding: 10px;
+}
+
+.detail-name {
+    width: 35%;
+}
+
+.detail-content {
+    width: 49%;
 }
 
 .product-image {
     width: 30%;
 }
 
-.thongtinsanpham {
+.thongtinsp {
     width: 50%;
+    margin-top: 10px;
 }
+
+.product-name p {
+    font-size: 20px;
+    margin: 10px 0;
+    color: red;
+    font-weight: bold;
+}
+
+.promotion h5 {
+    font-size: 20px;
+    border: solid #000;
+    padding: 10px 0;
+}
+
+.promotion ul {
+    border: solid #000;
+}
+
+.promotion li {
+    text-align: left;
+    padding: 10px;
+
+}
+
 
 
 
@@ -661,7 +715,8 @@ h3 {
     background-color: #d8d8f5;
     padding: 0 15%;
     height: 350px;
-    border-top: solid violet;
+    border-top: solid #000;
+
 
 }
 
@@ -669,12 +724,12 @@ h3 {
     text-align: center;
     font-weight: bold;
     padding: 10px 0;
-    border-bottom: solid violet;
+    border-bottom: solid #000;
     margin-bottom: 20px;
 }
 
 .recommend-list {
-    background-color: blueviolet;
+    background-color: #fff;
     height: 250px;
     width: 100%;
 }
