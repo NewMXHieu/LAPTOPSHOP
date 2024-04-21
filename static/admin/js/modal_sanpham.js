@@ -78,7 +78,7 @@
 
 
     function setImagePath(imgName){
-        return "static/image/" + imgName;
+        return "static/image/products/" + imgName;
     }
     function setImageView(imgName){
         document.getElementById("editProduct_savehinhsp").src = setImagePath(imgName);

@@ -4,6 +4,7 @@ td {
     border: 2px solid black;
     max-width: 200px;
     overflow: hidden;
+    
 }
 th{
     padding: 10px;
@@ -31,7 +32,7 @@ table{
 
 
 #dataNhanVien {
-    max-height: 200px; /* Định cố định chiều cao của tbody */
+    max-height: 400px; /* Định cố định chiều cao của tbody */
     overflow-y: auto; /* Kích hoạt thanh cuộn dọc khi nội dung dài hơn chiều cao đã định */
 }
 

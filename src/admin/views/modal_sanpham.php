@@ -12,7 +12,7 @@
 
 <!-- Thêm sản phẩm -->
 <div class="modal AddSanPham">
-    <div class="modal-close">
+    <div class="modal-close modal-close-sanpham">
         <i class="fa-solid fa-xmark"></i>
     </div>
     <form action="../functions/saveProduct.php" method="POST">
@@ -177,7 +177,7 @@
 
 <!-- edit sản phẩm -->
 <div class="modal editSanPham">
-    <div class="modal-close">
+    <div class="modal-close modal-close-sanpham">
         <i class="fa-solid fa-xmark"></i>
     </div>
     <form id="editProductform" action="../functions/editProduct.php" method="POST">

@@ -19,7 +19,7 @@ function getDsDonHang(){
                 donhangs = JSON.parse(xhr.responseText);
             }
             // Xử lý dữ liệu, ví dụ: log ra console
-            showDonhang();
+            showDonHang();
         } else {
             console.error('Yêu cầu không thành công. Mã lỗi: ' + xhr.status);
         }
@@ -134,7 +134,7 @@ document.getElementById("dataDonHang").innerHTML = productHtml;
 }
 
 var resultDonHang;
-function showDonhang(){
+function showDonHang(){
     let selectOp = document.getElementById('admin-donhang-select').value;
     let valueSearchInput = document.getElementById('content-main-searchbar-donhang').value;
     currentPage = 1;

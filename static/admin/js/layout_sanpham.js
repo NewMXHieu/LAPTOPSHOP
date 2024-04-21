@@ -157,7 +157,7 @@
             productHtml +=
                 `<div class="item-single">
                     <div class="item-left">
-                        <img src="static/admin/images/${product.HINHSP}" alt="hình sản phẩm">
+                        <img src="static/image/products/${product.HINHSP}" alt="hình sản phẩm">
                     </div>
                     <div class="item-center">
                         <h2>${product.TENSP}</h2>
@@ -197,8 +197,8 @@ var resultProduct;
         
 
         if (selectOp2 !== "0") {
-            resultProduct = result.filter((item) => item.MATHUONGHIEU == parseInt(selectOp2));
-            resultProduct = result.filter((item) => item.TRANGTHAI == 1);
+            resultProduct = resultProduct.filter((item) => item.MATHUONGHIEU == parseInt(selectOp2));
+            resultProduct = resultProduct.filter((item) => item.TRANGTHAI == 1);
             
         }
         
