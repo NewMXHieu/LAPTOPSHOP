@@ -1,19 +1,23 @@
 <?php
-include "header.php"
-?>
-<?php
 include '../../config/connect.php';
 session_start();
-$MATK = $_SESSION['MATK'];
-
-$sql = "SELECT giohang.MASP, chitietsanpham.TENSP, chitietsanpham.GIA, chitietsanpham.HINHANH, giohang.SOLUONG
+if(isset($_SESSION['id'])) {
+    $ID = $_SESSION['id'];
+    global $conn;
+    $sql = "SELECT giohang.MASP, chitietsanpham.TENSP, chitietsanpham.GIA, chitietsanpham.HINHANH, giohang.SOLUONG
             FROM giohang
             JOIN chitietsanpham ON giohang.MASP = chitietsanpham.MASP
             JOIN khachhang ON giohang.MAGH = khachhang.MAGH
-            WHERE khachhang.MATK = $MATK";
+            WHERE khachhang.MATK = $ID";
 
-$result = $conn->query($sql);
-$GIOHANG = $result->fetch_all(MYSQLI_ASSOC);
+    $result = $conn->query($sql);
+    $GIOHANG = $result->fetch_all(MYSQLI_ASSOC);
+} else {
+    // Xử lý khi session 'ID' không tồn tại
+    // Ví dụ: Chuyển hướng người dùng đến trang đăng nhập
+    header('Location: sign-in');
+    exit();
+}
 ?>
 <link rel="stylesheet" href="static/css/cart.css">
 <div class="cart-container">
@@ -41,7 +45,3 @@ $GIOHANG = $result->fetch_all(MYSQLI_ASSOC);
     </div>
     <button type="button" class="checkout-btn">Thanh toán</button>
 </div>
-
-<?php
-include "footer.php"
-?>
