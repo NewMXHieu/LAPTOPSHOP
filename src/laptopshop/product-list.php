@@ -1,11 +1,11 @@
 <?php
 include '../../config/connect.php';
 ?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script> -->
 <div class="wrapper">
     <div class="content top-trangchu">
         <div class="menu menu-left">
-            <div class="loc">
+            <!-- <div class="loc">
                 <h3>Hãng sản xuất</h3>
                 <div class="checkItems">
                     <p><input type="checkbox" checked> Tất cả</p>
@@ -14,17 +14,17 @@ include '../../config/connect.php';
                     <p><input type="checkbox"> MSI</p>
                     <p><input type="checkbox"> Gigabyte</p>
                     <p><input type="checkbox"> LG</p>
-                    <!-- <p><input type="checkbox"> Vaio</p> -->
+                    <p><input type="checkbox"> Vaio</p>
                     <p><input type="checkbox"> Apple (MacBook)</p>
                     <p><input type="checkbox"> HP</p>
                     <p><input type="checkbox"> Acer</p>
                     <p><input type="checkbox"> Dell</p>
-                    <!-- <p><input type="checkbox"> Huawei</p> -->
-                    <!-- <p><input type="checkbox"> Masstel</p> -->
-                    <!-- <p><input type="checkbox"> Microsoft (Surface)</p> -->
+                    <p><input type="checkbox"> Huawei</p>
+                    <p><input type="checkbox"> Masstel</p>
+                    <p><input type="checkbox"> Microsoft (Surface)</p>
                 </div>
 
-            </div>
+            </div> -->
 
             <div class="loc">
                 <h3>Mức giá</h3>
@@ -126,10 +126,6 @@ include '../../config/connect.php';
         </div>
 
         <div class="menu menu-right">
-        <div class="search">
-        <input class="input-search1" id="txtSearch" type="text" name="fseacrh" placeholder="Search in here...">
-        <input class="input-search2" id="bthSearch" type="submit" name="search" value="Search">
-    </div>
             <div class="main"></div>
             <div class="pagination"></div>
         </div>
@@ -153,30 +149,6 @@ include '../../config/connect.php';
             }
         })
     }
-    $(document).ready(function() {
-        
-        $("#bthSearch").click();
-    });
-    $("#bthSearch").click(function(){
-        console.log(1);
-        search = $("#txtSearch").val().trim();
-        readData(search);
-        Pagination(search);
-        $('html, body').animate({
-            scrollTop: $(".main").offset().top -70 // Thay ".main" bằng selector của phần hiện sản phẩm của bạn
-    }, 'slow');
-    })
-    document.onkeydown=function(){
-        if(window.event.keyCode=='13'){
-            $("#bthSearch").click();
-        }
-    }
-
-    $(".pagination ").on("click", "a", function (e) {
-        e.preventDefault();
-        page = ($(this).text());
-        readData(search);
-    });
     function Pagination(search){
         $.ajax({
             url: "api/phantrang.php",
@@ -192,16 +164,40 @@ include '../../config/connect.php';
                     $(".pagination").empty();
                     let pagi = '';
                     for(var i=1;i<=data;i++){
-                        pagi += '<a href="#">'+i+'</a>';
+                        // Thêm một lớp CSS "active" cho thẻ <a> đầu tiên
+                        if(i === 1) {
+                            pagi += '<a href="#" class="active">'+i+'</a>';
+                        } else {
+                            pagi += '<a href="#">'+i+'</a>';
+                        }
                     }
                     $(".pagination").append(pagi);
+
+                    // Thêm sự kiện click cho các thẻ <a>
+                    $(".pagination a").click(function() {
+                        // Loại bỏ lớp CSS "active" từ tất cả các thẻ <a> trong pagination
+                        $(".pagination a").removeClass("active");
+                        // Thêm lớp CSS "active" cho thẻ <a> được click
+                        $(this).addClass("active");
+                        // Thực hiện các hành động khác tùy thuộc vào trang được chọn
+                        // Ví dụ: load dữ liệu mới dựa trên trang được chọn
+                    });
                 }
             }
-        })
+        });
     }
-    $(".menu-left").on("click","li a", function () {
+
+    $(".list").on("click","li a", function () {
         search = $(this).text();
         readData(search);
         Pagination(search);
+        $('html, body').animate({
+            scrollTop: $(".main").offset().top -70 // Thay ".main" bằng selector của phần hiện sản phẩm của bạn
+        }, 'slow');
+    });
+    $(".pagination ").on("click", "a", function (e) {
+        e.preventDefault();
+        page = ($(this).text());
+        readData(search);
     });
 </script>

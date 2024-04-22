@@ -1,5 +1,5 @@
 <?php
-    include 'header.php';
+    // include 'header.php';
     include '../../config/connect.php';
         
     $product_query = "SELECT * FROM chitietsanpham";
@@ -114,13 +114,3 @@
 
 
 </div>
-
-
-
-
-
-
-
-<?php
-    include "footer.php"
-?>
