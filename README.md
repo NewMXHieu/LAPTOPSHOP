@@ -9,7 +9,7 @@
 
 ![alt text](image-1.png)
 
-sau /laptopshop/ là tên url muốn đặt
+sau /laptopshop/ là tên trang muốn tới
 
 require__DIR__ . '/ tên file cần truy cập đến
 
