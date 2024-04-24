@@ -1,6 +1,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
 </script>
 <script type="text/javascript">
+
   function submitData() {
     $(document).ready(function () {
       console.log('submitData');
@@ -28,12 +29,15 @@
           }
 
           if (response.message == "Registration Successful") {
-            alert("Đăng ký thành công. Bạn có muốn đăng nhập ngay không?");
-            window.location.href = 'sign-in'; // Chuyển hướng đến trang đăng nhập
+            var popup = document.getElementById('popup-register');
+            popup.classList.add("open-popup");
+            function closePopup() {
+              popup.classList.remove("open-popup");
+            }
           }
           else if (response.message == "Login Successful" && response.loginRoute == '5') {
-            alert("Đăng nhập thành công. Bạn sẽ được chuyển hướng về trang chủ.");
-            window.location.href = 'trangchu'; // Chuyển hướng đến trang chủ
+            var popup = document.getElementById('popup-login');
+            popup.classList.add("open-popup");
           }
           else if (response.message == "Login Successful" && response.loginRoute == '1') {
             alert("Đăng nhập thành công. Bạn sẽ được chuyển hướng về trang admin.");
@@ -54,9 +58,9 @@
       });
     });
   }
-  document.onkeydown=function(){
-    if(window.event.keyCode=='13'){
-        submitData();
+  document.onkeydown = function () {
+    if (window.event.keyCode == '13') {
+      submitData();
     }
   }
 </script>
