@@ -1,9 +1,21 @@
 <?php
     // include 'header.php';
     include '../../config/connect.php';
-        
-    $product_query = "SELECT * FROM chitietsanpham";
+
+    $id = isset($_GET['id']) ? $_GET['id'] : '';
+    if (empty($id)){
+        exit('Không tìm thấy mã sản phẩm');
+    }
+
+    $product_query = "SELECT * FROM chitietsanpham WHERE MASP = '$id'";
     $product_result = mysqli_query($conn,$product_query);
+        
+    if(mysqli_num_rows($product_result) == 0) {
+        // Xử lý khi không tìm thấy sản phẩm
+        exit('Không tìm thấy sản phẩm.');
+    }
+    $product = mysqli_fetch_assoc($product_result);
+
 ?>
 
 
@@ -11,9 +23,6 @@
 
 <div class="detail">
     <!--================ Ảnh và thông tin khuyến mãi ========================-->
-    <?php $product = mysqli_fetch_assoc($product_result); ?>
-
-
     <div class="product">
         <div class="product-image">
             <?php
