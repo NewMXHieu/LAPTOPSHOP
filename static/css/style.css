@@ -61,7 +61,6 @@ li {
     text-decoration: none;
 }
 
-
 /* .nav-link.active{
     box-shadow:  0 -10px 20px;
     border-radius: 20px 20px 0 0;
@@ -157,21 +156,26 @@ a {
     font-weight: bold;
 }
 
+.danhmuc {
+    background-color: aqua;
+    padding: 13px;
+    cursor: pointer;
+}
+
 .search {
-    width: 60%;
-    height: 50px;
+    width: 30%;
 }
 
 .input-search1 {
     width: 80%;
-    height: 100%;
+    height: 40px;
     border-radius: 50px 0 0 50px;
     padding-left: 20px;
 }
 
 .input-search2 {
     width: 15%;
-    height: 100%;
+    height: 40px;
     border-radius: 0 50px 50px 0;
 }
 
@@ -203,7 +207,7 @@ a {
 .show-sanpham {
     position: relative;
     width: 100%;
-    height: 480px;
+    height: 487px;
     margin: 50px 0;
 
 }
@@ -228,7 +232,22 @@ a {
 }
 
 .list li {
-    padding: 10px 0;
+    border-radius: 20px;
+}
+
+.list li:hover{
+    /* background-color: #03a9f4; */
+    border: 1px solid red;
+    border-radius: 12px;
+}
+
+.list li a {
+    display: flex;
+    padding: 13px 10px;
+}
+
+.list li a img{
+    height: 20px;
 }
 
 .mid-show-sanpham {
@@ -283,7 +302,7 @@ a {
     overflow: hidden;
 }
 
-.list-sanpham .clear a {
+.clear a {
     padding: 0 10px;
     padding: 0 10px;
     overflow: hidden;
@@ -292,7 +311,7 @@ a {
     -webkit-line-clamp: 2;
 }
 
-.list-sanpham .clear a:hover {
+.clear a:hover {
     color: #8b8b8b;
 }
 
@@ -350,7 +369,7 @@ a {
     transform: translateY(-50%);
 }
 
-.btns-slider .btn:hover::before {
+.slider .btn:hover::before {
     /* color: var(--mycolor2); */
     content: '';
     position: absolute;
@@ -399,6 +418,30 @@ a {
     border: 1px solid #c4baba;
     width: calc(25% - 2px);
 }
+
+.pagination {
+    padding-top: 15px;
+    gap: 2px;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination a {
+    padding: 12px 17px;
+    border: 1px solid var(--mycolor1);
+    border-radius: 5px;
+}
+.pagination a:hover  {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+.pagination a.active{
+    background-color: var(--mycolor1);
+    color: #fff;
+    border-color: var(--mycolor1);
+}
+
 
 /*====================================Log in, log out================================*/
 .log-in,
@@ -567,9 +610,7 @@ button[type="button"]:hover {
 }
 
 .content {
-    min-height: 50%;
-    width: 70%;
-    /* background-color: rgb(3, 169, 244); */
+    width: 75%;
     margin: 0px auto;
     padding: inherit;
 }
@@ -585,7 +626,7 @@ button[type="button"]:hover {
 
 .menu-left {
     width: 20%;
-    height: 410px;
+    min-height: 410px;
 }
 
 .loc {

@@ -17,7 +17,7 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $nhanvien = [
             'MANV' => $row['MANV'],
-            'TENNV' => $row['TENNV'],
+            'TEN' => $row['TEN'],
             'NGAYSINH' => $row['NGAYSINH'],
             'SDT' => $row['SDT'],
             'DIACHI' => $row['DIACHI'],

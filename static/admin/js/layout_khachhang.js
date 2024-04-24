@@ -121,7 +121,7 @@ if (arr.length === 0) {
         productHtml +=
             `<tr>
             <td>${product.MAKH}</td>
-            <td>${product.TENKH}</td>
+            <td>${product.TEN}</td>
             <td>${product.NGAYSINH}</td>
             <td>${product.SDT}</td>
             <td>${product.DIACHI}</td>

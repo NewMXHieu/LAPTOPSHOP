@@ -13,7 +13,7 @@
       };
 
       $.ajax({
-        url: 'src/laptopshop/function.php',
+        url: 'api/login-register.php',
         type: 'post',
         data: data,
         success: function (response) {
@@ -41,11 +41,11 @@
           }
           else if (response.message == "Login Successful" && response.loginRoute == '2') {
             alert("Đăng nhập thành công. Bạn sẽ được chuyển hướng về trang quản lý.");
-            window.location.href = 'quanly'; // Chuyển hướng đến trang quản lý
+            window.location.href = 'admin'; // Chuyển hướng đến trang quản lý
           }
           else if (response.message == "Login Successful" && response.loginRoute == '3') {
             alert("Đăng nhập thành công. Bạn sẽ được chuyển hướng về trang quản lý.");
-            window.location.href = 'nhanvien'; // Chuyển hướng đến trang quản lý
+            window.location.href = 'admin'; // Chuyển hướng đến trang quản lý
           }
           else {
             alert(response.message); // Hiển thị thông báo lỗi
@@ -53,5 +53,10 @@
         }
       });
     });
+  }
+  document.onkeydown=function(){
+    if(window.event.keyCode=='13'){
+        submitData();
+    }
   }
 </script>
