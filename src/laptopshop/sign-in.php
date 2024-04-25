@@ -1,6 +1,6 @@
 <?php
-require 'function.php';
-if(isset($_SESSION["id"])){
+require '../api/login-register.php';
+if (isset($_SESSION["id"])) {
   header("Location: trangchu");
 }
 ?>
@@ -13,8 +13,8 @@ if(isset($_SESSION["id"])){
   <h1>ĐĂNG NHẬP</h1>
   <form autocomplete="off" action="" method="post">
     <input type="hidden" id="action" value="login">
-    <div class="item">  
-      <input id="username" type="text" name="username"required>
+    <div class="item">
+      <input id="username" type="text" name="username" required> 
       <label>Tài khoản</label>
     </div>
 
@@ -28,45 +28,24 @@ if(isset($_SESSION["id"])){
     </div>
 
     <button type="button" onclick="submitData();">Đăng nhập</button>
-
+    <link rel="stylesheet" href="static/css/popup.css">
+    <div class="popup_button" id="popup-login-successful">
+      <img src="static/image/404-tick.png" alt="">
+      <h2>Thông báo</h2>
+      <p>Đăng nhập thành công, bạn sẽ chuyển hướng sang trang chủ</p>
+      <div class="action-btn">
+        <button><a href="sign-in" class="button-link">OK</a></button>
+      </div>
+    </div>
+    <div class="popup_button" id="popup-login-fail">
+      <img src="static/image/delete.png" alt="">
+      <h2>Thông báo</h2>
+      <p></p>
+      <div class="action-btn">
+        <button onclick="closePopup(event)">OK</button>
+      </div>
+    </div>
   </form>
 </div>
 
 <?php require 'script.php'; ?>
-
-
-<!-- <script type="text/javascript">
-  function onClickSubmitLogin() {
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    if(!username || !password) {
-      alert('Vui lòng nhập đầy đủ thông tin');
-      return;
-    }
-
-    console.log(username, password);
-    fetch('api/login.php', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        username: username,
-        password: password
-      })
-    }).then(response => response.json())
-      .then(data => {
-        console.log('GET Response:', data);
-          if (data.status === 'success') {
-        // Login successful, show a success message and redirect to the home page
-        alert(data.message);
-        window.location.href = 'index.php';
-      } else {
-        // Login failed, show an error message
-        alert(data.message);
-      }
-    })
-}
-
-</script> -->

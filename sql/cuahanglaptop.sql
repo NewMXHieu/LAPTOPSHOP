@@ -27,6 +27,10 @@ SET time_zone = "+00:00";
 -- Table structure for table `baohanh`
 --
 
+DROP DATABASE IF EXISTS cuahanglaptop;
+CREATE DATABASE cuahanglaptop;
+USE cuahanglaptop;
+
 CREATE TABLE `baohanh` (
   `MABAOHANH` int(11) NOT NULL,
   `MANV` int(11) DEFAULT NULL,

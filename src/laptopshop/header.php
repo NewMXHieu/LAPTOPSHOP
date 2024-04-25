@@ -2,8 +2,8 @@
 include "../../config/connect.php";
 include "../../config/function.php";
 
-
-session_start();
+// session_start();
+// $username = $_SESSION['username'];
 ?>
 
 <?php
@@ -12,40 +12,30 @@ session_start();
 // $payment =  execute("SELECT * FROM  image WHERE type = 3 and status = 0 ORDER BY ordering DESC limit 0,5")->fetch_all(MYSQLI_ASSOC);
 ?>
 
-<link rel="stylesheet" href="static/css/style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
 <div id="header">
     <div class="logo">
-        <a href="index.php"><img width="80" height="80" src="static/image/logo.jpg" alt="laptop--v1" /></a>
+        <a href="trangchu"><img width="80" height="80" src="static/image/logo.jpg" alt="laptop--v1" /></a>
     </div>
 
-    <div id="nav">
+    <!-- <div id="nav">
         <ul>
-            <li><a class="nav-link active" href="trangchu">Trang chủ</a></li>
-            <li><a class="nav-link" href="sanpham">Sản phẩm</a></li>
+            <li><a class="nav-link active" href="?action=trangchu">Trang chủ</a></li>
+            <li><a class="nav-link" href="?action=sanpham">Sản phẩm</a></li>
             <li><a class="nav-link" href="about">Giới thiệu</a></li>
             <li><a class="nav-link" href="contact">Liên hệ</a></li>
         </ul>
+    </div> -->
+    <div class="danhmuc"><i class="fa-solid fa-bars"></i> Danh muc</div>
+    <div class="search">
+        <input class="input-search1" id="txtSearch" type="text" name="fseacrh" placeholder="Search in here...">
+        <input class="input-search2" id="bthSearch" type="submit" name="search" value="Search">
     </div>
-    <!-- <div class="search">
-           <form action="" method="get">
-                <input class="input-search1" type="text" name="fseacrh" placeholder="Search in here...">
-                <input class="input-search2" type="submit" name="search" value="Search">
-            </form>
-        </div> -->
 
 
     <div class="header-top-right">
-        <div class="alert">
-            <a href="/">
-                <i class="fa-regular fa-bell"></i><br>
-                <!-- <img src="https://img.icons8.com/plasticine/100/bell--v1.png" alt="bell--v1"/><br> -->
-                <span>Thông báo</span>
-            </a>
-        </div>
         <div class="cart">
-            <a href="cart.php">
+            <a href="cart">
                 <i class="fa-solid fa-cart-shopping"></i><br>
                 <!-- <img src="https://img.icons8.com/ios-glyphs/30/shopping-cart--v1.png" alt="shopping-cart--v1"/><br> -->
                 <span>Giỏ hàng</span>
@@ -59,9 +49,6 @@ session_start();
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <?php if ($_SESSION['MANHOMQUYEN'] == '1') { ?>
-                        <a href="admin">Trang quản trị</a>
-                    <?php } ?>
                     <a href="profile">Thông tin cá nhân</a>
                     <a href="orderstatus">Đơn hàng</a>
                     <a href="logout">Đăng xuất</a>
@@ -78,3 +65,47 @@ session_start();
         <?php } ?>
     </div>
 </div>
+<script>
+    $('.danhmuc').click(function(){
+        if (window.location.href !== "/laptopshop/trangchu#") {
+            window.location.href = "http://localhost/laptopshop/trangchu#";
+        }
+        $('html, body').animate({
+            scrollTop: $(".menu-left").offset().top -200 // Thay ".main" bằng selector của phần hiện sản phẩm của bạn
+    }, 'slow');
+    });
+    
+    $(document).ready(function() {
+        
+        // $("#bthSearch").click();
+        delayLoad();
+    });
+    $("#bthSearch").click(function(){
+        search = $("#txtSearch").val().trim();
+        if (window.location.href !== "/laptopshop/trangchu#") {
+            window.location.href = "http://localhost/laptopshop/trangchu#";
+        }
+        page = 1;
+        // alert(search);
+        delayLoad();
+        $('html, body').animate({
+            scrollTop: $(".main").offset().top -70 // Thay ".main" bằng selector của phần hiện sản phẩm của bạn
+        }, 'slow');
+    })
+
+    function delayLoad(){
+        
+        readData(search);
+        Pagination(search);
+        
+    }
+    document.onkeydown=function(){
+        if(window.event.keyCode=='13'){
+            $("#bthSearch").click();
+        }
+    }
+
+    
+    
+    
+</script>
