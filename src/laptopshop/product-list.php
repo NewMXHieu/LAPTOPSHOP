@@ -4,6 +4,7 @@ include '../../config/connect.php';
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script> -->
 <div class="content top-trangchu">
     <div class="menu menu-left">
+        <button id="resetBtn">Đặt lại</button>
         <div class="loc">
             <h3>Hãng sản xuất</h3>
             <div class="checkItems checkItem-1">
@@ -199,8 +200,11 @@ include '../../config/connect.php';
         });
     }
 
-    $(".list").on("click", "li a", function() {
-        search = $(this).text();
+    $(".list").on("click", "li a", function(e) {
+        e.preventDefault();
+        search = $(this).attr("href");
+        $("#txtSearch").val(search);
+        localStorage.setItem('searchValue', search);
         page = 1;
         delayLoad();
         $('html, body').animate({
@@ -252,4 +256,20 @@ include '../../config/connect.php';
         delayLoad();
         // console.log(cpu);
     });
+    $("#resetBtn").click(function() {
+        $(".checkItems input[type='checkbox']").each(function() {
+            if ($(this).val() !== "0") {
+                $(this).prop("checked", false);
+            } else {
+                $(this).prop("checked", true);
+            }
+        });
+        cost = 0;
+        brand = 0;
+        cpu = 0;
+        ram = 0;
+        storage = 0;
+        loai = 0;
+        delayLoad();
+    })
 </script>

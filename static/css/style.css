@@ -163,22 +163,51 @@ a {
     cursor: pointer;
 }
 
+.danhmuc:hover,
+.input-search2:hover {
+    background-color: var(--mycolor1);
+    color: var(--mycolor2);
+    /* border: 2px solid var(--mycolor1); */
+    transition: .5s;
+}
+
 .search {
+    display: flex;
     width: 30%;
+    position: relative;
+}
+
+.fa-circle-xmark {
+    font-size: larger;
+    position: absolute;
+    top: 50%;
+    right: 125px;
+    transform: translateY(-50%);
+    display: none; /* Mặc định ẩn biểu tượng */
+    cursor: pointer;
+}
+
+.input-search1:hover + .fa-circle-xmark,
+.fa-circle-xmark:hover {
+    display: block; /* Hiển thị biểu tượng khi hover vào input */
 }
 
 .input-search1 {
+    border: 1px solid var(--mycolor1);
     width: 80%;
     height: 40px;
-    border-radius: 50px 0 0 50px;
+    border-radius: 12px 0 0 12px;
     padding-left: 20px;
 }
 
 .input-search2 {
+    border: 1px solid var(--mycolor1);
     width: 15%;
     height: 40px;
-    border-radius: 0 50px 50px 0;
+    border-radius: 0 12px 12px 0;
+    cursor: pointer;
 }
+
 
 
 
@@ -236,17 +265,21 @@ a {
     border-radius: 20px;
 }
 
-.list li:hover{
-    /* background-color: #03a9f4; */
+/* .list li:hover{
     border: 1px solid red;
     border-radius: 12px;
-}
+} */
 
 .list li a {
     display: flex;
     padding: 13px 10px;
 }
 
+.list li a:hover{
+    border: 1px solid red;
+    border-radius: 12px;
+    padding: 12px 11px;
+}
 .list li a img{
     height: 20px;
 }
@@ -643,6 +676,24 @@ button[type="button"]:hover {
 .menu-left {
     width: 20%;
     min-height: 410px;
+}
+
+#resetBtn {
+    padding: 3px 15px;
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    border-radius: 6px;
+    background-color: var(--mycolor1);
+    color: var(--mycolor2);
+}
+
+#resetBtn:hover {
+    cursor: pointer;
+    background-color: var(--mycolor2);
+    color: var(--mycolor1);
+    border: 2px solid var(--mycolor1);
+    transition: .5s;
 }
 
 .loc {
