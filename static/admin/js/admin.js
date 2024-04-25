@@ -44,7 +44,7 @@ function getSoDoanhThu(){
             if (response.error) {
                 console.error(response.error);
             } else {
-                document.getElementById("admin-trangchu-doanhthu").innerHTML = "Doanh Thu: " + response.doanhthu;
+                document.getElementById("admin-trangchu-doanhthu").innerHTML = "Doanh Thu: " + response["total_doanhThu"];
             }
         }
     };
