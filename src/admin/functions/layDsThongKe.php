@@ -23,7 +23,6 @@ INNER JOIN thuonghieu ON thuonghieu.MATHUONGHIEU = chitiethoadon.MASP
 GROUP BY chitietsanpham.MASP";
 $result = $conn->query($sql);
 $thongkes = [];
-
 // Kiểm tra và xử lý kết quả
 if ($result->num_rows > 0) {
     // Chuyển kết quả thành mảng JSON và trả về

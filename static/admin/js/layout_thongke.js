@@ -11,13 +11,11 @@ function getDsThongKe(){
         // Kiểm tra mã trạng thái HTTP
         if (xhr.status >= 200 && xhr.status < 300) {
             // Chuyển đổi dữ liệu JSON nhận được thành đối tượng JavaScript\
-            if(xhr.responseText === '') {
+            if(xhr.responseText.length < 3) {
                 thongkes = [];
             } else {
                 // Chuyển đổi dữ liệu JSON nhận được thành đối tượng JavaScript
-                console.log(xhr.responseText);
                 thongkes = JSON.parse(xhr.responseText);
-
             }
             // Xử lý dữ liệu, ví dụ: log ra console
             showThongKe();
