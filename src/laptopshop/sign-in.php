@@ -1,6 +1,6 @@
 <?php
 require '../api/login-register.php';
-if(isset($_SESSION["id"])){
+if (isset($_SESSION["id"])) {
   header("Location: trangchu");
 }
 ?>
@@ -13,8 +13,8 @@ if(isset($_SESSION["id"])){
   <h1>ĐĂNG NHẬP</h1>
   <form autocomplete="off" action="" method="post">
     <input type="hidden" id="action" value="login">
-    <div class="item">  
-      <input id="username" type="text" name="username"required>
+    <div class="item">
+      <input id="username" type="text" name="username" required>
       <label>Tài khoản</label>
     </div>
 
@@ -28,7 +28,15 @@ if(isset($_SESSION["id"])){
     </div>
 
     <button type="button" onclick="submitData();">Đăng nhập</button>
-
+    <link rel="stylesheet" href="static/css/popup.css">
+    <div class="popup_button" id="popup-login">
+      <img src="static/image/404-tick.png" alt="">
+      <h2>Thông báo</h2>
+      <p>Đăng nhập thành công, bạn sẽ chuyển hướng sang trang chủ</p>
+      <div class="action-btn">
+        <button onclick="closePopup()">OK</button>
+      </div>
+    </div>
   </form>
 </div>
 
