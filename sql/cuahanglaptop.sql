@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2024 at 06:08 PM
+-- Generation Time: Apr 23, 2024 at 08:48 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -32,36 +32,23 @@ CREATE TABLE `baohanh` (
   `MANV` int(11) DEFAULT NULL,
   `DONVIBAOHANH` varchar(100) DEFAULT NULL,
   `THOIHAN` int(11) DEFAULT NULL,
-  `TRANGTHAI` tinyint(1) DEFAULT 1,
-  `MASP` int(11) DEFAULT NULL
+  `TRANGTHAI` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `baohanh`
 --
 
-INSERT INTO `baohanh` (`MABAOHANH`, `MANV`, `DONVIBAOHANH`, `THOIHAN`, `TRANGTHAI`, `MASP`) VALUES
-(1, 1, 'ACER', 1, 1, NULL),
-(2, 1, 'APPLE', 2, 1, NULL),
-(3, 1, 'ASUS', 3, 1, NULL),
-(4, 1, 'DELL', 2, 1, NULL),
-(5, 1, 'GIGABYTE', 1, 1, NULL),
-(6, 1, 'HP', 2, 1, NULL),
-(7, 1, 'LG', 3, 1, NULL),
-(8, 1, 'LENOVO', 2, 1, NULL),
-(9, 1, 'MSI', 2, 1, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `chitietgiohang`
---
-
-CREATE TABLE `chitietgiohang` (
-  `MAGH` int(11) NOT NULL,
-  `MASP` int(11) NOT NULL,
-  `SOLUONG` int(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `baohanh` (`MABAOHANH`, `MANV`, `DONVIBAOHANH`, `THOIHAN`, `TRANGTHAI`) VALUES
+(1, 1, 'ACER', 1, 1),
+(2, 1, 'APPLE', 2, 1),
+(3, 1, 'ASUS', 3, 1),
+(4, 1, 'DELL', 2, 1),
+(5, 1, 'GIGABYTE', 1, 1),
+(6, 1, 'HP', 2, 1),
+(7, 1, 'LG', 3, 1),
+(8, 1, 'LENOVO', 2, 1),
+(9, 1, 'MSI', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -71,9 +58,32 @@ CREATE TABLE `chitietgiohang` (
 
 CREATE TABLE `chitiethoadon` (
   `MAHD` int(11) NOT NULL,
-  `TONGTIEN` int(11) NOT NULL,
-  `NGAYTAO` date NOT NULL,
-  `TRANGTHAI` tinyint(1) NOT NULL DEFAULT 0
+  `MASP` int(11) NOT NULL,
+  `SOLUONG` int(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `chitiethoadon`
+--
+
+INSERT INTO `chitiethoadon` (`MAHD`, `MASP`, `SOLUONG`) VALUES
+(1, 1, 1),
+(1, 2, 1),
+(1, 3, 1),
+(1, 5, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chitietkhuyenmai`
+--
+
+CREATE TABLE `chitietkhuyenmai` (
+  `MAKM` int(11) NOT NULL,
+  `NGAYBATDAU` date DEFAULT NULL,
+  `NGAYKETTHUC` date DEFAULT NULL,
+  `GIAMGIA` decimal(15,2) DEFAULT NULL,
+  `QUATANG` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -83,9 +93,9 @@ CREATE TABLE `chitiethoadon` (
 --
 
 CREATE TABLE `chitietphieunhap` (
-  `MAPN` int(11) NOT NULL,
+  `MAPN` int(11) DEFAULT NULL,
   `MANCC` int(11) DEFAULT NULL,
-  `MASP` int(11) NOT NULL,
+  `MASP` int(11) DEFAULT NULL,
   `SOLUONG` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -133,11 +143,11 @@ INSERT INTO `chitietsanpham` (`MASP`, `TENSP`, `CPU`, `SCREEN`, `RAM`, `VGA`, `S
 (3, 'Laptop ACER Aspire 3 A315-59-51X8 (NX.K6TSV.00F) (i5-1235U/RAM 8GB/512GB SSD/ Windows 11)', 'Intel Core i5-1235U', '15.6\" (1920 x 1080)', '1 x 8GB DDR4 2400MHz', 'Onboard Intel UHD Graphics', '512GB SSD M.2 NVMe /', 'Windows 11 Home', '3 cell 40 Wh Pin liền', '1.7kg', 'Laptop Acer Aspire 3 A315-59-51X8 được biết đến là mẫu laptop văn phòng do thương hiệu Acer mới ra mắt gần đây. Ưu điểm của sản phẩm là cấu hình vượt trội và giá thành rẻ so với các mẫu máy tính khác cùng hiệu năng. Do đó, Acer Aspire 3 A315-59-51X8 rất phù hợp với đối tượng là học sinh, sinh viên và dân văn phòng. ', 1, 'Bạc', 15490000.00, 1),
 (4, 'MacBook Air 15.3 inch (M2/ 16GB/ 512GB SSD)', 'Apple M2', '15.3\" (2880 x 1864) Liquid Retina', '16GB', 'onboard', '512GB SSD', 'macOS', '70 Wh', '1.5 kg | 1.15 x 34.04 x 23.76 cm', 'MacBook Air M2 2023 15 inch (16GB/512GB SSD) là một sản phẩm của Apple, thương hiệu nổi tiếng với sự kết hợp tinh tế giữa thiết kế và hiệu suất đỉnh cao. Trong đó, MacBook Air M2 2023 15 inch (16GB/512GB SSD) nổi bật với sự mạnh mẽ và tính di động cao, là sản phẩm phục vụ tốt cho nhu cầu văn phòng, đồ họa - kỹ thuật, doanh nghiệp và doanh nhân.', 2, 'Bạc', 45290000.00, 2),
 (5, 'Laptop ASUS TUF Gaming FA506ICB-HN355W (Ryzen 5 4600H/RAM 8GB/RTX 3050/512GB SSD/ Windows 11)', 'AMD Ryzen 5 4600H', '15.6\" IPS (1920 x 1080),144Hz', '1 x 8GB DDR4 3200MHz', 'RTX 3050 4GB GDDR6 / AMD Radeon Graphics', '512GB SSD M.2 NVMe /', 'Windows 11 Home', '3 cell 48 Wh Pin liền', '2.3kg', 'Laptop ASUS TUF DashFA506ICB - HN355W đến từ thương hiệu Asus nổi tiếng được khá nhiều khách hàng ưa thích và tin dùng bởi sự chất lượng, hiệu năng làm việc vượt trội cùng với mức giá hợp lý. Ngoài ra, với thiết kế bắt mắt thu hút ánh nhìn nhiều đối tượng khách hàng, đặc biệt là giới game thủ. Hãy cùng Phong Vũ khám phá xem chiếc máy tính xách tay này có gì đặc biệt nhé!', 3, 'Đen', 21990000.00, 3),
-(6, 'Laptop GIGABYTE G5 ME (i5-12500H/RAM 8GB/RTX 3050Ti/512GB SSD/ Windows 11)', 'Intel Core i5-12500H', '15.6\" IPS (1920 x 1080),144Hz', '1 x 8GB DDR4 3200MHz', 'RTX 3050Ti 4GB GDDR6 / Intel Iris Xe Graphics', '512GB SSD M.2 NVMe /', 'Windows 11 Home SL', '54 Wh Pin liền', '2kg', 'Laptop GIGABYTE G5 ME 51VN263SH là sự lựa chọn phù hợp cho các game thủ, tín đồ mê game. Máy tính sở hữu cấu hình mạnh mẽ từ bộ vi xử lý Intel Core i5 thế hệ thứ 12, màn hình lớn kết hợp tấm nền IPS cho hiển thị sắc nét mang đến trải nghiệm chơi game đồ họa khủng với chất lượng mượt mà, lôi cuốn. Cùng Phong Vũ điểm qua một vài tính năng nổi bật của chiếc laptop này nhé!', 5, 'Đen', 27090000.00, 5),
-(7, 'Laptop Lenovo Legion 5 Pro 16IAH7H-82RF0045VN (i7-12700H/RAM 16GB/512GB SSD/ Windows 11)', 'Intel Core i7-12700H', '16\" IPS (2560 x 1600),165Hz', '2 x 8GB DDR5 4800MHz', 'RTX 3070Ti 8GB GDDR6 / Intel Iris Xe Graphics', '512GB SSD M.2 NVMe /', 'Windows 11 Home', '4 cell 80 Wh Pin liền', '2.5kg', 'Laptop Lenovo Legion 5 Pro 16IAH7H 82RF0045VN là một trong những dòng laptop cao cấp đến từ thương hiệu Lenovo nổi tiếng. Chiếc laptop này sở hữu thiết kế với các đường nét cá tính, mạnh mẽ cùng hiệu năng hoạt động nổi bật. Máy được trang bị card đồ họa RTX 3070Ti 8GB GDDR6 siêu khủng hỗ trợ người dùng những trải nghiệm làm việc đồ họa hay chơi game cấu hình cao tuyệt vời. ', 8, 'Trắng', 56990000.00, 7),
-(8, 'Laptop MSI Summit E14 Flip Evo A12MT-210VN (i7-1280P/RAM 16GB/512GB SSD/ Windows 11)', 'Intel Core i7-1280P', '14\" IPS (2880 x 1800)', '16GB Onboard LPDDR5 4800MHz', 'Onboard Intel Iris Xe Graphics', '512GB SSD M.2 NVMe /', 'Windows 11 Home', '4 cell 72 Wh Pin liền', '1.6kg', NULL, 9, 'Đen', 30990000.00, 8),
-(9, 'Laptop MSI Gaming GF63 Thin 11SC (i5-11400H/RAM 8GB/GTX 1650/512GB SSD/ Windows 11)', 'Intel Core i5-11400H', '15.6\" IPS (1920 x 1080),144Hz', '1 x 8GB DDR4 3200MHz', 'GTX 1650 4GB GDDR6 / Intel UHD Graphics', '512GB SSD M.2 NVMe /', 'Windows 11 Home', '3 cell 51 Wh Pin liền', '1.9kg', NULL, 9, 'Đen', 19490000.00, 8),
-(10, 'Laptop Dell Inspiron 15 3520 D5N53', 'Intel Core i3-1115G4 (6 MB cache, 2 lõi / 4 luồng, 3.00 GHz to 4.10 GHz, 15 W)', '15.6 inches, 1920 x 1080 pixels (FullHD)', '8GB DDR4\r\n', 'Intel UHD Graphics', '256 GB, M.2 2230, PCIe NVMe Gen3 x4, SSD', 'Windows 11 Home', '3-cell, 41 Wh lithium-polymer', '1.65 kg', 'Dell Inspiron 15 3520 là dòng laptop mang lại hiệu năng ấn tượng với vi xử lý Intel Core thế hệ 11, RAM 8 GB chuẩn DDR4 và ổ cứng SSD PCle lên đến 256 GB. Màn hình 15.6-inch FHD với tần số làm mới 120Hz và tính năng chống lóa giúp bạn trải nghiệm hình ảnh sắc nét và mượt mà. Thiết kế mỏng nhẹ, cùng với chất lượng xây dựng đáng tin cậy của Dell, giúp bạn dễ dàng mang máy đi khắp nơi. ', 4, 'Đen', 9990000.00, 4),
+(6, 'Laptop Dell Inspiron 14 T7420 N4I5021W (i5-1235U/RAM 8GB/512GB SSD/ Windows 11 + Office)', 'Intel Core i5-1235U', '14\" WVA (1920 x 1200)', '1 x 8GB DDR4 3200MHz', 'Onboard Intel UHD Graphics', '512GB SSD M.2 NVMe /', 'Windows 11 Home SL + Office Home & Student 2021', '4 cell 54 Wh Pin liền', '1.6kg', NULL, 4, 'Bạc', 24890000.00, 4),
+(7, 'Laptop GIGABYTE G5 ME (i5-12500H/RAM 8GB/RTX 3050Ti/512GB SSD/ Windows 11)', 'Intel Core i5-12500H', '15.6\" IPS (1920 x 1080),144Hz', '1 x 8GB DDR4 3200MHz', 'RTX 3050Ti 4GB GDDR6 / Intel Iris Xe Graphics', '512GB SSD M.2 NVMe /', 'Windows 11 Home SL', '54 Wh Pin liền', '2kg', 'Laptop GIGABYTE G5 ME 51VN263SH là sự lựa chọn phù hợp cho các game thủ, tín đồ mê game. Máy tính sở hữu cấu hình mạnh mẽ từ bộ vi xử lý Intel Core i5 thế hệ thứ 12, màn hình lớn kết hợp tấm nền IPS cho hiển thị sắc nét mang đến trải nghiệm chơi game đồ họa khủng với chất lượng mượt mà, lôi cuốn. Cùng Phong Vũ điểm qua một vài tính năng nổi bật của chiếc laptop này nhé!', 5, 'Đen', 27090000.00, 5),
+(8, 'Laptop Lenovo Legion 5 Pro 16IAH7H-82RF0045VN (i7-12700H/RAM 16GB/512GB SSD/ Windows 11)', 'Intel Core i7-12700H', '16\" IPS (2560 x 1600),165Hz', '2 x 8GB DDR5 4800MHz', 'RTX 3070Ti 8GB GDDR6 / Intel Iris Xe Graphics', '512GB SSD M.2 NVMe /', 'Windows 11 Home', '4 cell 80 Wh Pin liền', '2.5kg', 'Laptop Lenovo Legion 5 Pro 16IAH7H 82RF0045VN là một trong những dòng laptop cao cấp đến từ thương hiệu Lenovo nổi tiếng. Chiếc laptop này sở hữu thiết kế với các đường nét cá tính, mạnh mẽ cùng hiệu năng hoạt động nổi bật. Máy được trang bị card đồ họa RTX 3070Ti 8GB GDDR6 siêu khủng hỗ trợ người dùng những trải nghiệm làm việc đồ họa hay chơi game cấu hình cao tuyệt vời. ', 8, 'Trắng', 56990000.00, 8),
+(9, 'Laptop MSI Summit E14 Flip Evo A12MT-210VN (i7-1280P/RAM 16GB/512GB SSD/ Windows 11)', 'Intel Core i7-1280P', '14\" IPS (2880 x 1800)', '16GB Onboard LPDDR5 4800MHz', 'Onboard Intel Iris Xe Graphics', '512GB SSD M.2 NVMe /', 'Windows 11 Home', '4 cell 72 Wh Pin liền', '1.6kg', NULL, 9, 'Đen', 30990000.00, 9),
+(10, 'Laptop MSI Gaming GF63 Thin 11SC (i5-11400H/RAM 8GB/GTX 1650/512GB SSD/ Windows 11)', 'Intel Core i5-11400H', '15.6\" IPS (1920 x 1080),144Hz', '1 x 8GB DDR4 3200MHz', 'GTX 1650 4GB GDDR6 / Intel UHD Graphics', '512GB SSD M.2 NVMe /', 'Windows 11 Home', '3 cell 51 Wh Pin liền', '1.9kg', NULL, 9, 'Đen', 19490000.00, 9),
 (11, 'Laptop LG Gram 2023 14Z90RS-G.AH54A5', 'Intel Core i5-1340P (up to 4.6 GHz, 12MB, 12 lõi/luồng)', '14 inches (2880 x 1800 pixels)', '16GB', 'Intel Iris Xe Graphics', '512GB SSD NVMe Gen 4 (1 khe cắm SSD M.2 trống)', 'Windows 11 Home', '72 Wh Li-Ion', '999g', 'Laptop LG Gram 2023 14Z90RS-G.AH54A5 là một dòng máy tính xách tay nhẹ và mạnh mẽ được phát hành vào năm 2023. Thông qua nhiều đặc điểm nổi bật, phiên bản laptop LG Gram 2023 này hứa hẹn sẽ mang đến những giây phút làm việc và giải trí tuyệt vời dành cho bạn.', 7, 'Trắng', 29490000.00, 7),
 (12, 'Laptop HP Envy X360 BF0112TU 7C0N9PA', 'Intel Core i5 Alder Lake - 1230U (10 nhân 12 luồng)\r\nXung nhịp 1Ghz - Turbo Boost 4.4 GHz', '13.3 inches, 2880 x 1800 pixels, 60 Hz', '16GB LPDDR4X (Onboard) 4266 MHz', 'Intel Iris Xe Graphics', '512 GB SSD NVMe PCIe', 'Windows 11 Home SL', '4-cell Li-ion, 66 Wh', '1.34 kg', 'HP Envy X360 là dòng laptop sở hữu bộ vi xử lý Intel Core i5 Alder Lake - 1230U, kết hợp cùng RAM 16 GB xử lý mượt mà các tác vụ đa nhiệm nặng. Máy tích hợp ổ cứng 512GB PCIe Gen4 NVMe cho không gia lưu trữ lớn, cùng màn 13.3 inch với độ phân giải sắc nét. Đặc biệt, laptop có thiết kế bản lề 360 độ linh hoạt cùng đầy đủ các cổng kết nối.', 6, 'Trắng', 23190000.00, 6),
 (13, 'Laptop HP Gaming Victus 15-FB1023AX 94F20PA', 'AMD Ryzen 5 7535HS (16MB Cache, up to 4.5 GHz, 6 lõi / 12 luồng)', '15.6 inches, 1920 x 1080 pixels (FullHD)', '8GB DDR5 4800 MHz', 'NVIDIA GeForce RTX 2050 4GB GDD6', '512 GB PCIe Gen4 NVMe TLC M.2 SSD', 'Windows 11 Home', '52.5 Wh , 3 Cell', '2.29 kg', 'Laptop HP Gaming Victus 15 FB1023AX 94F20PA được trang bị bộ xử lý trung tâm AMD Ryzen 5 7535HS 6 nhân, 12 luồng với tốc độ xung nhịp lên tới 4.5GHz. RAM dung lượng 8GB xử lý tốt khối lượng công việc tốt và phù hợp để thiết kế đồ hoạ 2D. VGA NVIDIA Geforce RTX 2050 4GB trên laptop HP Victus này mang tới trải nghiệm chiến game mượt mà trên màn hình rộng 15.6 inch cùng tần số quét 144Hz ấn tượng. ', 6, 'Bạc', 17590000.00, 6),
@@ -151,26 +161,23 @@ INSERT INTO `chitietsanpham` (`MASP`, `TENSP`, `CPU`, `SCREEN`, `RAM`, `VGA`, `S
 -- --------------------------------------------------------
 
 --
--- Table structure for table `giohang`
---
-
-CREATE TABLE `giohang` (
-  `MAGH` int(11) NOT NULL,
-  `MAKH` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `hoadon`
 --
 
 CREATE TABLE `hoadon` (
   `MAHD` int(11) NOT NULL,
-  `MANV` int(11) DEFAULT NULL,
   `MAKH` int(11) DEFAULT NULL,
-  `MAGH` int(11) NOT NULL
+  `MANV` int(11) DEFAULT NULL,
+  `NGAYTAO` date DEFAULT NULL,
+  `TRANGTHAI` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `hoadon`
+--
+
+INSERT INTO `hoadon` (`MAHD`, `MAKH`, `MANV`, `NGAYTAO`, `TRANGTHAI`) VALUES
+(1, 1, 1, '2024-04-23', 0);
 
 -- --------------------------------------------------------
 
@@ -193,10 +200,21 @@ CREATE TABLE `khachhang` (
 --
 
 INSERT INTO `khachhang` (`MAKH`, `TEN`, `NGAYSINH`, `SDT`, `DIACHI`, `MATK`, `EMAIL`) VALUES
-(1, 'Nguyễn Minh Kiệt', '2002-04-06', '0932667135', 'B16 Phan Huy Ich, p.15, q.TB', 3, 'nguyenminhkiet642002@gmail.com'),
-(2, 'Hồ Công Đệ', '2004-04-04', '0353027480', '75 Xuân Hồng, phường 4, quận Tân Bình', 4, 'congdeho98@gmail.com'),
-(3, 'Châu Thành', '2004-08-20', '0367489212', '125 Nguyễn Trãi, q5', 2, 'chauthanh123@gmail.com'),
-(15, 'Nguyễn Du', '0000-00-00', '', '', 19, '');
+(1, 'Nguyễn Minh Kiệt', '2002-04-06', '0932667135', 'B16 Phan Huy Ich, p.15, q.TB', 2, 'nguyenminhkiet642002@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `khuyenmai`
+--
+
+CREATE TABLE `khuyenmai` (
+  `MAKM` int(11) NOT NULL,
+  `MASP` int(11) DEFAULT NULL,
+  `MANV` int(11) DEFAULT NULL,
+  `TENKM` varchar(255) DEFAULT NULL,
+  `TRANGTHAI` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -241,17 +259,16 @@ CREATE TABLE `nhanvien` (
   `DIACHI` varchar(255) DEFAULT NULL,
   `MATK` int(11) DEFAULT NULL,
   `EMAIL` varchar(100) DEFAULT NULL,
-  `CHUCVU` varchar(100) DEFAULT NULL,
-  `TRANGTHAI` tinyint(1) DEFAULT 1
+  `CHUCVU` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `nhanvien`
 --
 
-INSERT INTO `nhanvien` (`MANV`, `TEN`, `NGAYSINH`, `SDT`, `DIACHI`, `MATK`, `EMAIL`, `CHUCVU`, `TRANGTHAI`) VALUES
-(1, 'Nguyễn Minh Kiệt', '2002-04-06', '0932667135', 'B16 Phan Huy Ich, p.15, q.TB', 1, 'nguyenminhkiet642002@gmail.com', 'ADMIN', 1),
-(2, 'Phạm Minh Tuấn', '2004-08-20', '0367489212', '125 Nguyễn Trãi, q5', 2, 'chauthanh123@gmail.com', 'Quản lý', 1);
+INSERT INTO `nhanvien` (`MANV`, `TEN`, `NGAYSINH`, `SDT`, `DIACHI`, `MATK`, `EMAIL`, `CHUCVU`) VALUES
+(1, 'Nguyễn Minh Kiệt', '2002-04-06', '0932667135', 'B16 Phan Huy Ich, p.15, q.TB', 1, 'nguyenminhkiet642002@gmail.com', 'ADMIN'),
+(2, 'Phạm Minh Tuấn', '1994-04-09', '0932667222', ' Võ Văn Ngân, q.Bình Tân', 3, 'phamminhtuan12091994@gmail.com', 'QUẢN LÝ');
 
 -- --------------------------------------------------------
 
@@ -277,8 +294,10 @@ INSERT INTO `nhomloaisanpham` (`MASP`, `MALOAISP`) VALUES
 (6, 1),
 (7, 1),
 (8, 1),
+(8, 3),
 (9, 1),
-(10, 1);
+(10, 1),
+(10, 3);
 
 -- --------------------------------------------------------
 
@@ -288,7 +307,7 @@ INSERT INTO `nhomloaisanpham` (`MASP`, `MALOAISP`) VALUES
 
 CREATE TABLE `nhomquyen` (
   `MANHOMQUYEN` int(11) NOT NULL,
-  `MAQUYEN` int(11) DEFAULT NULL,
+  `MAQUYEN` int(11) NOT NULL,
   `TENNHOMQUYEN` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -322,18 +341,18 @@ INSERT INTO `nhomquyen` (`MANHOMQUYEN`, `MAQUYEN`, `TENNHOMQUYEN`) VALUES
 (1, 23, 'ADMIN'),
 (1, 24, 'ADMIN'),
 (1, 25, 'ADMIN'),
-(2, 23, 'QUẢN LÝ'),
-(2, 24, 'QUẢN LÝ'),
 (2, 15, 'QUẢN LÝ'),
 (2, 16, 'QUẢN LÝ'),
-(3, 23, 'THU NGÂN'),
+(2, 23, 'QUẢN LÝ'),
+(2, 24, 'QUẢN LÝ'),
 (3, 15, 'THU NGÂN'),
 (3, 16, 'THU NGÂN'),
-(4, 24, 'KHO'),
+(3, 23, 'THU NGÂN'),
 (4, 15, 'KHO'),
 (4, 16, 'KHO'),
-(5, 19, 'KHÁCH HÀNG'),
-(5, 16, 'KHÁCH HÀNG');
+(4, 24, 'KHO'),
+(5, 16, 'KHÁCH HÀNG'),
+(5, 19, 'KHÁCH HÀNG');
 
 -- --------------------------------------------------------
 
@@ -375,10 +394,8 @@ CREATE TABLE `phanquyen` (
 
 INSERT INTO `phanquyen` (`MATK`, `MANHOMQUYEN`) VALUES
 (1, 1),
-(2, 2),
-(3, 5),
-(4, 5),
-(19, 5);
+(3, 2),
+(2, 5);
 
 -- --------------------------------------------------------
 
@@ -391,7 +408,7 @@ CREATE TABLE `phieunhap` (
   `MANV` int(11) DEFAULT NULL,
   `NGAYNHAP` date DEFAULT NULL,
   `TONGTIEN` decimal(15,2) DEFAULT NULL,
-  `TRANGTHAI` varchar(100) DEFAULT '1'
+  `TRANGTHAI` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -457,7 +474,7 @@ CREATE TABLE `sanpham` (
   `MANV` int(11) DEFAULT NULL,
   `SOLUONG` int(11) DEFAULT NULL,
   `MANCC` int(11) DEFAULT NULL,
-  `TRANGTHAI` tinyint(1) DEFAULT 1
+  `TRANGTHAI` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -470,33 +487,20 @@ INSERT INTO `sanpham` (`MASP`, `HINHSP`, `MANV`, `SOLUONG`, `MANCC`, `TRANGTHAI`
 (3, 'ACER_1.PNG', 1, 1, 1, 1),
 (4, 'APPLE_1.PNG', 1, 1, 2, 1),
 (5, 'ASUS_1.PNG', 1, 1, 3, 1),
-(6, 'GIGABYTE_1.PNG', 1, 1, 4, 1),
-(7, 'LENOVO_1.PNG', 1, 1, 5, 1),
-(8, 'MSI_1.PNG', 1, 1, 7, 1),
-(9, 'MSI_2.PNG', 1, 1, 7, 1),
-(10, 'DELL_1.PNG', 1, 1, 4, 1),
-(11, 'LG_1.PNG', 1, 20, 7, 1),
-(12, 'HP_3.PNG', 2, 30, 6, 1),
-(13, 'HP_4.PNG', 1, 20, 6, 1),
-(14, 'ACER_2.PNG', 2, 20, 1, 1),
-(15, 'APPLE_2.PNG', 1, 20, 2, 1),
-(16, 'DELL_2.PNG', 1, 20, 4, 1),
-(17, 'ASUS_2.PNG', 1, 10, 3, 1),
-(18, 'MSI_3.PNG', 1, 15, 9, 1),
-(19, 'ASUS_3.PNG', 1, 10, 3, 1),
-(20, 'GIGABYTE_2.PNG', 2, 15, 5, 1),
-(21, 'LG_2.PNG', 1, 10, 7, 1),
-(22, 'LENOVO_2.PNG', 2, 15, 8, 1),
-(23, 'DELL_3.PNG', 2, 10, 4, 1),
-(24, 'DELL_4.PNG', 1, 15, 4, 1),
-(25, 'GIGABYTE_3.PNG', 2, 10, 5, 1),
-(26, 'MSI_4.PNG', 1, 15, 9, 1),
-(27, 'LENOVO_3.PNG', 2, 10, 8, 1),
-(28, 'LENOVO_4.PNG', 1, 15, 8, 1),
-(29, 'ASUS_4.PNG', 1, 30, 3, 1),
-(30, 'ASUS_5.PNG', 2, 15, 3, 1),
-(31, 'MSI_4.PNG', 1, 10, 9, 1),
-(32, 'MSI_5.PNG', 1, 15, 9, 1);
+(6, 'DELL_1.PNG', 1, 1, 4, 1),
+(7, 'GIGABYTE_1.PNG', 1, 1, 5, 1),
+(8, 'LENOVO_1.PNG', 1, 1, 8, 1),
+(9, 'MSI_1.PNG', 1, 1, 9, 1),
+(10, 'MSI_2.PNG', 1, 1, 9, 1),
+(11, 'LG_1.PNG', 1, 1, 7, 1),
+(12, 'HP_3.PNG', 1, 1, 6, 1),
+(13, 'HP_4.PNG', 1, 1, 6, 1),
+(14, 'ACER_2.PNG', 1, 1, 1, 1),
+(15, 'APPLE_2.PNG', 1, 1, 2, 1),
+(16, 'DELL_2.PNG', 1, 1, 4, 1),
+(17, 'ASUS_2.PNG', 1, 1, 3, 1),
+(18, 'MSI_3.PNG', 1, 1, 9, 1),
+(19, 'ASUS_2.PNG', 1, 1, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -507,9 +511,9 @@ INSERT INTO `sanpham` (`MASP`, `HINHSP`, `MANV`, `SOLUONG`, `MANCC`, `TRANGTHAI`
 CREATE TABLE `taikhoan` (
   `MATK` int(11) NOT NULL,
   `NGAYTAO` date DEFAULT NULL,
-  `TENDN` varchar(50) DEFAULT NULL,
+  `TENDN` varchar(50) NOT NULL,
   `MATKHAU` varchar(200) DEFAULT NULL,
-  `TRANGTHAI` tinyint(1) DEFAULT 1
+  `TRANGTHAI` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -518,10 +522,8 @@ CREATE TABLE `taikhoan` (
 
 INSERT INTO `taikhoan` (`MATK`, `NGAYTAO`, `TENDN`, `MATKHAU`, `TRANGTHAI`) VALUES
 (1, '2024-01-04', 'admin1234', 'admin1234', 1),
-(2, '2024-01-04', 'ql1234', '112233', 1),
-(3, '2024-01-04', 'kh1', '776655', 1),
-(4, '2024-04-11', 'kh2', '13376677', 1),
-(19, '2024-04-21', 'Du123', '123', 1);
+(2, '2024-01-04', 'kh1234', 'kh1234', 1),
+(3, '2024-01-04', 'ql1234', 'ql1234', 1);
 
 -- --------------------------------------------------------
 
@@ -558,27 +560,26 @@ INSERT INTO `thuonghieu` (`MATHUONGHIEU`, `TENTHUONGHIEU`) VALUES
 --
 ALTER TABLE `baohanh`
   ADD PRIMARY KEY (`MABAOHANH`),
-  ADD KEY `MANV` (`MANV`),
-  ADD KEY `MASP` (`MASP`);
-
---
--- Indexes for table `chitietgiohang`
---
-ALTER TABLE `chitietgiohang`
-  ADD PRIMARY KEY (`MAGH`,`MASP`),
-  ADD KEY `chitietgiohang_ibfk_2` (`MASP`);
+  ADD KEY `MANV` (`MANV`);
 
 --
 -- Indexes for table `chitiethoadon`
 --
 ALTER TABLE `chitiethoadon`
-  ADD PRIMARY KEY (`MAHD`,`NGAYTAO`) USING BTREE;
+  ADD PRIMARY KEY (`MAHD`,`MASP`),
+  ADD KEY `MASP` (`MASP`);
+
+--
+-- Indexes for table `chitietkhuyenmai`
+--
+ALTER TABLE `chitietkhuyenmai`
+  ADD PRIMARY KEY (`MAKM`);
 
 --
 -- Indexes for table `chitietphieunhap`
 --
 ALTER TABLE `chitietphieunhap`
-  ADD PRIMARY KEY (`MAPN`,`MASP`),
+  ADD KEY `MAPN` (`MAPN`),
   ADD KEY `MANCC` (`MANCC`),
   ADD KEY `MASP` (`MASP`);
 
@@ -588,23 +589,15 @@ ALTER TABLE `chitietphieunhap`
 ALTER TABLE `chitietsanpham`
   ADD PRIMARY KEY (`MASP`),
   ADD KEY `MATHUONGHIEU` (`MATHUONGHIEU`),
-  ADD KEY `chitietsanpham_ibfk_3` (`MABAOHANH`);
-
---
--- Indexes for table `giohang`
---
-ALTER TABLE `giohang`
-  ADD PRIMARY KEY (`MAGH`),
-  ADD KEY `giohang_ibfk_1` (`MAKH`);
+  ADD KEY `MABAOHANH` (`MABAOHANH`);
 
 --
 -- Indexes for table `hoadon`
 --
 ALTER TABLE `hoadon`
   ADD PRIMARY KEY (`MAHD`),
-  ADD UNIQUE KEY `MAGH` (`MAGH`),
-  ADD KEY `MANV` (`MANV`),
-  ADD KEY `MAKH` (`MAKH`);
+  ADD KEY `MAKH` (`MAKH`),
+  ADD KEY `MANV` (`MANV`);
 
 --
 -- Indexes for table `khachhang`
@@ -612,6 +605,14 @@ ALTER TABLE `hoadon`
 ALTER TABLE `khachhang`
   ADD PRIMARY KEY (`MAKH`),
   ADD KEY `MATK` (`MATK`);
+
+--
+-- Indexes for table `khuyenmai`
+--
+ALTER TABLE `khuyenmai`
+  ADD PRIMARY KEY (`MAKM`),
+  ADD KEY `MASP` (`MASP`),
+  ADD KEY `MANV` (`MANV`);
 
 --
 -- Indexes for table `nhacungcap`
@@ -630,15 +631,15 @@ ALTER TABLE `nhanvien`
 -- Indexes for table `nhomloaisanpham`
 --
 ALTER TABLE `nhomloaisanpham`
-  ADD KEY `MALOAISP` (`MALOAISP`),
-  ADD KEY `MASP` (`MASP`) USING BTREE;
+  ADD PRIMARY KEY (`MASP`,`MALOAISP`),
+  ADD KEY `MALOAISP` (`MALOAISP`);
 
 --
 -- Indexes for table `nhomquyen`
 --
 ALTER TABLE `nhomquyen`
-  ADD KEY `MAQUYEN` (`MAQUYEN`),
-  ADD KEY `MANHOMQUYEN` (`MANHOMQUYEN`) USING BTREE;
+  ADD PRIMARY KEY (`MANHOMQUYEN`,`MAQUYEN`),
+  ADD KEY `MAQUYEN` (`MAQUYEN`);
 
 --
 -- Indexes for table `phanloaisanpham`
@@ -657,7 +658,8 @@ ALTER TABLE `phanquyen`
 -- Indexes for table `phieunhap`
 --
 ALTER TABLE `phieunhap`
-  ADD PRIMARY KEY (`MAPN`);
+  ADD PRIMARY KEY (`MAPN`),
+  ADD KEY `MANV` (`MANV`);
 
 --
 -- Indexes for table `quyen`
@@ -677,7 +679,7 @@ ALTER TABLE `sanpham`
 -- Indexes for table `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  ADD PRIMARY KEY (`MATK`);
+  ADD PRIMARY KEY (`MATK`,`TENDN`);
 
 --
 -- Indexes for table `thuonghieu`
@@ -699,13 +701,19 @@ ALTER TABLE `baohanh`
 -- AUTO_INCREMENT for table `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `MAHD` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `MAHD` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `khachhang`
 --
 ALTER TABLE `khachhang`
-  MODIFY `MAKH` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `MAKH` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `khuyenmai`
+--
+ALTER TABLE `khuyenmai`
+  MODIFY `MAKM` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `nhacungcap`
@@ -724,12 +732,6 @@ ALTER TABLE `nhanvien`
 --
 ALTER TABLE `nhomloaisanpham`
   MODIFY `MASP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT for table `nhomquyen`
---
-ALTER TABLE `nhomquyen`
-  MODIFY `MANHOMQUYEN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `phanloaisanpham`
@@ -753,13 +755,13 @@ ALTER TABLE `quyen`
 -- AUTO_INCREMENT for table `sanpham`
 --
 ALTER TABLE `sanpham`
-  MODIFY `MASP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `MASP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  MODIFY `MATK` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `MATK` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `thuonghieu`
@@ -775,22 +777,20 @@ ALTER TABLE `thuonghieu`
 -- Constraints for table `baohanh`
 --
 ALTER TABLE `baohanh`
-  ADD CONSTRAINT `baohanh_ibfk_1` FOREIGN KEY (`MANV`) REFERENCES `nhanvien` (`MANV`),
-  ADD CONSTRAINT `baohanh_ibfk_2` FOREIGN KEY (`MASP`) REFERENCES `chitiethoadon` (`TONGTIEN`);
-
---
--- Constraints for table `chitietgiohang`
---
-ALTER TABLE `chitietgiohang`
-  ADD CONSTRAINT `chitietgiohang_ibfk_1` FOREIGN KEY (`MAGH`) REFERENCES `giohang` (`MAGH`),
-  ADD CONSTRAINT `chitietgiohang_ibfk_2` FOREIGN KEY (`MASP`) REFERENCES `sanpham` (`MASP`);
+  ADD CONSTRAINT `baohanh_ibfk_1` FOREIGN KEY (`MANV`) REFERENCES `nhanvien` (`MANV`);
 
 --
 -- Constraints for table `chitiethoadon`
 --
 ALTER TABLE `chitiethoadon`
   ADD CONSTRAINT `chitiethoadon_ibfk_1` FOREIGN KEY (`MAHD`) REFERENCES `hoadon` (`MAHD`),
-  ADD CONSTRAINT `chitiethoadon_ibfk_2` FOREIGN KEY (`TONGTIEN`) REFERENCES `sanpham` (`MASP`);
+  ADD CONSTRAINT `chitiethoadon_ibfk_2` FOREIGN KEY (`MASP`) REFERENCES `sanpham` (`MASP`);
+
+--
+-- Constraints for table `chitietkhuyenmai`
+--
+ALTER TABLE `chitietkhuyenmai`
+  ADD CONSTRAINT `chitietkhuyenmai_ibfk_1` FOREIGN KEY (`MAKM`) REFERENCES `khuyenmai` (`MAKM`);
 
 --
 -- Constraints for table `chitietphieunhap`
@@ -809,24 +809,24 @@ ALTER TABLE `chitietsanpham`
   ADD CONSTRAINT `chitietsanpham_ibfk_3` FOREIGN KEY (`MABAOHANH`) REFERENCES `baohanh` (`MABAOHANH`);
 
 --
--- Constraints for table `giohang`
---
-ALTER TABLE `giohang`
-  ADD CONSTRAINT `giohang_ibfk_1` FOREIGN KEY (`MAKH`) REFERENCES `khachhang` (`MAKH`);
-
---
 -- Constraints for table `hoadon`
 --
 ALTER TABLE `hoadon`
-  ADD CONSTRAINT `hoadon_ibfk_1` FOREIGN KEY (`MANV`) REFERENCES `nhanvien` (`MANV`),
-  ADD CONSTRAINT `hoadon_ibfk_2` FOREIGN KEY (`MAKH`) REFERENCES `khachhang` (`MAKH`),
-  ADD CONSTRAINT `hoadon_ibfk_3` FOREIGN KEY (`MAGH`) REFERENCES `giohang` (`MAGH`);
+  ADD CONSTRAINT `hoadon_ibfk_1` FOREIGN KEY (`MAKH`) REFERENCES `khachhang` (`MAKH`),
+  ADD CONSTRAINT `hoadon_ibfk_2` FOREIGN KEY (`MANV`) REFERENCES `nhanvien` (`MANV`);
 
 --
 -- Constraints for table `khachhang`
 --
 ALTER TABLE `khachhang`
   ADD CONSTRAINT `khachhang_ibfk_1` FOREIGN KEY (`MATK`) REFERENCES `taikhoan` (`MATK`);
+
+--
+-- Constraints for table `khuyenmai`
+--
+ALTER TABLE `khuyenmai`
+  ADD CONSTRAINT `khuyenmai_ibfk_1` FOREIGN KEY (`MASP`) REFERENCES `sanpham` (`MASP`),
+  ADD CONSTRAINT `khuyenmai_ibfk_2` FOREIGN KEY (`MANV`) REFERENCES `nhanvien` (`MANV`);
 
 --
 -- Constraints for table `nhanvien`
@@ -853,6 +853,12 @@ ALTER TABLE `nhomquyen`
 ALTER TABLE `phanquyen`
   ADD CONSTRAINT `phanquyen_ibfk_1` FOREIGN KEY (`MATK`) REFERENCES `taikhoan` (`MATK`),
   ADD CONSTRAINT `phanquyen_ibfk_2` FOREIGN KEY (`MANHOMQUYEN`) REFERENCES `nhomquyen` (`MANHOMQUYEN`);
+
+--
+-- Constraints for table `phieunhap`
+--
+ALTER TABLE `phieunhap`
+  ADD CONSTRAINT `phieunhap_ibfk_1` FOREIGN KEY (`MANV`) REFERENCES `nhanvien` (`MANV`);
 
 --
 -- Constraints for table `sanpham`
