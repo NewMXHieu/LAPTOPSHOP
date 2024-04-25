@@ -35,7 +35,7 @@ include "../../config/function.php";
 
     <div class="header-top-right">
         <div class="cart">
-            <a href="cart.php">
+            <a href="cart">
                 <i class="fa-solid fa-cart-shopping"></i><br>
                 <!-- <img src="https://img.icons8.com/ios-glyphs/30/shopping-cart--v1.png" alt="shopping-cart--v1"/><br> -->
                 <span>Giỏ hàng</span>
@@ -85,6 +85,7 @@ include "../../config/function.php";
         if (window.location.href !== "/laptopshop/trangchu#") {
             window.location.href = "http://localhost/laptopshop/trangchu#";
         }
+        page = 1;
         // alert(search);
         delayLoad();
         $('html, body').animate({

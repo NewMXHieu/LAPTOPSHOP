@@ -1,16 +1,46 @@
 <?php
     include '../../config/connect.php';
     $search = $_GET['search'];
+    $cost = $_GET['cost'];
+    $brand = $_GET['brand'];
+    $cpu = $_GET['cpu'];
+    $ram = $_GET['ram'];
+    $storage = $_GET['storage'];
+    $loai = $_GET['loai'];
     $sanpham_tren_trang = 8;
 
-    // Lấy số trang hiện tại từ tham số truyền vào hoặc mặc định là trang 1
-    $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+    $sql_sanpham = "SELECT * FROM sanpham
+    INNER JOIN chitietsanpham ON sanpham.MASP = chitietsanpham.MASP
+    INNER JOIN nhomloaisanpham ON nhomloaisanpham.MASP = sanpham.MASP
+    INNER JOIN phanloaisanpham ON phanloaisanpham.MALOAISP = nhomloaisanpham.MALOAISP
+    INNER JOIN thuonghieu ON chitietsanpham.MATHUONGHIEU = thuonghieu.MATHUONGHIEU";
 
-    // Tính toán OFFSET cho truy vấn SQL
-    $offset = ($current_page - 1) * $sanpham_tren_trang;
-    $sql_sanpham = "SELECT * FROM sanpham, chitietsanpham, thuonghieu WHERE sanpham.MASP = chitietsanpham.MASP AND chitietsanpham.MATHUONGHIEU = thuonghieu.MATHUONGHIEU";
     $sql_sanpham = $sql_sanpham . " AND chitietsanpham.TENSP LIKE '%".$search."%'";
-    // $sql_sanpham = $sql_sanpham . " LIMIT $offset, $sanpham_tren_trang";
+
+    if($brand != 0){
+        $sql_sanpham .= " AND chitietsanpham.MATHUONGHIEU = ".$brand."";
+    }
+
+    if($cost != 0){
+        $sql_sanpham .= " AND chitietsanpham.GIATIEN ".$cost."";
+    }
+
+    if($cpu != 0){
+        $sql_sanpham .= " AND chitietsanpham.CPU LIKE '%".$cpu."%'";
+    }
+
+    if($ram != 0){
+        $sql_sanpham .= " AND chitietsanpham.RAM LIKE '%".$ram."%'";
+    }
+
+    if($storage != 0){
+        $sql_sanpham .= " AND chitietsanpham.STORAGE LIKE '%".$storage."%'";
+    }
+
+    if($loai != 0){
+        $sql_sanpham .= " AND phanloaisanpham.MALOAISP = ".$loai."";
+    }
+
     $query_sanpham = mysqli_query($conn, $sql_sanpham);
     $count = mysqli_num_rows($query_sanpham);
 

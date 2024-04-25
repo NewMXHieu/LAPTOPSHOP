@@ -45,6 +45,10 @@ Route::add('/laptopshop/profile', function() {
     require __DIR__ . '/profile.php';
 });
 
+Route::add('/laptopshop/cart', function() {
+    require __DIR__ . '/cart.php';
+});
+
 Route::add('/laptopshop/product-detail', function() {
     require __DIR__ . '/product-detail.php';
 });
