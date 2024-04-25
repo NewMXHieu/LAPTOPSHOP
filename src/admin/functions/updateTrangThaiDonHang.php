@@ -25,7 +25,7 @@
         
         // Hàm thêm sản phẩm
         function themSanPham($conn, $masp, $trangthai) {
-            $sql_sanpham = "UPDATE CHITIETHOADON 
+            $sql_sanpham = "UPDATE HOADON 
             SET TRANGTHAI = '$trangthai'
             WHERE MAHD = '$masp'";
             if ($conn->query($sql_sanpham) === TRUE) {

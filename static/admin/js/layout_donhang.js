@@ -101,7 +101,7 @@ function showArrayDonHang(arr) {
 let productHtml = "";
 if (arr.length === 0) {
     productHtml = `<tr >
-    <td colspan="6">Không có dữ liệu !!!</td>
+    <td colspan="5">Không có dữ liệu !!!</td>
 </tr>`
 } else {
     productHtml = "";
@@ -123,7 +123,6 @@ if (arr.length === 0) {
             <td>${product.MAHD}</td>
             <td>${product.TENKH}</td>
             <td>${product.TENNV}</td>
-            <td>${product.MAGH}</td>
             <td>${btnTrangThai}</td>
             <td class="table-control"><button class="item-btn-edit control-btn" onclick="editDonHang(${product.MAHD})"><i class="fa-solid fa-pen-to-square"></i></button> ${btnCtl}</td>
         </tr>`;

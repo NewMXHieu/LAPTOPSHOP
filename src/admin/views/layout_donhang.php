@@ -42,7 +42,6 @@
                                 <th>MÃ ĐƠN HÀNG</th>
                                 <th>TÊN KHÁCH HÀNG</th>
                                 <th>TÊN NHÂN VIÊN</th>
-                                <th>MÃ GIỎ HÀNG</th>
                                 <th>TRẠNG THÁI</th>
                                 <th style="width: 200px;">CHỨC NĂNG</th>
                             </tr>

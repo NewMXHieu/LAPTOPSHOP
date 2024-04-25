@@ -11,7 +11,7 @@ if (isset($_POST['idProduct'])) {
     // Nhận id từ yêu cầu POST
     $id = $_POST['idProduct'];
     // Truy vấn cơ sở dữ liệu để lấy dữ liệu sản phẩm
-    $sql = "select * from giohang INNER JOIN chitietsanpham ON chitietsanpham.MASP = giohang.MASP where magh = $id;
+    $sql = "select * from chitiethoadon  where mahd = $id;
     ";
     $result = $conn->query($sql);
     // Kiểm tra xem truy vấn có thành công không
