@@ -3,8 +3,7 @@ include '../../config/connect.php';
 ?>
 
 <div class="wrapper">
-    <div class="content content-trangchu">
-        <div class="top-trangchu">
+    <div class="content top-trangchu">
             <div class="menu menu-left">
                 <ul class="list">
                     <li><a href="#" value="asus">Laptop ASUS<img src="https://lh3.googleusercontent.com/hqBTHqQRBdv5P7EuiclPKzZZisus_wC-QZ_pq9ZRg5I4sa028thCSEwzY0yft-Gb2wyZNHZgEpo24uks-9qL12qQ9Yvy_Fcz=rw"></a></li>
@@ -23,7 +22,6 @@ include '../../config/connect.php';
                 include 'slider.php';
                 ?>
             </div>
-        </div>
         <?php
         // $query_brands = "SELECT * FROM thuonghieu";
         // $result_brands = mysqli_query($conn, $query_brands);

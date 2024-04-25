@@ -157,7 +157,8 @@ a {
 }
 
 .danhmuc {
-    background-color: aqua;
+    border-radius: 6px;
+    background-color: #cfd1d1;
     padding: 13px;
     cursor: pointer;
 }
@@ -282,6 +283,7 @@ a {
 }
 
 .product img {
+    height: 54%;
     width: 90%;
     transition: .4s;
     cursor: pointer;
@@ -343,14 +345,21 @@ a {
 
 /*============================Slider============================*/
 .slider {
-    width: 800px;
+    border-radius: 12px;
+    height: 500px;
+    width: 998px;
     overflow: hidden;
     position: relative;
 }
 
 .list-img {
+    height: 500px;
     display: flex;
     transition: .5s;
+}
+
+.list-img img{
+    width: auto;
 }
 .btn-left {
     left: 0;
@@ -420,8 +429,10 @@ a {
 }
 
 .pagination {
-    padding-top: 15px;
-    gap: 2px;
+    width: 96%;
+    bottom: 18px;
+    position: absolute;
+    gap: 8px;
     display: flex;
     justify-content: center;
 }
@@ -442,7 +453,12 @@ a {
     border-color: var(--mycolor1);
 }
 
-
+.thongbao {
+    font-size: xx-large;
+    color: red;
+    text-align: center;
+    font-weight: bolder;
+}
 /*====================================Log in, log out================================*/
 .log-in,
 .log-out {
@@ -656,6 +672,7 @@ h3 {
 }
 
 .menu-right {
+    max-height: 900px;
     width: 80%;
 }
 

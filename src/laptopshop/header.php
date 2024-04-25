@@ -85,6 +85,7 @@ include "../../config/function.php";
         if (window.location.href !== "/laptopshop/trangchu#") {
             window.location.href = "http://localhost/laptopshop/trangchu#";
         }
+        page = 1;
         // alert(search);
         delayLoad();
         $('html, body').animate({
