@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2024 at 08:48 AM
+-- Generation Time: Apr 25, 2024 at 11:15 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -26,10 +26,6 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `baohanh`
 --
-
-DROP DATABASE IF EXISTS cuahanglaptop;
-CREATE DATABASE cuahanglaptop;
-USE cuahanglaptop;
 
 CREATE TABLE `baohanh` (
   `MABAOHANH` int(11) NOT NULL,
@@ -65,16 +61,6 @@ CREATE TABLE `chitiethoadon` (
   `MASP` int(11) NOT NULL,
   `SOLUONG` int(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `chitiethoadon`
---
-
-INSERT INTO `chitiethoadon` (`MAHD`, `MASP`, `SOLUONG`) VALUES
-(1, 1, 1),
-(1, 2, 1),
-(1, 3, 1),
-(1, 5, 1);
 
 -- --------------------------------------------------------
 
@@ -172,16 +158,10 @@ CREATE TABLE `hoadon` (
   `MAHD` int(11) NOT NULL,
   `MAKH` int(11) DEFAULT NULL,
   `MANV` int(11) DEFAULT NULL,
+  `MASHIPPER` int(11) NOT NULL,
   `NGAYTAO` date DEFAULT NULL,
   `TRANGTHAI` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `hoadon`
---
-
-INSERT INTO `hoadon` (`MAHD`, `MAKH`, `MANV`, `NGAYTAO`, `TRANGTHAI`) VALUES
-(1, 1, 1, '2024-04-23', 0);
 
 -- --------------------------------------------------------
 
@@ -509,6 +489,21 @@ INSERT INTO `sanpham` (`MASP`, `HINHSP`, `MANV`, `SOLUONG`, `MANCC`, `TRANGTHAI`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `shipper`
+--
+
+CREATE TABLE `shipper` (
+  `MASHIPPER` int(11) NOT NULL,
+  `TEN` varchar(100) NOT NULL,
+  `DIACHI` varchar(200) NOT NULL,
+  `SDT` varchar(100) NOT NULL,
+  `EMAIL` varchar(100) NOT NULL,
+  `TRANGTHAI` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `taikhoan`
 --
 
@@ -601,7 +596,8 @@ ALTER TABLE `chitietsanpham`
 ALTER TABLE `hoadon`
   ADD PRIMARY KEY (`MAHD`),
   ADD KEY `MAKH` (`MAKH`),
-  ADD KEY `MANV` (`MANV`);
+  ADD KEY `MANV` (`MANV`),
+  ADD KEY `hoadon_ibfk_3` (`MASHIPPER`);
 
 --
 -- Indexes for table `khachhang`
@@ -678,6 +674,12 @@ ALTER TABLE `sanpham`
   ADD PRIMARY KEY (`MASP`),
   ADD KEY `MANV` (`MANV`),
   ADD KEY `MANCC` (`MANCC`);
+
+--
+-- Indexes for table `shipper`
+--
+ALTER TABLE `shipper`
+  ADD PRIMARY KEY (`MASHIPPER`);
 
 --
 -- Indexes for table `taikhoan`
@@ -817,7 +819,8 @@ ALTER TABLE `chitietsanpham`
 --
 ALTER TABLE `hoadon`
   ADD CONSTRAINT `hoadon_ibfk_1` FOREIGN KEY (`MAKH`) REFERENCES `khachhang` (`MAKH`),
-  ADD CONSTRAINT `hoadon_ibfk_2` FOREIGN KEY (`MANV`) REFERENCES `nhanvien` (`MANV`);
+  ADD CONSTRAINT `hoadon_ibfk_2` FOREIGN KEY (`MANV`) REFERENCES `nhanvien` (`MANV`),
+  ADD CONSTRAINT `hoadon_ibfk_3` FOREIGN KEY (`MASHIPPER`) REFERENCES `shipper` (`MASHIPPER`);
 
 --
 -- Constraints for table `khachhang`
