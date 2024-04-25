@@ -1,15 +1,6 @@
 <?php
 include "../../config/connect.php";
 include "../../config/function.php";
-
-// session_start();
-// $username = $_SESSION['username'];
-?>
-
-<?php
-// $slider =  execute("SELECT * FROM  image WHERE type = 0 and status = 0 ORDER BY ordering limit 0,5")->fetch_all(MYSQLI_ASSOC);
-// $banner =  execute("SELECT * FROM  image WHERE type = 1 and status = 0 ORDER BY ordering")->fetch_all(MYSQLI_ASSOC);
-// $payment =  execute("SELECT * FROM  image WHERE type = 3 and status = 0 ORDER BY ordering DESC limit 0,5")->fetch_all(MYSQLI_ASSOC);
 ?>
 
 
@@ -67,21 +58,21 @@ include "../../config/function.php";
     </div>
 </div>
 <script>
-    $('.danhmuc').click(function(){
+    $('.danhmuc').click(function () {
         if (window.location.href !== "/laptopshop/trangchu#") {
             window.location.href = "http://localhost/laptopshop/trangchu#";
         }
         $('html, body').animate({
-            scrollTop: $(".menu-left").offset().top -200 // Thay ".main" bằng selector của phần hiện sản phẩm của bạn
-    }, 'slow');
+            scrollTop: $(".menu-left").offset().top - 200 // Thay ".main" bằng selector của phần hiện sản phẩm của bạn
+        }, 'slow');
     });
-    
-    $(document).ready(function() {
-        
+
+    $(document).ready(function () {
+
         // $("#bthSearch").click();
         delayLoad();
     });
-    $("#bthSearch").click(function(){
+    $("#bthSearch").click(function () {
         search = $("#txtSearch").val().trim();
         if (window.location.href !== "/laptopshop/trangchu#") {
             localStorage.setItem('searchValue', search);
@@ -90,31 +81,31 @@ include "../../config/function.php";
         delayLoad();
     })
 
-    function delayLoad(){
+    function delayLoad() {
         page = 1;
         if (localStorage.getItem('searchValue')) {
             search = localStorage.getItem('searchValue');
             // localStorage.removeItem('searchValue');
         }
-        
+
         $("#txtSearch").val(search);
         readData(search);
         Pagination(search);
         $('html, body').animate({
-            scrollTop: $(".main").offset().top -70 // Thay ".main" bằng selector của phần hiện sản phẩm của bạn
+            scrollTop: $(".main").offset().top - 70 // Thay ".main" bằng selector của phần hiện sản phẩm của bạn
         }, 'slow');
     }
-    document.onkeydown=function(){
-        if(window.event.keyCode=='13'){
+    document.onkeydown = function () {
+        if (window.event.keyCode == '13') {
             $("#bthSearch").click();
         }
     }
-    $(".fa-circle-xmark").click(function(){
+    $(".fa-circle-xmark").click(function () {
         search = '';
         localStorage.removeItem('searchValue');
         delayLoad();
     })
-    
-    
-    
+
+
+
 </script>

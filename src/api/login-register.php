@@ -36,7 +36,7 @@ function register()
 
   $user = mysqli_query($conn, "SELECT * FROM taikhoan WHERE tendn = '$username'");
   if (mysqli_num_rows($user) > 0) {
-    echo json_encode(array("message" => "c"));
+    echo json_encode(array("message" => "Tên tài khoản đã tồn tại"));
     exit;
   }
 

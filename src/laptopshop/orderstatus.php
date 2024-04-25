@@ -3,13 +3,14 @@ $userId = $_SESSION['id'];
 
 global $conn;
 // create the SQL query
-$query = "SELECT hoadon.* 
+$query = "SELECT hoadon.* , shipper.TEN, shipper.SDT
           FROM khachhang 
           INNER JOIN hoadon ON khachhang.makh = hoadon.makh
+          INNER JOIN shipper ON hoadon.mashipper = shipper.mashipper
           WHERE khachhang.matk = $userId";
 $result = mysqli_query($conn, $query);
-if (mysqli_num_rows($result) > 0) {
-    $order = mysqli_fetch_assoc($result);
+$order = mysqli_fetch_assoc($result);
+if (mysqli_num_rows($result) > 0 && $order['TRANGTHAI'] != 4) {
     ?>
     <link rel="stylesheet" href="static/css/orderstatus.css">
 
@@ -23,8 +24,8 @@ if (mysqli_num_rows($result) > 0) {
                         <div class="col"> <strong>Ngày đặt hàng</strong>
                             <br><?= date('d/m/Y', strtotime($order['NGAYTAO'])) ?> <br>
                         </div>
-                        <div class="col"> <strong>Được giao bởi</strong> <br> Nguyễn Văn A <i class="fa fa-phone"></i>
-                            +1598675986 </div>
+                        <div class="col"> <strong>Được giao bởi</strong> <br> <?= $order['TEN']?><i class="fa fa-phone"></i>
+                        <?= $order['SDT']?> </div>
                         <div class="col"> <strong>Tình trạng</strong> <br>
                             <?php
                             switch ($order['TRANGTHAI']) {

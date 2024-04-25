@@ -1,7 +1,10 @@
 <?php
-require '../api/login-register.php';
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
 if (isset($_SESSION["id"])) {
-  header("Location: trangchu");
+  echo "<script>window.location.href = 'trangchu';</script>";
+  exit();
 }
 ?>
 
@@ -11,7 +14,7 @@ if (isset($_SESSION["id"])) {
 <div class="log-in">
   <a href="trangchu"><span class="icon-close"><i class="fa fa-times"></i></span></a>
   <h1>ĐĂNG NHẬP</h1>
-  <form autocomplete="off" action="" method="post">
+  <form autocomplete="off" action="" method="">
     <input type="hidden" id="action" value="login">
     <div class="item">
       <input id="username" type="text" name="username" required> 
@@ -34,7 +37,7 @@ if (isset($_SESSION["id"])) {
       <h2>Thông báo</h2>
       <p>Đăng nhập thành công, bạn sẽ chuyển hướng sang trang chủ</p>
       <div class="action-btn">
-        <button><a href="sign-in" class="button-link">OK</a></button>
+        <button><a href="trangchu" class="button-link">OK</a></button>
       </div>
     </div>
     <div class="popup_button" id="popup-login-fail">
