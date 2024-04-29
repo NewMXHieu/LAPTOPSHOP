@@ -53,6 +53,10 @@ Route::add('/laptopshop/product-detail', function() {
     require __DIR__ . '/product-detail.php';
 });
 
+Route::add('/laptopshop/checkout', function() {
+    require __DIR__ . '/checkout.php';
+});
+
 Route::submit();
 
 ?>
