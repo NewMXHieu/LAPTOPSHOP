@@ -1,5 +1,4 @@
 <?php
-require '../api/login-register.php';
 if (isset($_SESSION["id"])) {
   header("Location: index.php");
 }
@@ -36,13 +35,21 @@ if (isset($_SESSION["id"])) {
     </div>
     <button onclick="submitData()" type="button" value="button">Đăng ký</button>
     <link rel="stylesheet" href="static/css/popup.css">
-    <div class="popup_button" id="popup-register">
+    <div class="popup_button" id="popup-register-successful">
       <img src="static/image/404-tick.png" alt="">
       <h2>Thông báo</h2>
       <p>Đăng ký thành công, bạn có muốn đăng nhập ngay không?</p>
       <div class="action-btn">
-        <button onclick="closePopup()">Hủy</button>
+        <button onclick="closePopup(event)">Hủy</button>
         <button><a href="sign-in" class="button-link">OK</a></button>
+      </div>
+    </div>
+    <div class="popup_button" id="popup-register-fail">
+      <img src="static/image/delete.png" alt="">
+      <h2>Thông báo</h2>
+      <p></p>
+      <div class="action-btn">
+        <button onclick="closePopup(event)">OK</button>
       </div>
     </div>
   </form>

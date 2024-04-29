@@ -5,7 +5,12 @@
 $conn = connectToDatabase();
 
 // Truy vấn đếm số nhân viên
-$sql = "SELECT SUM(TONGTIEN) AS total FROM chitiethoadon"; 
+$sql = "SELECT SUM(GIATIEN) as total
+FROM chitiethoadon
+INNER JOIN chitietsanpham ON chitietsanpham.MASP = chitiethoadon.MASP
+INNER JOIN HOADON ON hoadon.MAHD = chitiethoadon.MAHD
+WHERE TRANGTHAI = 1
+"; 
 $result = mysqli_query($conn, $sql);
 
 // Kiểm tra và gửi kết quả dưới dạng JSON

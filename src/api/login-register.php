@@ -25,18 +25,18 @@ function register()
   $currentDateTime = date('Y-m-d');
   $state = 1;
 
-  if (empty($username) || empty($password) || empty($confirm_password)) {
-    echo json_encode(array("message" => "Please enter your username and password"));
+  if (empty($username) || empty($password) || empty($confirm_password) || empty($fullname)) {
+    echo json_encode(array("message" => "Vui lòng nhập đầy đủ thông tin"));
     exit;
   }
   if ($password != $confirm_password) {
-    echo json_encode(array("message" => "Passwords do not match"));
+    echo json_encode(array("message" => "Mật khẩu không khớp"));
     exit;
   }
 
   $user = mysqli_query($conn, "SELECT * FROM taikhoan WHERE tendn = '$username'");
   if (mysqli_num_rows($user) > 0) {
-    echo json_encode(array("message" => "Username Has Already Taken"));
+    echo json_encode(array("message" => "Tên tài khoản đã tồn tại"));
     exit;
   }
 
@@ -58,12 +58,17 @@ function login()
 
     $username = $_POST["username"];
     $password = $_POST["password"];
-
+    if (empty($username) || empty($password)) {
+      echo json_encode(array("message" => "Vui lòng nhập tên đăng nhập và mật khẩu"));
+      exit;
+    }
     $user = mysqli_query($conn, "SELECT * FROM taikhoan WHERE tendn = '$username'");
+  
 
     if (mysqli_num_rows($user) > 0) {
 
       $row = mysqli_fetch_assoc($user);
+
 
       if ($password == $row['MATKHAU']) {
         $query_permission = "SELECT * FROM phanquyen WHERE MATK = " . $row['MATK'];
@@ -97,7 +102,7 @@ function login()
         $userInfo = mysqli_fetch_assoc($userInfoSQLResult);
 
         // Get user's role
-        
+
 
         // response with userInfo and loginRoute
         $dataRespone = json_encode(array("message" => "Login Successful", "loginRoute" => $permission['MANHOMQUYEN']));
@@ -110,7 +115,7 @@ function login()
         echo json_encode(array("message" => "Mật khẩu sai"));
         exit;
       }
-      
+
     } else {
       echo json_encode(array("message" => "Tên tài khoản hoặc mật khẩu sai"));
       exit;

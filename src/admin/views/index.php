@@ -154,7 +154,7 @@
                         <div class="content-main-trangchu-card-name">Doanh thu</div>
                         <div class="content-main-trangchu-card-detail">
                             <div class="content-main-trangchu-card-detail-nhanvien" id="admin-trangchu-doanhthu" name="admin-trangchu-doanhthu">
-                                100.000.000 VNĐ
+                                
                             </div>
                         </div>
                     </div>

@@ -14,13 +14,13 @@ function editDonHang(id){
     layDsSP(donhangs[index].MAGH);
 }
 
-function layDsSP(magiohang){
+function layDsSP(mahd){
     var dsSP = [];
         $.ajax({
             url: 'api/admin/layDsSanPhamDonHang.php', // Đường dẫn đến trang PHP
             type: 'POST', // Phương thức POST sẽ gửi dữ liệu qua body
             dataType: 'json',
-            data: { idProduct: magiohang }, // Dữ liệu gửi đi (id sản phẩm)
+            data: { idProduct: mahd }, // Dữ liệu gửi đi (id sản phẩm)
             success: function(data) {
                 data.forEach(item=>{
                     dsSP.push(item);

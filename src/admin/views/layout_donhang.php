@@ -20,6 +20,8 @@
                             <option value="0" selected>Tất cả</option>
                             <option value="1">Đã xử lý</option>
                             <option value="2">Chưa xử lý</option>
+                            <option value="3">Đã hủy</option>
+                            
                         </select>
                     </div>
                     <div class="content-main-searchbar">
@@ -42,7 +44,6 @@
                                 <th>MÃ ĐƠN HÀNG</th>
                                 <th>TÊN KHÁCH HÀNG</th>
                                 <th>TÊN NHÂN VIÊN</th>
-                                <th>MÃ GIỎ HÀNG</th>
                                 <th>TRẠNG THÁI</th>
                                 <th style="width: 200px;">CHỨC NĂNG</th>
                             </tr>

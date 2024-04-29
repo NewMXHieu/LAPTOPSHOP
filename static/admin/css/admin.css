@@ -51,7 +51,9 @@ body{
 {
     color: var(--main-color);
 }
-
+.layout{
+    height: 100vh;
+}
 .sidebar-header-image {
     height: 80%;
     display: flex;

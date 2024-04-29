@@ -10,17 +10,17 @@ phanloaisanpham.MALOAISP,
 phanloaisanpham.TENLOAISP,
 thuonghieu.MATHUONGHIEU,
 thuonghieu.TENTHUONGHIEU,
-chitietgiohang.MASP,
+chitietsanpham.MASP,
 chitietsanpham.TENSP, 
-SUM(chitietgiohang.SOLUONG) AS TONGSOLUONG, 
-SUM(chitietgiohang.SOLUONG * chitietsanpham.GIATIEN) AS TONGGIATIEN 
-FROM giohang 
-INNER JOIN chitietgiohang on chitietgiohang.MAGH = giohang.MAGH
-INNER JOIN chitietsanpham ON chitietsanpham.MASP = chitietgiohang.MASP 
-INNER JOIN nhomloaisanpham ON nhomloaisanpham.MASP = chitietgiohang.MASP
+SUM(chitiethoadon.SOLUONG) AS TONGSOLUONG, 
+SUM(chitiethoadon.SOLUONG * chitietsanpham.GIATIEN) AS TONGGIATIEN 
+FROM HOADON
+INNER JOIN chitiethoadon ON chitiethoadon.MAHD = hoadon.MAHD
+INNER JOIN chitietsanpham ON chitietsanpham.MASP = chitiethoadon.MASP 
+INNER JOIN nhomloaisanpham ON nhomloaisanpham.MASP = chitiethoadon.MASP
 INNER JOIN phanloaisanpham on phanloaisanpham.MALOAISP = nhomloaisanpham.MALOAISP
-INNER JOIN thuonghieu ON thuonghieu.MATHUONGHIEU = chitietgiohang.MASP
-GROUP BY chitietgiohang.MASP, chitietsanpham.TENSP;";
+INNER JOIN thuonghieu ON thuonghieu.MATHUONGHIEU = chitiethoadon.MASP
+GROUP BY chitietsanpham.MASP";
 $result = $conn->query($sql);
 $thongkes = [];
 
@@ -39,7 +39,7 @@ if ($result->num_rows > 0) {
             'TONGSOLUONG' => $row['TONGSOLUONG'],
             'TONGGIATIEN' => $row['TONGGIATIEN'],
         ];
-        $thongkes = $tk;
+        $thongkes[] = $tk;
     }
     echo json_encode($thongkes, JSON_UNESCAPED_UNICODE);
 } 

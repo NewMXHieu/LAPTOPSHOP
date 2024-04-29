@@ -108,6 +108,7 @@ if (arr.length === 0) {
 
     
     arr.forEach(product => {
+        console.log(product);
         productHtml +=
             `<tr>
             <td>${product.TENLOAISP}</td>

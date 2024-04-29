@@ -1,6 +1,7 @@
 <?php
-session_start();
-include 'connect.php';
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 
 // Hàm thực thi
@@ -106,7 +107,7 @@ function send_mail($cus_email, $message, $title)
     $mail->isHTML(true);                                  // Set email format to HTML
 
     $mail->Subject = $title;
-    $mail->Body    =  $message;
+    $mail->Body = $message;
     // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     if (!$mail->send()) {
@@ -144,6 +145,7 @@ function getdata()
                                 WHERE o.created > '$firstDay' AND o.created < '$lastDay' AND o.status = 3")->fetch_assoc();
         $data[] = $total_month['total_month'];
     }
-   return $data;
+    return $data;
 }
 
+?>

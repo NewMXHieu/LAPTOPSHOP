@@ -73,10 +73,6 @@ textarea{
     display: flex;
     align-items: center;
     justify-content: center;
-    top: 65px;
-    bottom: 0;
-    left: 1530px;
-    right: 0;
     position: absolute;
     border: 1px solid black;
     border-radius: 10px;
@@ -84,10 +80,17 @@ textarea{
     z-index: 12;
 }
 
-.modal-close-khachhang{
-    top: 225px;
+.modal-close-sanpham{
+    top: 15px;
     bottom: 0;
-    left: 1320px;
+    left: 1425px;
+    right: 0;
+}
+
+.modal-close-khachhang{
+    top: 175px;
+    bottom: 0;
+    left: 1215px;
     right: 0;
 }
 
