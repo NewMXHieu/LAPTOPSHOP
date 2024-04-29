@@ -24,8 +24,8 @@ if (mysqli_num_rows($result) > 0 && $order['TRANGTHAI'] != 4) {
                         <div class="col"> <strong>Ngày đặt hàng</strong>
                             <br><?= date('d/m/Y', strtotime($order['NGAYTAO'])) ?> <br>
                         </div>
-                        <div class="col"> <strong>Được giao bởi</strong> <br> <?= $order['TEN']?><i class="fa fa-phone"></i>
-                        <?= $order['SDT']?> </div>
+                        <div class="col"> <strong>Được giao bởi</strong> <br> <?= $order['TEN'] ?><i class="fa fa-phone"></i>
+                            <?= $order['SDT'] ?> </div>
                         <div class="col"> <strong>Tình trạng</strong> <br>
                             <?php
                             switch ($order['TRANGTHAI']) {
@@ -80,12 +80,12 @@ if (mysqli_num_rows($result) > 0 && $order['TRANGTHAI'] != 4) {
                 return number_format($amount, 0, '.', '.');
             }
 
-            $query = "SELECT hoadon.MAHD, chitiethoadon.MASP, chitiethoadon.SOLUONG AS SL, chitietsanpham.*, sanpham.HINHSP
-        FROM hoadon
-        INNER JOIN chitiethoadon ON hoadon.MAHD = chitiethoadon.MAHD
-        INNER JOIN chitietsanpham ON chitiethoadon.MASP = chitietsanpham.MASP
-        INNER JOIN sanpham ON chitietsanpham.MASP = sanpham.MASP
-        WHERE hoadon.MAHD = " . $order['MAHD'];
+            $query = "SELECT hoadon.MAHD, COUNT(chitiethoadon.MASP) AS SL, chitietsanpham.*, sanpham.HINHSP 
+            FROM hoadon 
+            INNER JOIN chitiethoadon ON hoadon.MAHD = chitiethoadon.MAHD 
+            INNER JOIN chitietsanpham ON chitiethoadon.MASP = chitietsanpham.MASP 
+            INNER JOIN sanpham ON chitietsanpham.MASP = sanpham.MASP WHERE hoadon.MAHD = " . $order['MAHD'] . "
+            GROUP BY chitiethoadon.MASP;";
             $result = mysqli_query($conn, $query);
             ?>
             <?php while ($product = mysqli_fetch_assoc($result)) { ?>

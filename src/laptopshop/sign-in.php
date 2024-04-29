@@ -8,7 +8,6 @@ if (isset($_SESSION["id"])) {
 }
 ?>
 
-
 <link rel="stylesheet" href="static/css/style.css">
 
 <div class="log-in">
