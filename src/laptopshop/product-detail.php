@@ -23,7 +23,7 @@
 
 <div class="detail">
     <!--================ Ảnh và thông tin khuyến mãi ========================-->
-    <div class="product">
+    <div class="product-detail">
         <div class="product-image">
             <?php
                 $query_imageProduct = "SELECT * FROM sanpham WHERE MASP = " . $product['MASP'];
@@ -46,7 +46,10 @@
                     <li>Giao hàng nhanh ngay trong ngày</li>
                     <li>Miễn phí đổi trả nếu có bất kỳ vấn đề trong vòng 1 tháng từ khi mua hàng</li>
                 </ul>
-
+            </div>
+            <div class="paying-product">
+                <button>Mua ngay</button>
+                <button>Thêm vào giỏ hàng</button>
             </div>
         </div>
     </div>
@@ -114,12 +117,33 @@
 
 <!--========================= Gợi ý thêm sản phẩm ==========================-->
 <div class="recommend">
-    <h3>Một số sản phẩm khác</h3>
+    <?php
+    $recommend_query = "SELECT * FROM sanpham
+    INNER JOIN chitietsanpham ON sanpham.MASP = chitietsanpham.MASP
+    INNER JOIN thuonghieu ON chitietsanpham.MATHUONGHIEU = thuonghieu.MATHUONGHIEU";
 
-    <div class="recommend-list">
+    $recommend_result = mysqli_query($conn,$recommend_query);
 
-    </div>
+    $data = '';
+    $list = '<div class = "recommend-list">';
+    
+    while($row_recommend = mysqli_fetch_assoc($recommend_result)){
+        if ($_GET['id'] != $row_recommend['MASP']){
+            $data.= '<div class="product">';
+            $data.= '<a href="product-detail?id=' .$row_recommend['MASP']. '">';
+                $data.= '<img src="static/image/products/'.$row_recommend['HINHSP'].'"alt="">';
+                $data.= '<div class="clear">';
+                    $data.= '<a href="product-detail?id=' .$row_recommend['MASP']. '">' .$row_recommend['TENSP']. '</a>';
+                    $data.= '<h2>' .$row_recommend['TENTHUONGHIEU']. '</h2>';
+                    $data.= '<div class="price">' . number_format($row_recommend['GIATIEN'], 0, "", ".") . " Vnd". '</div>';
+                    $data.= '<button class="addCart">Thêm <i class="fa-solid fa-plus"></i></button>';
+                $data.= '</div>';
+            $data.= '</a>';
+        $data.= '</div>';
+        }
+        $list .= $data;
+    }
 
-
-
+    echo $list;
+    ?>
 </div>

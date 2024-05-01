@@ -183,13 +183,15 @@ a {
     top: 50%;
     right: 125px;
     transform: translateY(-50%);
-    display: none; /* Mặc định ẩn biểu tượng */
+    display: none;
+    /* Mặc định ẩn biểu tượng */
     cursor: pointer;
 }
 
-.input-search1:hover + .fa-circle-xmark,
+.input-search1:hover+.fa-circle-xmark,
 .fa-circle-xmark:hover {
-    display: block; /* Hiển thị biểu tượng khi hover vào input */
+    display: block;
+    /* Hiển thị biểu tượng khi hover vào input */
 }
 
 .input-search1 {
@@ -275,12 +277,13 @@ a {
     padding: 13px 10px;
 }
 
-.list li a:hover{
+.list li a:hover {
     border: 1px solid red;
     border-radius: 12px;
     padding: 12px 11px;
 }
-.list li a img{
+
+.list li a img {
     height: 20px;
 }
 
@@ -391,9 +394,10 @@ a {
     transition: .5s;
 }
 
-.list-img img{
+.list-img img {
     width: auto;
 }
+
 .btn-left {
     left: 0;
 }
@@ -401,6 +405,7 @@ a {
 .btn-right {
     right: 0;
 }
+
 .slider .btn {
     padding: 0 20px;
     font-size: 50px;
@@ -423,6 +428,7 @@ a {
     transition: .5s;
     cursor: pointer;
 }
+
 .btns-product .btn {
     padding: 5px 8px;
     font-size: 30px;
@@ -435,6 +441,7 @@ a {
     top: 50%;
     transform: translateY(-50%);
 }
+
 .btns-product .btn:hover::before {
     /* color: var(--mycolor2); */
     content: '';
@@ -475,12 +482,14 @@ a {
     border: 1px solid var(--mycolor1);
     border-radius: 5px;
 }
-.pagination a:hover  {
+
+.pagination a:hover {
     background-color: #007bff;
     color: #fff;
     border-color: #007bff;
 }
-.pagination a.active{
+
+.pagination a.active {
     background-color: var(--mycolor1);
     color: #fff;
     border-color: var(--mycolor1);
@@ -492,6 +501,7 @@ a {
     text-align: center;
     font-weight: bolder;
 }
+
 /*====================================Log in, log out================================*/
 .log-in,
 .log-out {
@@ -733,36 +743,99 @@ h3 {
     width: 100%;
     box-shadow: 0 1px 15px;
     background-color: var(--mycolor2);
-    margin: 20px 0 0;
+    margin: 30px 0 0;
     padding: 50px 15%;
-    min-height: 800px;
     background-color: #d8d8f5;
 }
 
-.detail .product {
+.detail .product-detail {
     display: flex;
-    width: 69%;
+    width: 65%;
     background-color: #fff;
-    margin-right: 10px;
-    border: solid violet;
-
+    padding: 25px;
+    margin-right: 5px;
 }
 
 .detail .information {
-    display: block;
-    width: 30%;
+    width: 34%;
     background-color: #fff;
-    border: solid violet;
-
+    padding: 25px 0 0;
+    margin-left: 5px;
 }
 
-.product-image {
+.product-image img {
+    width: 100%;
+}
+
+.product-detail .product-image {
+    width: 40%;
+    margin-right: 10px;
+}
+
+
+.product-detail .thongtinsp {
+    width: 60%;
+}
+
+.thongtinsp .product-name {
+    width: 100%;
+    margin-bottom: 10px;
+    height: 100px;
+}
+
+.product-name p {
+    margin: 10px;
+    font-size: 15px;
+    color: red;
+}
+
+.thongtinsp .promotion {
+    margin: 0 20px;
+}
+
+.thongtinsp .promotion h5 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.paying-product button {
+    padding: 50px 70px;
+    border: solid #000;
+    margin-top: 20px;
+}
+
+
+
+
+.information h5 {
+    text-align: center;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.information-list {
+    width: 10 0%;
+}
+
+.information-list td {
+    padding: 10px;
+    border: solid #000;
+}
+
+.detail-name {
     width: 30%;
 }
 
-.thongtinsanpham {
-    width: 50%;
+.detail-content {
+    width: 45%;
 }
+
+
+
+
+
+
 
 
 
@@ -771,7 +844,8 @@ h3 {
     background-color: #d8d8f5;
     padding: 0 15%;
     height: 350px;
-    border-top: solid violet;
+    border-top: solid #000;
+    display: flex;
 
 }
 
