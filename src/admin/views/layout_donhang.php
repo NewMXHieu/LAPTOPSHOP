@@ -20,6 +20,8 @@
                             <option value="0" selected>Tất cả</option>
                             <option value="1">Đã xử lý</option>
                             <option value="2">Chưa xử lý</option>
+                            <option value="3">Đã hủy</option>
+                            
                         </select>
                     </div>
                     <div class="content-main-searchbar">

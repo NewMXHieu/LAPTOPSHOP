@@ -11,8 +11,6 @@
 
     $sql_sanpham = "SELECT * FROM sanpham
     INNER JOIN chitietsanpham ON sanpham.MASP = chitietsanpham.MASP
-    INNER JOIN nhomloaisanpham ON nhomloaisanpham.MASP = sanpham.MASP
-    INNER JOIN phanloaisanpham ON phanloaisanpham.MALOAISP = nhomloaisanpham.MALOAISP
     INNER JOIN thuonghieu ON chitietsanpham.MATHUONGHIEU = thuonghieu.MATHUONGHIEU";
 
     $sql_sanpham = $sql_sanpham . " AND chitietsanpham.TENSP LIKE '%".$search."%'";
@@ -38,7 +36,9 @@
     }
 
     if($loai != 0){
-        $sql_sanpham .= " AND phanloaisanpham.MALOAISP = ".$loai."";
+        $sql_sanpham .= " INNER JOIN nhomloaisanpham ON nhomloaisanpham.MASP = sanpham.MASP 
+        INNER JOIN phanloaisanpham ON phanloaisanpham.MALOAISP = nhomloaisanpham.MALOAISP
+        AND phanloaisanpham.MALOAISP = ".$loai."";
     }
 
     $query_sanpham = mysqli_query($conn, $sql_sanpham);

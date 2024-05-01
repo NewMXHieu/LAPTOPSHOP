@@ -10,17 +10,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['orderId'])) {
         $orderId = $_POST['orderId'];
 
-        $sql_delete_chitiethoadon = "DELETE FROM chitiethoadon WHERE MAHD = $orderId";
-        $result_chitiethoadon = mysqli_query($conn, $sql_delete_chitiethoadon);
+        $sql_update_hoadon = "UPDATE hoadon SET TRANGTHAI = 4 WHERE MAHD = $orderId";
+        $result_hoadon = mysqli_query($conn, $sql_update_hoadon);
 
-        $sql_delete_hoadon = "DELETE FROM hoadon WHERE MAHD = $orderId";
-        $result_hoadon = mysqli_query($conn, $sql_delete_hoadon);
-
-        if ($result_chitiethoadon && $result_hoadon) {
+        if ($result_hoadon) {
             $response['success'] = true;
-            $response['message'] = 'Order deleted successfully';
+            $response['message'] = 'Order updated successfully';
         } else {
-            $response['message'] = 'Failed to delete order';
+            $response['message'] = 'Failed to update order';
         }
     } else {
         $response['message'] = 'Order ID is required';

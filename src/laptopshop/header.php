@@ -1,15 +1,6 @@
 <?php
 include "../../config/connect.php";
 include "../../config/function.php";
-
-// session_start();
-// $username = $_SESSION['username'];
-?>
-
-<?php
-// $slider =  execute("SELECT * FROM  image WHERE type = 0 and status = 0 ORDER BY ordering limit 0,5")->fetch_all(MYSQLI_ASSOC);
-// $banner =  execute("SELECT * FROM  image WHERE type = 1 and status = 0 ORDER BY ordering")->fetch_all(MYSQLI_ASSOC);
-// $payment =  execute("SELECT * FROM  image WHERE type = 3 and status = 0 ORDER BY ordering DESC limit 0,5")->fetch_all(MYSQLI_ASSOC);
 ?>
 
 
@@ -26,10 +17,11 @@ include "../../config/function.php";
             <li><a class="nav-link" href="contact">Liên hệ</a></li>
         </ul>
     </div> -->
-    <div class="danhmuc"><i class="fa-solid fa-bars"></i> Danh muc</div>
+    <div class="danhmuc"><i class="fa-solid fa-bars"></i> Danh mục</div>
     <div class="search">
-        <input class="input-search1" id="txtSearch" type="text" name="fseacrh" placeholder="Search in here...">
-        <input class="input-search2" id="bthSearch" type="submit" name="search" value="Search">
+        <input class="input-search1" id="txtSearch" type="text" name="fseacrh" placeholder="Nhập từ khóa cần tìm">
+        <i class="fa-solid fa-circle-xmark"></i>
+        <button class="input-search2" id="bthSearch"><i class="fa-solid fa-magnifying-glass"></i></button>
     </div>
 
 
@@ -66,46 +58,54 @@ include "../../config/function.php";
     </div>
 </div>
 <script>
-    $('.danhmuc').click(function(){
+    $('.danhmuc').click(function () {
         if (window.location.href !== "/laptopshop/trangchu#") {
             window.location.href = "http://localhost/laptopshop/trangchu#";
         }
         $('html, body').animate({
-            scrollTop: $(".menu-left").offset().top -200 // Thay ".main" bằng selector của phần hiện sản phẩm của bạn
-    }, 'slow');
+            scrollTop: $(".menu-left").offset().top - 200 // Thay ".main" bằng selector của phần hiện sản phẩm của bạn
+        }, 'slow');
     });
-    
-    $(document).ready(function() {
-        
+
+    $(document).ready(function () {
+
         // $("#bthSearch").click();
         delayLoad();
     });
-    $("#bthSearch").click(function(){
+    $("#bthSearch").click(function () {
         search = $("#txtSearch").val().trim();
         if (window.location.href !== "/laptopshop/trangchu#") {
+            localStorage.setItem('searchValue', search);
             window.location.href = "http://localhost/laptopshop/trangchu#";
         }
-        page = 1;
-        // alert(search);
         delayLoad();
-        $('html, body').animate({
-            scrollTop: $(".main").offset().top -70 // Thay ".main" bằng selector của phần hiện sản phẩm của bạn
-        }, 'slow');
     })
 
-    function delayLoad(){
-        
+    function delayLoad() {
+        page = 1;
+        if (localStorage.getItem('searchValue')) {
+            search = localStorage.getItem('searchValue');
+            // localStorage.removeItem('searchValue');
+        }
+
+        $("#txtSearch").val(search);
         readData(search);
         Pagination(search);
-        
+        $('html, body').animate({
+            scrollTop: $(".main").offset().top - 70 // Thay ".main" bằng selector của phần hiện sản phẩm của bạn
+        }, 'slow');
     }
-    document.onkeydown=function(){
-        if(window.event.keyCode=='13'){
+    document.onkeydown = function () {
+        if (window.event.keyCode == '13') {
             $("#bthSearch").click();
         }
     }
+    $(".fa-circle-xmark").click(function () {
+        search = '';
+        localStorage.removeItem('searchValue');
+        delayLoad();
+    })
 
-    
-    
-    
+
+
 </script>

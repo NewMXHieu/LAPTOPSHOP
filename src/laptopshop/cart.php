@@ -62,7 +62,7 @@ if (isset($_SESSION['id'])) {
                         <div class="shipping-fee">Phí vận chuyển: Miễn phí</div>
                         <div class="total-price">Tổng cộng: <?php echo number_format($tongtien); ?>đ</div>
                     </div>
-                    <button type="button" class="checkout-btn" style="height: 30px;background: black;color: white;font-size: 18px;border-radius: 12px;">Thanh toán</button>
+                    <a href="checkout"><button type="button" class="checkout-btn" style="height: 30px;background: black;color: white;font-size: 18px;border-radius: 12px;">Thanh toán</button></a>
                 </div>
 
             </div>
