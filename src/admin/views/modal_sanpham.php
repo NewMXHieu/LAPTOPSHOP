@@ -15,7 +15,7 @@
     <div class="modal-close modal-close-sanpham">
         <i class="fa-solid fa-xmark"></i>
     </div>
-    <form action="../functions/saveProduct.php" method="POST">
+    <form action="" method="POST">
         <h2 class="add-product-title">THÊM SẢN PHẨM</h2>
         <div class="detail_product">
             <div class="detail_product-items">
@@ -68,7 +68,7 @@
                 <div class="detail_product-items-item">
                     <label for="hinhsp">CHỌN HÌNH</label>
                     <div class="">
-                        <input type="file" id="addProduct_hinhsp" name="addProduct_hinhsp">
+                        <input type="file" id="addProduct_hinhsp" name="addProduct_hinhsp" onchange="setImageViewByFileSelect()">
                     </div>
                 </div>
 
@@ -105,11 +105,6 @@
                 </div>
                 
                 <div class="detail_product-items-item">
-                    <label for="nhanvien">MÃ NHÂN VIÊN</label>
-                    <input type="number" id="addProduct_nhanvien" name="addProduct_nhanvien">
-                </div>
-
-                <div class="detail_product-items-item">
                     <label for="giatien">GIÁ TIỀN</label>
                     <input type="number" id="addProduct_giatien" name="addProduct_giatien">
                 </div>
@@ -118,58 +113,58 @@
             <div class="detail_product-items">
                 <div class="detail_product-items-item">
                     <label for="cpu">CPU</label>
-                    <input type="text" id="addproduct_detail_cpu" name="addproduct_detail_cpu">
+                    <input type="text" id="addProduct_detail_cpu" name="addProduct_detail_cpu">
                 </div>
 
                 <div class="detail_product-items-item">
                     <label for="screen">SCREEN</label>
-                    <input type="text" id="addproduct_detail_screen" name="addproduct_detail_screen">
+                    <input type="text" id="addProduct_detail_screen" name="addProduct_detail_screen">
                 </div>
 
                 <div class="detail_product-items-item">
                     <label for="ram">RAM</label>
-                    <input type="text" id="addproduct_detail_ram" name="addproduct_detail_ram">
+                    <input type="text" id="addProduct_detail_ram" name="addProduct_detail_ram">
                 </div>
 
                 <div class="detail_product-items-item">
                     <label for="vga">VGA</label>
-                    <input type="text" id="addproduct_detail_vga" name="addproduct_detail_vga">
+                    <input type="text" id="addProduct_detail_vga" name="addProduct_detail_vga">
                 </div>
 
                 <div class="detail_product-items-item">
                     <label for="storage">STORAGE</label>
-                    <input type="text" id="addproduct_detail_storage" name="addproduct_detail_storage">
+                    <input type="text" id="addProduct_detail_storage" name="addProduct_detail_storage">
                 </div>
 
                 <div class="detail_product-items-item">
                     <label for="os">OS</label>
-                    <input type="text" id="addproduct_detail_os" name="addproduct_detail_os">
+                    <input type="text" id="addProduct_detail_os" name="addProduct_detail_os">
                 </div>
 
                 <div class="detail_product-items-item">
                     <label for="pin">PIN</label>
-                    <input type="text" id="addproduct_detail_pin" name="addproduct_detail_pin">
+                    <input type="text" id="addProduct_detail_pin" name="addProduct_detail_pin">
                 </div>
 
                 <div class="detail_product-items-item">
                     <label for="weight">WEIGHT</label>
-                    <input type="text" id="addproduct_detail_weight" name="addproduct_detail_weight">
+                    <input type="text" id="addProduct_detail_weight" name="addProduct_detail_weight">
                 </div>
 
                 <div class="detail_product-items-item">
                     <label for="mota">MOTA</label>
-                    <textarea type="text" id="addproduct_detail_mota" name="addproduct_detail_mota"></textarea>
+                    <textarea type="text" id="addProduct_detail_mota" name="addProduct_detail_mota"></textarea>
                 </div>
 
                 <div class="detail_product-items-item">
                     <label for="mau">MÀU</label>
-                    <input type="text" id="addproduct_detail_mau" name="addproduct_detail_mau">
+                    <input type="text" id="addProduct_detail_mau" name="addProduct_detail_mau">
                 </div>
             </div>
         </div>
         <div class="form-control">
-        <button class="control-btn-form addproduct_btn_cancel" type="Button" onclick="finish()" value="Hủy">Hủy</button>
-            <button class="control-btn-form addproduct_btn_save" value="Lưu">Lưu</button>
+            <button class="control-btn-form addproduct_btn_cancel" type="Button" onclick="finish()" value="Hủy">Hủy</button>
+            <button class="control-btn-form addproduct_btn_save" type="Button" onclick="saveAddProduct()" value="Lưu">Lưu</button>
         </div>
     </form>
 </div>
@@ -180,7 +175,7 @@
     <div class="modal-close modal-close-sanpham">
         <i class="fa-solid fa-xmark"></i>
     </div>
-    <form id="editProductform" action="../functions/editProduct.php" method="POST">
+    <form id="editProductform" action="" method="POST">
         <input type="hidden" id="idProduct" name="idProduct">
         <input type="hidden" id="trangthaiProduct" name="trangthaiProduct">
         <H2 class="edit-product-title">SỬA SẢN PHẨM</H2>
@@ -276,11 +271,6 @@
                 </div>
                 
                 <div class="detail_product-items-item">
-                    <label for="nhanvien">MÃ NHÂN VIÊN</label>
-                    <input type="number" id="editProduct_nhanvien" name="editProduct_nhanvien">
-                </div>
-
-                <div class="detail_product-items-item">
                     <label for="giatien">GIÁ TIỀN</label>
                     <input type="number" id="editProduct_giatien" name="editProduct_giatien">
                 </div>
@@ -340,7 +330,7 @@
         </div>
         <div class="form-control">
             <button class="control-btn-form addproduct_btn_cancel" type="Button" onclick="finish()" value="Hủy">Hủy</button>
-            <button class="control-btn-form addproduct_btn_save" value="Lưu">Lưu edit</button>
+            <button class="control-btn-form addproduct_btn_save"  type="Button" onclick="saveEditProduct()" value="Lưu">Lưu edit</button>
         </div>
     </form>
 </div>

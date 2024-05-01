@@ -9,16 +9,16 @@
             return $data;
         }
         // Lấy giá trị của các trường từ form sau khi kiểm tra
-        $manv = isset($_POST['idKhachHang']) ? check_input($_POST['idKhachHang']) : '';
-        $tennv = isset($_POST['editKhachHang_ten']) ? check_input($_POST['editKhachHang_ten']) : '';
-        $ngaysinh = isset($_POST['editKhachHang_ngaysinh']) ? check_input($_POST['editKhachHang_ngaysinh']) : '';
-        $sdt = isset($_POST['editKhachHang_sdt']) ? check_input($_POST['editKhachHang_sdt']) : '';
-        $matk = isset($_POST['editKhachHang_taikhoan']) ? check_input($_POST['editKhachHang_taikhoan']) : '';
-        $diachi = isset($_POST['editKhachHang_diachi']) ? check_input($_POST['editKhachHang_diachi']) : '';
-        $email = isset($_POST['editKhachHang_email']) ? check_input($_POST['editKhachHang_email']) : '';
-        $ngaytaotk = isset($_POST['editKhachHang_ngaytaotk']) ? check_input($_POST['editKhachHang_ngaytaotk']) : '';
-        $tendn = isset($_POST['editKhachHang_tendangnhap']) ? check_input($_POST['editKhachHang_tendangnhap']) : '';
-        $matkhau = isset($_POST['editKhachHang_matkhau']) ? check_input($_POST['editKhachHang_matkhau']) : '';
+        $manv = isset($_POST['MAKH']) ? check_input($_POST['MAKH']) : '';
+        $tennv = isset($_POST['TEN']) ? check_input($_POST['TEN']) : '';
+        $ngaysinh = isset($_POST['NGAYSINH']) ? check_input($_POST['NGAYSINH']) : '';
+        $sdt = isset($_POST['SDT']) ? check_input($_POST['SDT']) : '';
+        $matk = isset($_POST['MATK']) ? check_input($_POST['MATK']) : '';
+        $diachi = isset($_POST['DIACHI']) ? check_input($_POST['DIACHI']) : '';
+        $email = isset($_POST['EMAIL']) ? check_input($_POST['EMAIL']) : '';
+        $ngaytaotk = isset($_POST['NGAYTAOTK']) ? check_input($_POST['NGAYTAOTK']) : '';
+        $tendn = isset($_POST['TENDN']) ? check_input($_POST['TENDN']) : '';
+        $matkhau = isset($_POST['MATKHAU']) ? check_input($_POST['MATKHAU']) : '';
 
         // Hiển thị các giá trị đã lấy được để kiểm tra
         echo "Tên : " . $tennv . "<br>";
@@ -47,10 +47,10 @@
             }
         }
 
-        function themTaiKhoan($conn,$tendn,$matkhau){
+        function themTaiKhoan($conn,$matk, $tendn,$matkhau){
             $sql_TaiKhoan = "UPDATE TAIKHOAN 
-            SET MATKHAU = '$matkhau'
-            WHERE TENDN = '$tendn'";
+            SET MATKHAU = '$matkhau', TENDN = '$tendn'
+            WHERE MATK = $matk";
             if ($conn->query($sql_TaiKhoan) === TRUE) {
                 echo "update Tài khoản thành công";
             } else {
@@ -58,15 +58,26 @@
             }
         }
 
-        if( $manv === '' || $tennv ==='' || $ngaysinh ==='' || $sdt ==='' ||$diachi ==='' ||$matk ==='' ||$email ===''){
-            echo "Vui lòng nhập dữ liệu";
+        if( $manv === ''){
+            echo "Thiếu mã khách hàng";
+        } else if($tennv ==='' ){
+            echo "Thiếu tên khách hàng";
+        } else if($ngaysinh ==='' ){
+            echo "Thiếu ngày sinh";
+        } else if($sdt ===''){
+            echo "Thiếu số điện thoại";
+        } else if($diachi ===''){
+            echo "Thiếu địa chỉ";
+        } else if($matk ===''){
+            echo "Thiếu mã tài khoản";
+        } else if($email ===''){
+            echo "Thiếu email";
         } else{
             // Sử dụng các hàm trên
             // Thêm khách hàng
             themKhachHang($conn, $manv, $tennv, $ngaysinh, $sdt,$diachi,$matk,$email);
-            themTaiKhoan($conn,$tendn,$matkhau);
+            themTaiKhoan($conn,$matk,$tendn,$matkhau);
         }
-
         
     } else{
         echo "không nhận được";

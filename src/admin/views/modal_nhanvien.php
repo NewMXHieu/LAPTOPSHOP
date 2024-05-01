@@ -15,7 +15,7 @@
     <div class="modal-close modal-close-nhanvien">
         <i class="fa-solid fa-xmark"></i>
     </div>
-    <form action="../functions/saveNhanVien.php" method="POST">
+    <form action="" method="POST">
         <h2 class="add-product-title">THÊM NHÂN VIÊN</h2>
         <input type="date" id="addNhanVien_ngaytaotk" name="addNhanVien_ngaytaotk" style="display:none">
         <input type="text" id="addNhanVien_trangthai" name="addNhanVien_trangthai" style="display:none">
@@ -31,10 +31,10 @@
                     <label for="thuonghieu">LOẠI TÀI KHOẢN</label>
                     <select id="addNhanVien_select_loaitk" name="addNhanVien_select_loaitk">
                         <option value="0" selected>Chọn 1 loại</option>
-                        <option value="AD">ADMIN</option>
-                        <option value="QL">QUẢN LÝ</option>
-                        <option value="KHO">KHO</option>
-                        <option value="TN">THU NGÂN</option>
+                        <option value="1">ADMIN</option>
+                        <option value="2">QUẢN LÝ</option>
+                        <option value="3">KHO</option>
+                        <option value="4">THU NGÂN</option>
                     </select>
                 </div>
 
@@ -62,7 +62,7 @@
 
                 <div class="detail_product-items-item">
                     <label for="tendn">TÊN ĐĂNG NHẬP</label>
-                    <input type="text" id="addNhanvien_tendangnhap" name="addNhanvien_tendangnhap">
+                    <input type="text" id="addNhanVien_tendangnhap" name="addNhanVien_tendangnhap">
                 </div>
 
                 <div class="detail_product-items-item">
@@ -74,7 +74,7 @@
         </div>
         <div class="form-control">
             <button class="control-btn-form addproduct_btn_cancel" type="Button" onclick="finish()" value="Hủy">Hủy</button>
-            <button class="control-btn-form addproduct_btn_save" value="Lưu">Lưu</button>
+            <button class="control-btn-form addproduct_btn_save" type="Button" onclick="saveNhanVien()" value="Lưu">Lưu</button>
         </div>
     </form>
 </div>
@@ -85,7 +85,7 @@
     <div class="modal-close modal-close-nhanvien">
         <i class="fa-solid fa-xmark"></i>
     </div>
-    <form id="editNhanVienform" action="../functions/editNhanVien.php" method="POST">
+    <form id="editNhanVienform" action="" method="POST">
         <input type="text" id="idNhanVien" name="idNhanVien" style="display:none">
         <input type="date" id="editNhanVien_ngaytaotk" name="editNhanVien_ngaytaotk" style="display:none">
         <input type="text" id="editNhanVien_trangthai" name="editNhanVien_trangthai" style="display:none">
@@ -100,10 +100,10 @@
                     <label for="thuonghieu">LOẠI TÀI KHOẢN</label>
                     <select id="editNhanVien_select_loaitk" name="editNhanVien_select_loaitk">
                         <option value="0" selected>Chọn 1 loại</option>
-                        <option value="AD">ADMIN</option>
-                        <option value="QL">QUẢN LÝ</option>
-                        <option value="KHO">KHO</option>
-                        <option value="TN">THU NGÂN</option>
+                        <option value="1">ADMIN</option>
+                        <option value="2">QUẢN LÝ</option>
+                        <option value="3">KHO</option>
+                        <option value="4">THU NGÂN</option>
                     </select>
                 </div>
 
@@ -148,7 +148,7 @@
         </div>
         <div class="form-control">
             <button class="control-btn-form addproduct_btn_cancel" type="Button" onclick="finish()" value="Hủy">Hủy</button>
-            <button class="control-btn-form addproduct_btn_save" value="Lưu">Lưu edit</button>
+            <button class="control-btn-form addproduct_btn_save" type="Button" onclick="saveEditNhanVien()" value="Lưu">Lưu edit</button>
         </div>
     </form>
 </div>

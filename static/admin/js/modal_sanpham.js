@@ -11,21 +11,20 @@
         document.getElementById("addProduct_tensanpham").value = "";
         document.getElementById("addProduct_select_thuonghieu").value = "0";
         uncheckAll();
-        document.getElementById("addProduct_nhanvien").value = "";
         document.getElementById("addProduct_hinhsp").value = "";
         document.getElementById("addProduct_select_nhacungcap").value = "0";
         document.getElementById("addProduct_select_baohanh").value = "0";
         document.getElementById("addProduct_giatien").value = "";
-        document.getElementById("addproduct_detail_cpu").value = "";
-        document.getElementById("addproduct_detail_screen").value = "";
-        document.getElementById("addproduct_detail_ram").value = "";
-        document.getElementById("addproduct_detail_vga").value = "";
-        document.getElementById("addproduct_detail_storage").value = "";
-        document.getElementById("addproduct_detail_os").value = "";
-        document.getElementById("addproduct_detail_pin").value = "";
-        document.getElementById("addproduct_detail_weight").value = "";
-        document.getElementById("addproduct_detail_mota").value = "";
-        document.getElementById("addproduct_detail_mau").value = "";
+        document.getElementById("addProduct_detail_cpu").value = "";
+        document.getElementById("addProduct_detail_screen").value = "";
+        document.getElementById("addProduct_detail_ram").value = "";
+        document.getElementById("addProduct_detail_vga").value = "";
+        document.getElementById("addProduct_detail_storage").value = "";
+        document.getElementById("addProduct_detail_os").value = "";
+        document.getElementById("addProduct_detail_pin").value = "";
+        document.getElementById("addProduct_detail_weight").value = "";
+        document.getElementById("addProduct_detail_mota").value = "";
+        document.getElementById("addProduct_detail_mau").value = "";
 
     }
     
@@ -85,7 +84,7 @@
     }
 
     function setImageViewByFileSelect(){
-        img = getFileNameFromPath(document.getElementById('editProduct_hinhsp').value);
+        img = getFileNameFromPath(document.getElementById('editProduct_hinhsp').value).replace(/^.*[\\\/]/, '');
         setImageView(img);
     }
     // edit product
@@ -101,7 +100,6 @@
         document.querySelector(".editSanPham").classList.add("open");
         document.getElementById("editProduct_tensanpham").value = products[index].TENSP;
         document.getElementById("editProduct_select_thuonghieu").value = products[index].MATHUONGHIEU;
-        document.getElementById("editProduct_nhanvien").value = products[index].MANV;
         setImageView(products[index].HINHSP) ;
         document.getElementById("editProduct_savehinhsp_cuu").value = products[index].HINHSP;
         document.getElementById("editProduct_hinhsp").value = '';
@@ -135,13 +133,14 @@
 
                 var form = document.getElementById('editProductform');
                 var checkboxes = form.querySelectorAll('input[name="group[]"');
-                checkboxes.forEach(checkbox =>{
-                    nhomloaisp.forEach(item=>{
-                        if(item === checkbox.value){
-                            checkbox.checked = true;
-                        }
-                    })
-                })
+                checkboxes.forEach(checkbox => {
+                    // Kiểm tra xem checkbox có giá trị MALOAISP nào trong mảng nhomloaisp không
+                    if (nhomloaisp.includes(checkbox.value)) {
+                        checkbox.checked = true;
+                    } else {
+                        checkbox.checked = false;
+                    }
+                });
 
                 
             },
@@ -150,194 +149,132 @@
             }
         });
     }
+
+    
     function getFileNameFromPath(path) {
         var parts = path.split(/[\\/]/); // Tách chuỗi bằng dấu '/' hoặc '\'
         return parts[parts.length - 1];
     }
     
-    // function saveEditProduct(){
-    //     let productData = {
-    //         masp: indexCur,
-    //         tensp: document.getElementById("editProduct_tensanpham").value,
-    //         mathuonghieu: document.getElementById("editProduct_select_thuonghieu").value,
-    //         loaisp: [],
-    //         manv: document.getElementById("editProduct_nhanvien").value,
-    //         hinhsp: document.getElementById("editProduct_hinhsp").value === '' ?  getFileNameFromPath(document.getElementById("editProduct_savehinhsp").src) : document.getElementById("editProduct_hinhsp").value,
-    //         mancc: document.getElementById("editProduct_select_nhacungcap").value,
-    //         mabaohanh: document.getElementById("editProduct_select_baohanh").value,
-    //         giatien: document.getElementById("editProduct_giatien").value,
-    //         cpu: document.getElementById("editproduct_detail_cpu").value,
-    //         screen: document.getElementById("editproduct_detail_screen").value,
-    //         ram: document.getElementById("editproduct_detail_ram").value,
-    //         vga: document.getElementById("editproduct_detail_vga").value,
-    //         storage: document.getElementById("editproduct_detail_storage").value,
-    //         os: document.getElementById("editproduct_detail_os").value,
-    //         pin: document.getElementById("editproduct_detail_pin").value,
-    //         weight: document.getElementById("editproduct_detail_weight").value,
-    //         mota: document.getElementById("editproduct_detail_mota").value,
-    //         mau: document.getElementById("editproduct_detail_mau").value,
-    //         trangthai: document.getElementById("trangthaiProduct").value,
-    //     };
-
-    // // Lặp qua các checkbox để lấy loại sản phẩm được chọn
-    // document.querySelectorAll('input[name="group[]"]:checked').forEach(function(checkbox) {
-    //     productData.loaisp.push(checkbox.value);
-    // });
-    //         // Gửi yêu cầu cập nhật dữ liệu sản phẩm lên máy chủ
-    //         fetch('api/admin/editProduct.php', {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //             },
-    //             body: JSON.stringify(productData),
-    //         })
-    //         .then(response => {
-    //             if (response.ok) {
-    //                 alert("Sản phẩm đã được gửi đi vui lòng chờ giây lát thành công");
-    //                 // Thực hiện các hành động khác sau khi cập nhật dữ liệu thành công
-    //             } else {
-    //                 throw new Error('Lỗi khi gửi dữ liệu');
-    //             }
-    //         })
-    //         .catch(error => {
-    //             console.error('Lỗi:', error);
-    //             alert("Đã có lỗi xảy ra. Vui lòng thử lại sau.");
-    //         });
-    //     }
-
-        function saveAddProduct(){
-            let productData = {
-                tensp: document.getElementById("editProduct_tensanpham").value,
-                mathuonghieu: document.getElementById("editProduct_select_thuonghieu").value,
-                loaisp: [],
-                manv: document.getElementById("editProduct_nhanvien").value,
-                hinhsp: document.getElementById("editProduct_hinhsp").value,
-                mancc: document.getElementById("editProduct_select_nhacungcap").value,
-                mabaohanh: document.getElementById("editProduct_select_baohanh").value,
-                giatien: document.getElementById("editProduct_giatien").value,
-                cpu: document.getElementById("editproduct_detail_cpu").value,
-                screen: document.getElementById("editproduct_detail_screen").value,
-                ram: document.getElementById("editproduct_detail_ram").value,
-                vga: document.getElementById("editproduct_detail_vga").value,
-                storage: document.getElementById("editproduct_detail_storage").value,
-                os: document.getElementById("editproduct_detail_os").value,
-                pin: document.getElementById("editproduct_detail_pin").value,
-                weight: document.getElementById("editproduct_detail_weight").value,
-                mota: document.getElementById("editproduct_detail_mota").value,
-                mau: document.getElementById("editproduct_detail_mau").value
-            };
-    
+    function saveEditProduct(){
+        let loaisp = [];
         // Lặp qua các checkbox để lấy loại sản phẩm được chọn
         document.querySelectorAll('input[name="group[]"]:checked').forEach(function(checkbox) {
-            productData.loaisp.push(checkbox.value);
+            loaisp.push(checkbox.value);
         });
-                // Tạo một đối tượng XMLHttpRequest
-                let xhr = new XMLHttpRequest();
-
-                // Thiết lập yêu cầu POST đến PHP file
-                xhr.open('POST', 'api/admin/editProduct.php', true);
-
-                // Thiết lập tiêu đề Content-Type cho yêu cầu
-                xhr.setRequestHeader('Content-Type', 'application/json');
-
-                // Xử lý sự kiện khi yêu cầu hoàn thành
-                xhr.onload = function() {
-                    if (xhr.status >= 200 && xhr.status < 300) {
-                        // Xử lý phản hồi từ server nếu cần
-                        console.log(xhr.responseText);
-                    } else {
-                        console.error('Error sending data to server');
-                    }
-                };
-
-                // Xử lý sự kiện khi có lỗi xảy ra trong quá trình gửi yêu cầu
-                xhr.onerror = function() {
-                    console.error('Error sending data to server');
-                };
-
-                // Gửi yêu cầu với dữ liệu JSON đã được chuyển đổi thành chuỗi
-                xhr.send(JSON.stringify(productData));
-                    
+        console.log(loaisp);
+            $.ajax({
+                url: 'api/admin/saveEditProduct.php', // Đường dẫn đến trang PHP
+                type: 'POST', // Phương thức POST sẽ gửi dữ liệu qua body
+                data: { masp: document.getElementById("idProduct").value,
+                    tensp: document.getElementById("editProduct_tensanpham").value,
+                    mathuonghieu: document.getElementById("editProduct_select_thuonghieu").value,
+                    loaisp: loaisp,
+                    hinhsp: document.getElementById("editProduct_hinhsp").value === '' ? (document.getElementById("editProduct_savehinhsp").src).replace(/^.*[\\\/]/, '') : (document.getElementById("editProduct_hinhsp").value).replace(/^.*[\\\/]/, ''),
+                    mancc: document.getElementById("editProduct_select_nhacungcap").value,
+                    mabaohanh: document.getElementById("editProduct_select_baohanh").value,
+                    giatien: document.getElementById("editProduct_giatien").value,
+                    cpu: document.getElementById("editproduct_detail_cpu").value,
+                    screen: document.getElementById("editproduct_detail_screen").value,
+                    ram: document.getElementById("editproduct_detail_ram").value,
+                    vga: document.getElementById("editproduct_detail_vga").value,
+                    storage: document.getElementById("editproduct_detail_storage").value,
+                    os: document.getElementById("editproduct_detail_os").value,
+                    pin: document.getElementById("editproduct_detail_pin").value,
+                    weight: document.getElementById("editproduct_detail_weight").value,
+                    mota: document.getElementById("editproduct_detail_mota").value,
+                    mau: document.getElementById("editproduct_detail_mau").value, }, // Dữ liệu gửi đi (id sản phẩm)
+                success: function(data) {
+                    getDsPhanLoaiSP();
+                    getDsSanPham();
+                    showProduct();
+                    alert("Update thông tin sản phẩm thành công");
+                    finish();
+                },
+                error: function(xhr, status, error) {
+                    console.error('Lỗi khi gửi yêu cầu đến trang PHP:', error);
+                }
+            });
         }
-    // function btnEditProduct(){
-    //     let products = localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products")) : [];
-    //     let idProduct = products[indexCur].id;
-    //     let imgProduct = products[indexCur].img;
-    //     let nameProduct = products[indexCur].name;
-    //     let priceProduct = products[indexCur].price;
-    //     let desProduct = products[indexCur].des;
-    //     let brandProduct = products[indexCur].brand;
-    //     let statusProductCur = products[indexCur].status;
-    //     let imgProductCur = getPath(document.querySelector(".image-upload-preview").src)
-    //     let nameProductCur = document.getElementById("product-name-form").value;
-    //     let priceProductCur = document.getElementById("product-price-form").value;
-    //     let desProductCur = document.getElementById("product-des-form").value;
-    //     let brandProductCur = document.getElementById("product-brand-select").value;
-    
-    //     if (imgProductCur != imgProduct || nameProductCur != nameProduct || priceProductCur != priceProduct || desProductCur != desProduct || brandProductCur != brandProduct) {
-    //         let productadd = {
-    //             id: idProduct,
-    //             name: nameProductCur,
-    //             img: imgProductCur,
-    //             brand: brandProductCur,
-    //             price: priceProductCur,
-    //             des: desProductCur,
-    //             status: statusProductCur,
-    //         };
-    //         products.splice(indexCur, 1);
-    //         products.splice(indexCur, 0, productadd);
-    //         localStorage.setItem("products", JSON.stringify(products));
-    //         alert("Sửa thông tin thành công");
-    //         setDefaultValueProduct();
-    //         document.querySelector(".add-product").classList.remove("open");
-    //         showProduct();
-    //     } else {
-    //         alert("Thông tin sản phẩm không thay đổi");
-    //     }
-    // }
-    
-    // function deleteProduct(id){
-    //     let products = localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products")) : [];
-    //     let index = products.findIndex(item =>{
-    //         return item.id == id
-    //     })
-    //     if(confirm("Xóa sản phẩm ?")){
-    //         alert("Xóa sản phẩm " + products[index].name + " thành công !!!");
-    //         products = products.filter(item => item != products[index]);
-    //         localStorage.setItem("products", JSON.stringify(products));
-    //         showProduct();
-    //         resetDataAmountProduct();
-    //     }
-    // }
-    function updateStatusProduct(id, status) {
-        // Tạo một đối tượng XMLHttpRequest
-        var xhr = new XMLHttpRequest();
-    
-        // Xác định phương thức và URL của yêu cầu
-        var url = "api/admin/updateTrangThaiProduct.php";
-        var method = "POST";
-    
-        // Chuẩn bị dữ liệu để gửi
-        var data = {
-            idProduct: id,
-            TrangThai: status
-        };
-        // Mở kết nối
-        xhr.open(method, url, true);
-    
-        // Thiết lập tiêu đề yêu cầu nếu cần
-        xhr.setRequestHeader("Content-Type", "application/json"); // Sử dụng application/json vì chúng ta đang gửi dữ liệu dưới dạng JSON
-    
-        // Xử lý sự kiện khi yêu cầu hoàn thành
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                // Xử lý kết quả từ PHP
-                console.log(xhr.responseText);
+        
+        function saveAddProduct(){
+            let loaisp = [];
+            // Lặp qua các checkbox để lấy loại sản phẩm được chọn
+            document.querySelectorAll('input[name="group[]"]:checked').forEach(function(checkbox) {
+                loaisp.push(checkbox.value);
+            });
+
+            TEN = document.getElementById("addProduct_tensanpham").value;
+            MATHUONGHIEU = document.getElementById("addProduct_select_thuonghieu").value;
+            LOAISP = loaisp;
+            let fullPath = document.getElementById("addProduct_hinhsp").value;
+            let filename = fullPath.replace(/^.*[\\\/]/, '');
+            HINHSP = filename;
+            MANCC = document.getElementById("addProduct_select_nhacungcap").value;
+            MABAOHANH = document.getElementById("addProduct_select_baohanh").value;
+            GIATIEN = document.getElementById("addProduct_giatien").value;
+            CPU = document.getElementById("addProduct_detail_cpu").value;
+            SCREEN = document.getElementById("addProduct_detail_screen").value;
+            RAM = document.getElementById('addProduct_detail_ram').value;
+            VGA = document.getElementById("addProduct_detail_vga").value;
+            STORAGE = document.getElementById("addProduct_detail_storage").value;
+            OS = document.getElementById("addProduct_detail_os").value;
+            PIN = document.getElementById("addProduct_detail_pin").value;
+            WEIGHT = document.getElementById("addProduct_detail_weight").value;
+            MOTA = document.getElementById("addProduct_detail_mota").value;
+            MAU = document.getElementById("addProduct_detail_mau").value;
+
+        $.ajax({
+            url: 'api/admin/saveAddProduct.php', // Đường dẫn đến trang PHP
+            type: 'POST', // Phương thức POST sẽ gửi dữ liệu qua body
+            data: { 
+                tensp: TEN,
+                mathuonghieu: MATHUONGHIEU,
+                loaisp: LOAISP,
+                hinhsp: HINHSP,
+                mancc: MANCC,
+                mabaohanh: MABAOHANH,
+                giatien: GIATIEN,
+                cpu: CPU,
+                screen: SCREEN,
+                ram: RAM,
+                vga: VGA,
+                storage: STORAGE,
+                os: OS,
+                pin: PIN,
+                weight: WEIGHT,
+                mota: MOTA,
+                mau: MAU, }, // Dữ liệu gửi đi (id sản phẩm)
+            success: function(data) {
+                getDsPhanLoaiSP();
+                getDsSanPham();
+                showProduct();
+                alert("Thêm thông tin sản phẩm mới thành công");
+                finish();
+            },
+            error: function(xhr, status, error) {
+                console.error('Lỗi khi gửi yêu cầu đến trang PHP:', error);
             }
-        };
-    
-        // Gửi yêu cầu với dữ liệu, chuyển đổi đối tượng JavaScript thành chuỗi JSON trước khi gửi
-        xhr.send(JSON.stringify(data));
+        });
+    }
+
+    function updateStatusProduct(id, status) {
+        $.ajax({
+            url: 'api/admin/updateTrangThaiProduct.php', // Đường dẫn đến trang PHP
+            type: 'POST', // Phương thức POST sẽ gửi dữ liệu qua body
+            data: { idProduct: id,
+                TrangThai: status
+            },
+            success: function(data) {
+                getDsPhanLoaiSP();
+                getDsSanPham();
+                showProduct();
+                finish();
+            },
+            error: function(xhr, status, error) {
+                console.error('Lỗi khi gửi yêu cầu đến trang PHP:', error);
+            }
+        });
     }
     
     function changeStatusProductOn(id){
@@ -347,9 +284,6 @@
         })
         if(confirm("Khôi phục sản phẩm "+ products[index].TENSP +" ?")){
             updateStatusProduct(products[index].MASP,1);
-            getDsPhanLoaiSP();
-            getDsSanPham();
-            showProduct();
             // resetDataAmountProduct();
             alert("Đã khôi phục sản phẩm " + products[index].TENSP +" thành công");
         }
@@ -362,20 +296,14 @@
         })
         if(confirm("Xóa sản phẩm "+ products[index].TENSP +" ?")){
             updateStatusProduct(products[index].MASP,0);
-            getDsPhanLoaiSP();
-            getDsSanPham();
-            showProduct();
+           
             // resetDataAmountProduct();
             alert("Đã Xóa sản phẩm " + products[index].TENSP +" thành công");
         }
     }
     
-    // let product_priceInput = document.getElementById("product-price-form");
-    //     product_priceInput.addEventListener("input",function(){
-    //         let inputValue = product_priceInput.value.replace(/\D/g, '');
-    //         let formattedValue = toVND(inputValue);
-    
-    //         if (formattedValue != product_priceInput.value) {
-    //             product_priceInput.value = formattedValue;
-    //         }
-    //     })
+    function finish(){
+        for(let i = 0 ; i < modalOpen.length ; i++){
+            modalOpen[i].classList.remove("open");
+        }
+    }

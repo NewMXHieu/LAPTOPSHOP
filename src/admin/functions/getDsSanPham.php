@@ -4,10 +4,13 @@
 $conn = connectToDatabase();
 
 // Truy vấn cơ sở dữ liệu để lấy dữ liệu sản phẩm
-$sql = "SELECT *
-FROM chitietsanpham
-INNER JOIN sanpham ON sanpham.MASP = chitietsanpham.MASP
-INNER JOIN thuonghieu ON chitietsanpham.MATHUONGHIEU = thuonghieu.MATHUONGHIEU;";
+$sql = "SELECT chitietsanpham.*, thuonghieu.*,sanpham.*,baohanh.MABAOHANH
+FROM chitietsanpham 
+INNER JOIN sanpham ON sanpham.MASP = chitietsanpham.MASP 
+INNER JOIN thuonghieu ON chitietsanpham.MATHUONGHIEU = thuonghieu.MATHUONGHIEU 
+INNER JOIN serial ON serial.MASP = chitietsanpham.MASP 
+INNER JOIN baohanh ON baohanh.MABAOHANH = serial.MABAOHANH 
+GROUP BY chitietsanpham.MASP;";
 $result = $conn->query($sql);
 $products = [];
 
@@ -31,13 +34,12 @@ if ($result->num_rows > 0) {
             'MATHUONGHIEU' => $row['MATHUONGHIEU'],
             'MAU' => $row['MAU'],
             'GIATIEN' => $row['GIATIEN'],
-            'MABAOHANH' => $row['MABAOHANH'],
             'HINHSP' => $row['HINHSP'],
-            'MANV' => $row['MANV'],
             'SOLUONG' => $row['SOLUONG'],
             'MANCC' => $row['MANCC'],
             'TENTHUONGHIEU' => $row['TENTHUONGHIEU'],
-            'TRANGTHAI' => $row['TRANGTHAI']
+            'TRANGTHAI' => $row['TRANGTHAI'],
+            'MABAOHANH' => $row['MABAOHANH']
 
         ];
         $products[] = $product;

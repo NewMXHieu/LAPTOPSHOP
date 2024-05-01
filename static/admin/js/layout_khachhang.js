@@ -167,23 +167,23 @@ function resetDataKhachHang(){
 }
 
 
-function BotToTopDATE(a, b) {
+function BotToTopDATEb(a, b) {
     return new Date(a.NGAYTAOTK) - new Date(b.NGAYTAOTK);
 }
 
-function TopToBotDATE(a, b) {
+function TopToBotDATEb(a, b) {
     return new Date(b.NGAYTAOTK) - new Date(a.NGAYTAOTK);
 }
 
 function filterByBotToTopKH(){
     let tmp = resultKhachHang;
-    tmp.sort(BotToTopDATE);
+    tmp.sort(BotToTopDATEb);
     showArrayKhachHang(tmp);
 }
 
 function filterByTopToBotKH(){
     let tmp = resultKhachHang;
-    tmp.sort(TopToBotDATE);
+    tmp.sort(TopToBotDATEb);
     showArrayKhachHang(tmp);
 }
 

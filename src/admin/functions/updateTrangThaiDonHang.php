@@ -8,15 +8,12 @@
             $data = htmlspecialchars($data);
             return $data;
         }
-        $jsonData = file_get_contents('php://input');
-        $data = json_decode($jsonData, true);
-
         // Lấy giá trị của các trường từ form sau khi kiểm tra
-        $masp = isset($data['idProduct']) ? check_input($data['idProduct']) : '';
-        $trangthai = isset($data['TrangThai']) ? check_input($data['TrangThai']) : '';
+        $masp = isset($_POST['idDonHang']) ? check_input($_POST['idDonHang']) : '';
+        $trangthai = isset($_POST['trangthai']) ? check_input($_POST['trangthai']) : '';
 
         // Hiển thị các giá trị đã lấy được để kiểm tra
-        echo "Mã SP: " . $masp . "<br>";
+        echo "Mã Đơn Hàng: " . $masp . "<br>";
         echo "Trạng thái: " . $trangthai . "<br>";
 
         $conn = connectToDatabase();

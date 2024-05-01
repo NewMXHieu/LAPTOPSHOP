@@ -8,8 +8,8 @@ $conn = connectToDatabase();
 $sql = "SELECT SUM(GIATIEN) as total
 FROM chitiethoadon
 INNER JOIN chitietsanpham ON chitietsanpham.MASP = chitiethoadon.MASP
-INNER JOIN HOADON ON hoadon.MAHD = chitiethoadon.MAHD
-WHERE TRANGTHAI = 1
+INNER JOIN HOADON ON HOADON.MAHD = chitiethoadon.MAHD
+WHERE hoadon.TRANGTHAI = 1
 "; 
 $result = mysqli_query($conn, $sql);
 

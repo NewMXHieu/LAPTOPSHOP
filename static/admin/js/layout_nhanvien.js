@@ -110,7 +110,16 @@ if (arr.length === 0) {
         let btnCtl = product.TRANGTHAI == 1 ?
             `<button class="control-btn changeStatus-product-control" onclick="changeStatusTKNVOff(${product.MANV})"><i class="fa-solid fa-trash"></i></button>` :
             `<button class="control-btn changeStatus-product-control undo-btn" onclick="changeStatusTKNVOn(${product.MANV})"><i class="fa-solid fa-trash"></i></button>`;
-        
+        // let chucvu;
+        // if (product.CHUCVU === "1"){
+        //     chucvu = "ADMIN"
+        // } else if(product.CHUCVU === "2"){
+        //     chucvu = "QUẢN LÝ"
+        // } else if(product.CHUCVU === "3"){
+        //     chucvu = "KHO"
+        // } else if(product.CHUCVU === "4"){
+        //     chucvu = "THU NGÂN"
+        // } 
             
             let btnTrangThai = product.TRANGTHAI == 1 ?
             `Hoạt động` :
@@ -166,16 +175,23 @@ function resetDataNhanVien(){
     showArrayNhanVien(nhanviens);
 }
 
+function BotToTopDATEa(a, b) {
+    return new Date(a.NGAYTAOTK) - new Date(b.NGAYTAOTK);
+}
+
+function TopToBotDATEa(a, b) {
+    return new Date(b.NGAYTAOTK) - new Date(a.NGAYTAOTK);
+}
 
 function filterByBotToTopNV(){
     let tmp = resultNhanVien;
-    tmp.sort(BotToTopDATE);
+    tmp.sort(BotToTopDATEa);
     showArrayNhanVien(tmp);
 }
 
 function filterByTopToBotNV(){
     let tmp = resultNhanVien;
-    tmp.sort(TopToBotDATE);
+    tmp.sort(TopToBotDATEa);
     showArrayNhanVien(tmp);
 }
 

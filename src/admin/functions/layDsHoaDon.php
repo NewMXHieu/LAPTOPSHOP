@@ -26,7 +26,6 @@ if ($result->num_rows > 0) {
             'TENNV' => $row['TENNV'],
             'NGAYTAO' => $row['NGAYTAO'],
             'TRANGTHAI' => $row['TRANGTHAI']
-
         ];
         $hoadons[] = $hoadon;
     }

@@ -10,17 +10,21 @@ phanloaisanpham.MALOAISP,
 phanloaisanpham.TENLOAISP,
 thuonghieu.MATHUONGHIEU,
 thuonghieu.TENTHUONGHIEU,
-chitietsanpham.MASP,
-chitietsanpham.TENSP, 
-SUM(chitiethoadon.SOLUONG) AS TONGSOLUONG, 
-SUM(chitiethoadon.SOLUONG * chitietsanpham.GIATIEN) AS TONGGIATIEN 
+chitiethoadon.MASP,
+chitietsanpham.TENSP,
+COUNT(chitiethoadon.MASP) AS TONGSOLUONG,
+chitietsanpham.GIATIEN AS DONGIA,
+chitietsanpham.GIATIEN * subquery.TONGSOLUONG AS TONGGIATIEN
 FROM HOADON
 INNER JOIN chitiethoadon ON chitiethoadon.MAHD = hoadon.MAHD
 INNER JOIN chitietsanpham ON chitietsanpham.MASP = chitiethoadon.MASP 
 INNER JOIN nhomloaisanpham ON nhomloaisanpham.MASP = chitiethoadon.MASP
 INNER JOIN phanloaisanpham on phanloaisanpham.MALOAISP = nhomloaisanpham.MALOAISP
-INNER JOIN thuonghieu ON thuonghieu.MATHUONGHIEU = chitiethoadon.MASP
-GROUP BY chitietsanpham.MASP";
+INNER JOIN thuonghieu ON thuonghieu.MATHUONGHIEU = chitietsanpham.MATHUONGHIEU
+INNER JOIN 
+    (SELECT MASP, COUNT(MASP) AS TONGSOLUONG FROM chitiethoadon GROUP BY MASP) AS subquery 
+    ON subquery.MASP = chitiethoadon.MASP
+GROUP BY phanloaisanpham.MALOAISP, chitiethoadon.MASP";
 $result = $conn->query($sql);
 $thongkes = [];
 // Kiểm tra và xử lý kết quả
@@ -36,7 +40,8 @@ if ($result->num_rows > 0) {
             'MASP' => $row['MASP'],
             'TENSP' => $row['TENSP'],
             'TONGSOLUONG' => $row['TONGSOLUONG'],
-            'TONGGIATIEN' => $row['TONGGIATIEN'],
+            'DONGIA' => $row['DONGIA'],
+            'TONGGIATIEN' => $row['TONGGIATIEN']
         ];
         $thongkes[] = $tk;
     }

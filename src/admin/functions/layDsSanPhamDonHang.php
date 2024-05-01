@@ -5,32 +5,32 @@
 $conn = connectToDatabase();
 
 // Khởi tạo một mảng kết hợp để lưu trữ dữ liệu
-$response = array();
 
 if (isset($_POST['idProduct'])) {
     // Nhận id từ yêu cầu POST
     $id = $_POST['idProduct'];
     // Truy vấn cơ sở dữ liệu để lấy dữ liệu sản phẩm
-    $sql = "select * from chitiethoadon  where mahd = $id;
+    $sql = "select chitiethoadon.MASP, COUNT(chitiethoadon.MASP) as SOLUONG, chitietsanpham.GIATIEN
+    from chitiethoadon
+    INNER JOIN chitietsanpham ON chitietsanpham.MASP = chitiethoadon.MASP
+    where mahd = $id
+    GROUP BY chitiethoadon.MASP;
     ";
     $result = $conn->query($sql);
-    // Kiểm tra xem truy vấn có thành công không
-    if ($result) {
-        // Lặp qua các hàng kết quả và thêm chúng vào mảng response
+    $SPDonHangs = [];
+    // Kiểm tra và xử lý kết quả
+    if ($result->num_rows > 0) {
+        // Chuyển kết quả thành mảng JSON và trả về
+        $rows = array();
         while ($row = $result->fetch_assoc()) {
-            $response[] = $row;
+            $sp = [
+                'MASP' => $row['MASP'],
+                'SOLUONG' => $row['SOLUONG'],
+                'GIATIEN' => $row['GIATIEN'],
+            ];
+            $SPDonHangs[] = $sp;
         }
-
-        // Trả về mảng response dưới dạng JSON
-        header('Content-Type: application/json');
-        echo json_encode($response);
-    } else {
-        // Trả về thông báo lỗi nếu truy vấn không thành công
-        $response['error'] = "Không thể lấy dữ liệu từ cơ sở dữ liệu";
-        echo json_encode($response);
-    }
+        echo json_encode($SPDonHangs, JSON_UNESCAPED_UNICODE);
+    } 
 }
-
-
-
 ?>

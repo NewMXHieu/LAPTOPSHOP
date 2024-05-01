@@ -24,16 +24,7 @@ function layQuyenNV(id){
     });
 }
 
-function layMaNhomQuyen(chucvu){
-    if(chucvu === "ADMIN")
-        return 'AD';
-    else if (chucvu === "QUẢN LÝ")
-        return 'QL';
-    else if (chucvu === "THU NGÂN")
-        return 'TN';
-    else if (chucvu === "KHO")
-        return 'KHO';
-}
+
 function editNhanVien(id){
     let index = nhanviens.findIndex(item =>{
         return item.MANV == id
@@ -50,16 +41,45 @@ function editNhanVien(id){
     document.getElementById("editNhanVien_email").value = nhanviens[index].EMAIL;
     document.getElementById("editNhanVien_tendangnhap").value = nhanviens[index].TENDN;
     document.getElementById("editNhanVien_matkhau").value = nhanviens[index].MATKHAU;
-
-    var today = new Date();
-    
-    // Định dạng ngày thành chuỗi YYYY-MM-DD để sử dụng trong trường input type date
-    var formattedDate = today.toISOString().substr(0, 10);
-
-    document.getElementById("addNhanVien_ngaytaotk").value = formattedDate;
-    document.getElementById("addNhanVien_trangthai").value = 1;
 }
 
+function saveNhanVien(){
+    ten = document.getElementById("addNhanVien_ten").value;
+    ngaysinh = document.getElementById("addNhanVien_ngaysinh").value;
+    sdt = document.getElementById("addNhanVien_sdt").value;
+    matk = document.getElementById("addNhanVien_taikhoan").value;
+    diachi = document.getElementById("addNhanVien_diachi").value;
+    email = document.getElementById("addNhanVien_email").value;
+    ngaytaotk = document.getElementById("addNhanVien_ngaytaotk").value;
+    tendn = document.getElementById("addNhanVien_tendangnhap").value;
+    matkhau = document.getElementById("addNhanVien_matkhau").value;
+    chucvu = document.getElementById("addNhanVien_select_loaitk").value;
+        $.ajax({
+        url: 'api/admin/saveNhanVien.php', // Đường dẫn đến trang PHP
+        type: 'POST', // Phương thức POST sẽ gửi dữ liệu qua body
+        data: {
+            TEN: ten,
+            NGAYSINH: ngaysinh,
+            SDT: sdt,
+            MATK: matk,
+            DIACHI: diachi,
+            EMAIL: email,
+            NGAYTAOTK: ngaytaotk,
+            CHUCVU: chucvu,
+            TENDN: tendn,
+            MATKHAU: matkhau,
+            },
+        success: function(data) {
+            getDsNhanVien();
+            showNhanVien();
+            finish();
+            alert("Đã thêm thông tin nhân viên " + ten );
+        },
+        error: function(xhr, status, error) {
+            console.error('Lỗi khi gửi yêu cầu đến trang PHP:', error);
+        }
+    });
+}
 
 function changeStatusTKNVOff(id){
     getDsNhanVien();
@@ -68,8 +88,6 @@ function changeStatusTKNVOff(id){
     })
     if(confirm("Xóa nhân viên "+ nhanviens[index].TEN +" ?")){
         updateStatusTaiKhoanNV(nhanviens[index].MANV,0);
-        getDsNhanVien();
-        showNhanVien();
         // resetDataAmountProduct();
         alert("Đã Xóa nhân viên " + nhanviens[index].TEN +" thành công");
     }
@@ -82,40 +100,71 @@ function changeStatusTKNVOn(id){
     })
     if(confirm("Khôi phục nhân viên "+ nhanviens[index].TEN +" ?")){
         updateStatusTaiKhoanNV(nhanviens[index].MANV,1);
-        getDsNhanVien();
-        showNhanVien();
         // resetDataAmountProduct();
         alert("Đã khôi phục nhân viên " + nhanviens[index].TEN +" thành công");
     }
 }
 
 function updateStatusTaiKhoanNV(id, status) {
-    // Tạo một đối tượng XMLHttpRequest
-    var xhr = new XMLHttpRequest();
-
-    // Xác định phương thức và URL của yêu cầu
-    var url = "api/admin/updateTrangThaiTaiKhoanNhanVien.php";
-    var method = "POST";
-
-    // Chuẩn bị dữ liệu để gửi
-    var data = {
-        idProduct: id,
-        TrangThai: status
-    };
-    // Mở kết nối
-    xhr.open(method, url, true);
-
-    // Thiết lập tiêu đề yêu cầu nếu cần
-    xhr.setRequestHeader("Content-Type", "application/json"); // Sử dụng application/json vì chúng ta đang gửi dữ liệu dưới dạng JSON
-
-    // Xử lý sự kiện khi yêu cầu hoàn thành
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-            // Xử lý kết quả từ PHP
-            console.log(xhr.responseText);
+    $.ajax({
+        url: 'api/admin/updateTrangThaiTaiKhoanNhanVien.php', // Đường dẫn đến trang PHP
+        type: 'POST', // Phương thức POST sẽ gửi dữ liệu qua body
+        data: { idProduct: id,
+            TrangThai: status
+        },
+        success: function(data) {
+            getDsNhanVien();
+            showNhanVien();
+            finish();
+        },
+        error: function(xhr, status, error) {
+            console.error('Lỗi khi gửi yêu cầu đến trang PHP:', error);
         }
-    };
+    });
+}
 
-    // Gửi yêu cầu với dữ liệu, chuyển đổi đối tượng JavaScript thành chuỗi JSON trước khi gửi
-    xhr.send(JSON.stringify(data));
+function finish(){
+    for(let i = 0 ; i < modalOpen.length ; i++){
+        modalOpen[i].classList.remove("open");
+    }
+}
+
+function saveEditNhanVien(){
+    manv = document.getElementById("idNhanVien").value;
+    ten = document.getElementById("editNhanVien_ten").value;
+    ngaysinh = document.getElementById("editNhanVien_ngaysinh").value;
+    sdt = document.getElementById("editNhanVien_sdt").value;
+    matk = document.getElementById("editNhanVien_taikhoan").value;
+    diachi = document.getElementById("editNhanVien_diachi").value;
+    email = document.getElementById("editNhanVien_email").value;
+    ngaytaotk = document.getElementById("editNhanVien_ngaytaotk").value;
+    tendn = document.getElementById("editNhanVien_tendangnhap").value;
+    matkhau = document.getElementById("editNhanVien_matkhau").value;
+    trangThai = document.getElementById("editNhanVien_trangthai").value;
+    quyentk = document.getElementById("editNhanVien_select_loaitk").value;
+
+    $.ajax({
+        url: 'api/admin/saveEditNhanVien.php', // Đường dẫn đến trang PHP
+        type: 'POST', // Phương thức POST sẽ gửi dữ liệu qua body
+        data: {MANV: manv,
+            TEN: ten,
+            NGAYSINH: ngaysinh,
+            SDT: sdt,
+            MATK: matk,
+            DIACHI: diachi,
+            EMAIL: email,
+            NGAYTAOTK: ngaytaotk,
+            TENDN: tendn,
+            MATKHAU: matkhau,
+            CHUCVU: quyentk,
+            TRANGTHAI: trangThai},
+        success: function(data) {
+            getDsNhanVien();
+            showNhanVien();
+            finish();
+        },
+        error: function(xhr, status, error) {
+            console.error('Lỗi khi gửi yêu cầu đến trang PHP:', error);
+        }
+    });
 }

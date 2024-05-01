@@ -52,6 +52,10 @@
                         <button id="filterByToptoBotBtnthongke" onclick="filterByTopToBotThongKe()"><i class="fa-solid fa-sort-down"></i></button>
                     </div>
                 </div>
+                <div class="dataThongKeShow">
+                    <h1>Loại sản phẩm: </h1>
+                    <h2>1.000.000đ</h2>
+                </div>
                 <div class="content-main-table">
                     <table style="width:100%">
                         <thead>
@@ -60,6 +64,7 @@
                                 <th>THƯƠNG HIỆU</th>
                                 <th>TÊN SẢN PHẨM</th>
                                 <th>TỔNG SỐ LƯỢNG</th>
+                                <th>ĐƠN GIÁ</th>
                                 <th>TỔNG TIỀN</th>
                             </tr>
                         </thead>

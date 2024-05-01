@@ -5,6 +5,7 @@ RewriteRule .*/static/(.*)$ static/$1 [L]
 
 # Rules for /api
 RewriteRule .*api/admin/(.*)$ src/admin/functions/$1 [L]
+RewriteRule .*api/admin/views/(.*)$ src/admin/views/$1 [L]
 RewriteRule .*api/(.*)$ src/api/$1 [L]
 
 

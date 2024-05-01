@@ -99,20 +99,20 @@ function showArrayThongKe(arr) {
 let productHtml = "";
 if (arr.length === 0) {
     productHtml = `<tr >
-    <td colspan="5">Không có dữ liệu !!!</td>
+    <td colspan="6">Không có dữ liệu !!!</td>
 </tr>`
 } else {
     productHtml = "";
 
     
     arr.forEach(product => {
-        console.log(product);
         productHtml +=
             `<tr>
             <td>${product.TENLOAISP}</td>
             <td>${product.TENTHUONGHIEU}</td>
             <td>${product.TENSP}</td>
             <td>${product.TONGSOLUONG}</td>
+            <td>${product.DONGIA}</td>
             <td>${product.TONGGIATIEN}</td>
         </tr>`;
 
@@ -129,8 +129,10 @@ function showThongKe(){
     currentPage = 1;
     if (selectOp === "0") {
         resultThongKe = thongkes;
+        changeDataType(selectOp,tinhTongTien(selectOp));
     } else if (selectOp >= "1" && selectOp <= "6") {
         resultThongKe = thongkes.filter((item) => item.MALOAISP == parseInt(selectOp));
+        changeDataType(selectOp,tinhTongTien(selectOp));
     }
     
 
@@ -173,6 +175,43 @@ function filterByTopToBotThongKe(){
     showArrayThongKe(tmp);
 }
 
+function changeDataType(maloaisp,giatien){
+    let title = '';
+    if(maloaisp === "1"){
+        title = 'LAPTOP DOANH NGHIỆP';
+    } else if(maloaisp === "2"){
+        title = 'LAPTOP DOANH NHÂN';
+    } else if(maloaisp === "3"){
+        title = 'LAPTOP GAMING';
+    } else if(maloaisp === "4"){
+        title = 'LAPTOP HỌC SINH - SINH VIÊN';
+    } else if(maloaisp === "5"){
+        title = 'LAPTOP VĂN PHÒNG';
+    } else if(maloaisp === "6"){
+        title = 'LAPTOP ĐỒ HỌA - KỸ THUẬT';
+    } else{
+        title = 'TẤT CẢ'
+    }
+    document.querySelector(".dataThongKeShow h1").textContent = title + " :";
+    document.querySelector(".dataThongKeShow h2").textContent = giatien + "đ";
+}
 
-
+function tinhTongTien(maloaisp){
+    $.ajax({
+        url: 'api/admin/tinhTongTienLoaiSP.php', // Đường dẫn đến trang PHP
+        type: 'POST', // Phương thức POST sẽ gửi dữ liệu qua body
+        data: {idLoaiSP: maloaisp}, // Dữ liệu gửi đi (id sản phẩm)
+        dataType: 'json',
+        success: function(data) {
+            console.log(data);
+            if(data.total === null){
+                data.total = 0;
+            }
+            changeDataType(maloaisp,data.total);
+        },
+        error: function(xhr, status, error) {
+            console.error('Lỗi khi gửi yêu cầu đến trang PHP:', error);
+        }
+    });
+}
 

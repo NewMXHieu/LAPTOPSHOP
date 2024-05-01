@@ -15,7 +15,7 @@
     <div class="modal-close modal-close-khachhang">
         <i class="fa-solid fa-xmark"></i>
     </div>
-    <form action="../functions/saveKhachHang.php" method="POST">
+    <form action="" method="POST">
         <h2 class="add-product-title">THÊM KHÁCH HÀNG</h2>
         <input type="date" id="addKhachHang_ngaytaotk" name="addKhachHang_ngaytaotk" style="display:none">
         <input type="text" id="addKhachHang_trangthai" name="addKhachHang_trangthai" style="display:none">
@@ -63,7 +63,7 @@
         </div>
         <div class="form-control">
             <button class="control-btn-form addproduct_btn_cancel" type="Button" onclick="finish()" value="Hủy">Hủy</button>
-            <button class="control-btn-form addproduct_btn_save" value="Lưu">Lưu</button>
+            <button class="control-btn-form addproduct_btn_save" type="Button" onclick="saveKhachHang()"value="Lưu">Lưu</button>
         </div>
     </form>
 </div>
@@ -74,7 +74,7 @@
     <div class="modal-close modal-close-khachhang">
         <i class="fa-solid fa-xmark"></i>
     </div>
-    <form id="editKhachHangform" action="../functions/editKhachHang.php" method="POST">
+    <form id="editKhachHangform" action="" method="POST">
         <input type="text" id="idKhachHang" name="idKhachHang" style="display:none">
         <input type="date" id="editKhachHang_ngaytaotk" name="editKhachHang_ngaytaotk" style="display:none">
         <input type="text" id="editKhachHang_trangthai" name="editKhachHang_trangthai" style="display:none">
@@ -127,7 +127,7 @@
         </div>
         <div class="form-control">
             <button class="control-btn-form addproduct_btn_cancel" type="Button" onclick="finish()" value="Hủy">Hủy</button>
-            <button class="control-btn-form addproduct_btn_save" value="Lưu">Lưu edit</button>
+            <button class="control-btn-form addproduct_btn_save" type="Button" onclick="saveEditKhachHang()" value="Lưu">Lưu edit</button>
         </div>
     </form>
 </div>

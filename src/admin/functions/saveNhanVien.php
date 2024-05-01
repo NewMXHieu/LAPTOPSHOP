@@ -9,16 +9,16 @@
             return $data;
         }
         // Lấy giá trị của các trường từ form sau khi kiểm tra
-        $tennv = isset($_POST['addNhanVien_ten']) ? check_input($_POST['addNhanVien_ten']) : '';
-        $ngaysinh = isset($_POST['addNhanVien_ngaysinh']) ? check_input($_POST['addNhanVien_ngaysinh']) : '';
-        $sdt = isset($_POST['addNhanVien_sdt']) ? check_input($_POST['addNhanVien_sdt']) : '';
-        $matk = isset($_POST['addNhanVien_taikhoan']) ? check_input($_POST['addNhanVien_taikhoan']) : '';
-        $diachi = isset($_POST['addNhanVien_diachi']) ? check_input($_POST['addNhanVien_diachi']) : '';
-        $email = isset($_POST['addNhanVien_email']) ? check_input($_POST['addNhanVien_email']) : '';
-        $nhomquyen = isset($_POST['addNhanVien_select_loaitk']) ? check_input($_POST['addNhanVien_select_loaitk']) : '';
+        $tennv = isset($_POST['TEN']) ? check_input($_POST['TEN']) : '';
+        $ngaysinh = isset($_POST['NGAYSINH']) ? check_input($_POST['NGAYSINH']) : '';
+        $sdt = isset($_POST['SDT']) ? check_input($_POST['SDT']) : '';
+        $matk = isset($_POST['MATK']) ? check_input($_POST['MATK']) : '';
+        $diachi = isset($_POST['DIACHI']) ? check_input($_POST['DIACHI']) : '';
+        $email = isset($_POST['EMAIL']) ? check_input($_POST['EMAIL']) : '';
+        $nhomquyen = isset($_POST['CHUCVU']) ? check_input($_POST['CHUCVU']) : '';
         $ngaytaotk = date("Y-m-d");
-        $tendn = isset($_POST['addNhanvien_tendangnhap']) ? check_input($_POST['addNhanvien_tendangnhap']) : '';
-        $matkhau = isset($_POST['addNhanVien_matkhau']) ? check_input($_POST['addNhanVien_matkhau']) : '';
+        $tendn = isset($_POST['TENDN']) ? check_input($_POST['TENDN']) : '';
+        $matkhau = isset($_POST['MATKHAU']) ? check_input($_POST['MATKHAU']) : '';
         $trangthai = 1;
 
         // Hiển thị các giá trị đã lấy được để kiểm tra
@@ -67,14 +67,14 @@
         }
 
         function LayChucVu($chucvu){
-            if($chucvu === "AD")
+            if($chucvu === "1")
                 return 'ADMIN';
-            else if ($chucvu === "QL")
+            else if ($chucvu === "2")
                 return 'QUẢN LÝ';
-            else if ($chucvu === "TN")
-                return 'THU NGÂN';
-            else if ($chucvu === "KHO")
+            else if ($chucvu === "3")
                 return 'KHO';
+            else if ($chucvu === "4")
+                return 'THU NGÂN';
         }
 
         function themPhanQuyen($conn,$matk,$manhomquyen){
@@ -85,17 +85,24 @@
                 echo "Lỗi: " . $conn->error;
             }
         }
-
-        // Sử dụng các hàm trên
-        // Thêm nhân viên
-        themTaiKhoan($conn,$ngaytaotk,$tendn,$matkhau,$trangthai);
-        $matk = layMaTK($conn);
-        echo $matk;
-        $chucvu = LayChucVu($nhomquyen);
-        themNhanVien($conn, $tennv, $ngaysinh, $sdt,$diachi,$matk,$email,$chucvu);
-
-        themPhanQuyen($conn, $matk,$nhomquyen);
-
+        if($tennv ==='' ){
+            echo "Thiếu tên khách hàng";
+        } else if($ngaysinh ==='' ){
+            echo "Thiếu ngày sinh";
+        } else if($sdt ===''){
+            echo "Thiếu số điện thoại";
+        } else if($diachi ===''){
+            echo "Thiếu địa chỉ";
+        } else if($email ===''){
+            echo "Thiếu email";
+        } else{
+    // Sử dụng các hàm trên
+            // Thêm nhân viên
+            themTaiKhoan($conn,$ngaytaotk,$tendn,$matkhau,$trangthai);
+            $matk = layMaTK($conn);
+            $chucvu = LayChucVu($nhomquyen);
+            themNhanVien($conn, $tennv, $ngaysinh, $sdt,$diachi,$matk,$email,$chucvu);
+            themPhanQuyen($conn, $matk,$nhomquyen);
+        }
     }
-    header("Location: ../../GiaoDien/admin/#content-nhanvien");
 ?>

@@ -9,29 +9,24 @@
             return $data;
         }
         // Lấy giá trị của các trường từ form sau khi kiểm tra
-        $masp = isset($_POST['idProduct']) ? check_input($_POST['idProduct']) : '';
-        $tensanpham = isset($_POST['editProduct_tensanpham']) ? check_input($_POST['editProduct_tensanpham']) : '';
-        $thuonghieu = isset($_POST['editProduct_select_thuonghieu']) ? check_input($_POST['editProduct_select_thuonghieu']) : '';
-        $loaisanpham = isset($_POST['group']) ? $_POST['group'] : array(); // Đây là một mảng nếu sử dụng checkbox
-        $hinhsave = isset($_POST['editProduct_savehinhsp_cuu']) ? check_input($_POST['editProduct_savehinhsp_cuu']) : '';
-        $hinhsp = isset($_POST['editProduct_hinhsp']) ? check_input($_POST['editProduct_hinhsp']) : '';
-        $nhacungcap = isset($_POST['editProduct_select_nhacungcap']) ? check_input($_POST['editProduct_select_nhacungcap']) : '';
-        $baohanh = isset($_POST['editProduct_select_baohanh']) ? check_input($_POST['editProduct_select_baohanh']) : '';
-        $giatien = isset($_POST['editProduct_giatien']) ? check_input($_POST['editProduct_giatien']) : '';
-        $cpu = isset($_POST['editproduct_detail_cpu']) ? check_input($_POST['editproduct_detail_cpu']) : '';
-        $screen = isset($_POST['editproduct_detail_screen']) ? check_input($_POST['editproduct_detail_screen']) : '';
-        $ram = isset($_POST['editproduct_detail_ram']) ? check_input($_POST['editproduct_detail_ram']) : '';
-        $vga = isset($_POST['editproduct_detail_vga']) ? check_input($_POST['editproduct_detail_vga']) : '';
-        $storage = isset($_POST['editproduct_detail_storage']) ? check_input($_POST['editproduct_detail_storage']) : '';
-        $os = isset($_POST['editproduct_detail_os']) ? check_input($_POST['editproduct_detail_os']) : '';
-        $pin = isset($_POST['editproduct_detail_pin']) ? check_input($_POST['editproduct_detail_pin']) : '';
-        $weight = isset($_POST['editproduct_detail_weight']) ? check_input($_POST['editproduct_detail_weight']) : '';
-        $mota = isset($_POST['editproduct_detail_mota']) ? check_input($_POST['editproduct_detail_mota']) : '';
-        $mau = isset($_POST['editproduct_detail_mau']) ? check_input($_POST['editproduct_detail_mau']) : '';
-        $manhanvien = isset($_POST['editProduct_nhanvien']) ? check_input($_POST['editProduct_nhanvien']) : '';
-        $trangthai = isset($_POST['trangthaiProduct']) ? check_input($_POST['trangthaiProduct']) : 0;
-        $giatien = number_format($giatien, 0, '.', '');
-
+        $masp = isset($_POST['masp']) ? check_input($_POST['masp']) : '';
+        $tensanpham = isset($_POST['tensp']) ? check_input($_POST['tensp']) : '';
+        $thuonghieu = isset($_POST['mathuonghieu']) ? check_input($_POST['mathuonghieu']) : '';
+        $loaisanpham = isset($_POST['loaisp']) ? $_POST['loaisp'] : array(); // Đây là một mảng nếu sử dụng checkbox
+        $hinhsp = isset($_POST['hinhsp']) ? check_input($_POST['hinhsp']) : '';
+        $nhacungcap = isset($_POST['mancc']) ? check_input($_POST['mancc']) : '';
+        $giatien = isset($_POST['giatien']) ? check_input($_POST['giatien']) : '';
+        $cpu = isset($_POST['cpu']) ? check_input($_POST['cpu']) : '';
+        $screen = isset($_POST['screen']) ? check_input($_POST['screen']) : '';
+        $ram = isset($_POST['ram']) ? check_input($_POST['ram']) : '';
+        $vga = isset($_POST['vga']) ? check_input($_POST['vga']) : '';
+        $storage = isset($_POST['storage']) ? check_input($_POST['storage']) : '';
+        $os = isset($_POST['os']) ? check_input($_POST['os']) : '';
+        $pin = isset($_POST['pin']) ? check_input($_POST['pin']) : '';
+        $weight = isset($_POST['weight']) ? check_input($_POST['weight']) : '';
+        $mota = isset($_POST['mota']) ? check_input($_POST['mota']) : '';
+        $mau = isset($_POST['mau']) ? check_input($_POST['mau']) : '';
+        $mabaohanh = isset($_POST['mabaohanh']) ? check_input($_POST['mabaohanh']) : '';
         // Hiển thị các giá trị đã lấy được để kiểm tra
         echo "Mã SP: " . $masp . "<br>";
         echo "Tên sản phẩm: " . $tensanpham . "<br>";
@@ -42,10 +37,7 @@
         }
         echo "<br>";
         echo "Hình sản phẩm: " . $hinhsp . "<br>";
-        echo "Hình cũ sản phẩm: " . $hinhsave . "<br>";
         echo "Nhà cung cấp: " . $nhacungcap . "<br>";
-        echo "Đơn vị bảo hành: " . $baohanh . "<br>";
-        echo "Giá tiền: " . $giatien . "<br>";
         echo "CPU: " . $cpu . "<br>";
         echo "Screen: " . $screen . "<br>";
         echo "RAM: " . $ram . "<br>";
@@ -56,19 +48,18 @@
         echo "Weight: " . $weight . "<br>";
         echo "Mô tả: " . $mota . "<br>";
         echo "Màu: " . $mau . "<br>";
-        echo "Trạng thái: " . $trangthai . "<br>";
+        $giatien = number_format($giatien, 0, '.', '');
+        echo "Giá tiền: " . $giatien . "<br>";
+
 
         $conn = connectToDatabase();
 
         
         
         // Hàm thêm sản phẩm
-        function themSanPham($conn, $masp, $hinhsp,$hinhcuu, $manhanvien, $nhacungcap, $trangthai) {
-            if($hinhsp === ''){
-                $hinhsp = $hinhcuu;
-            }
+        function themSanPham($conn, $masp, $hinhsp, $nhacungcap) {
             $sql_sanpham = "UPDATE sanpham 
-            SET HINHSP = '$hinhsp',MANV = '$manhanvien',SOLUONG = 1,MANCC = '$nhacungcap',TRANGTHAI = '$trangthai'
+            SET HINHSP = '$hinhsp',SOLUONG = 1,MANCC = '$nhacungcap'
             WHERE MASP = '$masp'";
             if ($conn->query($sql_sanpham) === TRUE) {
                 echo "Thêm sản phẩm thành công";
@@ -98,7 +89,7 @@
         }
 
         // Hàm thêm chi tiết sản phẩm
-        function themChiTietSanPham($conn, $masp, $tensanpham, $cpu, $screen, $ram, $vga, $storage, $os, $pin, $weight, $mota, $thuonghieu, $mau, $giatien, $baohanh) {
+        function themChiTietSanPham($conn, $masp, $tensanpham, $cpu, $screen, $ram, $vga, $storage, $os, $pin, $weight, $mota, $thuonghieu, $mau, $giatien) {
             $sql_chitietsanpham = "UPDATE CHITIETSANPHAM
                                     SET TENSP = '$tensanpham',
                                         CPU = '$cpu',
@@ -112,8 +103,7 @@
                                         MOTA = '$mota',
                                         MATHUONGHIEU = $thuonghieu,
                                         MAU = '$mau',
-                                        GIATIEN = $giatien,
-                                        MABAOHANH = $baohanh
+                                        GIATIEN = $giatien
                                     WHERE MASP = $masp;
             ";
             if ($conn->query($sql_chitietsanpham) === TRUE) {
@@ -125,17 +115,15 @@
 
         // Sử dụng các hàm trên
         // Thêm sản phẩm
-        themSanPham($conn, $masp, $hinhsp,$hinhsave, $manhanvien, $nhacungcap, $trangthai);
+        themSanPham($conn, $masp, $hinhsp, $nhacungcap);
 
         // Thêm nhóm loại sản phẩm
         themNhomLoaiSanPham($conn, $masp, $loaisanpham);
 
         // Thêm chi tiết sản phẩm
-        themChiTietSanPham($conn, $masp, $tensanpham, $cpu, $screen, $ram, $vga, $storage, $os, $pin, $weight, $mota, $thuonghieu, $mau, $giatien, $baohanh);
+        themChiTietSanPham($conn, $masp, $tensanpham, $cpu, $screen, $ram, $vga, $storage, $os, $pin, $weight, $mota, $thuonghieu, $mau, $giatien);
 
     } else{
         echo "không nhận được";
     }
-
-    header("Location: ../../GiaoDien/admin/#content-sanpham");
 ?>

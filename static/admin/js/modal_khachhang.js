@@ -20,17 +20,82 @@ function editKhachHang(id){
     document.getElementById("editKhachHang_email").value = khachhangs[index].EMAIL;
     document.getElementById("editKhachHang_tendangnhap").value = khachhangs[index].TENDN;
     document.getElementById("editKhachHang_matkhau").value = khachhangs[index].MATKHAU;
-
-    var today = new Date();
-    
-    // Định dạng ngày thành chuỗi YYYY-MM-DD để sử dụng trong trường input type date
-    var formattedDate = today.toISOString().substr(0, 10);
-
-    document.getElementById("addKhachHang_ngaytaotk").value = formattedDate;
-    document.getElementById("addKhachHang_trangthai").value = 1;
 }
 
+function saveEditKhachHang(){
+    makh = document.getElementById("idKhachHang").value;
+    ten = document.getElementById("editKhachHang_ten").value;
+    ngaysinh = document.getElementById("editKhachHang_ngaysinh").value;
+    sdt = document.getElementById("editKhachHang_sdt").value;
+    matk = document.getElementById("editKhachHang_taikhoan").value;
+    diachi = document.getElementById("editKhachHang_diachi").value;
+    email = document.getElementById("editKhachHang_email").value;
+    ngaytaotk = document.getElementById("editKhachHang_ngaytaotk").value;
+    tendn = document.getElementById("editKhachHang_tendangnhap").value;
+    matkhau = document.getElementById("editKhachHang_matkhau").value;
+    trangThai = document.getElementById("editKhachHang_trangthai").value;
 
+    $.ajax({
+        url: 'api/admin/saveEditKhachHang.php', // Đường dẫn đến trang PHP
+        type: 'POST', // Phương thức POST sẽ gửi dữ liệu qua body
+        data: {MAKH: makh,
+            TEN: ten,
+            NGAYSINH: ngaysinh,
+            SDT: sdt,
+            MATK: matk,
+            DIACHI: diachi,
+            EMAIL: email,
+            NGAYTAOTK: ngaytaotk,
+            TENDN: tendn,
+            MATKHAU: matkhau,
+            TRANGTHAI: trangThai},
+        success: function(data) {
+            getDsKhachHang();
+            showKhachHang();
+            finish();
+            alert("Đã thay đổi thông tin khách hàng");
+        },
+        error: function(xhr, status, error) {
+            console.error('Lỗi khi gửi yêu cầu đến trang PHP:', error);
+        }
+    });
+}
+
+function saveKhachHang(){
+    ten = document.getElementById("addKhachHang_ten").value;
+    ngaysinh = document.getElementById("addKhachHang_ngaysinh").value;
+    sdt = document.getElementById("addKhachHang_sdt").value;
+    matk = document.getElementById("addKhachHang_taikhoan").value;
+    diachi = document.getElementById("addKhachHang_diachi").value;
+    email = document.getElementById("addKhachHang_email").value;
+    ngaytaotk = document.getElementById("addKhachHang_ngaytaotk").value;
+    tendn = document.getElementById("addKhachHang_tendangnhap").value;
+    matkhau = document.getElementById("addKhachHang_matkhau").value;
+    $.ajax({
+        url: 'api/admin/saveKhachHang.php', // Đường dẫn đến trang PHP
+        type: 'POST', // Phương thức POST sẽ gửi dữ liệu qua body
+        data: {
+            TEN: ten,
+            NGAYSINH: ngaysinh,
+            SDT: sdt,
+            MATK: matk,
+            DIACHI: diachi,
+            EMAIL: email,
+            NGAYTAOTK: ngaytaotk,
+            TENDN: tendn,
+            MATKHAU: matkhau,
+            },
+        success: function(data) {
+            getDsKhachHang();
+            showKhachHang();
+            finish();
+            alert("Đã thêm thông tin khách hàng " + ten);
+        },
+        error: function(xhr, status, error) {
+            console.error('Lỗi khi gửi yêu cầu đến trang PHP:', error);
+        }
+    });
+}
 function changeStatusTKKHOff(id){
     getDsKhachHang();
     let index = khachhangs.findIndex((item) => {
@@ -38,9 +103,6 @@ function changeStatusTKKHOff(id){
     })
     if(confirm("Xóa khách hàng "+ khachhangs[index].TEN +" ?")){
         updateStatusTaiKhoanKH(khachhangs[index].MAKH,0);
-        getDsKhachHang();
-        showKhachHang();
-        // resetDataAmountProduct();
         alert("Đã Xóa khách hàng " + khachhangs[index].TEN +" thành công");
     }
 }
@@ -52,40 +114,31 @@ function changeStatusTKKHOn(id){
     })
     if(confirm("Khôi phục khách hàng "+ khachhangs[index].TEN +" ?")){
         updateStatusTaiKhoanKH(khachhangs[index].MAKH,1);
-        getDsKhachHang();
-        showKhachHang();
         // resetDataAmountProduct();
         alert("Đã khôi phục khách hàng " + khachhangs[index].TEN +" thành công");
     }
 }
 
 function updateStatusTaiKhoanKH(id, status) {
-    // Tạo một đối tượng XMLHttpRequest
-    var xhr = new XMLHttpRequest();
-
-    // Xác định phương thức và URL của yêu cầu
-    var url = "api/admin/updateTrangThaiTaiKhoanKhachHang.php";
-    var method = "POST";
-
-    // Chuẩn bị dữ liệu để gửi
-    var data = {
-        idProduct: id,
-        TrangThai: status
-    };
-    // Mở kết nối
-    xhr.open(method, url, true);
-
-    // Thiết lập tiêu đề yêu cầu nếu cần
-    xhr.setRequestHeader("Content-Type", "application/json"); // Sử dụng application/json vì chúng ta đang gửi dữ liệu dưới dạng JSON
-
-    // Xử lý sự kiện khi yêu cầu hoàn thành
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-            // Xử lý kết quả từ PHP
-            console.log(xhr.responseText);
+    $.ajax({
+        url: 'api/admin/updateTrangThaiTaiKhoanKhachHang.php', // Đường dẫn đến trang PHP
+        type: 'POST', // Phương thức POST sẽ gửi dữ liệu qua body
+        data: { idProduct: id,
+            TrangThai: status
+        },
+        success: function(data) {
+            getDsKhachHang();
+            showKhachHang();
+            finish();
+        },
+        error: function(xhr, status, error) {
+            console.error('Lỗi khi gửi yêu cầu đến trang PHP:', error);
         }
-    };
+    });
+}
 
-    // Gửi yêu cầu với dữ liệu, chuyển đổi đối tượng JavaScript thành chuỗi JSON trước khi gửi
-    xhr.send(JSON.stringify(data));
+function finish(){
+    for(let i = 0 ; i < modalOpen.length ; i++){
+        modalOpen[i].classList.remove("open");
+    }
 }

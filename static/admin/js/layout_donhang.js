@@ -108,23 +108,26 @@ if (arr.length === 0) {
 
     
     arr.forEach(product => {
-        let btnCtl = product.TRANGTHAI == 1 ?
-            `<button class="control-btn changeStatus-product-control" onclick="changeStatusTKDonHangOff(${product.MAHD})"><i class="fa-solid fa-trash"></i></button>` :
-            `<button class="control-btn changeStatus-product-control undo-btn" onclick="changeStatusTKDonHangOn(${product.MAHD})"><i class="fa-solid fa-trash"></i></button>`;
-        
-            
-            let btnTrangThai = product.TRANGTHAI == 1 ?
-            `Đã xử lý` :
-            `Chưa xử lý`;
+        let trangthai;
+        if(product.TRANGTHAI === '1'){
+            trangthai = 'Đã xử lý';
+        } else if(product.TRANGTHAI === '0'){
+            trangthai = 'Chưa xử lý';
+        } else if(product.TRANGTHAI === '2'){
+            trangthai = 'Đang giao';
+        } else{
+            trangthai = 'Đã hủy';
+        }
 
 
         productHtml +=
             `<tr>
             <td>${product.MAHD}</td>
-            <td>${product.TENKH}</td>
-            <td>${product.TENNV}</td>
-            <td>${btnTrangThai}</td>
-            <td class="table-control"><button class="item-btn-edit control-btn" onclick="editDonHang(${product.MAHD})"><i class="fa-solid fa-pen-to-square"></i></button> ${btnCtl}</td>
+            <td>${product.MAKH}</td>
+            <td>${product.MANV}</td>
+            <td>${product.NGAYTAO}</td>
+            <td>${trangthai}</td>
+            <td class="table-control"><button class="item-btn-edit control-btn" onclick="editDonHang(${product.MAHD})"><i class="fa-solid fa-pen-to-square"></i></button></td>
         </tr>`;
 
     });
@@ -179,7 +182,4 @@ function filterByTopToBotDonHang(){
     tmp.sort(TopToBotDATE);
     showArrayDonHang(tmp);
 }
-
-
-
 
