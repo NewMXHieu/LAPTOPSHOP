@@ -109,8 +109,8 @@ if (arr.length === 0) {
     
     arr.forEach(product => {
         let btnCtl = product.TRANGTHAI == 1 ?
-            `<button class="control-btn changeStatus-product-control" onclick="changeStatusTKKHOff(${product.MAKH})"><i class="fa-solid fa-trash"></i></button>` :
-            `<button class="control-btn changeStatus-product-control undo-btn" onclick="changeStatusTKKHOn(${product.MAKH})"><i class="fa-solid fa-trash"></i></button>`;
+            `<button class="btn btn-danger" onclick="changeStatusTKKHOff(${product.MAKH})"><i class="fa-solid fa-trash"></i></button>` :
+            `<button class="btn btn-danger undo-btn" onclick="changeStatusTKKHOn(${product.MAKH})"><i class="fa-solid fa-trash"></i></button>`;
         
             
             let btnTrangThai = product.TRANGTHAI == 1 ?
@@ -127,11 +127,8 @@ if (arr.length === 0) {
             <td>${product.DIACHI}</td>
             <td>${product.MATK}</td>
             <td>${product.EMAIL}</td>
-            <td>${product.NGAYTAOTK}</td>
-            <td>${product.TENDN}</td>
-            <td>${product.MATKHAU}</td>
             <td>${btnTrangThai}</td>
-            <td class="table-control"><button class="item-btn-edit control-btn" onclick="editKhachHang(${product.MAKH})"><i class="fa-solid fa-pen-to-square"></i></button> ${btnCtl}</td>
+            <td class="table-control"><button class="btn btn-primary" onclick="editKhachHang(${product.MAKH})"><i class="fa-solid fa-pen-to-square"></i></button> ${btnCtl}</td>
         </tr>`;
 
     });
@@ -167,23 +164,23 @@ function resetDataKhachHang(){
 }
 
 
-function BotToTopDATEb(a, b) {
+function BotToTopDATE(a, b) {
     return new Date(a.NGAYTAOTK) - new Date(b.NGAYTAOTK);
 }
 
-function TopToBotDATEb(a, b) {
+function TopToBotDATE(a, b) {
     return new Date(b.NGAYTAOTK) - new Date(a.NGAYTAOTK);
 }
 
 function filterByBotToTopKH(){
     let tmp = resultKhachHang;
-    tmp.sort(BotToTopDATEb);
+    tmp.sort(BotToTopDATE);
     showArrayKhachHang(tmp);
 }
 
 function filterByTopToBotKH(){
     let tmp = resultKhachHang;
-    tmp.sort(TopToBotDATEb);
+    tmp.sort(TopToBotDATE);
     showArrayKhachHang(tmp);
 }
 

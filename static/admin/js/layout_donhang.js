@@ -127,7 +127,10 @@ if (arr.length === 0) {
             <td>${product.MANV}</td>
             <td>${product.NGAYTAO}</td>
             <td>${trangthai}</td>
-            <td class="table-control"><button class="item-btn-edit control-btn" onclick="editDonHang(${product.MAHD})"><i class="fa-solid fa-pen-to-square"></i></button></td>
+            <td class="table-control">
+            <button class="btn btn-primary" onclick="editDonHang(${product.MAHD})"><i class="fa-solid fa-pen-to-square"></i></button>
+            <button class="btn btn-danger" onclick=""><i class="fa-solid fa-trash"></i></button>
+            </td>
         </tr>`;
 
     });

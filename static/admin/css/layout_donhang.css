@@ -1,3 +1,87 @@
+p.modal{
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.6);   
+}
+
+.modal form{
+    width: 50%;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.modal form{
+    background-color: rgb(148, 182, 212);
+}
+
+.modal.open{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.AddSanPham form,.editSanPham form{
+    display: block;
+}
+
+.modal h2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    position: relative
+}
+
+.detail_product{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.detail_product-items{
+    background-color: rgb(214, 208, 201);
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.detail_product-items-item{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 20px;
+}
+.checkboxList{
+    display: block;
+}
+
+.detail_product-items-item input,.detail_product-items-item select{
+    height: 30px;
+}
+textarea{
+    height: 100px;
+    resize: none;
+}
+.form-control{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    height: 55px;
+}
+
+/* .control-btn-form{
+    width: 100px;
+    height: 45px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+} */
+
+.control-btn-form:hover{
+    background-color: rgb(140, 185, 74);
+}
+
+
 .detail-giohang-list{
     display: block;
     height: 300px;

@@ -21,16 +21,6 @@ table{
     border-collapse: collapse;
 }
 
-.table-control{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    border: none;
-    border-bottom: 2px solid black;
-    border-right: 2px solid black;
-}
-
-
 #dataNhanVien {
     max-height: 400px; /* Định cố định chiều cao của tbody */
     overflow-y: auto; /* Kích hoạt thanh cuộn dọc khi nội dung dài hơn chiều cao đã định */

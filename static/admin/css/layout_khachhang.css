@@ -14,15 +14,6 @@ table{
     border-collapse: collapse;
 }
 
-.table-control{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    border: none;
-    border-bottom: 2px solid black;
-    border-right: 2px solid black;
-}
-
 
 #dataKhachHang {
     max-height: 200px; /* Định cố định chiều cao của tbody */

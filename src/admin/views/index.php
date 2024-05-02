@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="vi">
 
@@ -99,7 +102,15 @@
                         <div class="sidebar-item-image">
                             <i class="fa-solid fa-user-tie"></i>
                         </div>
-                        <div class="sidebar-item-name"><?php include '../functions/getAdminSignin.php' ?></div>
+                        <div class="sidebar-item-name">
+                            <?php
+                            if (isset($_SESSION['username'])) {
+                                echo $_SESSION['username'];
+                            } else {
+                                echo "Null admin";
+                            }
+                            ?>
+                        </div>
                     </a>
                 </li>
 
@@ -129,8 +140,10 @@
                         </div>
                         <div class="content-main-trangchu-card-name">Users</div>
                         <div class="content-main-trangchu-card-detail">
-                            <div class="content-main-trangchu-card-detail-nhanvien" id="admin-trangchu-user-nhanvien" name="admin-trangchu-user-nhanvien"></div>
-                            <div class="content-main-trangchu-card-detail-khachhang" id="admin-trangchu-user-khachhang" name="admin-trangchu-user-khachhang"></div>
+                            <div class="content-main-trangchu-card-detail-nhanvien" id="admin-trangchu-user-nhanvien"
+                                name="admin-trangchu-user-nhanvien"></div>
+                            <div class="content-main-trangchu-card-detail-khachhang" id="admin-trangchu-user-khachhang"
+                                name="admin-trangchu-user-khachhang"></div>
                         </div>
                     </div>
 
@@ -141,8 +154,10 @@
                         </div>
                         <div class="content-main-trangchu-card-name">Products</div>
                         <div class="content-main-trangchu-card-detail">
-                            <div class="content-main-trangchu-card-detail-nhanvien" id="admin-trangchu-product" name="admin-trangchu-product"></div>
-                            <div class="content-main-trangchu-card-detail-khachhang" id="admin-trangchu-product" name="admin-trangchu-product"></div>
+                            <div class="content-main-trangchu-card-detail-nhanvien" id="admin-trangchu-product"
+                                name="admin-trangchu-product"></div>
+                            <div class="content-main-trangchu-card-detail-khachhang" id="admin-trangchu-product"
+                                name="admin-trangchu-product"></div>
                         </div>
                     </div>
 
@@ -153,8 +168,9 @@
                         </div>
                         <div class="content-main-trangchu-card-name">Doanh thu</div>
                         <div class="content-main-trangchu-card-detail">
-                            <div class="content-main-trangchu-card-detail-nhanvien" id="admin-trangchu-doanhthu" name="admin-trangchu-doanhthu">
-                                
+                            <div class="content-main-trangchu-card-detail-nhanvien" id="admin-trangchu-doanhthu"
+                                name="admin-trangchu-doanhthu">
+
                             </div>
                         </div>
                     </div>
@@ -168,15 +184,15 @@
         <?php include 'layout_khachhang.php' ?>
 
         <!-- layout Sản phẩm -->
-        <?php include 'layout_sanpham.php'?>
+        <?php include 'layout_sanpham.php' ?>
 
         <!-- layout Đơn hàng -->
-        <?php include 'layout_donhang.php'?>
+        <?php include 'layout_donhang.php' ?>
         <!-- layout thống kê -->
         <?php include 'layout_thongke.php' ?>
     </div>
 
-    
+
 
     <script src="static/admin/js/admin.js"></script>
 </body>

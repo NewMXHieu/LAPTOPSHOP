@@ -36,21 +36,18 @@
                     </div>
                 </div>
                 <div class="content-main-table">
-                <table style="width:100%">
+                <table style="width:100%" class="table table-hover table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>MÃ KHÁCH HÀNG</th>
+                                <th>MÃ KH</th>
                                 <th>HỌ VÀ TÊN</th>
                                 <th>NGÀY SINH</th>
                                 <th>SĐT</th>
                                 <th>ĐỊA CHỈ</th>
-                                <th>MÃ TÀI KHOẢN</th>
+                                <th>MÃ TK</th>
                                 <th>EMAIL</th>
-                                <th>NGÀY TẠO TÀI KHOẢN</th>
-                                <th>TÊN ĐĂNG NHẬP</th>
-                                <th>MẬT KHẨU</th>
                                 <th>TRẠNG THÁI</th>
-                                <th style="width: 200px;">CHỨC NĂNG</th>
+                                <th>CHỨC NĂNG</th>
                             </tr>
                         </thead>
                         

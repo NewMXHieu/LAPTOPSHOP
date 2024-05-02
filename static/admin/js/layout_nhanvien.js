@@ -108,18 +108,9 @@ if (arr.length === 0) {
     
     arr.forEach(product => {
         let btnCtl = product.TRANGTHAI == 1 ?
-            `<button class="control-btn changeStatus-product-control" onclick="changeStatusTKNVOff(${product.MANV})"><i class="fa-solid fa-trash"></i></button>` :
-            `<button class="control-btn changeStatus-product-control undo-btn" onclick="changeStatusTKNVOn(${product.MANV})"><i class="fa-solid fa-trash"></i></button>`;
-        // let chucvu;
-        // if (product.CHUCVU === "1"){
-        //     chucvu = "ADMIN"
-        // } else if(product.CHUCVU === "2"){
-        //     chucvu = "QUẢN LÝ"
-        // } else if(product.CHUCVU === "3"){
-        //     chucvu = "KHO"
-        // } else if(product.CHUCVU === "4"){
-        //     chucvu = "THU NGÂN"
-        // } 
+            `<button class="btn btn-danger" onclick="changeStatusTKNVOff(${product.MANV})"><i class="fa-solid fa-trash"></i></button>` :
+            `<button class="btn btn-danger undo-btn" onclick="changeStatusTKNVOn(${product.MANV})"><i class="fa-solid fa-trash"></i></button>`;
+        
             
             let btnTrangThai = product.TRANGTHAI == 1 ?
             `Hoạt động` :
@@ -136,11 +127,8 @@ if (arr.length === 0) {
             <td>${product.MATK}</td>
             <td>${product.EMAIL}</td>
             <td>${product.CHUCVU}</td>
-            <td>${product.NGAYTAOTK}</td>
-            <td>${product.TENDN}</td>
-            <td>${product.MATKHAU}</td>
             <td>${btnTrangThai}</td>
-            <td class="table-control"><button class="item-btn-edit control-btn" onclick="editNhanVien(${product.MANV})"><i class="fa-solid fa-pen-to-square"></i></button> ${btnCtl}</td>
+            <td class="table-control"><button class="btn btn-primary" onclick="editNhanVien(${product.MANV})"><i class="fa-solid fa-pen-to-square"></i></button> ${btnCtl}</td>
         </tr>`;
 
     });
@@ -175,23 +163,16 @@ function resetDataNhanVien(){
     showArrayNhanVien(nhanviens);
 }
 
-function BotToTopDATEa(a, b) {
-    return new Date(a.NGAYTAOTK) - new Date(b.NGAYTAOTK);
-}
-
-function TopToBotDATEa(a, b) {
-    return new Date(b.NGAYTAOTK) - new Date(a.NGAYTAOTK);
-}
 
 function filterByBotToTopNV(){
     let tmp = resultNhanVien;
-    tmp.sort(BotToTopDATEa);
+    tmp.sort(BotToTopDATE);
     showArrayNhanVien(tmp);
 }
 
 function filterByTopToBotNV(){
     let tmp = resultNhanVien;
-    tmp.sort(TopToBotDATEa);
+    tmp.sort(TopToBotDATE);
     showArrayNhanVien(tmp);
 }
 

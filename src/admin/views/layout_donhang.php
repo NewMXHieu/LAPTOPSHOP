@@ -18,10 +18,10 @@
                     <div class="content-main-select">
                         <select name="admin-donhang-select" id="admin-donhang-select" onchange="showDonHang()">
                             <option value="0" selected>Tất cả</option>
-                            <option value="1">Đã xử lý</option>
-                            <option value="2">Chưa xử lý</option>
+                            <option value="1">Chưa xử lý</option>
+                            <option value="2">Đã xử lý</option>
                             <option value="3">Đã hủy</option>
-                            
+
                         </select>
                     </div>
                     <div class="content-main-searchbar">
@@ -32,35 +32,38 @@
                     </div>
                     <div class="content-main-control-filter">
                         <!-- <button id="addNewdonhang"><i class="fa-solid fa-plus"></i></button> -->
-                        <button id="resetBtndonhang" onclick="resetDataDonHang()"><i class="fa-solid fa-arrows-rotate"></i></button>
-                        <button id="filterByBotToTopBtndonhang" onclick="filterByBotToTopDonHang()"><i class="fa-solid fa-sort-up"></i></button>
-                        <button id="filterByToptoBotBtndonhang" onclick="filterByTopToBotDonHang()"><i class="fa-solid fa-sort-down"></i></button>
+                        <button id="resetBtndonhang" onclick="resetDataDonHang()"><i
+                                class="fa-solid fa-arrows-rotate"></i></button>
+                        <button id="filterByBotToTopBtndonhang" onclick="filterByBotToTopDonHang()"><i
+                                class="fa-solid fa-sort-up"></i></button>
+                        <button id="filterByToptoBotBtndonhang" onclick="filterByTopToBotDonHang()"><i
+                                class="fa-solid fa-sort-down"></i></button>
                     </div>
                 </div>
                 <div class="content-main-table">
-                <table style="width:100%">
+                    <table style="width:100%" class="table table-hover table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>MÃ ĐƠN HÀNG</th>
-                                <th>MÃ KHÁCH HÀNG</th>
-                                <th>MÃ NHÂN VIÊN</th>
-                                <th>NGÀY TẠO</th>
-                                <th>TRẠNG THÁI</th>
-                                <th style="width: 200px;">CHỨC NĂNG</th>
+                                <th scope="col">MÃ ĐƠN HÀNG</th>
+                                <th scope="col">MÃ KHÁCH HÀNG</th>
+                                <th scope="col">MÃ NHÂN VIÊN</th>
+                                <th scope="col">NGÀY TẠO</th>
+                                <th scope="col">TRẠNG THÁI</th>
+                                <th scope="col">CHỨC NĂNG</th>
                             </tr>
                         </thead>
-                        
+
                         <tbody id="dataDonHang">
-                                <tr>
-                                    
-                                </tr>
-                            </tbody>
-                            
+                            <tr>
+
+                            </tr>
+                        </tbody>
+
                     </table>
+                </div>
             </div>
         </div>
-    </div>
-    <?php include 'modal_donhang.php' ?>
+        <?php include 'modal_donhang.php' ?>
     </div>
 
 </body>
