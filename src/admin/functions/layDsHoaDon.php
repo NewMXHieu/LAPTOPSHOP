@@ -4,10 +4,11 @@
 $conn = connectToDatabase();
 
 // Truy vấn cơ sở dữ liệu để lấy dữ liệu sản phẩm
-$sql = "SELECT HOADON.MAHD,khachhang.MAKH,khachhang.TEN AS TENKH ,nhanvien.MANV ,nhanvien.TEN AS TENNV,HOADON.NGAYTAO, HOADON.TRANGTHAI
+$sql = "SELECT HOADON.MAHD,khachhang.MAKH,khachhang.TEN AS TENKH ,nhanvien.MANV ,nhanvien.TEN AS TENNV,HOADON.NGAYTAO, HOADON.TRANGTHAI, HOADON.MASHIPPER, shipper.TEN AS TENSHP
 FROM HOADON
 INNER JOIN khachhang ON HOADON.MAKH = khachhang.MAKH 
 INNER JOIN nhanvien ON hoadon.MANV = nhanvien.MANV
+LEFT JOIN shipper ON hoadon.MASHIPPER = shipper.MASHIPPER
 GROUP BY HOADON.MAHD
 ";
 $result = $conn->query($sql);
@@ -25,7 +26,9 @@ if ($result->num_rows > 0) {
             'MANV' => $row['MANV'],
             'TENNV' => $row['TENNV'],
             'NGAYTAO' => $row['NGAYTAO'],
-            'TRANGTHAI' => $row['TRANGTHAI']
+            'TRANGTHAI' => $row['TRANGTHAI'],
+            'MASHIPPER' => $row['MASHIPPER'],
+            'TENSHP' => $row['TENSHP']
         ];
         $hoadons[] = $hoadon;
     }
