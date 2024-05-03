@@ -79,6 +79,9 @@ include "../../config/function.php";
             window.location.href = "http://localhost/laptopshop/trangchu#";
         }
         delayLoad();
+        $('html, body').animate({
+            scrollTop: $(".main").offset().top - 70 // Thay ".main" bằng selector của phần hiện sản phẩm của bạn
+        }, 'slow');
     })
 
     function delayLoad() {
@@ -91,9 +94,7 @@ include "../../config/function.php";
         $("#txtSearch").val(search);
         readData(search);
         Pagination(search);
-        $('html, body').animate({
-            scrollTop: $(".main").offset().top - 70 // Thay ".main" bằng selector của phần hiện sản phẩm của bạn
-        }, 'slow');
+        
     }
     document.onkeydown = function () {
         if (window.event.keyCode == '13') {

@@ -11,8 +11,9 @@
       }
     };
   }
+
   function submitData() {
-    $(document).ready(function () {
+    $(document).ready(function() {
       console.log('submitData');
       var data = {
         fullname: $("#fullname").val(),
@@ -26,7 +27,7 @@
         url: 'api/login-register.php',
         type: 'post',
         data: data,
-        success: function (response) {
+        success: function(response) {
           if (response) {
             try {
               response = JSON.parse(response);
@@ -40,42 +41,34 @@
           if (response.message == "Registration Successful") {
             var popup = document.getElementById('popup-register-successful');
             popup.classList.add("open-popup");
-          }
-        
-          else if (response.message == "Login Successful" && response.loginRoute == '5') {
+          } else if (response.message == "Login Successful" && response.loginRoute == '5') {
             var popup = document.getElementById('popup-login-successful');
             popup.classList.add("open-popup");
-          }
-          else if (response.message == "Login Successful" && response.loginRoute == '1') {
+          } else if (response.message == "Login Successful" && response.loginRoute == '1') {
             alert("Đăng nhập thành công. Bạn sẽ được chuyển hướng về trang admin.");
             window.location.href = 'admin'; // Chuyển hướng đến trang quản lý
-          }
-          else if (response.message == "Login Successful" && response.loginRoute == '2') {
+          } else if (response.message == "Login Successful" && response.loginRoute == '2') {
             alert("Đăng nhập thành công. Bạn sẽ được chuyển hướng về trang quản lý.");
             window.location.href = 'admin'; // Chuyển hướng đến trang quản lý
-          }
-          else if (response.message == "Login Successful" && response.loginRoute == '3') {
+          } else if (response.message == "Login Successful" && response.loginRoute == '3') {
             alert("Đăng nhập thành công. Bạn sẽ được chuyển hướng về trang quản lý.");
             window.location.href = 'admin'; // Chuyển hướng đến trang quản lý
-          }
-          else if (response.message == "Vui lòng nhập tên đăng nhập và mật khẩu" || response.message == "Tên tài khoản hoặc mật khẩu sai" || response.message == "Mật khẩu sai" || response.message == "Đã có lỗi xảy ra. Vui lòng thử lại sau.") {
+          } else if (response.message == "Vui lòng nhập tên đăng nhập và mật khẩu" || response.message == "Tên tài khoản hoặc mật khẩu sai" || response.message == "Mật khẩu sai" || response.message == "Đã có lỗi xảy ra. Vui lòng thử lại sau.") {
             var popup = document.getElementById('popup-login-fail');
             popup.querySelector('p').textContent = response.message;
             popup.classList.add("open-popup");
-          }
-          else if (response.message == "Vui lòng nhập đầy đủ thông tin" || response.message == "Mật khẩu không khớp" || response.message == "Tên tài khoản đã tồn tại") {
+          } else if (response.message == "Vui lòng nhập đầy đủ thông tin" || response.message == "Mật khẩu không khớp" || response.message == "Tên tài khoản đã tồn tại") {
             var popup = document.getElementById('popup-register-fail');
             popup.querySelector('p').textContent = response.message;
             popup.classList.add("open-popup");
-          }
-          else {
-             alert(response.message); // Hiển thị thông báo lỗi
+          } else {
+            alert(response.message); // Hiển thị thông báo lỗi
           }
         }
       });
     });
   }
-  document.onkeydown = function () {
+  document.onkeydown = function() {
     if (window.event.keyCode == '13') {
       submitData();
     }

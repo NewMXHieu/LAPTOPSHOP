@@ -4,7 +4,7 @@ include '../../config/connect.php';
 
 <div class="wrapper">
     <div class="content top-trangchu">
-            <div class="menu menu-left">
+            <div class="menu menu-left menu-left-1">
                 <ul class="list">
                     <li><a href="asus">Laptop ASUS<img src="https://lh3.googleusercontent.com/hqBTHqQRBdv5P7EuiclPKzZZisus_wC-QZ_pq9ZRg5I4sa028thCSEwzY0yft-Gb2wyZNHZgEpo24uks-9qL12qQ9Yvy_Fcz=rw"></a></li>
                     <li><a href="acer">Laptop ACER<img src="https://lh3.googleusercontent.com/IAlZ9kiZsV1CRAQtQezaD4aEXZAZiC6-H9lQ2LxG8FB5TcIWtIkJ41w7ushFEMaaPIHFHUOh5H7he4iYW-D3sSquf-bMpH5d=rw"></a></li>
