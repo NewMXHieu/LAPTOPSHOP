@@ -386,6 +386,7 @@ a {
     width: 998px;
     overflow: hidden;
     position: relative;
+    margin: 0 8px;
 }
 
 .list-img {
@@ -465,7 +466,7 @@ a {
 
 .main .product {
     border: 1px solid #c4baba;
-    width: calc(25% - 2px);
+    width: calc(25%);
 }
 
 .pagination {
@@ -671,7 +672,7 @@ button[type="button"]:hover {
 .content {
     width: 75%;
     margin: 0px auto;
-    padding: inherit;
+    padding-top: 50px;
 }
 
 .menu {
@@ -690,7 +691,8 @@ button[type="button"]:hover {
 
 #resetBtn {
     padding: 3px 15px;
-    position: absolute;
+    margin-bottom: 10px;
+    /* position: absolute; */
     top: 18px;
     right: 20px;
     border-radius: 6px;
@@ -845,7 +847,7 @@ h3 {
     background-color: #d8d8f5;
     /* background-color: blue; */
     padding: 0 15%;
-    height: 482px;
+    height: 500px;
     border-top: solid #000;
     margin: 20px auto;
     border-radius: 15px;
@@ -874,10 +876,51 @@ h3 {
 .recommend-row {
     display: flex;
     /* height: 300px; */
-    width: 23398px;
+    width: 4393px;
     position: absolute;
     left: 0;
     /* right: 60px; */
     /* bottom: 20px; */
     /* top: 62px; */
+}
+
+@media (max-width: 1715px) {
+    .content {
+        width: 90%;
+    }
+}
+
+@media (max-width: 1419px) {
+    .content {
+        width: 96%;
+    }
+}
+
+@media (max-width: 1329px) {
+
+    /* .content{
+        width: 80%;
+    } */
+    .menu-right {
+        width: 99%;
+    }
+
+    .menu-left-1 {
+        display: none;
+    }
+
+    .top-trangchu {
+        display: block;
+    }
+
+    .menu-left-2 {
+        display: flex;
+        width: 99%;
+        gap: 40px;
+        margin-bottom: 30px;
+    }
+
+    .loc {
+        border: none;
+    }
 }

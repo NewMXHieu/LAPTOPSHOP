@@ -45,7 +45,7 @@
     }
     
 
-    $sql_sanpham .= " LIMIT $offset, $sanpham_tren_trang";
+    // $sql_sanpham .= " LIMIT $offset, $sanpham_tren_trang";
     $query_sanpham = mysqli_query($conn, $sql_sanpham);
     $data ='';
     while ($row_sanpham = mysqli_fetch_assoc($query_sanpham)) {
