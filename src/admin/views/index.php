@@ -89,6 +89,26 @@ session_start();
                         <div class="sidebar-item-name">Thống kê</div>
                     </a>
                 </li>
+
+                <!-- layout nhập hàng -->
+                <li class="sidebar-control-list-item" id="admin-thongke-layout" name="admin-thongke-layout">
+                    <a href="#content-nhaphang">
+                        <div class="sidebar-item-image">
+                            <i class="fa-solid fa-parachute-box"></i>
+                        </div>
+                        <div class="sidebar-item-name">Nhập hàng</div>
+                    </a>
+                </li>
+
+                <!-- layout bảo hành -->
+                <li class="sidebar-control-list-item" id="admin-thongke-layout" name="admin-thongke-layout">
+                    <a href="#content-baohanh">
+                        <div class="sidebar-item-image">
+                            <i class="fa-solid fa-circle-notch"></i>
+                        </div>
+                        <div class="sidebar-item-name">Bảo hành</div>
+                    </a>
+                </li>
             </ul>
         </div>
 
@@ -190,6 +210,12 @@ session_start();
         <?php include 'layout_donhang.php' ?>
         <!-- layout thống kê -->
         <?php include 'layout_thongke.php' ?>
+
+        <!-- layout nhập hàng -->
+        <?php include 'layout_nhaphang.php' ?>
+
+        <!-- layout bảo hành -->
+        <?php include 'layout_baohanh.php' ?>
     </div>
 
 

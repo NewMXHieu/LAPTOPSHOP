@@ -203,7 +203,6 @@ function tinhTongTien(maloaisp){
         data: {idLoaiSP: maloaisp}, // Dữ liệu gửi đi (id sản phẩm)
         dataType: 'json',
         success: function(data) {
-            console.log(data);
             if(data.total === null){
                 data.total = 0;
             }

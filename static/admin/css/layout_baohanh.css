@@ -1,0 +1,14 @@
+.content-main-select-baohanh{
+    display: flex;
+    height: 70%;
+    width: 15%;
+    justify-content: space-evenly;
+}
+.centerText{
+    display: flex;
+    align-items: center;
+}
+
+.content-main-select-baohanh input[type='date']{
+    width: 70%;
+}

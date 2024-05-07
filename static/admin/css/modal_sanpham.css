@@ -1,16 +1,17 @@
+
 .modal{
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
-    position: fixed;
+    position: absolute;
     display: none;
     background-color: rgba(0, 0, 0, 0.6);
     z-index: 10;
+    height: 100vh;
 }
 
 .modal form{
-    max-height: 90vh;
     border: 1px solid black;
     border-radius: 10px;
 }
@@ -18,9 +19,18 @@
     background-color: rgb(148, 182, 212);
 }
 
-.modal.AddSanPham form, .modal.editSanPham form{
+/* .modal.AddSanPham form, .modal.editSanPham form{
     width: 1200px;
     height: 700px;
+} */
+
+.editphieunhap form{
+    width: 60%;
+    height: 80%;
+}
+.addphieunhap form{
+    width: 60%;
+    height: 80%;
 }
 
 .modal.open{
@@ -37,14 +47,41 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50px;
+    height: 10%;
     position: relative
 }
 
 .detail_product{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    height: 75%;
+    overflow: hidden;
 }
+
+.editphieunhapEdit{
+    grid-template-columns: 1fr;
+    height: 40%;
+}
+.editphieunhapEdit1{
+    grid-template-columns: 1fr;
+    height: 30%;
+}
+
+.editphieunhapcontrol{
+    height: 10% !important;     
+}
+
+.dataUpdate{
+    display: flex;
+    flex-direction: column;
+    height: 40%;
+}
+.dataUpdate1{
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+}
+
 .detail_product-items{
     background-color: rgb(214, 208, 201);
     border-top: 1px solid black;
@@ -80,6 +117,47 @@ textarea{
     z-index: 12;
 }
 
+
+.form-control{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    height: 15%;
+}
+
+.control-btn-form{
+    width: 10%;
+    height: 70%;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-btn-form:hover{
+    background-color: rgb(140, 185, 74);
+}
+
+.detail_product-items-title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+.table-margin{
+    height: 100%;
+    margin: 10px;
+    overflow-y: auto;
+}
+.detail_product-items-table{
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
 .modal-close-sanpham{
     top: 15px;
     bottom: 0;
@@ -107,30 +185,39 @@ textarea{
     right: 0;
 }
 
+.modal-close-phieunhap{
+    top: 7%;
+    bottom: 0;
+    right: 0;
+    left: 78.5%;
+}
+.modal-close-addphieunhap{
+    top: 21%;
+    bottom: 0;
+    right: 0;
+    left: 78.5%;
+}
+.modal-close-baohanh{
+    top: 21.5%;
+    bottom: 0;
+    right: 0;
+    left: 68.5%;
+}
 
 .modal-close:hover{
     background-color: rgb(208, 29, 29);
 }
 
-.form-control{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
-    height: 55px;
+.detail_product-items-table input[type="checkbox"] {
+    width: 30px; /* Điều chỉnh chiều rộng */
+    height: 30px; /* Điều chỉnh chiều cao */
 }
 
-.control-btn-form{
-    width: 100px;
-    height: 45px;
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 20px;
-    align-items: center;
-    justify-content: center;
+.editbaohanh form, .addbaohanh form{
+    width: 40%;
+    height: 50%;
 }
 
-.control-btn-form:hover{
-    background-color: rgb(140, 185, 74);
+.chitiethd{
+    grid-template-columns: 1fr;
 }
-
