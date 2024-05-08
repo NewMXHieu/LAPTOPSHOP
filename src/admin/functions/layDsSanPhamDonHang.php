@@ -10,11 +10,12 @@ if (isset($_POST['idProduct'])) {
     // Nhận id từ yêu cầu POST
     $id = $_POST['idProduct'];
     // Truy vấn cơ sở dữ liệu để lấy dữ liệu sản phẩm
-    $sql = "select chitiethoadon.MASP, COUNT(chitiethoadon.MASP) as SOLUONG, chitietsanpham.GIATIEN
+    $sql = "select chitiethoadon.MASP, MASERI ,chitietsanpham.GIATIEN
     from chitiethoadon
     INNER JOIN chitietsanpham ON chitietsanpham.MASP = chitiethoadon.MASP
     where mahd = $id
-    GROUP BY chitiethoadon.MASP;
+    GROUP BY MASERI
+;
     ";
     $result = $conn->query($sql);
     $SPDonHangs = [];
@@ -25,7 +26,7 @@ if (isset($_POST['idProduct'])) {
         while ($row = $result->fetch_assoc()) {
             $sp = [
                 'MASP' => $row['MASP'],
-                'SOLUONG' => $row['SOLUONG'],
+                'MASERI' => $row['MASERI'],
                 'GIATIEN' => $row['GIATIEN'],
             ];
             $SPDonHangs[] = $sp;

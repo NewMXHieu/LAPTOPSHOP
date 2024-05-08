@@ -129,12 +129,10 @@ function showThongKe(){
     currentPage = 1;
     if (selectOp === "0") {
         resultThongKe = thongkes;
-        changeDataType(selectOp,tinhTongTien(selectOp));
     } else if (selectOp >= "1" && selectOp <= "6") {
         resultThongKe = thongkes.filter((item) => item.MALOAISP == parseInt(selectOp));
-        changeDataType(selectOp,tinhTongTien(selectOp));
     }
-    
+    tinhTongTien(selectOp);
 
     if (selectThuongHieu !== "0") {
         resultThongKe = resultThongKe.filter((item) => item.MATHUONGHIEU == parseInt(selectThuongHieu));
@@ -145,6 +143,7 @@ function showThongKe(){
     })
     showArrayThongKe(resultThongKe);
 }
+
 
 function resetDataThongKe(){
     document.getElementById('admin-thongke-select').value = "0";
@@ -213,4 +212,3 @@ function tinhTongTien(maloaisp){
         }
     });
 }
-

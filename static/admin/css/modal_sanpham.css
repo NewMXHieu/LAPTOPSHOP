@@ -19,19 +19,37 @@
     background-color: rgb(148, 182, 212);
 }
 
-/* .modal.AddSanPham form, .modal.editSanPham form{
-    width: 1200px;
-    height: 700px;
-} */
+.modal.AddSanPham form, .modal.editSanPham form{
+    width: 70%;
+    height: 97%;
+}
+.AddKhachHang form,.editKhachHang form{
+    width: 58%;
+    height: 60%;
+}
+.AddNhanVien form,.editNhanVien form{
+    width: 58%;
+    height: 60%;
+}
 
-.editphieunhap form{
+.editphieunhap form,
+.addphieunhap form
+{
     width: 60%;
     height: 80%;
 }
-.addphieunhap form{
+.chitiethoadon form {
     width: 60%;
-    height: 80%;
+    height: 90%;
 }
+.sanpham{
+    height: 80% !important;
+}
+
+.sanpham-control{
+    height: 10% !important;
+}
+
 
 .modal.open{
     display: flex;
@@ -62,6 +80,14 @@
     grid-template-columns: 1fr;
     height: 40%;
 }
+.editdonhang{
+    grid-template-columns: 1fr;
+    height: 50%;
+}
+.editdonhang3{
+    grid-template-columns: 1fr 1fr;
+    height: 30%;
+}
 .editphieunhapEdit1{
     grid-template-columns: 1fr;
     height: 30%;
@@ -69,6 +95,17 @@
 
 .editphieunhapcontrol{
     height: 10% !important;     
+}
+.donhangtable{
+    display: flex;
+    flex-direction: column;
+    height: 30%;
+}
+
+.donhangtable5{
+    display: flex;
+    flex-direction: column;
+    height: 50%;
 }
 
 .dataUpdate{
@@ -159,30 +196,30 @@ textarea{
 }
 
 .modal-close-sanpham{
-    top: 15px;
+    top: 0;
     bottom: 0;
-    left: 1425px;
+    left: 83.5%;
     right: 0;
 }
 
 .modal-close-khachhang{
-    top: 175px;
+    top: 16.5%;
     bottom: 0;
-    left: 1215px;
+    left: 77.5%;
     right: 0;
 }
 
 .modal-close-nhanvien{
-    top: 220px;
+    top: 16.5%;
     bottom: 0;
-    left: 1325px;
+    left: 77.5%;
     right: 0;
 }
 .modal-close-DonHang{
-    top: 175px;
+    top: 2%;
     bottom: 0;
-    left: 1320px;
     right: 0;
+    left: 78.5%;
 }
 
 .modal-close-phieunhap{
@@ -220,4 +257,9 @@ textarea{
 
 .chitiethd{
     grid-template-columns: 1fr;
+}
+
+.detail_product-items-table input[type="number"] {
+    width: 30px; /* Điều chỉnh chiều rộng */
+    height: 30px; /* Điều chỉnh chiều cao */
 }

@@ -195,6 +195,8 @@ body{
 }
 .content-main-trangchu-card-detail{
     height: 0%;
+    display: grid;
+    place-items: center;
 }
 
 .content-main-trangchu-card:hover .content-main-trangchu-card-header{
@@ -208,7 +210,10 @@ body{
     height: 60%;
 }
 
-
+.content-main-trangchu-card-detail-item{
+    font-size: 30px;
+    text-transform: uppercase;
+}
 .content-main-nhanvien{
     height: 100%;
 }

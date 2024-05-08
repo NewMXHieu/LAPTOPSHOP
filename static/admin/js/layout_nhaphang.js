@@ -128,12 +128,13 @@ function showPhieuNhap(){
     let EndDate = document.getElementById("admin-nhaphang-select-dateEnd").value;
     let valueSearchInput = document.getElementById('content-main-searchbar-nhaphang').value;
     
-    if(select === '0'){
-        resultPhieuNhap = phieunhaps;
+    if(select === '2'){
+        resultPhieuNhap = phieunhaps.filter((item) => item.TRANGTHAI == 0);
+        
     } else if(select === '1'){
         resultPhieuNhap = phieunhaps.filter((item) => item.TRANGTHAI == 1);
     } else {
-        resultPhieuNhap = phieunhaps.filter((item) => item.TRANGTHAI == 0);
+        resultPhieuNhap = phieunhaps;
     }
 
     if(StartDate !== '' && EndDate !== ''){
@@ -158,7 +159,6 @@ function resetDataPhieuNhap(){
     document.getElementById("admin-nhaphang-select-dateEnd").value ='';
     document.getElementById('content-main-searchbar-nhaphang').value = '';
     showArrayPhieuNhap(phieunhaps);
-    console.log(phieunhaps);
 }
 
 function BotToTopDatePhieuNhapa(a, b) {
@@ -170,13 +170,13 @@ function TopToBotDatePhieuNhapa(a, b) {
 }
 
 function filterByBotToTopPhieuNhap(){
-    let tmp = resultPhieuNhap;
+    let tmp = resultPhieuNhap.slice();
     tmp.sort(BotToTopDatePhieuNhapa);
     showArrayPhieuNhap(tmp);
 }
 
 function filterByTopToBotPhieuNhap(){
-    let tmp = resultPhieuNhap;
+    let tmp = resultPhieuNhap.slice();
     tmp.sort(TopToBotDatePhieuNhapa);
     showArrayPhieuNhap(tmp);
 }

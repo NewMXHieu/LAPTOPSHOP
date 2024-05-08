@@ -17,7 +17,7 @@
     </div>
     <form action="" method="POST">
         <h2 class="add-product-title">THÊM SẢN PHẨM</h2>
-        <div class="detail_product">
+        <div class="detail_product sanpham">
             <div class="detail_product-items">
                 <div class="detail_product-items-item">
                     <label for="tensp">TÊN SẢN PHẨM</label>
@@ -162,7 +162,7 @@
                 </div>
             </div>
         </div>
-        <div class="form-control">
+        <div class="form-control sanpham-control">
             <button class="control-btn-form addproduct_btn_cancel" type="Button" onclick="finish()" value="Hủy">Hủy</button>
             <button class="control-btn-form addproduct_btn_save" type="Button" onclick="saveAddProduct()" value="Lưu">Lưu</button>
         </div>
@@ -179,7 +179,7 @@
         <input type="hidden" id="idProduct" name="idProduct">
         <input type="hidden" id="trangthaiProduct" name="trangthaiProduct">
         <H2 class="edit-product-title">SỬA SẢN PHẨM</H2>
-        <div class="detail_product">
+        <div class="detail_product sanpham">
             <div class="detail_product-items">
                 <div class="detail_product-items-item">
                     <label for="tensp">TÊN SẢN PHẨM</label>
@@ -328,7 +328,7 @@
                 </div>
             </div>
         </div>
-        <div class="form-control">
+        <div class="form-control sanpham-control">
             <button class="control-btn-form addproduct_btn_cancel" type="Button" onclick="finish()" value="Hủy">Hủy</button>
             <button class="control-btn-form addproduct_btn_save"  type="Button" onclick="saveEditProduct()" value="Lưu">Lưu edit</button>
         </div>

@@ -123,27 +123,27 @@ document.getElementById("dataBaoHanh").innerHTML = productHtml;
 var resultBaoHanh;
 function showBaoHanh(){
     let select = document.getElementById("admin-content-select-baohanh").value;
-    let StartDate = document.getElementById('admin-baohanh-select-dateStart').value;
-    let EndDate = document.getElementById("admin-baohanh-select-dateEnd").value;
+    // let StartDate = document.getElementById('admin-baohanh-select-dateStart').value;
+    // let EndDate = document.getElementById("admin-baohanh-select-dateEnd").value;
     let valueSearchInput = document.getElementById('content-main-searchbar-baohanh').value;
     
-    if(select === '0'){
-        resultBaoHanh = baohanhs;
-    } else if(select === '1'){
+    if(select === '1'){
         resultBaoHanh = baohanhs.filter((item) => item.TRANGTHAI == 1);
-    } else {
+    } else if(select==='2'){
         resultBaoHanh = baohanhs.filter((item) => item.TRANGTHAI == 0);
+    }  else{
+        resultBaoHanh = baohanhs;
     }
 
-    if(StartDate !== '' && EndDate !== ''){
-        resultBaoHanh = resultBaoHanh.filter((item) => new Date(item.NGAYNHAP) <= new Date(EndDate) && new Date(item.NGAYNHAP) >= new Date(StartDate));
-    }
-    else if (EndDate === '' && StartDate !== '') {
-        resultBaoHanh = resultBaoHanh.filter((item) => new Date(item.NGAYNHAP) >= new Date(StartDate));
-    }
-    else if (StartDate === '' && EndDate !== '') {
-        resultBaoHanh = resultBaoHanh.filter((item) => new Date(item.NGAYNHAP) <= new Date(EndDate));
-    } 
+    // if(StartDate !== '' && EndDate !== ''){
+    //     resultBaoHanh = resultBaoHanh.filter((item) => new Date(item.NGAYNHAP) <= new Date(EndDate) && new Date(item.NGAYNHAP) >= new Date(StartDate));
+    // }
+    // else if (EndDate === '' && StartDate !== '') {
+    //     resultBaoHanh = resultBaoHanh.filter((item) => new Date(item.NGAYNHAP) >= new Date(StartDate));
+    // }
+    // else if (StartDate === '' && EndDate !== '') {
+    //     resultBaoHanh = resultBaoHanh.filter((item) => new Date(item.NGAYNHAP) <= new Date(EndDate));
+    // } 
 
     resultBaoHanh = valueSearchInput == "" ? resultBaoHanh : resultBaoHanh.filter(item => {
         return item.DONVIBAOHANH.toString().toUpperCase().includes(valueSearchInput.toString().toUpperCase());
@@ -153,31 +153,32 @@ function showBaoHanh(){
 
 function resetDataBaoHanh(){
     document.getElementById("admin-content-select-baohanh").value = '0';
-    document.getElementById('admin-baohanh-select-dateStart').value ='';
-    document.getElementById("admin-baohanh-select-dateEnd").value ='';
+    // document.getElementById('admin-baohanh-select-dateStart').value ='';
+    // document.getElementById("admin-baohanh-select-dateEnd").value ='';
     document.getElementById('content-main-searchbar-baohanh').value = '';
+    console.log(baohanhs);
     showArrayBaoHanh(baohanhs);
 }
 
-// function BotToTopDateBaoHanh(a, b) {
-//     return new Date(a.DAYSTART) - new Date(b.DAYEND);
-// }
+function BotToTopDateBaoHanh(a, b) {
+    return a.THOIHAN - b.THOIHAN;
+}
 
-// function TopToBotDateBaoHanh(a, b) {
-//     return new Date(a.DAYSTART) - new Date(b.DAYEND);
-// }
+function TopToBotDateBaoHanh(a, b) {
+    return b.THOIHAN - a.THOIHAN;
+}
 
-// function filterByBotToTopBaoHanh(){
-//     let tmp = resultBaoHanh;
-//     tmp.sort(BotToTopDateBaoHanh);
-//     showArrayPhieuNhap(tmp);
-// }
+function filterByBotToTopBaoHanh(){
+    let tmp = resultBaoHanh.slice();
+    tmp.sort(BotToTopDateBaoHanh);
+    showArrayBaoHanh(tmp);
+}
 
-// function filterByTopToBotBaoHanh(){
-//     let tmp = resultBaoHanh;
-//     tmp.sort(TopToBotDateBaoHanh);
-//     showArrayBaoHanh(tmp);
-// }
+function filterByTopToBotBaoHanh(){
+    let tmp = resultBaoHanh.slice();
+    tmp.sort(TopToBotDateBaoHanh);
+    showArrayBaoHanh(tmp);
+}
 
 
 // function tinhTongTien(mapn){

@@ -122,10 +122,7 @@
                     <input type="text" id="editNhanVien_diachi" name="editNhanVien_diachi">
                 </div>
 
-                <div class="detail_product-items-item">
-                    <label for="matk">MÃ TÀI KHOẢN</label>
-                    <input type="text" id="editNhanVien_taikhoan" name="editNhanVien_taikhoan">
-                </div>
+                
             </div>
 
             <div class="detail_product-items">
@@ -143,7 +140,11 @@
                     <label for="MK">MẬT KHẨU</label>
                     <input type="text" id="editNhanVien_matkhau" name="editNhanVien_matkhau">
                 </div>
-
+                
+                <div class="detail_product-items-item">
+                    <label for="matk">MÃ TÀI KHOẢN</label>
+                    <input type="text" id="editNhanVien_taikhoan" name="editNhanVien_taikhoan">
+                </div>
             </div>
         </div>
         <div class="form-control">

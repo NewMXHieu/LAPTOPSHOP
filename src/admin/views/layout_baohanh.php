@@ -18,11 +18,11 @@
                     <div class="content-main-select">
                         <select name="admin-content-select-baohanh" id="admin-content-select-baohanh" onchange="showBaoHanh()">
                             <option value="0" selected>Tất cả</option>
-                            <option value="1">CÒN HẠN</option>
-                            <option value="2">HẾT HẠN</option>
+                            <option value="1">Hoạt động</option>
+                            <option value="2">Đã khóa</option>
                         </select>
                     </div>
-                    <div class="content-main-select-baohanh">
+                    <!-- <div class="content-main-select-baohanh">
                         <div class="centerText">
                             <p>Từ</p>
                         </div>
@@ -33,7 +33,7 @@
                             <p>Đến</p>
                         </div>
                         <input type="date" id='admin-baohanh-select-dateEnd' name='admin-baohanh-select-dateEnd' onchange="showBaoHanh()">
-                    </div>
+                    </div> -->
                     <div class="content-main-searchbar">
                         <form action="searchbar.php" method="get">
                             <input type="text" id="content-main-searchbar-baohanh" oninput="showBaoHanh()">

@@ -123,8 +123,8 @@
                     <div class="detail_product-items-item">
                         <label for="TRANGTHAI">CHỌN TRẠNG THÁI</label>
                         <select id="detailbaohanh_TrangThai" name="detailbaohanh_TrangThai">
-                            <option value="0">Chưa xử lý</option>
-                            <option value="1">Đã xử lý</option>
+                            <option value="0">Đã Khóa</option>
+                            <option value="1">Hoạt động</option>
                         </select>
                     </div>
                 </div>

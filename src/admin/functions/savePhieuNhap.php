@@ -1,4 +1,5 @@
 <?php include 'databaseAccess.php'?>
+
 <?php 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Hàm kiểm tra trước khi gán giá trị
@@ -26,7 +27,9 @@
         foreach ($LISTSP as $item) {
             $masp = $item['MASP'];
             $soluong = $item['SOLUONG'];
-            echo "MASP: " . $masp . ", SOLUONG: " . $soluong;
+            $mabaohanh = $item['MABAOHANH'];
+            $ngaysanxuat = $item['NGAYSANXUAT'];
+            echo "MASP: " . $masp . ", SOLUONG: " . $soluong . ", MABAOHANH: " . $mabaohanh . ", NGAYSANXUAT: " . $ngaysanxuat . " ";
         }
         
         echo "<br>";
@@ -59,11 +62,15 @@
         }
         
         function layMa($conn){
-            $sql_laymanv = "SELECT COUNT(*) AS total FROM PHIEUNHAP";
+            $sql_laymanv = "SELECT MAPN
+            FROM PHIEUNHAP
+            ORDER BY MAPN DESC
+            LIMIT 1;
+            ";
             $result = $conn->query($sql_laymanv);
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
-                return $row["total"];
+                return $row["MAPN"];
             } else {
                 return 1;
             }
@@ -89,6 +96,61 @@
                 echo "Lỗi: " . $conn->error . "<br>";
             }
         }
+        function laySlSanPham($conn,$MASP){
+            $SQL = "SELECT SOLUONG
+            FROM SANPHAM
+            WHERE MASP = $MASP";
+           
+            $result = $conn->query($SQL);
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                return $row["SOLUONG"];
+            } else {
+                return 0;
+            }
+        }
+        
+        function updateSoLuongSP($conn,$MASP,$SOLUONG){
+            $SQL = "UPDATE SANPHAM
+            SET SOLUONG = SOLUONG + $SOLUONG
+            WHERE MASP = $MASP";
+            if ($conn->query($SQL) === TRUE) {
+                
+                echo "cập nhật số lượng sản phẩm thành công" . "<br>";
+            } else {
+                echo "Lỗi: " . $conn->error . "<br>";
+            }
+        }
+
+        function updateSerial($conn,$MASP,$SOLUONG,$MABAOHANH,$NGAYSANXUAT){
+            // Lấy danh sách sản phẩm từ bảng sanpham
+        $prod_id = $MASP;
+        $prod_quantity = laySlSanPham($conn,$MASP) + $SOLUONG;
+        // Kiểm tra xem sản phẩm đã có mã seri hay chưa
+        $check_query = "SELECT COUNT(*) as total FROM serial WHERE MASP = $prod_id";
+        $check_result = $conn->query($check_query);
+        $check_row = $check_result->fetch_assoc();
+        $existing_serials = $check_row["total"];
+
+        // Nếu số lượng mã seri đã tạo cho sản phẩm này chưa đạt số lượng quy định
+        if ($existing_serials < $prod_quantity) {
+            // Tạo số seri cho mỗi sản phẩm
+            $serial_prefix = 'SN' . str_pad($prod_id, 4, '0', STR_PAD_LEFT);
+            $serial_count = $prod_quantity - $existing_serials;
+            
+            for ($i = 0; $i < $serial_count; $i++) {
+                $serial_no = $serial_prefix . str_pad(rand(0, 999999), 6, '0', STR_PAD_LEFT);
+                
+                // Thêm số seri vào bảng serial
+                $insert_query = "INSERT INTO serial (MASERI, MASP,NGAYSANXUAT,MABAOHANH) VALUES ('$serial_no', '$prod_id','$NGAYSANXUAT',$MABAOHANH)";
+                $conn->query($insert_query);
+            }
+
+            echo "Tạo " . $serial_count . " mã seri mới cho sản phẩm có MASP $prod_id.<br>";
+        } else {
+            echo "Sản phẩm có MASP $prod_id đã có đủ số lượng mã seri.<br>";
+        }
+        }
 
 
         themPhieuNhap($conn,$MANV,$NGAYNHAP,$TONGTIEN,$TRANGTHAI);
@@ -96,30 +158,16 @@
         foreach ($LISTSP as $item) {
             $MASP = $item['MASP'];
             $SOLUONG = $item['SOLUONG'];
+
+            $MABAOHANH = $item['MABAOHANH'];
+            $NGAYSANXUAT = $item['NGAYSANXUAT'];
+            if($NGAYSANXUAT === ''){
+                $NGAYSANXUAT = date("Y-m-d");
+            }
             themChiTietPhieuNhap($conn,$MAPN,$MANCC,$MASP,$SOLUONG);
             updateTongGiaTien($conn,$MAPN);
-        }
-
-        function updateSoLuongSP($conn,$MASP,$SOLUONG){
-            $SQL = "UPDATE SANPHAM
-            SET SOLUONG = SOLUONG + $SOLUONG
-            WHERE MASP = $MASP";
-            if ($conn->query($SQL) === TRUE) {
-                echo "cập nhật số lượng sản phẩm thành công" . "<br>";
-            } else {
-                echo "Lỗi: " . $conn->error . "<br>";
-            }
-        }
-
-        function taoSerialSP($conn,$MASP,$SOLUONG){
-            $SQL = "UPDATE SANPHAM
-            SET SOLUONG = SOLUONG + $SOLUONG
-            WHERE MASP = $MASP";
-            if ($conn->query($SQL) === TRUE) {
-                echo "cập nhật số lượng sản phẩm thành công" . "<br>";
-            } else {
-                echo "Lỗi: " . $conn->error . "<br>";
-            }
+            updateSoLuongSP($conn,$MASP,$SOLUONG);
+            updateSerial($conn,$MASP,$SOLUONG,$MABAOHANH,$NGAYSANXUAT);
         }
     }
 ?>

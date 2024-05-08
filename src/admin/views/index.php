@@ -160,9 +160,9 @@ session_start();
                         </div>
                         <div class="content-main-trangchu-card-name">Users</div>
                         <div class="content-main-trangchu-card-detail">
-                            <div class="content-main-trangchu-card-detail-nhanvien" id="admin-trangchu-user-nhanvien"
+                            <div class="content-main-trangchu-card-detail-item" id="admin-trangchu-user-nhanvien"
                                 name="admin-trangchu-user-nhanvien"></div>
-                            <div class="content-main-trangchu-card-detail-khachhang" id="admin-trangchu-user-khachhang"
+                            <div class="content-main-trangchu-card-detail-item" id="admin-trangchu-user-khachhang"
                                 name="admin-trangchu-user-khachhang"></div>
                         </div>
                     </div>
@@ -174,10 +174,7 @@ session_start();
                         </div>
                         <div class="content-main-trangchu-card-name">Products</div>
                         <div class="content-main-trangchu-card-detail">
-                            <div class="content-main-trangchu-card-detail-nhanvien" id="admin-trangchu-product"
-                                name="admin-trangchu-product"></div>
-                            <div class="content-main-trangchu-card-detail-khachhang" id="admin-trangchu-product"
-                                name="admin-trangchu-product"></div>
+                            <div style="scale: 400%;"id="dataproduct"></div>
                         </div>
                     </div>
 
@@ -188,10 +185,7 @@ session_start();
                         </div>
                         <div class="content-main-trangchu-card-name">Doanh thu</div>
                         <div class="content-main-trangchu-card-detail">
-                            <div class="content-main-trangchu-card-detail-nhanvien" id="admin-trangchu-doanhthu"
-                                name="admin-trangchu-doanhthu">
-
-                            </div>
+                            <div style="scale: 200%;"id="datadoanhthu"></div>
                         </div>
                     </div>
                 </div>

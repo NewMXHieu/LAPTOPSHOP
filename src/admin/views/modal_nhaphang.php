@@ -60,6 +60,8 @@
                             <th>TÊN SẢN PHẨM</th>
                             <th>NHÀ CUNG CẤP</th>
                             <th>SỐ LƯỢNG</th>
+                            <th>MÃ BẢO HÀNH</th>
+                            <th>NGÀY SẢN XUẤT</th>
                             <th>CHỨC NĂNG</th>
                         </tr>
                     </thead>
@@ -124,6 +126,9 @@
                                     <th>MÃ SẢN PHẨM</th>
                                     <th>MÃ NHÀ CUNG CẤP</th>
                                     <th>SỐ LƯỢNG</th>
+                                    <th>ĐƠN GIÁ</th>
+                                    <th>ĐƠN VỊ BẢO HÀNH</th>
+                                    <th>NGÀY SẢN XUẤT</th>
                                 </tr>
                             </thead>
 
@@ -132,6 +137,21 @@
                                     <td>1</td>
                                     <td>1</td>
                                     <td>1</td>
+                                    <td>1</td>
+                                    <td>
+                                        <select name="1" id="1">
+                                            <option value="1">ACER</option>
+                                            <option value="2">APPLE</option>
+                                            <option value="3">ASUS</option>
+                                            <option value="4">DELL</option>
+                                            <option value="5">GIGABYTE</option>
+                                            <option value="6">HP</option>
+                                            <option value="7">LG</option>
+                                            <option value="8">LENOVO</option>
+                                            <option value="9">MSI</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="date" name="1" id="1" ></td>
                                 </tr>
                             </tbody>
 

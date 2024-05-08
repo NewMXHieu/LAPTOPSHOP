@@ -24,6 +24,7 @@ INNER JOIN thuonghieu ON thuonghieu.MATHUONGHIEU = chitietsanpham.MATHUONGHIEU
 INNER JOIN 
     (SELECT MASP, COUNT(MASP) AS TONGSOLUONG FROM chitiethoadon GROUP BY MASP) AS subquery 
     ON subquery.MASP = chitiethoadon.MASP
+WHERE HOADON.TRANGTHAI = 1
 GROUP BY phanloaisanpham.MALOAISP, chitiethoadon.MASP";
 $result = $conn->query($sql);
 $thongkes = [];

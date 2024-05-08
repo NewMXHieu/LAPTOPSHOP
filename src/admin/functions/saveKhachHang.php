@@ -46,11 +46,14 @@
         }
         
         function layMaTK($conn){
-            $sql_laymanv = "SELECT COUNT(*) AS total FROM TAIKHOAN";
+            $sql_laymanv = "SELECT MATK
+            FROM TAIKHOAN
+            ORDER BY MATK DESC
+            LIMIT 1";
             $result = $conn->query($sql_laymanv);
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
-                return $row["total"];
+                return $row["MATK"];
             } else {
                 return 1;
             }

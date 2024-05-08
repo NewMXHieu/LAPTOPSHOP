@@ -108,7 +108,7 @@ function saveEditBaoHanh (){
         let manv = document.getElementById("detailbaohanh_tennhanvien").value;
         let donvibaohanh = document.getElementById("detailbaohanh_dvbh").value;
         let thoihan = document.getElementById("detailbaohanh_thoihan").value;
-        let trangthai = 0;
+        let trangthai = 1;
 
         $.ajax({
         url: 'api/admin/saveEditBaoHanh.php', // Đường dẫn đến trang PHP
