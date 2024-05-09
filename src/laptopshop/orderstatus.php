@@ -10,7 +10,7 @@ $query = "SELECT hoadon.* , shipper.TEN, shipper.SDT
           WHERE khachhang.matk = $userId";
 $result = mysqli_query($conn, $query);
 $order = mysqli_fetch_assoc($result);
-if (mysqli_num_rows($result) > 0 && $order['TRANGTHAI'] != 4) {
+if (mysqli_num_rows($result) > 0 && $order['TRANGTHAI'] != 3) {
     ?>
     <link rel="stylesheet" href="static/css/orderstatus.css">
 
@@ -60,7 +60,7 @@ if (mysqli_num_rows($result) > 0 && $order['TRANGTHAI'] != 4) {
                         <span class="icon"> <i class="fa fa-truck"></i> </span>
                         <span class="text">Đang giao</span>
                     </div>
-                    <div class="step <?= $order['TRANGTHAI'] >= 3 ? 'active' : '' ?>">
+                    <div class="step">
                         <span class="icon"> <i class="fa fa-box"></i> </span>
                         <span class="text">Đã nhận được hàng</span>
                     </div>

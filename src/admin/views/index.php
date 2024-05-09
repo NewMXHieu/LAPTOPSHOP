@@ -47,8 +47,8 @@ include '../functions/getDsQuyenTheoTaiKhoan.php';
                     </a>
                 </li>
                 <?php
-                    $functions = [
-                        5 =>'
+                $functions = [
+                    5 => '
                     <!-- layout nhân viên -->
                     <li class="sidebar-control-list-item" id="admin-nhanvien-layout" name="admin-nhanvien-layout">
                         <a href="#content-nhanvien">
@@ -198,7 +198,15 @@ include '../functions/getDsQuyenTheoTaiKhoan.php';
                 </li>
 
                 <li class="sidebar-footer-control-list-item" id="admin-back-btn" name="admin-back-btn">
-                    <a href="trangchu">
+                    <?php
+                    $href = '';
+                    if (in_array(30, $maquyen) && count($maquyen) > 1) {
+                        $href .= 'trangchu';
+                    } else {
+                        $href .= 'logout';
+                    }
+                    ?>
+                    <a href="<?php echo $href; ?>">
                         <div class="sidebar-item-image">
                             <i class="fa-solid fa-arrow-left"></i>
                         </div>

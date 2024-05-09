@@ -1,9 +1,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
 </script>
 <script type="text/javascript">
-  let maNhomQuyen;
-  let message;
-  let quyen = [];
   function closePopup(event) {
     event.preventDefault();
     var popupIds = ['popup-register-successful', 'popup-login-successful', 'popup-login-fail', 'popup-register-fail'];
@@ -45,12 +42,13 @@
           // Extracting data from the response
           let message = response.message;
           let quyen = response.quyen;
+          console.log(quyen);
 
           // Handling login based on permissions and message
           let maQuyenAdmin = [1, 5, 9, 13, 17, 21, 25, 29];
 
           if (message === "Login Successful") {
-            if (quyen.includes(30) && quyen.length > 1) {
+            if (quyen == 30 && quyen.length == 1) {
               var popup = document.getElementById('popup-login-successful');
               popup.classList.add("open-popup");
               return;
