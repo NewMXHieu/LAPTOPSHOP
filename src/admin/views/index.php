@@ -1,5 +1,7 @@
 <?php
 session_start();
+include '../functions/getDsQuyenTheoTaiKhoan.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="vi">
@@ -44,19 +46,20 @@ session_start();
                         <div class="sidebar-item-name">Trang chủ</div>
                     </a>
                 </li>
-
-
-                <!-- layout nhân viên -->
-                <li class="sidebar-control-list-item" id="admin-nhanvien-layout" name="admin-nhanvien-layout">
-                    <a href="#content-nhanvien">
-                        <div class="sidebar-item-image">
-                            <i class="fa-solid fa-user"></i>
-                        </div>
-                        <div class="sidebar-item-name">Quản lý nhân viên</div>
-                    </a>
-                </li>
-
-                <!-- layout khách hàng -->
+                <?php
+                    $functions = [
+                        5 =>'
+                    <!-- layout nhân viên -->
+                    <li class="sidebar-control-list-item" id="admin-nhanvien-layout" name="admin-nhanvien-layout">
+                        <a href="#content-nhanvien">
+                            <div class="sidebar-item-image">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                            <div class="sidebar-item-name">Quản lý nhân viên</div>
+                        </a>
+                    </li>',
+                    9 => '
+                    <!-- layout khách hàng -->
                 <li class="sidebar-control-list-item" id="admin-khachhang-layout" name="admin-khachhang-layout">
                     <a href="#content-khachhang">
                         <div class="sidebar-item-image">
@@ -64,8 +67,8 @@ session_start();
                         </div>
                         <div class="sidebar-item-name">Quản lý khách hàng</div>
                     </a>
-                </li>
-
+                </li>',
+                    1 => '
                 <!-- layout sản phẩm -->
                 <li class="sidebar-control-list-item" id="admin-sanpham-layout" name="admin-sanpham-layout">
                     <a href="#content-sanpham">
@@ -74,7 +77,8 @@ session_start();
                         </div>
                         <div class="sidebar-item-name">Quản lý sản phẩm</div>
                     </a>
-                </li>
+                </li>',
+                    13 => '
                 <!-- layout đơn hàng -->
                 <li class="sidebar-control-list-item" id="admin-sanpham-layout" name="admin-sanpham-layout">
                     <a href="#content-donhang">
@@ -83,32 +87,33 @@ session_start();
                         </div>
                         <div class="sidebar-item-name">Quản lý đơn hàng</div>
                     </a>
-                </li>
+                </li>',
+                    17 => '
                 <!-- layout phân quyền -->
                 <li class="sidebar-control-list-phanquyen" id="admin-phanquyen-layout" name="admin-phanquyen-layout">
                     <div class="dropdown-btn">
                         <div class="sidebar-item-image">
-                            <i class="fa-solid fa-users"></i>
+                            <i class="fa-solid fa-sitemap"></i>
                         </div>
                         <div class="sidebar-item-name" style="display: flex">Phân quyền
-                        <div class="sidebar-item-image">
-                            <i class="fa fa-caret-down"></i>
-                        </div>
+                            <div class="sidebar-item-image">
+                                <i class="fa fa-caret-down"></i>
+                            </div>
                         </div>
                     </div>
                     <div class="dropdown-content">
                         <a href="#content-phanquyen-taikhoan">
                             <div class="sidebar-item-image">
-                                <i class="fa-solid fa-users"></i>
+                                <i class="fa-solid fa-user-gear"></i>
                             </div>
                             <div class="sidebar-item-name">Tài khoản</div>
                         </a>
                         <a href="#content-phanquyen-nhomquyen">
                             <div class="sidebar-item-image">
-                                <i class="fa-solid fa-users"></i>
+                                <i class="fa-solid fa-users-gear"></i>
                             </div>
                             <div class="sidebar-item-name">Nhóm quyền</div>
-                    </a>
+                        </a>
                     </div>
                 </li>
                 <script>
@@ -127,8 +132,9 @@ session_start();
                             }
                         });
                     }
-                    
-                </script>
+
+                </script>',
+                    29 => '
                 <!-- layout thống kê -->
                 <li class="sidebar-control-list-item" id="admin-thongke-layout" name="admin-thongke-layout">
                     <a href="#content-thongke">
@@ -137,7 +143,8 @@ session_start();
                         </div>
                         <div class="sidebar-item-name">Thống kê</div>
                     </a>
-                </li>
+                </li>',
+                    21 => '
 
                 <!-- layout nhập hàng -->
                 <li class="sidebar-control-list-item" id="admin-thongke-layout" name="admin-thongke-layout">
@@ -147,8 +154,8 @@ session_start();
                         </div>
                         <div class="sidebar-item-name">Nhập hàng</div>
                     </a>
-                </li>
-
+                </li>',
+                    25 => '
                 <!-- layout bảo hành -->
                 <li class="sidebar-control-list-item" id="admin-thongke-layout" name="admin-thongke-layout">
                     <a href="#content-baohanh">
@@ -157,7 +164,14 @@ session_start();
                         </div>
                         <div class="sidebar-item-name">Bảo hành</div>
                     </a>
-                </li>
+                </li>',
+                ];
+                foreach ($maquyen as $key => $value) {
+                    if (array_key_exists($value, $functions)) {
+                        echo $functions[$value];
+                    }
+                }
+                ?>
             </ul>
         </div>
 
@@ -223,7 +237,7 @@ session_start();
                         </div>
                         <div class="content-main-trangchu-card-name">Products</div>
                         <div class="content-main-trangchu-card-detail">
-                            <div style="scale: 400%;"id="dataproduct"></div>
+                            <div style="scale: 400%;" id="dataproduct"></div>
                         </div>
                     </div>
 
@@ -234,7 +248,7 @@ session_start();
                         </div>
                         <div class="content-main-trangchu-card-name">Doanh thu</div>
                         <div class="content-main-trangchu-card-detail">
-                            <div style="scale: 200%;"id="datadoanhthu"></div>
+                            <div style="scale: 200%;" id="datadoanhthu"></div>
                         </div>
                     </div>
                 </div>
