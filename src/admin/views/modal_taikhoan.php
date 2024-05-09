@@ -14,7 +14,7 @@
     <!-- add Tài Khoản -->
     <div class="modal addTaiKhoan">
         <form action="" method="POST">
-            <H2 class="add-product-title">Thêm Tài Khoản</H2>
+            <H2 class="add-product-title" style="height: 50px">Thêm Tài Khoản</H2>
             <div class="">
                 <input type="date" id="addTaiKhoan_ngaytao" name="addTaiKhoan_ngaytao" style="display: none">
                 <div class="detail_product-items">
@@ -47,7 +47,7 @@
                     </div>
                 </div>
             </div>
-            <div class="form-control">
+            <div class="form-control" style="height: 50px">
                 <button class="control-btn-form addproduct_btn_cancel" type="Button" onclick="finish()"
                     value="Hủy">Hủy</button>
                 <button class="control-btn-form addproduct_btn_save" type="Button" onclick="saveTaiKhoan()"
@@ -60,7 +60,7 @@
     <div class="modal editTaiKhoan">
         <form action="" method="POST">
             <input type="text" id="idTaiKhoan" name="idTaiKhoan" style="display:none">
-            <H2 class="edit-product-title">Sửa Tài Khoản</H2>
+            <H2 class="edit-product-title" style="height: 50px">Sửa Tài Khoản</H2>
             <div class="">
                 <div class="detail_product-items">
                     <div class="detail_product-items-item">
@@ -96,7 +96,7 @@
                     </div>
                 </div>
             </div>
-            <div class="form-control">
+            <div class="form-control" style="height: 50px">
                 <button class="control-btn-form addproduct_btn_cancel" type="Button" onclick="finish()"
                     value="Hủy">Hủy</button>
                 <button class="control-btn-form addproduct_btn_save" type="Button" onclick="saveEditTaiKhoan()"
