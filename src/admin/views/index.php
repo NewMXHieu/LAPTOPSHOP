@@ -13,6 +13,11 @@ session_start();
 </head>
 
 <body>
+    <div class="hidden-sidebar">
+        <div class="nav-toggle">
+            <i class="fa fa-bars"></i>
+        </div>
+    </div>
 
     <!-- sidebar -->
     <div class="sidebar">
@@ -74,12 +79,56 @@ session_start();
                 <li class="sidebar-control-list-item" id="admin-sanpham-layout" name="admin-sanpham-layout">
                     <a href="#content-donhang">
                         <div class="sidebar-item-image">
-                            <i class="fa-solid fa-laptop"></i>
+                            <i class="fa-solid fa-truck-fast"></i>
                         </div>
                         <div class="sidebar-item-name">Quản lý đơn hàng</div>
                     </a>
                 </li>
+                <!-- layout phân quyền -->
+                <li class="sidebar-control-list-phanquyen" id="admin-phanquyen-layout" name="admin-phanquyen-layout">
+                    <div class="dropdown-btn">
+                        <div class="sidebar-item-image">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <div class="sidebar-item-name" style="display: flex">Phân quyền
+                        <div class="sidebar-item-image">
+                            <i class="fa fa-caret-down"></i>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="dropdown-content">
+                        <a href="#content-phanquyen-taikhoan">
+                            <div class="sidebar-item-image">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <div class="sidebar-item-name">Tài khoản</div>
+                        </a>
+                        <a href="#content-phanquyen-nhomquyen">
+                            <div class="sidebar-item-image">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <div class="sidebar-item-name">Nhóm quyền</div>
+                    </a>
+                    </div>
+                </li>
+                <script>
+                    /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+                    var dropdown = document.getElementsByClassName("dropdown-btn");
+                    var i;
 
+                    for (i = 0; i < dropdown.length; i++) {
+                        dropdown[i].addEventListener("click", function () {
+                            this.classList.toggle("active");
+                            var dropdownContent = this.nextElementSibling;
+                            if (dropdownContent.style.display === "block") {
+                                dropdownContent.style.display = "none";
+                            } else {
+                                dropdownContent.style.display = "block";
+                            }
+                        });
+                    }
+                    
+                </script>
                 <!-- layout thống kê -->
                 <li class="sidebar-control-list-item" id="admin-thongke-layout" name="admin-thongke-layout">
                     <a href="#content-thongke">
@@ -188,6 +237,13 @@ session_start();
 
         <!-- layout Đơn hàng -->
         <?php include 'layout_donhang.php' ?>
+
+        <!-- layout phân quyền -->
+        <?php include 'layout_nhomquyen.php' ?>
+
+        <!-- layout tài khoản  -->
+        <?php include 'layout_taikhoan.php' ?>
+
         <!-- layout thống kê -->
         <?php include 'layout_thongke.php' ?>
     </div>

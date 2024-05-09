@@ -1,12 +1,13 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     color: black;
-    --animation-duration:200ms;
+    --animation-duration: 200ms;
     --animation-timing-curve: ease-in-out;
 }
-:root{
+
+:root {
     --main-color: rgb(148, 182, 212);
     --main-text-color: white;
     --sidebar-color: rgb(248, 242, 242);
@@ -15,21 +16,38 @@
     --footer-color: white;
 }
 
-ul{
+ul {
     list-style: none;
 }
-a{
+
+a {
     text-decoration: none;
 }
 
-body{
+body {
     display: flex;
     height: 100vh;
     position: relative;
     background-color: var(--body-color);
 }
 
-.sidebar{
+.hidden-sidebar {
+    background-color: var(--main-color);
+    height: 11%;
+}
+
+/* Định nghĩa nút 3 gạch nhưng ẩn nó trên màn hình lớn */
+.nav-toggle {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    height: 35px;
+    width: 35px;
+    border-radius: 0 0 10px;
+
+}
+
+.sidebar {
     width: 15%;
     height: 100%;
     display: block;
@@ -46,84 +64,119 @@ body{
     align-items: center;
     justify-content: center;
 }
+
 .sidebar-header:hover .sidebar-header-image,
-.sidebar-header:hover .sidebar-header-name
-{
+.sidebar-header:hover .sidebar-header-name {
     color: var(--main-color);
 }
-.layout{
+
+.layout {
     height: 100vh;
 }
+
 .sidebar-header-image {
     height: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
 }
-.sidebar-header-name{
+
+.sidebar-header-name {
     font-size: 25px;
 }
 
 .sidebar-header-image i {
     font-size: 4rem;
 }
+
 .sidebar-footer-name,
-.sidebar-content-name{
+.sidebar-content-name {
     margin-left: 10px;
 }
 
-.sidebar-content{
+.sidebar-content {
     display: block;
-    height: 40%;
-}
-.sidebar-footer{
-    display: block;
-    height: 40%;
+    height: 60%;
 }
 
-.sidebar-content-name,.sidebar-footer-name{
+.sidebar-footer {
+    display: block;
+    height: 20%;
+}
+
+.sidebar-content-name,
+.sidebar-footer-name {
     color: var(--sidebar-control-name-color);
 }
 
-
-.sidebar-control-list-item a, .sidebar-footer-control-list-item a{
+.sidebar-control-list-phanquyen a {
     display: flex;
     padding: 10px;
     cursor: pointer;
     background-color: transparent;
 }
 
-.sidebar-control-list-item:hover, .sidebar-footer-control-list-item:hover{
+
+.sidebar-control-list-item a,
+.sidebar-footer-control-list-item a {
+    display: flex;
+    padding: 10px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.sidebar-control-list-item:hover,
+.sidebar-footer-control-list-item:hover {
     background-color: var(--main-color);
 }
 
 .sidebar-control-list-item:hover .sidebar-item-name,
 .sidebar-control-list-item:hover .sidebar-item-image i,
 .sidebar-footer-control-list-item:hover .sidebar-item-name,
-.sidebar-footer-control-list-item:hover .sidebar-item-image i{
+.sidebar-footer-control-list-item:hover .sidebar-item-image i {
     color: var(--main-text-color);
 }
 
+.sidebar-control-list-phanquyen .dropdown-btn:hover {
+    background-color: var(--main-color);
+}
 
-.sidebar-item-image{
+.sidebar-control-list-phanquyen .dropdown-btn:hover .sidebar-item-name,
+.sidebar-control-list-phanquyen .dropdown-btn:hover .sidebar-item-image i {
+    color: var(--main-text-color);
+}
+
+.sidebar-item-image {
+    margin-inline-start: 10px;
+    margin-right: 15px;
+}
+
+.sidebar-taikhoan-image {
+    margin-inline-start: 10px;
+    margin-right: 15px;
+}
+
+.sidebar-nhomquyen-image {
     margin-inline-start: 10px;
     margin-right: 15px;
 }
 
 
 /* content */
-.content{
+.content {
     flex: 1;
     height: 100vh;
     overflow: hidden;
     margin-left: 15.7%;
 }
-.content-item{
+
+.content-item {
     height: 100%;
     display: block;
 }
-.content-header{
+
+.content-header {
     background-color: var(--main-color);
     height: 10%;
     display: flex;
@@ -133,11 +186,11 @@ body{
     color: var(--main-text-color);
 }
 
-.content-main{
+.content-main {
     height: 80%;
 }
 
-.content-footer{
+.content-footer {
     background-color: var(--footer-color);
     font-size: 20px;
     color: black;
@@ -149,62 +202,116 @@ body{
     z-index: 1;
 }
 
-.content-main-trangchu-cards{
+.content-main-trangchu-cards {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     height: 100%;
-    
+
 }
 
-.content-main-trangchu-card{
+.content-main-trangchu-card {
     background-color: var(--sidebar-color);
     width: 90%;
     margin: 10px;
     display: block;
     border-radius: 20px;
-    box-shadow: 5px 5px  5px 0 rgb(102, 100, 97);
+    box-shadow: 5px 5px 5px 0 rgb(102, 100, 97);
     overflow: hidden;
 }
 
 
 
-.content-main-trangchu-card-header{
-    height: 100%;   
+.content-main-trangchu-card-header {
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }
-.content-main-trangchu-card-header i{
-    
+
+.content-main-trangchu-card-header i {
+
     font-size: 50px;
 }
-.content-main-trangchu-card-name{
+
+.content-main-trangchu-card-name {
     background-color: var(--main-color);
     color: var(--main-text-color);
     justify-content: center;
     align-items: center;
     font-size: 25px;
 }
-.content-main-trangchu-card-detail{
+
+.content-main-trangchu-card-detail {
     height: 0%;
 }
 
-.content-main-trangchu-card:hover .content-main-trangchu-card-header{
+.content-main-trangchu-card:hover .content-main-trangchu-card-header {
     height: 30%;
 }
-.content-main-trangchu-card:hover .content-main-trangchu-card-name{
+
+.content-main-trangchu-card:hover .content-main-trangchu-card-name {
     display: flex;
     height: 10%;
 }
-.content-main-trangchu-card:hover .content-main-trangchu-card-detail{
+
+.content-main-trangchu-card:hover .content-main-trangchu-card-detail {
     height: 60%;
 }
 
 
-.content-main-nhanvien{
+.content-main-nhanvien {
     height: 100%;
 }
 
+@media screen and (min-width: 768px) {
+    .nav-toggle {
+        display: none;
+    }
+}
 
+@media screen and (max-width: 930px),
+screen and (max-height: 600px) {
 
+    /* Ẩn thanh sidebar */
+    .sidebar {
+        display: none;
+        ;
+    }
+
+    .content {
+        margin: 0;
+    }
+
+    /* Hiển thị nút 3 gạch */
+    .nav-toggle {
+        display: block;
+    }
+}
+
+.dropdown-btn {
+    display: flex;
+    padding: 10px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.dropdown-content {
+    display: none;
+    background-color: rgb(225, 226, 227);
+    padding-left: 10px;
+}
+
+.fa-caret-down {
+    float: right;
+    padding-right: 8px;
+}
+
+.sidebar-control-list-phanquyen .dropdown-content a:hover .sidebar-item-name,
+.sidebar-control-list-phanquyen .dropdown-content a:hover .sidebar-item-image i {
+    color: rgb(77, 124, 165);
+}
+.active {
+    background-color: var(--main-color);
+
+}

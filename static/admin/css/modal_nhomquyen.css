@@ -1,0 +1,94 @@
+
+.editPhanQuyen .form {
+    height: 80%;
+}
+.detail-info{
+    padding: 10px 0 10px;
+    display: grid;
+    grid-template-areas:
+        "group1 group2"
+        "group3 group3"; /* form-group3 nằm ở dòng thứ 2 */
+    grid-template-rows: auto auto; /* Dòng có chiều cao tự động cho các phần tử, 2 dòng */
+    gap: 10px; /* Khoảng cách giữa các phần tử */
+    background-color: rgb(214, 208, 201);
+
+}
+.form-group1 {
+    grid-area: group1; /* Đặt form-group1 vào ô grid có tên "group1" */
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.form-group2 {
+    grid-area: group2; /* Đặt form-group2 vào ô grid có tên "group2" */
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.form-group3 {
+    grid-area: group3; /* Đặt form-group3 vào ô grid có tên "group3" */
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+}
+.permission-details {
+    width: 100%;
+    height: 300px;
+    overflow: auto;
+    background-color: rgb(214, 208, 201);
+
+}
+.detail-info h2, .permission-details h2 {
+    margin-bottom: 10px;
+}
+
+/* .form-group {
+    margin-bottom: 15px;
+} */
+
+.detail-info label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.detail-info input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.form-group3 textarea {
+    height: 80px;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.permission-details table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+}
+
+.permission-details th, .permission-details td {
+    padding: 8px;
+    text-align: left;
+}
+
+.permission-details th {
+    background-color: #f2f2f2;
+}
+td > input[type="checkbox"] {
+    display: block;
+    margin: 0 auto;
+}
+.table-header th {
+   text-align: center; 
+}

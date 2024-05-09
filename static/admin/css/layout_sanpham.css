@@ -225,6 +225,12 @@
 .item-btn {
     margin: 30px;
 }
+.table-control button i {
+    color:#fff;
+}
+.item-btn button i {
+    color: #fff;
+}
 
 i,
 img,

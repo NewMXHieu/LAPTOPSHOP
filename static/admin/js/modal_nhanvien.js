@@ -2,7 +2,6 @@
 let btnAddNhanVien = document.getElementById("addNewNhanVien");
 btnAddNhanVien.addEventListener('click', () =>{
     document.querySelector(".AddNhanVien").classList.add("open");
-    setDefaultValueProduct();
 })
 var indexNV;
 
