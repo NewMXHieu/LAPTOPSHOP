@@ -3,8 +3,8 @@ include '../../config/connect.php';
 ?>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script> -->
 <div class="content top-trangchu">
-    <div class="menu menu-left">
-        <button id="resetBtn">Đặt lại</button>
+    <div class="menu menu-left menu-left-2">
+        <button id="resetBtn">Xóa bộ lọc</button>
         <div class="loc">
             <h3>Hãng sản xuất</h3>
             <div class="checkItems checkItem-1">
@@ -218,41 +218,41 @@ include '../../config/connect.php';
         page = ($(this).text());
         readData(search);
     });
-    $(".checkItem-1").on("click", "input", function(e) {
+    $(".checkItem-1").on("click", "p", function(e) {
         $(".checkItem-1 input").prop("checked", false);
-        $(this).prop("checked", true);
-        brand = $(this).val();
+        $(this).find('input').prop("checked", true);
+        brand = $(this).find('input').val();
         delayLoad();
     });
-    $(".checkItem-2").on("click", "input", function(e) {
+    $(".checkItem-2").on("click", "p", function(e) {
         $(".checkItem-2 input").prop("checked", false);
-        $(this).prop("checked", true);
-        cost = $(this).val();
+        $(this).find('input').prop("checked", true);
+        cost = $(this).find('input').val();
         delayLoad();
     });
-    $(".checkItem-3").on("click", "input", function(e) {
+    $(".checkItem-3").on("click", "p", function(e) {
         $(".checkItem-3 input").prop("checked", false);
-        $(this).prop("checked", true);
-        cpu = $(this).val();
+        $(this).find('input').prop("checked", true);
+        cpu = $(this).find('input').val();
         delayLoad();
         // console.log(cpu);
     });
-    $(".checkItem-4").on("click", "input", function(e) {
+    $(".checkItem-4").on("click", "p", function(e) {
         $(".checkItem-4 input").prop("checked", false);
-        $(this).prop("checked", true);
-        ram = $(this).val();
+        $(this).find('input').prop("checked", true);
+        ram = $(this).find('input').val();
         delayLoad();
     });
-    $(".checkItem-5").on("click", "input", function(e) {
+    $(".checkItem-5").on("click", "p", function(e) {
         $(".checkItem-5 input").prop("checked", false);
-        $(this).prop("checked", true);
-        storage = $(this).val();
+        $(this).find('input').prop("checked", true);
+        storage = $(this).find('input').val();
         delayLoad();
     });
-    $(".checkItem-6").on("click", "input", function(e) {
+    $(".checkItem-6").on("click", "p", function(e) {
         $(".checkItem-6 input").prop("checked", false);
-        $(this).prop("checked", true);
-        loai = $(this).val();
+        $(this).find('input').prop("checked", true);
+        loai = $(this).find('input').val();
         delayLoad();
         // console.log(cpu);
     });

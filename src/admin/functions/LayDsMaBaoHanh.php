@@ -10,28 +10,27 @@ if (isset($_POST['idProduct'])) {
     // Nhận id từ yêu cầu POST
     $id = $_POST['idProduct'];
     // Truy vấn cơ sở dữ liệu để lấy dữ liệu sản phẩm
-    $sql = "select chitiethoadon.MASP, MASERI ,chitietsanpham.GIATIEN
-    from chitiethoadon
-    INNER JOIN chitietsanpham ON chitietsanpham.MASP = chitiethoadon.MASP
-    where mahd = $id
-    GROUP BY MASERI
-;
+    $sql = "SELECT *
+    FROM baohanh
+    WHERE DONVIBAOHANH = '$id'
     ";
     $result = $conn->query($sql);
-    $SPDonHangs = [];
+    $spPhieuNhaps = [];
     // Kiểm tra và xử lý kết quả
     if ($result->num_rows > 0) {
         // Chuyển kết quả thành mảng JSON và trả về
         $rows = array();
         while ($row = $result->fetch_assoc()) {
             $sp = [
-                'MASP' => $row['MASP'],
-                'MASERI' => $row['MASERI'],
-                'GIATIEN' => $row['GIATIEN'],
+                'MABAOHANH' => $row['MABAOHANH'],
+                'MANV' => $row['MANV'],
+                'DONVIBAOHANH' => $row['DONVIBAOHANH'],
+                'THOIHAN' => $row['THOIHAN'],
+                'TRANGTHAI' => $row['TRANGTHAI']
             ];
-            $SPDonHangs[] = $sp;
+            $spPhieuNhaps[] = $sp;
         }
-        echo json_encode($SPDonHangs, JSON_UNESCAPED_UNICODE);
+        echo json_encode($spPhieuNhaps, JSON_UNESCAPED_UNICODE);
     } 
 }
 ?>

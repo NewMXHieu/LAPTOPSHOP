@@ -11,8 +11,9 @@ function editDonHang(id) {
     document.getElementById("detailDonHang_tennhanvien").value = donhangs[index].MANV + ' - ' + donhangs[index].TENNV;
     document.getElementById("detailDonhang_ngay").value = donhangs[index].NGAYTAO;
     document.getElementById("detailDonHang_TrangThai").value = donhangs[index].TRANGTHAI;
+    document.getElementById("detailDonHang_tongtien").value = donhangs[index].TONGTIEN;
     getShipperAndSetDropdown(id, donhangs[index].MASHIPPER);
-    layDsSP(donhangs[index].MAHD);
+    layDsSP(donhangs[index].MAHD,false);
 
 
 }
@@ -59,8 +60,48 @@ document.getElementById('detailDonHang_shipper').addEventListener('change', func
     }
 });
 
+function updateTrangThaiSeriBan(masp,maseri,isPayed){
+    $.ajax({
+        url: 'api/admin/updateTrangThaiSeriMua.php', // Đường dẫn đến trang PHP
+        type: 'POST', // Phương thức POST sẽ gửi dữ liệu qua body
+        data: {
+            masp: masp,
+            maseri:maseri,
+            isPayed: isPayed,
+            trangthai: 0
+        }, // Dữ liệu gửi đi (id sản phẩm)
+        success: function (data) {
+            getDsDonHang();
+            showDonHang();
+            resetData();
+        },
+        error: function (xhr, status, error) {
+            console.error('Lỗi khi gửi yêu cầu đến trang PHP:', error);
+        }
+    });
+}
+function updateSoLuongSanPhamBan(mahd,masp,soluongmua,isPayed){
+    $.ajax({
+        url: 'api/admin/updateSoLuongSanPhamMua.php', // Đường dẫn đến trang PHP
+        type: 'POST', // Phương thức POST sẽ gửi dữ liệu qua body
+        data: {
+            mahd: mahd,
+            masp: masp,
+            soluongmua: soluongmua,
+            isPayed: isPayed
+        }, // Dữ liệu gửi đi (id sản phẩm)
+        success: function (data) {
+            getDsDonHang();
+            showDonHang();
+            resetData();
+        },
+        error: function (xhr, status, error) {
+            console.error('Lỗi khi gửi yêu cầu đến trang PHP:', error);
+        }
+    });
+}
 
-function layDsSP(mahd) {
+function layDsSP(mahd,isPayed) {
     var dsSP = [];
     $.ajax({
         url: 'api/admin/layDsSanPhamDonHang.php', // Đường dẫn đến trang PHP
@@ -74,11 +115,16 @@ function layDsSP(mahd) {
             var html = '';
             console.log(data);
             dsSP.forEach((item) => {
-                html += `<div class="detail-giohang-list-data-item">
-                    <div>${item.MASP}</div>
-                    <div>${item.SOLUONG}</div>
-                    <div>${item.GIATIEN}</div>
-                </div>`;
+                html += `
+                <tr>
+                    <td>${item.MASP}</td>
+                    <td>${item.MASERI}</td>
+                    <td>${item.GIATIEN}</td>
+                </tr>
+                
+                `;
+                updateSoLuongSanPhamBan(mahd,item.MASP,item.MASERI,isPayed);
+                updateTrangThaiSeriBan(item.MASP,item.MASERI,isPayed);
             })
             document.getElementById("detail-giohang-list-data").innerHTML = html;
         },
@@ -87,6 +133,8 @@ function layDsSP(mahd) {
         }
     });
 }
+
+
 
 function saveEditDonHang() {
     maDonHang = document.getElementById("idDonHang").value;
@@ -107,6 +155,8 @@ function saveEditDonHang() {
         success: function (data) {
             getDsDonHang();
             showDonHang();
+            resetDataThongKe();
+            layDsSP(maDonHang,true);
             finish();
         },
         error: function (xhr, status, error) {

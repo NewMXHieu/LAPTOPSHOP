@@ -154,7 +154,10 @@ if (arr.length === 0) {
         let btnCtl = product.TRANGTHAI == 1 ?
             `<button class="btn btn-danger" onclick="changeStatusProductOff(${product.MASP})"><i class="fa-solid fa-trash"></i></button>` :
             `<button class="btn btn-danger undo-btn" onclick="changeStatusProductOn(${product.MASP})"><i class="fa-solid fa-trash"></i></button>`;
-        productHtml +=
+        let btnStatus = product.TRANGTHAI == 0 ?
+        `<span style="background-color: #bb2d3b;
+        border-color: #b02a37; color: black">Đã Ẩn</span>` : ``
+            productHtml +=
             `<div class="item-single">
                 <div class="item-left">
                     <img src="static/image/products/${product.HINHSP}" alt="hình sản phẩm">
@@ -162,7 +165,12 @@ if (arr.length === 0) {
                 <div class="item-center">
                     <h2>${product.TENSP}</h2>
                     <p>${product.MOTA}</p>
-                    <span>${product.TENTHUONGHIEU}</span>
+                    <div class="item-center-bottom">
+                        <span>${product.TENTHUONGHIEU}</span>
+                        <span>SL: ${product.SOLUONG}</span>
+                        ${btnStatus}
+                    </div>
+                    
                 </div>
                 <div class="item-right">
                     <h3>${product.GIATIEN} đ</h3>

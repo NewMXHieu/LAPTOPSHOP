@@ -1,0 +1,14 @@
+.content-main-select-nhaphang{
+    display: flex;
+    height: 70%;
+    width: 15%;
+    justify-content: space-evenly;
+}
+.centerText{
+    display: flex;
+    align-items: center;
+}
+
+.content-main-select-nhaphang input[type='date']{
+    width: 70%;
+}

@@ -65,11 +65,14 @@
 
         // Hàm lấy mã sản phẩm mới
         function layMaSPMoi($conn) {
-            $sql_laymasp = "SELECT COUNT(*) AS total FROM SANPHAM";
-            $result = $conn->query($sql_laymasp);
+            $sql_laymanv = "SELECT MASP
+            FROM SANPHAM
+            ORDER BY MASP DESC
+            LIMIT 1";
+            $result = $conn->query($sql_laymanv);
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
-                return $row["total"];
+                return $row["MATK"];
             } else {
                 return 1;
             }

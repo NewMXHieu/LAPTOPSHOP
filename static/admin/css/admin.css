@@ -50,7 +50,8 @@ body {
 .sidebar {
     width: 15%;
     height: 100%;
-    display: block;
+    display: flex;
+    flex-direction: column;
     margin: 5px;
     position: fixed;
     background-color: var(--sidebar-color);
@@ -95,9 +96,16 @@ body {
     margin-left: 10px;
 }
 
-.sidebar-content {
-    display: block;
-    height: 60%;
+.sidebar-content{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    flex-grow: 1;
+}
+.sidebar-footer{
+    display: flex;
+    flex-direction: column;
+    height: 30%;
 }
 
 .sidebar-footer {
@@ -110,12 +118,23 @@ body {
     color: var(--sidebar-control-name-color);
 }
 
+.sidebar-control-list{
+    height: 100%;
+}
+
+.sidebar-control-list-item a, .sidebar-footer-control-list-item a{
+    display: flex;
+    padding: 10px;
+    cursor: pointer;
+    background-color: transparent;
+}
 .sidebar-control-list-phanquyen a {
     display: flex;
     padding: 10px;
     cursor: pointer;
     background-color: transparent;
 }
+
 
 
 .sidebar-control-list-item a,
@@ -244,6 +263,8 @@ body {
 
 .content-main-trangchu-card-detail {
     height: 0%;
+    display: grid;
+    place-items: center;
 }
 
 .content-main-trangchu-card:hover .content-main-trangchu-card-header {
@@ -259,8 +280,11 @@ body {
     height: 60%;
 }
 
-
-.content-main-nhanvien {
+.content-main-trangchu-card-detail-item{
+    font-size: 30px;
+    text-transform: uppercase;
+}
+.content-main-nhanvien{
     height: 100%;
 }
 

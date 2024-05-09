@@ -21,6 +21,7 @@
 
 <link rel="stylesheet" href="static/css/style.css">
 
+
 <div class="detail">
     <!--================ Ảnh và thông tin khuyến mãi ========================-->
     <div class="product-detail">
@@ -48,8 +49,8 @@
                 </ul>
             </div>
             <div class="paying-product">
-                <button>Mua ngay</button>
-                <button>Thêm vào giỏ hàng</button>
+                <a href="#"></a><button>Mua ngay</button></a>
+                <a href="#"></a><button>Thêm vào giỏ hàng</button></a>
             </div>
         </div>
     </div>
@@ -117,33 +118,39 @@
 
 <!--========================= Gợi ý thêm sản phẩm ==========================-->
 <div class="recommend">
-    <?php
-    $recommend_query = "SELECT * FROM sanpham
-    INNER JOIN chitietsanpham ON sanpham.MASP = chitietsanpham.MASP
-    INNER JOIN thuonghieu ON chitietsanpham.MATHUONGHIEU = thuonghieu.MATHUONGHIEU";
+    <h5>Gợi ý sản phẩm</h5>
+    <div class="bip">
+        <div class="recommend-row">
+            <?php
+                $recommend_query = "SELECT * FROM sanpham
+                INNER JOIN chitietsanpham ON sanpham.MASP = chitietsanpham.MASP
+                INNER JOIN thuonghieu ON chitietsanpham.MATHUONGHIEU = thuonghieu.MATHUONGHIEU";
 
-    $recommend_result = mysqli_query($conn,$recommend_query);
+                $recommend_result = mysqli_query($conn,$recommend_query);
 
-    $data = '';
-    $list = '<div class = "recommend-list">';
-    
-    while($row_recommend = mysqli_fetch_assoc($recommend_result)){
-        if ($_GET['id'] != $row_recommend['MASP']){
-            $data.= '<div class="product">';
-            $data.= '<a href="product-detail?id=' .$row_recommend['MASP']. '">';
-                $data.= '<img src="static/image/products/'.$row_recommend['HINHSP'].'"alt="">';
-                $data.= '<div class="clear">';
-                    $data.= '<a href="product-detail?id=' .$row_recommend['MASP']. '">' .$row_recommend['TENSP']. '</a>';
-                    $data.= '<h2>' .$row_recommend['TENTHUONGHIEU']. '</h2>';
-                    $data.= '<div class="price">' . number_format($row_recommend['GIATIEN'], 0, "", ".") . " Vnd". '</div>';
-                    $data.= '<button class="addCart">Thêm <i class="fa-solid fa-plus"></i></button>';
-                $data.= '</div>';
-            $data.= '</a>';
-        $data.= '</div>';
-        }
-        $list .= $data;
-    }
+                $data = '';
+                // $list = '<div class="recommend-list>"';
+                
+                while($row_recommend = mysqli_fetch_assoc($recommend_result)){
+                    if ($_GET['id'] != $row_recommend['MASP']){
+                        $data.= '<div class="product">';
+                        $data.= '<a href="product-detail?id=' .$row_recommend['MASP']. '">';
+                            $data.= '<img src="static/image/products/'.$row_recommend['HINHSP'].'"alt="">';
+                            $data.= '<div class="clear">';
+                                $data.= '<a href="product-detail?id=' .$row_recommend['MASP']. '">' .$row_recommend['TENSP']. '</a>';
+                                $data.= '<h2>' .$row_recommend['TENTHUONGHIEU']. '</h2>';
+                                $data.= '<div class="price">' . number_format($row_recommend['GIATIEN'], 0, "", ".") . " Vnd". '</div>';
+                                $data.= '<button class="addCart">Thêm <i class="fa-solid fa-plus"></i></button>';
+                            $data.= '</div>';
+                        $data.= '</a>';
+                    $data.= '</div>';
+                    }
+                    // $list .= $data;
+                }
+                // $list .= '</div>';
+                echo $data;
+            ?>
+        </div>
+    </div>
 
-    echo $list;
-    ?>
 </div>

@@ -17,10 +17,11 @@
         <div class="modal-close modal-close-DonHang">
             <i class="fa-solid fa-xmark"></i>
         </div>
-        <form id="editDonHangform" action="" method="POST">
+
+        <form id="editphieunhapform" action="" method="POST">
             <input type="text" id="idDonHang" name="idDonHang" style="display:none">
             <H2 class="edit-product-title">CHI TIẾT HÓA ĐƠN</H2>
-            <div class="detail_product">
+            <div class="detail_product editdonhang3">
                 <div class="detail_product-items">
                     <div class="detail_product-items-item">
                         <label for="TENKH">KHÁCH HÀNG</label>
@@ -36,12 +37,19 @@
                         <label for="NGAYTAO">NGÀY</label>
                         <input type="date" id="detailDonhang_ngay" name="detailDonhang_ngay">
                     </div>
+
                     
-                    <div class="detail_product-items-item">
+                </div>
+                <div class="detail_product-items">
+                <div class="detail_product-items-item">
                         <label for="SHIPPER">CHỌN SHIPPER</label>
                         <select id="detailDonHang_shipper" name="detailDonHang_shipper">
                             <option value="0">Chưa chọn</option>
                         </select>
+                    </div>
+                    <div class="detail_product-items-item">
+                        <label for="SHIPPER">TỔNG TIỀN</label>
+                        <input type="text" id="detailDonHang_tongtien" name="detailDonHang_tongtien">
                     </div>
 
                     <div class="detail_product-items-item">
@@ -54,10 +62,49 @@
                         </select>
                     </div>
                 </div>
+            </div>
+            <div class="detail_product-items donhangtable5">
+                <div class="detail_product-items-title">
+                    <h3>THÔNG TIN GIỎ HÀNG</h3>
+                </div>
+                <div class="table-margin">
+                    <div class="detail_product-items-table">
+                        <table style='width:100%'>
+                            <thead>
+                                <tr>
+                                    <th>MÃ SẢN PHẨM</th>
+                                    <th>MÃ SERIAL</th>
+                                    <th>ĐƠN GIÁ</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="detail-giohang-list-data">
+                                <tr>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="form-control editphieunhapcontrol">
+                <button class="control-btn-form addproduct_btn_cancel" type="Button" onclick="finish()" value="Hủy">Hủy</button>
+                <button class="control-btn-form addproduct_btn_cancel" type="Button" onclick="saveEditDonHang()">Lưu</button>
+            </div>
+        </form>
+
+        <!-- <form id="editDonHangform" action="" method="POST">
+            
+            <div class="detail_product">
+                <div class="detail_product-items">
+                    
+                </div>
 
                 <div class="detail_product-items">
                     <div class="detail_product-items-item">
-                        <label for="giohang">THÔNG TIN GIỎ HÀNG</label>
+                        <label for="giohang"></label>
                         <input type="text" id="detailDonHang_giohang" name="detailDonHang_giohang" style="display:none">
                     </div>
 
@@ -84,7 +131,7 @@
                 <button class="control-btn-form addproduct_btn_cancel" type="Button"
                     onclick="saveEditDonHang()">Lưu</button>
             </div>
-        </form>
+        </form> -->
     </div>
     <script src="static/admin/js/modal_DonHang.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

@@ -386,6 +386,7 @@ a {
     width: 998px;
     overflow: hidden;
     position: relative;
+    margin: 0 8px;
 }
 
 .list-img {
@@ -465,7 +466,7 @@ a {
 
 .main .product {
     border: 1px solid #c4baba;
-    width: calc(25% - 2px);
+    width: calc(25%);
 }
 
 .pagination {
@@ -671,7 +672,7 @@ button[type="button"]:hover {
 .content {
     width: 75%;
     margin: 0px auto;
-    padding: inherit;
+    padding-top: 50px;
 }
 
 .menu {
@@ -690,7 +691,8 @@ button[type="button"]:hover {
 
 #resetBtn {
     padding: 3px 15px;
-    position: absolute;
+    margin-bottom: 10px;
+    /* position: absolute; */
     top: 18px;
     right: 20px;
     border-radius: 6px;
@@ -800,7 +802,7 @@ h3 {
 }
 
 .paying-product button {
-    padding: 50px 70px;
+    padding: 10px 20px;
     border: solid #000;
     margin-top: 20px;
 }
@@ -840,25 +842,85 @@ h3 {
 
 
 .recommend {
-    width: 100%;
+    overflow: hidden;
+    width: 80%;
     background-color: #d8d8f5;
+    /* background-color: blue; */
     padding: 0 15%;
-    height: 350px;
+    height: 500px;
     border-top: solid #000;
-    display: flex;
-
+    margin: 20px auto;
+    border-radius: 15px;
+    position: relative;
 }
 
-.recommend h3 {
+.recommend h5 {
     text-align: center;
-    font-weight: bold;
-    padding: 10px 0;
-    border-bottom: solid violet;
-    margin-bottom: 20px;
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+    padding: 10px;
+    margin: 0 auto;
+    border-bottom: solid #000;
 }
 
-.recommend-list {
-    background-color: blueviolet;
-    height: 250px;
-    width: 100%;
+.bip {
+    position: absolute;
+    left: 18px;
+    right: 32px;
+    bottom: 20px;
+    top: 62px;
+    overflow: hidden;
+}
+
+.recommend-row {
+    display: flex;
+    /* height: 300px; */
+    width: 4393px;
+    position: absolute;
+    left: 0;
+    /* right: 60px; */
+    /* bottom: 20px; */
+    /* top: 62px; */
+}
+
+@media (max-width: 1715px) {
+    .content {
+        width: 90%;
+    }
+}
+
+@media (max-width: 1419px) {
+    .content {
+        width: 96%;
+    }
+}
+
+@media (max-width: 1329px) {
+
+    /* .content{
+        width: 80%;
+    } */
+    .menu-right {
+        width: 99%;
+    }
+
+    .menu-left-1 {
+        display: none;
+    }
+
+    .top-trangchu {
+        display: block;
+    }
+
+    .menu-left-2 {
+        display: flex;
+        width: 99%;
+        gap: 40px;
+        margin-bottom: 30px;
+    }
+
+    .loc {
+        border: none;
+    }
 }

@@ -254,6 +254,7 @@ a {
     display: block;
     background-color: white;
     height: 82vh;
+    overflow-y: auto;
 }
 
 .table-control {
@@ -629,4 +630,8 @@ fieldset:disabled .btn {
     color: #fff;
     background-color: #dc3545;
     border-color: #dc3545;
+}
+
+.item-center-bottom{
+    display: flex;
 }

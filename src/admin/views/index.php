@@ -138,6 +138,26 @@ session_start();
                         <div class="sidebar-item-name">Thống kê</div>
                     </a>
                 </li>
+
+                <!-- layout nhập hàng -->
+                <li class="sidebar-control-list-item" id="admin-thongke-layout" name="admin-thongke-layout">
+                    <a href="#content-nhaphang">
+                        <div class="sidebar-item-image">
+                            <i class="fa-solid fa-parachute-box"></i>
+                        </div>
+                        <div class="sidebar-item-name">Nhập hàng</div>
+                    </a>
+                </li>
+
+                <!-- layout bảo hành -->
+                <li class="sidebar-control-list-item" id="admin-thongke-layout" name="admin-thongke-layout">
+                    <a href="#content-baohanh">
+                        <div class="sidebar-item-image">
+                            <i class="fa-solid fa-circle-notch"></i>
+                        </div>
+                        <div class="sidebar-item-name">Bảo hành</div>
+                    </a>
+                </li>
             </ul>
         </div>
 
@@ -189,9 +209,9 @@ session_start();
                         </div>
                         <div class="content-main-trangchu-card-name">Users</div>
                         <div class="content-main-trangchu-card-detail">
-                            <div class="content-main-trangchu-card-detail-nhanvien" id="admin-trangchu-user-nhanvien"
+                            <div class="content-main-trangchu-card-detail-item" id="admin-trangchu-user-nhanvien"
                                 name="admin-trangchu-user-nhanvien"></div>
-                            <div class="content-main-trangchu-card-detail-khachhang" id="admin-trangchu-user-khachhang"
+                            <div class="content-main-trangchu-card-detail-item" id="admin-trangchu-user-khachhang"
                                 name="admin-trangchu-user-khachhang"></div>
                         </div>
                     </div>
@@ -203,10 +223,7 @@ session_start();
                         </div>
                         <div class="content-main-trangchu-card-name">Products</div>
                         <div class="content-main-trangchu-card-detail">
-                            <div class="content-main-trangchu-card-detail-nhanvien" id="admin-trangchu-product"
-                                name="admin-trangchu-product"></div>
-                            <div class="content-main-trangchu-card-detail-khachhang" id="admin-trangchu-product"
-                                name="admin-trangchu-product"></div>
+                            <div style="scale: 400%;"id="dataproduct"></div>
                         </div>
                     </div>
 
@@ -217,10 +234,7 @@ session_start();
                         </div>
                         <div class="content-main-trangchu-card-name">Doanh thu</div>
                         <div class="content-main-trangchu-card-detail">
-                            <div class="content-main-trangchu-card-detail-nhanvien" id="admin-trangchu-doanhthu"
-                                name="admin-trangchu-doanhthu">
-
-                            </div>
+                            <div style="scale: 200%;"id="datadoanhthu"></div>
                         </div>
                     </div>
                 </div>
@@ -246,6 +260,12 @@ session_start();
 
         <!-- layout thống kê -->
         <?php include 'layout_thongke.php' ?>
+
+        <!-- layout nhập hàng -->
+        <?php include 'layout_nhaphang.php' ?>
+
+        <!-- layout bảo hành -->
+        <?php include 'layout_baohanh.php' ?>
     </div>
 
 
