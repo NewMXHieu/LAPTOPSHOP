@@ -59,7 +59,7 @@
     <div class="information">
         <h5>Thông tin sản phẩm</h5>
         <div class="information-list">
-            <table>
+            <table class="table table-striped table-bordered">
                 <tr>
                     <td class="detail-name">Mã sản phẩm:</td>
                     <td class="detail-content"> <?php echo $product['MASP'] ?></td>
