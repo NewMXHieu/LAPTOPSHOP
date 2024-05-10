@@ -14,7 +14,7 @@
 
     <!-- Thêm Nhóm Quyền -->
     <div class="modal AddPhanQuyen">
-        <form action="" method="POST">
+        <form class="addNQ" action="" method="POST">
             <h2 style="height: 50px">Thông tin chi tiết</h2>
             <div class="detail-info">
                 <div class="form-group1">
@@ -134,7 +134,7 @@
 
     <!-- edit NHÂN VIÊN -->
     <div class="modal editPhanQuyen">
-        <form action="" method="POST">
+        <form class="editNQ" action="" method="POST">
             <h2 style="height: 50px">Thông tin chi tiết</h2>
             <div class="detail-info">
                 <div class="form-group1">

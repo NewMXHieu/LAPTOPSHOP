@@ -6,6 +6,9 @@ function getDsTaiKhoan() {
         type: 'GET',
         success: function (response) {
             taikhoans = JSON.parse(response);
+            taikhoans.sort(function (a, b) {
+                return a.MATK - b.MATK;
+            });
             console.log(taikhoans);
             showTaiKhoan();
         },

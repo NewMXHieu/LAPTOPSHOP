@@ -13,9 +13,9 @@
 
     <!-- add Tài Khoản -->
     <div class="modal addTaiKhoan">
-        <form action="" method="POST">
+        <form action="" method="POST" class="addTKform">
             <H2 class="add-product-title" style="height: 50px">Thêm Tài Khoản</H2>
-            <div class="">
+            <div class="addTK">
                 <input type="date" id="addTaiKhoan_ngaytao" name="addTaiKhoan_ngaytao" style="display: none">
                 <div class="detail_product-items">
                     <div class="detail_product-items-item">
@@ -58,10 +58,10 @@
 
     <!-- edit Tài Khoản -->
     <div class="modal editTaiKhoan">
-        <form action="" method="POST">
+        <form class="editTKform" action="" method="POST">
             <input type="text" id="idTaiKhoan" name="idTaiKhoan" style="display:none">
             <H2 class="edit-product-title" style="height: 50px">Sửa Tài Khoản</H2>
-            <div class="">
+            <div class="addTK">
                 <div class="detail_product-items">
                     <div class="detail_product-items-item">
                         <label for="ten">MÃ TÀI KHOẢN</label>

@@ -634,4 +634,17 @@ fieldset:disabled .btn {
 
 .item-center-bottom{
     display: flex;
+    
+}
+.addTK .detail_product-items .detail_product-items-item {
+    grid-template-columns: 1fr 2fr;
+}
+.addTK .detail_product-items .detail_product-items-item label {
+    padding-left: 40px;
+}
+.addTK .detail_product-items .detail_product-items-item input {
+    width: 80%;
+}
+.addTK .detail_product-items .detail_product-items-item select {
+    width: 80%;
 }
