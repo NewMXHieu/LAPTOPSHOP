@@ -42,7 +42,7 @@
             <div class="promotion">
                 <h5>Khuyến mãi</h5>
                 <ul>
-                    <li>Tặng balo khi mua hàng có hóa đơn trên 1 jack</li>
+                    <li>Tặng balo khi mua hàng có hóa đơn trên 1tr</li>
                     <li>Giảm giá sốc khi mua nhiều mặt hàng</li>
                     <li>Giao hàng nhanh ngay trong ngày</li>
                     <li>Miễn phí đổi trả nếu có bất kỳ vấn đề trong vòng 1 tháng từ khi mua hàng</li>
@@ -59,7 +59,7 @@
     <div class="information">
         <h5>Thông tin sản phẩm</h5>
         <div class="information-list">
-            <table>
+            <table class="table table-striped table-bordered">
                 <tr>
                     <td class="detail-name">Mã sản phẩm:</td>
                     <td class="detail-content"> <?php echo $product['MASP'] ?></td>
