@@ -6,7 +6,7 @@ btnAddTaiKhoan.addEventListener('click', () => {
     document.getElementById("addTaiKhoan_ten").value = "";
     document.getElementById("addTaiKhoan_matkhau").value = "";
     document.querySelector(".addTaiKhoan").classList.add("open");
-    getNhomQuyenAndSetDropdown();
+    getNhomQuyenAndSetDropdownAdd();
 })
 let indexTK;
 function editTaiKhoan(id) {
@@ -47,7 +47,7 @@ function getNhomQuyenAndSetDropdown(id, manhomquyen) {
         }
     });
 }
-function getNhomQuyenAndSetDropdown() {
+function getNhomQuyenAndSetDropdownAdd() {
     $.ajax({
         url: 'api/admin/getDsPhanQuyen.php',
         type: 'GET',

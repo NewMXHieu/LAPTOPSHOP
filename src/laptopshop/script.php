@@ -13,7 +13,7 @@
   }
 
   function submitData() {
-    $(document).ready(function() {
+    $(document).ready(function () {
       console.log('submitData');
       var data = {
         fullname: $("#fullname").val(),
@@ -27,7 +27,7 @@
         url: 'api/login-register.php',
         type: 'post',
         data: data,
-        success: function(response) {
+        success: function (response) {
           if (response) {
             try {
               response = JSON.parse(response);
@@ -38,37 +38,55 @@
             console.error('Response is empty');
           }
 
-          if (response.message == "Registration Successful") {
+
+          // Extracting data from the response
+          let message = response.message;
+          let quyen = response.quyen;
+          console.log(quyen);
+
+          // Handling login based on permissions and message
+          let maQuyenAdmin = [1, 5, 9, 13, 17, 21, 25, 29];
+
+          if (message === "Login Successful") {
+            if (quyen == 30 && quyen.length == 1) {
+              var popup = document.getElementById('popup-login-successful');
+              popup.classList.add("open-popup");
+              return;
+            }
+            if(quyen.some(r=> maQuyenAdmin.includes(+r))) {
+              alert("Đăng nhập thành công. Bạn sẽ được chuyển hướng về trang quản lý.");
+              window.location.href = 'admin';
+              return;
+            }
+          }
+
+          // Handling registration success
+          if (message === "Registration Successful") {
             var popup = document.getElementById('popup-register-successful');
             popup.classList.add("open-popup");
-          } else if (response.message == "Login Successful" && response.loginRoute == '5') {
-            var popup = document.getElementById('popup-login-successful');
-            popup.classList.add("open-popup");
-          } else if (response.message == "Login Successful" && response.loginRoute == '1') {
-            alert("Đăng nhập thành công. Bạn sẽ được chuyển hướng về trang admin.");
-            window.location.href = 'admin'; // Chuyển hướng đến trang quản lý
-          } else if (response.message == "Login Successful" && response.loginRoute == '2') {
-            alert("Đăng nhập thành công. Bạn sẽ được chuyển hướng về trang quản lý.");
-            window.location.href = 'admin'; // Chuyển hướng đến trang quản lý
-          } else if (response.message == "Login Successful" && response.loginRoute == '3') {
-            alert("Đăng nhập thành công. Bạn sẽ được chuyển hướng về trang quản lý.");
-            window.location.href = 'admin'; // Chuyển hướng đến trang quản lý
-          } else if (response.message == "Vui lòng nhập tên đăng nhập và mật khẩu" || response.message == "Tên tài khoản hoặc mật khẩu sai" || response.message == "Mật khẩu sai" || response.message == "Đã có lỗi xảy ra. Vui lòng thử lại sau.") {
+          }
+
+          // Handling login failure messages
+          if (["Vui lòng nhập tên đăng nhập và mật khẩu", "Tên tài khoản hoặc mật khẩu sai", "Mật khẩu sai", "Đã có lỗi xảy ra. Vui lòng thử lại sau."].includes(message)) {
             var popup = document.getElementById('popup-login-fail');
-            popup.querySelector('p').textContent = response.message;
+            popup.querySelector('p').textContent = message;
             popup.classList.add("open-popup");
-          } else if (response.message == "Vui lòng nhập đầy đủ thông tin" || response.message == "Mật khẩu không khớp" || response.message == "Tên tài khoản đã tồn tại") {
+          }
+
+          // Handling registration failure messages
+          else if (["Vui lòng nhập đầy đủ thông tin", "Mật khẩu không khớp", "Tên tài khoản đã tồn tại"].includes(message)) {
             var popup = document.getElementById('popup-register-fail');
-            popup.querySelector('p').textContent = response.message;
+            popup.querySelector('p').textContent = message;
             popup.classList.add("open-popup");
           } else {
-            alert(response.message); // Hiển thị thông báo lỗi
+            alert(message); // Displaying other error messages
           }
         }
       });
     });
   }
-  document.onkeydown = function() {
+
+  document.onkeydown = function () {
     if (window.event.keyCode == '13') {
       submitData();
     }

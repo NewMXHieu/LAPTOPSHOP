@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['orderId'])) {
         $orderId = $_POST['orderId'];
 
-        $sql_update_hoadon = "UPDATE hoadon SET TRANGTHAI = 4 WHERE MAHD = $orderId";
+        $sql_update_hoadon = "UPDATE hoadon SET TRANGTHAI = 3 WHERE MAHD = $orderId";
         $result_hoadon = mysqli_query($conn, $sql_update_hoadon);
 
         if ($result_hoadon) {

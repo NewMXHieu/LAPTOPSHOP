@@ -74,22 +74,10 @@ function login()
         $query_permission = "SELECT * FROM phanquyen WHERE MATK = " . $row['MATK'];
         $result_permission = mysqli_query($conn, $query_permission);
         $permission = mysqli_fetch_assoc($result_permission);
-        switch ($permission['MANHOMQUYEN']) {
-          case 1: // Admin
-            $accountTableName = 'nhanvien';
-            break;
-          case 2: // Quản lý
-            $accountTableName = 'nhanvien';
-            break;
-          case 3: // Nhân viên
-            $accountTableName = 'nhanvien';
-            break;
-          case 4: // Thủ kho
-            $accountTableName = 'nhanvien';
-            break;
-          case 5: // Khách hàng
-            $accountTableName = 'khachhang';
-            break;
+        if ($permission['MANHOMQUYEN'] == 5) {
+          $accountTableName = 'khachhang';
+        } else {
+          $accountTableName = 'nhanvien';
         }
         $userInfoSQLResult = mysqli_query($conn, "SELECT * FROM $accountTableName WHERE MATK = '{$row['MATK']}'");
 
@@ -101,15 +89,23 @@ function login()
 
         $userInfo = mysqli_fetch_assoc($userInfoSQLResult);
 
-        // Get user's role
-
-
+        // Get mã quyền từ nhóm quyền
+        $sql = "SELECT MAQUYEN FROM NHOMQUYEN WHERE MANHOMQUYEN = " . $permission['MANHOMQUYEN'];
+        $result = $conn->query($sql);
+        $maquyens = [];
+        if ($result->num_rows > 0) {
+            while ($row2 = $result->fetch_assoc()) {
+                $maquyens[] = $row2['MAQUYEN'];
+            }
+        }
         // response with userInfo and loginRoute
-        $dataRespone = json_encode(array("message" => "Login Successful", "loginRoute" => $permission['MANHOMQUYEN']));
+        $dataRespone = json_encode(array("message" => "Login Successful", "loginRoute" => $permission['MANHOMQUYEN'], "quyen" => $maquyens));
         $_SESSION["login"] = true;
         $_SESSION["id"] = $row["MATK"];
         $_SESSION["username"] = $userInfo["TEN"];
         $_SESSION["MANHOMQUYEN"] = $permission['MANHOMQUYEN'];
+
+
         echo $dataRespone;
       } else {
         echo json_encode(array("message" => "Mật khẩu sai"));
