@@ -7,7 +7,7 @@
     $ram = $_GET['ram'];
     $storage = $_GET['storage'];
     $loai = $_GET['loai'];
-    $sanpham_tren_trang = 8;
+    $sanpham_tren_trang = 16;
 
     $sql_sanpham = "SELECT * FROM sanpham
     INNER JOIN chitietsanpham ON sanpham.MASP = chitietsanpham.MASP
