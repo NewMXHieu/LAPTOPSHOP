@@ -15,11 +15,6 @@ include '../functions/getDsQuyenTheoTaiKhoan.php';
 </head>
 
 <body>
-    <div class="hidden-sidebar">
-        <div class="nav-toggle">
-            <i class="fa fa-bars"></i>
-        </div>
-    </div>
 
     <!-- sidebar -->
     <div class="sidebar">
@@ -27,7 +22,7 @@ include '../functions/getDsQuyenTheoTaiKhoan.php';
         <div class="sidebar-header">
             <a href="#">
                 <div class="sidebar-header-image">
-                    <i class="fa-solid fa-laptop"></i>
+                    <img src="static/image/laptoplogo.png" alt="">
                 </div>
                 <p class="sidebar-header-name">Cửa hàng laptop</p>
             </a>
@@ -215,6 +210,10 @@ include '../functions/getDsQuyenTheoTaiKhoan.php';
                 </li>
             </ul>
         </div>
+    </div>
+    <div class="toggler">
+        <i class="fa-solid fa-bars" id="toggle-bars"></i>
+        <i class="fa-solid fa-xmark" id="toggle-cross"></i>
     </div>
 
     <!-- content -->

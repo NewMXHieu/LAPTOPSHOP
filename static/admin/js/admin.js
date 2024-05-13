@@ -72,13 +72,14 @@ function getSoDoanhThu(){
 getSoDoanhThu()
 
 
-// Close modal
-let btnCloseModal = document.querySelectorAll(".modal-close");
-let modalOpen = document.querySelectorAll(".modal");
-for(let i = 0 ; i < modalOpen.length ; i++){
-    btnCloseModal[i].onclick = () => {
-        modalOpen[i].classList.remove("open");
-    };
+document.addEventListener('DOMContentLoaded', function() {
+    showActiveState(); // Gọi hàm showActiveState sau khi trang được tải
+});
+
+function showActiveState() {
+    toggler.classList.add('active');
+    sidebar.classList.add('active');
+    content.classList.add('active');
 }
 
 
@@ -86,4 +87,26 @@ function finish(){
     for(let i = 0 ; i < modalOpen.length ; i++){
         modalOpen[i].classList.remove("open");
     }
+}
+const toggler = document.querySelector('.toggler')
+const sidebar = document.querySelector('.sidebar')
+const content = document.querySelector('.content')
+
+const showFull = () => {
+    toggler.addEventListener('click', ()=> {
+        toggler.classList.toggle('active')
+        sidebar.classList.toggle('active')
+        content.classList.toggle('active')
+    })
+}
+
+showFull()
+
+// Close modal
+let btnCloseModal = document.querySelectorAll(".modal-close");
+let modalOpen = document.querySelectorAll(".modal");
+for(let i = 0 ; i < modalOpen.length ; i++){
+    btnCloseModal[i].onclick = () => {
+        modalOpen[i].classList.remove("open");
+    };
 }
