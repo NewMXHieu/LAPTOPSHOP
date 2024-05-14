@@ -106,13 +106,19 @@ if (arr.length === 0) {
 
     
     arr.forEach(product => {
+        let BtnEdit ='';
+        if(quyen.includes(String(27))) {
+            BtnEdit = `<button class="btn btn-primary" onclick="editBaoHanh(${product.MABAOHANH})"><i class="fa-solid fa-pen-to-square"></i></button>`;
+        }
         productHtml +=
             `<tr>
             <td>${product.MABAOHANH}</td>
             <td>${product.DONVIBAOHANH}</td>
             <td>${product.THOIHAN}</td>
             <td>${product.TRANGTHAI}</td>
-            <td><button class="btn btn-primary" onclick="editBaoHanh(${product.MABAOHANH})"><i class="fa-solid fa-pen-to-square"></i></button></td>
+            <td class="table-control">
+                ${BtnEdit}
+            </td>
         </tr>`;
 
     });

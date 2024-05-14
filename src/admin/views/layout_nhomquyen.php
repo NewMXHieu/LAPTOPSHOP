@@ -28,7 +28,11 @@
                         </form>
                     </div>
                     <div class="content-main-control-filter">
-                        <button id="addNewPhanQuyen"><i class="fa-solid fa-plus"></i></button>
+                        <?php
+                        if(maQuyenTonTai($maquyen, 18)){
+                            echo '<button id="addNewPhanQuyen"><i class="fa-solid fa-plus"></i></button>';
+                        }
+                        ?>
                         <button id="resetBtnPhanQuyen" onclick="resetDataPhanQuyen()"><i
                                 class="fa-solid fa-arrows-rotate"></i></button>
                         <button id="filterByBotToTopBtnPhanQuyen" onclick="filterByBotToTopPhanQuyen()"><i

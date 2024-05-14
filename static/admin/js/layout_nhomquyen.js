@@ -110,6 +110,14 @@ if (arr.length === 0) {
 
     
     arr.forEach(phanquyen => {
+        let BtnEdit = '';
+        let BtnDelete = '';
+        if(quyen.includes(String(19))){
+            BtnEdit = `<button class="btn btn-primary" onclick="editPhanQuyen(${phanquyen.MANHOMQUYEN})"><i class="fa-solid fa-pen-to-square"></i></button>`;
+        }
+        if(quyen.includes(String(20))){
+            BtnDelete = `<button class="btn btn-danger" onclick="deletePhanQuyen(${phanquyen.MANHOMQUYEN})"><i class="fa-solid fa-trash"></i></button>`;
+        }
 
         phanQuyenHtml +=
             `<tr>
@@ -117,8 +125,8 @@ if (arr.length === 0) {
             <td>${phanquyen.TENNHOMQUYEN}</td>
             <td>${phanquyen.MOTA}</td>
             <td class="table-control">
-                <button class="btn btn-primary" onclick="editPhanQuyen(${phanquyen.MANHOMQUYEN})"><i class="fa-solid fa-pen-to-square"></i></button>
-                <button class="btn btn-danger" onclick="deletePhanQuyen(${phanquyen.MANHOMQUYEN})"><i class="fa-solid fa-trash"></i></button>
+                ${BtnEdit}
+                ${BtnDelete}
             </td>
         </tr>`;
 

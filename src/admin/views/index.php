@@ -2,7 +2,42 @@
 session_start();
 include '../functions/getDsQuyenTheoTaiKhoan.php';
 
+function maQuyenTonTai($maquyen, $maquyenCanKiemTra)
+{
+    foreach ($maquyen as $key => $value) {
+        if ($value == $maquyenCanKiemTra) {
+            return true;
+        }
+    }
+    return false;
+}
 ?>
+<script>
+    var quyen = <?php echo json_encode($maquyen); ?>;
+    const fragment = window.location.hash
+
+    const listFragmentsWithPermission = {
+        1: '#content-sanpham',
+        5: '#content-nhanvien',
+        9: '#content-khachhang',
+        13: '#content-donhang',
+        17: '#content-phanquyen',
+        21: '#content-nhaphang',
+        25: '#content-baohanh',
+        29: '#content-thongke',
+    }
+    const permittedFragments = quyen.map(permission => listFragmentsWithPermission[permission])
+    if(!permittedFragments.includes(fragment)){
+        window.location.hash = ''   
+    }
+    window.onhashchange = () => {
+        const fragment = window.location.hash
+        if(!permittedFragments.includes(fragment)){
+            window.location.hash = ''
+        }
+    }
+
+</script>
 <!DOCTYPE html>
 <html lang="vi">
 

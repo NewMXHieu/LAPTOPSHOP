@@ -44,7 +44,11 @@
             </form>
         </div>
         <div class="content-main-control-filter">
-            <button id="addNewItemBtn"><i class="fa-solid fa-plus"></i></button>
+            <?php
+            if(maQuyenTonTai($maquyen, 2)){
+                echo '<button id="addNewItemBtn" onclick="addProduct()"><i class="fa-solid fa-plus"></i></button>';
+            }
+            ?>
             <button id="resetBtnSanPham" onclick="resetData()"><i class="fa-solid fa-arrows-rotate"></i></button>
             <button id="filterByBotToTopBtnSanPham" onclick="filterByBotToTop()"><i
                     class="fa-solid fa-sort-up"></i></button>

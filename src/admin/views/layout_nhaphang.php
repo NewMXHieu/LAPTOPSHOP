@@ -41,7 +41,11 @@
                         </form>
                     </div>
                     <div class="content-main-control-filter">
-                        <button id="addNewPhieuNhap"><i class="fa-solid fa-plus"></i></button>
+                        <?php
+                        if (maQuyenTonTai($maquyen, 22)) {
+                            echo '<button id="addNewPhieuNhap"><i class="fa-solid fa-plus"></i></button>';
+                        }
+                        ?>
                         <button id="resetBtnnhaphang" onclick="resetDataPhieuNhap()"><i class="fa-solid fa-arrows-rotate"></i></button>
                         <button id="filterByBotToTopBtnnhaphang" onclick="filterByBotToTopPhieuNhap()"><i class="fa-solid fa-sort-up"></i></button>
                         <button id="filterByToptoBotBtnnhaphang" onclick="filterByTopToBotPhieuNhap()"><i class="fa-solid fa-sort-down"></i></button>
