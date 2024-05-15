@@ -1,6 +1,31 @@
-let currentPrices = {};
+let products = [];
+
+function fetchCurrentPrices() {
+    const cartItems = document.querySelectorAll('.cart-item');
+    console.log("da vao");
+    cartItems.forEach(item => {
+        const id = item.querySelector('.checkbox').getAttribute('data-id');
+        const isChecked = item.querySelector('.checkbox').checked;
+        const price = parseInt(item.querySelector('.product-price').textContent.replace(/\D/g, ''));
+        const quantity = parseInt(item.querySelector('.quanlity p').textContent);
+        const total = price * quantity;
+        let product = {
+            id: id,
+            total: total,
+            isChecked: isChecked,
+            quantity: quantity
+        };
+        products.push(product);
+    });
+    console.log(products);
+}
+
+function getProductById(id) {
+    return products.find(product => product.id === id);
+}
 
 function updateCart(productId, quantity, method, isChecked = null) {
+    console.log('updateCart:', productId, quantity, method, isChecked);
     const xhr = new XMLHttpRequest();
     xhr.open('POST', '/laptopshop/config/update_cart.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -8,20 +33,46 @@ function updateCart(productId, quantity, method, isChecked = null) {
         if (this.status === 200) {
             try {
                 const response = JSON.parse(this.responseText);
-                if (response && response.quantity && response.total && response.checkout !== null) {
+                const product = getProductById(productId);
+                if (isChecked !== null) {
+                    product.isChecked = isChecked;
+                }
+                if (response && response.quantity && response.total && response.checkout) {
                     console.log(response.quantity, response.total, response.checkout);
                     let quantityElement = document.querySelector('.quanlity p[data-id="' + productId + '"]');
                     if (quantityElement) {
-                        quantityElement.textContent = response.quantity;
+                        product.quantity = response.quantity;
+                        product.total = response.checkout;
+                        quantityElement.textContent = product.quantity;
                     }
                     let totalElement = document.querySelector('.product-total[data-id="' + productId + '"]');
                     if (totalElement) {
-                        totalElement.textContent = Number(response.total).toLocaleString('vi-VN') + 'đ';
+                        product.total = response.total;
+                        totalElement.textContent = Number(product.total).toLocaleString('vi-VN') + 'đ';
                     }
                     let tienElement = document.querySelector('.total-price');
-                    if(tienElement && checkout !== null){
-                        tienElement.textContent = 'Tổng cộng:' + Number(response.checkout).toLocaleString('vi-VN') + 'đ';
+                    if (tienElement && isChecked !==null || tienElement && product.isChecked === true) {
+                        let totalprice = parseInt(tienElement.textContent.replace(/\D/g, ''));
+                        console.log('totalprice:', totalprice);
+                        if (product) {
+                            if (product.isChecked) {
+                                console.log('isChecked:', product.isChecked);
+                                if(method === 'checkbox'){
+                                    totalprice = totalprice + product.total;
+                                }else if(method === 'plus'){
+                                    totalprice = totalprice + product.total/product.quantity;
+                                }else if(method === 'minus'){
+                                    totalprice = totalprice - product.total/product.quantity;
+                                }
+                                tienElement.textContent = 'Tổng cộng:' + Number(totalprice).toLocaleString('vi-VN') + 'đ';
+                            } else {
+                                console.log('isChecked:', product.isChecked);
+                                totalprice = totalprice - product.total;
+                                tienElement.textContent = 'Tổng cộng:' + Number(totalprice).toLocaleString('vi-VN') + 'đ';
+                            }
+                        }
                     }
+                    console.log('product:', product);
                 } else {
                     console.error('Response does not contain quantity or total:', response);
                 }
@@ -29,7 +80,7 @@ function updateCart(productId, quantity, method, isChecked = null) {
                 console.error('Error parsing JSON:', error);
                 console.error('Response:', this.responseText);
             }
-        }else{
+        } else {
             console.error('Error:', this.status);
             console.error('Response:', this.responseText);
         }
@@ -50,15 +101,21 @@ document.querySelectorAll('.minus, .plus').forEach(button => {
             let quantity = parseInt(quantityElement.textContent);
             let method;
             if (event.target.classList.contains('minus')) {
+                let b = quantity;
                 quantity = Math.max(1, quantity - 1);
+                b=b-1;
                 method = 'minus';
+                if(b >= 1){
+                    updateCart(productId, quantity, method);
+                }
             } else {
                 quantity += 1;
                 method = 'plus';
+                updateCart(productId, quantity, method);
             }
             quantityElement.textContent = quantity;
             console.log(productId, quantity, method);
-            updateCart(productId, quantity, method);
+            
         }
     });
 });
@@ -71,22 +128,9 @@ document.querySelectorAll('.checkbox').forEach(checkbox => {
             quantity = parseInt(quantityElement.textContent);
             const method = 'checkbox';
             const isChecked = event.target.checked;
+            const product = find(productId);
             updateCart(productId, quantity, method, isChecked);
         }
     });
 });
 
-
-
-function fetchCurrentPrices() {
-    document.querySelectorAll('.cart-item').forEach(item => {
-        const productId = item.getAttribute('data-id');
-        const totalElement = item.querySelector('.product-total');
-        if (totalElement) {
-            const totalText = totalElement.textContent;
-            const price = totalText.match(/\d+/g).pop();
-            currentPrices[productId] = price;
-        }
-    });
-}
-document.addEventListener('DOMContentLoaded', fetchCurrentPrices);

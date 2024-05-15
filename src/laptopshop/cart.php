@@ -60,7 +60,7 @@ if (isset($_SESSION['id'])) {
                                 <?php
                                 $tongtiensp = $item['GIATIEN'] * $item['SOLUONG'];
                                 ?>
-                                <div class="product-total" data-id="<?php echo $item['MASP']; ?>"><?php echo number_format($tongtiensp, 0, ',', '.');?>đ</div>
+                                <div class="product-total" data-id="<?php echo $item['MASP']; ?>"><?php echo number_format($tongtiensp, 0, ',', '.'); ?>đ</div>
                             </div>
                         </div>
                     <?php } ?>
@@ -80,6 +80,11 @@ if (isset($_SESSION['id'])) {
             </div>
         </div>
         <script src="laptopshop/static/js/cart.js"></script>
+        <script>
+            window.onload = function() {
+                fetchCurrentPrices();
+            }
+        </script>
 <?php
     }
 } else {

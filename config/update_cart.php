@@ -46,6 +46,7 @@ switch ($method) {
         $query = $conn->prepare('UPDATE chitietgiohang SET SOLUONG = ? WHERE MASP = ?');
         $query->bind_param('ii', $quantity, $productId);
         $query->execute();
+        $tien += $product['GIATIEN'] * $soluong['SOLUONG'];
         break;
     case 'minus':
         $_SESSION['cart'][$productId] = $quantity;
@@ -53,6 +54,7 @@ switch ($method) {
         $query = $conn->prepare('UPDATE chitietgiohang SET SOLUONG = ? WHERE MASP = ?');
         $query->bind_param('ii', $quantity, $productId);
         $query->execute();
+        $tien += $product['GIATIEN'] * $soluong['SOLUONG'];
         break;
     case 'checkbox':
         $isChecked = isset($_POST['checked']) ? $_POST['checked'] : false;
