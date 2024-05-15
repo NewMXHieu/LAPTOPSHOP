@@ -126,6 +126,8 @@ function showThongKe(){
     let selectOp = document.getElementById('admin-thongke-select').value;
     let selectThuongHieu = document.getElementById("admin-thongke-type-select").value;
     let valueSearchInput = document.getElementById('content-main-searchbar-thongke').value;
+    let dayStart = document.getElementById('admin-thongke-dateStart').value;
+    let dayEnd = document.getElementById('admin-thongke-dateEnd').value;
     currentPage = 1;
     if (selectOp === "0") {
         resultThongKe = thongkes;
@@ -138,6 +140,21 @@ function showThongKe(){
         resultThongKe = resultThongKe.filter((item) => item.MATHUONGHIEU == parseInt(selectThuongHieu));
     }
     
+    if(dayStart === '' && dayEnd !== ''){
+        dayEnd = new Date(dayEnd)
+        resultThongKe = resultThongKe.filter(item => new Date(item.NGAYTAO) <= dayEnd);
+    } else if(dayStart !== '' && dayEnd === ''){
+        dayStart = new Date(dayStart)
+        console.log(dayStart >= new Date('2024-04-02'));
+        console.log(resultThongKe);
+        resultThongKe = resultThongKe.filter(item => dayStart <= new Date(item.NGAYTAO));
+        console.log(resultThongKe);
+    } else if(dayStart !== '' && dayEnd !== ''){
+        dayStart = new Date(dayStart);
+        dayEnd = new Date(dayEnd);
+        resultThongKe = resultThongKe.filter(item => dayStart <= new Date(item.NGAYTAO) && new Date(item.NGAYTAO) <= dayEnd);
+    }
+
     resultThongKe = valueSearchInput == "" ? resultThongKe : resultThongKe.filter(item => {
         return item.TENSP.toString().toUpperCase().includes(valueSearchInput.toString().toUpperCase());
     })
@@ -149,6 +166,8 @@ function resetDataThongKe(){
     document.getElementById('admin-thongke-select').value = "0";
     document.getElementById('admin-thongke-type-select').value = "0";
     document.getElementById('content-main-searchbar-thongke').value = "";
+    document.getElementById('admin-thongke-dateStart').value = '';
+    document.getElementById('admin-thongke-dateEnd').value = '';
     getDsThongKe();
     showArrayThongKe(thongkes);
 }

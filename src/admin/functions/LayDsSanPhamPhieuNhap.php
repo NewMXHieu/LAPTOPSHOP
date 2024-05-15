@@ -27,7 +27,7 @@ if (isset($_POST['idProduct'])) {
                 'MANCC' => $row['MANCC'],
                 'MASP' => $row['MASP'],
                 'SOLUONG' => $row['SOLUONG'],
-                'GIATIEN'=> $row['GIATIEN']
+                'GIATIEN'=> $row['GIATIEN'],
             ];
             $spPhieuNhaps[] = $sp;
         }

@@ -57,7 +57,7 @@ function showArraySanPhamNhap(arr) {
     let productHtml = "";
     if (arr.length === 0) {
         productHtml = `<tr >
-        <td colspan="3">Không có dữ liệu !!!</td>
+        <td colspan="4">Không có dữ liệu !!!</td>
     </tr>`
     } else {
         productHtml = "";
@@ -68,8 +68,6 @@ function showArraySanPhamNhap(arr) {
                 <td>${product.MANCC}</td>
                 <td>${product.SOLUONG}</td>
                 <td>${product.GIATIEN}</td>
-                <td>${product.DONVIBAOHANH}</td>
-                <td>${product.NGAYSANXUAT}</td>
             </tr>`;
     
         });
@@ -289,6 +287,7 @@ function saveEditphieunhap(){
             console.error('Lỗi khi gửi yêu cầu đến trang PHP:', error);
         }
     });
+    
 }
 
 

@@ -127,8 +127,6 @@
                                     <th>MÃ NHÀ CUNG CẤP</th>
                                     <th>SỐ LƯỢNG</th>
                                     <th>ĐƠN GIÁ</th>
-                                    <th>ĐƠN VỊ BẢO HÀNH</th>
-                                    <th>NGÀY SẢN XUẤT</th>
                                 </tr>
                             </thead>
 
