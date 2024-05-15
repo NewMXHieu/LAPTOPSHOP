@@ -29,6 +29,10 @@ function register()
     echo json_encode(array("message" => "Vui lòng nhập đầy đủ thông tin"));
     exit;
   }
+  if (strlen($password) < 6) {
+    echo json_encode(array("message" => "Mật khẩu phải có ít nhất 6 ký tự"));
+    exit;
+  }
   if ($password != $confirm_password) {
     echo json_encode(array("message" => "Mật khẩu không khớp"));
     exit;
@@ -63,8 +67,8 @@ function login()
       exit;
     }
     $user = mysqli_query($conn, "SELECT * FROM taikhoan WHERE tendn = '$username'");
-    
-  
+
+
 
     if (mysqli_num_rows($user) > 0) {
 
@@ -100,9 +104,9 @@ function login()
         $result = $conn->query($sql);
         $maquyens = [];
         if ($result->num_rows > 0) {
-            while ($row2 = $result->fetch_assoc()) {
-                $maquyens[] = $row2['MAQUYEN'];
-            }
+          while ($row2 = $result->fetch_assoc()) {
+            $maquyens[] = $row2['MAQUYEN'];
+          }
         }
         // response with userInfo and loginRoute
         $dataRespone = json_encode(array("message" => "Login Successful", "loginRoute" => $permission['MANHOMQUYEN'], "quyen" => $maquyens));

@@ -64,6 +64,7 @@
           if (message === "Registration Successful") {
             var popup = document.getElementById('popup-register-successful');
             popup.classList.add("open-popup");
+            return;
           }
 
           // Handling login failure messages
