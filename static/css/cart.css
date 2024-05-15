@@ -43,9 +43,18 @@
     float: left;
 }
 
+.cart-checkbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /* CSS cho hình ảnh sản phẩm */
-.cart-product-image {
+.cart-product-image{
+    width: 100px;
+    height: 100px;
+}
+.cart-product-image img{
     width: 100px;
     height: 100px;
     object-fit: cover;

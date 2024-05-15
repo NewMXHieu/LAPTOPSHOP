@@ -22,9 +22,15 @@ if (isset($_SESSION['id'])) {
 
     // Kiểm tra xem $GIOHANG có rỗng không
     if (empty($GIOHANG)) {
-        echo '<span>Không thấy sản phẩm</span>';
-    } else {
 ?>
+        <link rel="stylesheet" href="laptopshop/static/css/checkout.css">
+        <script src="laptopshop/static/js/address.js"></script>
+        <div class="my-store-checkout-content">
+            <span> Không có sản phẩm<> </span>
+        </div>
+    <?php
+    } else {
+    ?>
         <link rel="stylesheet" href="laptopshop/static/css/cart.css">
         <div class="my-store-cart-content">
             <div class="cart-header">
@@ -35,16 +41,26 @@ if (isset($_SESSION['id'])) {
                 <div class="cart-items">
                     <?php foreach ($GIOHANG as $item) { ?>
                         <div class="cart-item">
-                            <img alt="LAPTOP <?php echo $item['TENSP']; ?>" src="static/image/products/<?php echo $item['HINHSP']; ?>" class="cart-product-image">
+                            <div class="cart-checkbox">
+                                <input type="checkbox" class="checkbox" data-id="<?php echo $item['MASP'] ?>">
+                            </div>
+                            <div class="cart-product-image">
+                                <img alt="LAPTOP <?php echo $item['TENSP']; ?>" src="static/image/products/<?php echo $item['HINHSP']; ?>">
+                            </div>
                             <div class="product-details">
                                 <div class="product-name"><?php echo $item['TENSP']; ?></div>
                                 <div class="product-price"><?php echo number_format($item['GIATIEN']); ?>đ</div>
                                 <div class="product-quantity">
-                                    <button  type="button" class="minus">-</button>
-                                    <div class="quanlity"><p style="float: left; margin-top: 10px"><?php echo $item['SOLUONG']; ?></p></div>
-                                    <button  type="button" class="plus">+</button>
+                                    <button type="button" class="minus" data-id="<?php echo $item['MASP']; ?>">-</button>
+                                    <div class="quanlity">
+                                        <p style="float: left; margin-top: 10px" data-id="<?php echo $item['MASP']; ?>"><?php echo $item['SOLUONG']; ?></p>
+                                    </div>
+                                    <button type="button" class="plus" data-id="<?php echo $item['MASP']; ?>">+</button>
                                 </div>
-                                <div class="product-total"><?php echo number_format($item['GIATIEN'] * $item['SOLUONG']); ?>đ</div>
+                                <?php
+                                $tongtiensp = $item['GIATIEN'] * $item['SOLUONG'];
+                                ?>
+                                <div class="product-total" data-id="<?php echo $item['MASP']; ?>"><?php echo number_format($tongtiensp, 0, ',', '.');?>đ</div>
                             </div>
                         </div>
                     <?php } ?>
@@ -52,11 +68,7 @@ if (isset($_SESSION['id'])) {
                 <div class="cart-buyside">
                     <div class="cart-summary">
                         <?php
-                        // Tính tổng tiền hàng
                         $tongtien = 0;
-                        foreach ($GIOHANG as $item) {
-                            $tongtien += $item['GIATIEN'] * $item['SOLUONG'];
-                        }
                         ?>
                         <div class="total-amount">Tổng tiền hàng: <?php echo number_format($tongtien); ?>đ</div>
                         <div class="shipping-fee">Phí vận chuyển: Miễn phí</div>
@@ -67,6 +79,7 @@ if (isset($_SESSION['id'])) {
 
             </div>
         </div>
+        <script src="laptopshop/static/js/cart.js"></script>
 <?php
     }
 } else {
