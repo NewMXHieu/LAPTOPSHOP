@@ -37,7 +37,7 @@
         <div class="thongtinsp">
             <div class="product-name">
                 <h2>Laptop <?php echo $product['TENSP'];?> </h2>
-                <p>Giá tiền: <?php echo $product['GIATIEN'] ?></p>
+                <p>Giá tiền: <?php echo number_format($product['GIATIEN'], 0, "", ".")?> Vnd</p>
             </div>
             <div class="promotion">
                 <h5>Khuyến mãi</h5>
