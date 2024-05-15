@@ -19,7 +19,7 @@
             <div class="detail-info">
                 <div class="form-group1">
                     <label for="permission-id">ID Quyền:</label>
-                    <input type="text" id="permission-id">
+                    <input type="text" id="permission-id" readonly>
                 </div>
                 <div class="form-group2">
                     <label for="permission-name">Tên nhóm quyền:</label>
@@ -139,7 +139,7 @@
             <div class="detail-info">
                 <div class="form-group1">
                     <label for="permission-id">ID Quyền:</label>
-                    <input type="text" id="edit-permission-id">
+                    <input type="text" id="edit-permission-id" readonly>
                 </div>
                 <div class="form-group2">
                     <label for="permission-name">Tên nhóm quyền:</label>

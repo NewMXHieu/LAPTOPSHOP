@@ -89,6 +89,11 @@ function saveEditTaiKhoan() {
     let ngaytao = document.getElementById("editTaiKhoan_ngaytao").value;
     let manhomquyen = document.getElementById("editTaiKhoan_select_loainhomquyen").value;
     let trangthai = document.getElementById("editTaiKhoan_select_trangthai").value;
+    if (matkhau.length < 6) {
+        alert('Password must be at least 6 characters');
+        return;
+    }
+
     $.ajax({
         url: 'api/admin/updateTaiKhoan.php',
         type: 'POST',
@@ -117,6 +122,15 @@ function saveTaiKhoan() {
     let ngayTao = document.getElementById("addTaiKhoan_ngaytao").value;
     let nhomQuyen = document.getElementById("addTaiKhoan_select_loainhomquyen").value;
     let trangThai = document.getElementById("addTaiKhoan_select_trangthai").value;
+    let tendns = taikhoans.map(taikhoan => taikhoan.TENDN);
+    if (tendns.includes(ten)) {
+        alert('Tên đăng nhập đã tồn tại');
+        return;
+    }
+    if (matKhau.length < 6) {
+        alert('Password must be at least 6 characters');
+        return;
+    }
     $.ajax({
         url: 'api/admin/addTaiKhoan.php',
         type: 'POST',

@@ -16,11 +16,9 @@
         $matk = isset($_POST['MATK']) ? check_input($_POST['MATK']) : '';
         $diachi = isset($_POST['DIACHI']) ? check_input($_POST['DIACHI']) : '';
         $email = isset($_POST['EMAIL']) ? check_input($_POST['EMAIL']) : '';
-        $manhomquyen = isset($_POST['CHUCVU']) ? check_input($_POST['CHUCVU']) : '';
         $ngaytaotk = isset($_POST['NGAYTAOTK']) ? check_input($_POST['NGAYTAOTK']) : '';
-        $tendn = isset($_POST['TENDN']) ? check_input($_POST['TENDN']) : '';
-        $matkhau = isset($_POST['MATKHAU']) ? check_input($_POST['MATKHAU']) : '';
         $trangthai = isset($_POST['TRANGTHAI']) ? check_input($_POST['TRANGTHAI']) : '';
+        $chucvu = isset ($_POST['CHUCVU']) ? check_input($_POST['CHUCVU']) : '';
 
         // Hiển thị các giá trị đã lấy được để kiểm tra
         echo "Tên : " . $tennv . "<br>";
@@ -29,10 +27,7 @@
         echo "matk: " . $matk . "<br>";
         echo "email: " . $email . "<br>";
         echo "diachi: " . $diachi . "<br>";
-        echo "chucvu: " . $manhomquyen . "<br>";
         echo "ngày tạo tk: " . $ngaytaotk . "<br>";
-        echo "tendn: " . $tendn . "<br>";
-        echo "matkhau: " . $matkhau . "<br>";
         echo "trangthai: " . $trangthai . "<br>";
 
         $conn = connectToDatabase();
@@ -49,7 +44,7 @@
                 return 'THU NGÂN';
         }
         // Hàm thêm nhân viên
-        function themNhanVien($conn, $manv, $tennv, $ngaysinh, $sdt,$diachi,$matk,$email,$chucvu) {
+        function editNhanVien($conn, $manv, $tennv, $ngaysinh, $sdt,$diachi,$matk,$email,$chucvu) {
             $sql_nhanvien = "UPDATE nhanvien 
             SET TEN = '$tennv', NGAYSINH = '$ngaysinh', SDT = '$sdt', DIACHI = '$diachi', MATK = $matk, EMAIL = '$email', CHUCVU = '$chucvu'
             WHERE MANV = '$manv'";
@@ -59,38 +54,6 @@
                 echo "Lỗi: " . $conn->error;
             }
         }
-
-        function xoaPhanQuyenCuu($conn, $matk){
-            $sql_nhomloaisanphamcuu = "DELETE FROM PHANQUYEN
-                                    WHERE MATK = '$matk';
-            ";
-            if ($conn->query($sql_nhomloaisanphamcuu) !== TRUE) {
-                    echo "Lỗi: " . $conn->error;
-            }
-        }
-
-
-        // Hàm thêm nhóm loại nhân viên
-        function themPhanQuyen($conn, $matk, $manhomquyen) {
-            xoaPhanQuyenCuu($conn, $matk);
-            $sql_nhomloaisanpham = "INSERT INTO PHANQUYEN (MATK,MANHOMQUYEN) VALUES
-                                        ($matk,$manhomquyen)";
-                if ($conn->query($sql_nhomloaisanpham) !== TRUE) {
-                    echo "Lỗi: " . $conn->error;
-                }
-        }
-
-        function themTaiKhoan($conn,$matk, $tendn,$matkhau){
-            $sql_TaiKhoan = "UPDATE TAIKHOAN 
-            SET MATKHAU = '$matkhau', TENDN = '$tendn'
-            WHERE MATK = $matk";
-            if ($conn->query($sql_TaiKhoan) === TRUE) {
-                echo "update Tài khoản thành công";
-            } else {
-                echo "Lỗi: " . $conn->error;
-            }
-        }
-        
 
         if( $manv === ''){
             echo "Thiếu mã nhân viên";
@@ -106,16 +69,9 @@
             echo "Thiếu mã tài khoản";
         } else if($email ===''){
             echo "Thiếu email";
-        } else if($chucvu ===''){
-            echo "Thiếu chức vụ";
         }else{
-            // Sử dụng các hàm trên
-            // Thêm nhân viên
-            $chucvu = LayChucVu($manhomquyen);
-            themNhanVien($conn, $manv, $tennv, $ngaysinh, $sdt,$diachi,$matk,$email,$chucvu);
-            // Thêm nhóm loại nhân viên
-            themPhanQuyen($conn, $matk, $manhomquyen);
-            themTaiKhoan($conn,$matk,$tendn,$matkhau);
+            $chucvu = LayChucVu($chucvu);
+            editNhanVien($conn, $manv, $tennv, $ngaysinh, $sdt,$diachi,$matk,$email,$chucvu);
         }
 
         

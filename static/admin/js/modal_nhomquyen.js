@@ -112,6 +112,11 @@ function saveEditNhomQuyen() {
     let tenNhomQuyen = document.getElementById("edit-permission-name").value;
     let moTa = document.getElementById("edit-permission-description").value;
     let maquyens = [];
+    
+    if(moTa.length === 0) {
+        alert("Mô tả không được để trống");
+        return;
+    }
     for (let i = 1; i <= 30; i++) {
         let checkbox = document.getElementById('edit-permission-' + i);
         if (checkbox.checked) {
@@ -144,6 +149,15 @@ function AddNhomQuyen() {
     let tenNhomQuyen = document.getElementById("permission-name").value;
     let moTa = document.getElementById("permission-description").value;
     let maquyens = [];
+    let existingNhomQuyen = phanQuyen.map(phanquyen => phanquyen.TENNHOMQUYEN);
+    if(existingNhomQuyen.includes(tenNhomQuyen)) {
+        alert("Tên nhóm quyền đã tồn tại");
+        return;
+    }
+    if(moTa.length === 0) {
+        alert("Mô tả không được để trống");
+        return;
+    }
     for (let i = 1; i <= 30; i++) {
         let checkbox = document.getElementById('add-permission-' + i);
         if (checkbox.checked) {

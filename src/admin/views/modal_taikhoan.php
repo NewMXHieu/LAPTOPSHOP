@@ -65,7 +65,7 @@
                 <div class="detail_product-items">
                     <div class="detail_product-items-item">
                         <label for="ten">MÃ TÀI KHOẢN</label>
-                        <input type="text" id="editTaiKhoan_id" name="addTaiKhoan_id">
+                        <input type="text" id="editTaiKhoan_id" name="addTaiKhoan_id" readonly>
                     </div>
                     <div class="detail_product-items-item">
                         <label for="ten">TÊN ĐĂNG NHẬP</label>
