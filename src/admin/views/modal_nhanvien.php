@@ -17,9 +17,9 @@
     </div>
     <form action="" method="POST">
         <h2 class="add-product-title">THÊM NHÂN VIÊN</h2>
+        <input type="number" id="addNhanVien_matk" name="addNhanVien_matk" style="display:none">
         <input type="date" id="addNhanVien_ngaytaotk" name="addNhanVien_ngaytaotk" style="display:none">
         <input type="text" id="addNhanVien_trangthai" name="addNhanVien_trangthai" style="display:none">
-        <input type="text" id="addNhanVien_taikhoan" name="addNhanVien_taikhoan" style="display:none">
         
         <div class="detail_product">
             <div class="detail_product-items">
@@ -61,15 +61,9 @@
                 </div>
 
                 <div class="detail_product-items-item">
-                    <label for="tendn">TÊN ĐĂNG NHẬP</label>
-                    <input type="text" id="addNhanVien_tendangnhap" name="addNhanVien_tendangnhap">
+                    <label for="matk">MÃ TÀI KHOẢN</label>
+                    <select name="addNhanVien_TaiKhoan" id="addNhanVien_taiKhoan"></select>
                 </div>
-
-                <div class="detail_product-items-item">
-                    <label for="MK">MẬT KHẨU</label>
-                    <input type="text" id="addNhanVien_matkhau" name="addNhanVien_matkhau">
-                </div>
-
             </div>
         </div>
         <div class="form-control">
@@ -130,20 +124,10 @@
                     <label for="email">EMAIL</label>
                     <input type="text" id="editNhanVien_email" name="editNhanVien_email">
                 </div>
-
-                <div class="detail_product-items-item">
-                    <label for="tendn">TÊN ĐĂNG NHẬP</label>
-                    <input type="text" id="editNhanVien_tendangnhap" name="editNhanVien_tendangnhap">
-                </div>
-
-                <div class="detail_product-items-item">
-                    <label for="MK">MẬT KHẨU</label>
-                    <input type="text" id="editNhanVien_matkhau" name="editNhanVien_matkhau">
-                </div>
                 
                 <div class="detail_product-items-item">
                     <label for="matk">MÃ TÀI KHOẢN</label>
-                    <input type="text" id="editNhanVien_taikhoan" name="editNhanVien_taikhoan">
+                    <select name="editNhanVien_taiKhoan" id="editNhanVien_taiKhoan"></select>
                 </div>
             </div>
         </div>

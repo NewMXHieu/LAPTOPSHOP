@@ -6,7 +6,7 @@ include "../../config/function.php";
 
 <div id="header">
     <div class="logo">
-        <a href="trangchu"><img width="80" height="80" src="static/image/logo.jpg" alt="laptop--v1" /></a>
+        <a href="trangchu"><img width="80" height="80" src="static/image/laptoplogo.png" alt="laptop--v1" /></a>
     </div>
 
     <!-- <div id="nav">
@@ -59,13 +59,10 @@ include "../../config/function.php";
 </div>
 <script>
     $('.danhmuc').click(function () {
-        if (window.location.href !== "/laptopshop/trangchu#") {
-            window.location.href = "http://localhost/laptopshop/trangchu#";
-        }
-        $('html, body').animate({
-            scrollTop: $(".menu-left").offset().top - 200 // Thay ".main" bằng selector của phần hiện sản phẩm của bạn
-        }, 'slow');
+        $('.menu-left-1').toggle();
+        $('.overplay').toggle();
     });
+    
 
     $(document).ready(function () {
 
@@ -80,7 +77,7 @@ include "../../config/function.php";
         }
         delayLoad();
         $('html, body').animate({
-            scrollTop: $(".main").offset().top - 70 // Thay ".main" bằng selector của phần hiện sản phẩm của bạn
+            scrollTop: $(".main").offset().top - 110 // Thay ".main" bằng selector của phần hiện sản phẩm của bạn
         }, 'slow');
     })
 

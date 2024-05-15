@@ -13,7 +13,7 @@ if (isset($_SESSION["id"])) {
 <div class="log-in">
   <a href="trangchu"><span class="icon-close"><i class="fa fa-times"></i></span></a>
   <h1>ĐĂNG NHẬP</h1>
-  <form autocomplete="off" action="" method="">
+  <form autocomplete="off" action="" method="" onkeydown="return event.key != 'Enter';">
     <input type="hidden" id="action" value="login">
     <div class="item">
       <input id="username" type="text" name="username" required> 

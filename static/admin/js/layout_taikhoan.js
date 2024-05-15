@@ -6,7 +6,9 @@ function getDsTaiKhoan() {
         type: 'GET',
         success: function (response) {
             taikhoans = JSON.parse(response);
-            console.log(taikhoans);
+            taikhoans.sort(function (a, b) {
+                return a.MATK - b.MATK;
+            });
             showTaiKhoan();
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -27,6 +29,14 @@ function showTableTaiKhoan(arr) {
 
 
         arr.forEach(taikhoan => {
+            let BtnEdit = '';
+            let BtnDelete = '';
+            if(quyen.includes(String(19))){
+                BtnEdit = `<button class="btn btn-primary" onclick="editTaiKhoan(${taikhoan.MATK})"><i class="fa-solid fa-pen-to-square"></i></button>`;
+            }
+            if(quyen.includes(String(20))){
+                BtnDelete = `<button class="btn btn-danger" onclick="deleteTaiKhoan(${taikhoan.MATK})"><i class="fa-solid fa-trash"></i></button>`;
+            }
 
             phanQuyenHtml +=
                 `<tr>
@@ -37,9 +47,8 @@ function showTableTaiKhoan(arr) {
                 <td>${taikhoan.TENNHOMQUYEN}</td>
                 <td>${taikhoan.TRANGTHAI}</td>
                 <td class="table-control">
-                    <button class="btn btn-primary" onclick="editTaiKhoan(${taikhoan.MATK})"><i class="fa-solid fa-pen-to-square"></i></button>
-                    <button class="btn btn-danger" onclick="deleteTaiKhoan(${taikhoan.MATK})"><i class="fa-solid fa-trash"></i></button>
-                </td>
+                    ${BtnEdit}
+                    ${BtnDelete}
             </tr>`;
 
         });

@@ -7,11 +7,11 @@ p.modal{
     background-color: rgba(0, 0, 0, 0.6);   
 }
 
-.modal form{
+/* .modal form{
     width: 50%;
     border: 1px solid black;
     border-radius: 10px;
-}
+} */
 .modal form{
     background-color: rgb(148, 182, 212);
 }
@@ -92,4 +92,16 @@ textarea{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     place-items: center;
+}
+.editTKform {
+    width: 40%;
+}
+.addTKform{
+    width: 40%;
+}
+.addNQ {
+    width: 60%;
+}
+.editNQ {
+    width: 60%;
 }

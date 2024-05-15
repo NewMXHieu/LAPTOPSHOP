@@ -29,14 +29,21 @@
                         </form>
                     </div>
                     <div class="content-main-control-filter">
-                        <button id="addNewNhanVien"><i class="fa-solid fa-plus"></i></button>
-                        <button id="resetBtnnhanvien" onclick="resetDataNhanVien()"><i class="fa-solid fa-arrows-rotate"></i></button>
-                        <button id="filterByBotToTopBtnnhanvien" onclick="filterByBotToTopNV()"><i class="fa-solid fa-sort-up"></i></button>
-                        <button id="filterByToptoBotBtnnhanvien" onclick="filterByTopToBotNV()"><i class="fa-solid fa-sort-down"></i></button>
+                        <?php
+                        if (maQuyenTonTai($maquyen, 6)) {
+                            echo '<button id="addNewNhanVien"><i class="fa-solid fa-plus"></i></button>';
+                        }
+                        ?>
+                        <button id="resetBtnnhanvien" onclick="resetDataNhanVien()"><i
+                                class="fa-solid fa-arrows-rotate"></i></button>
+                        <button id="filterByBotToTopBtnnhanvien" onclick="filterByBotToTopNV()"><i
+                                class="fa-solid fa-sort-up"></i></button>
+                        <button id="filterByToptoBotBtnnhanvien" onclick="filterByTopToBotNV()"><i
+                                class="fa-solid fa-sort-down"></i></button>
                     </div>
                 </div>
                 <div class="content-main-table">
-                <table style="width:100%" class="table table-hover table-bordered table-striped">
+                    <table style="width:100%" class="table table-hover table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th>MÃ NV</th>
@@ -46,36 +53,32 @@
                                 <th>ĐỊA CHỈ</th>
                                 <th>MÃ TK</th>
                                 <th>EMAIL</th>
-                                <th>CHỨC VỤ</th>
                                 <th>TRẠNG THÁI</th>
                                 <th>CHỨC NĂNG</th>
                             </tr>
                         </thead>
-                        
+
                         <tbody id="dataNhanVien">
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                            
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+
                     </table>
+                </div>
             </div>
         </div>
-    </div>
-    <?php include 'modal_nhanvien.php' ?>
+        <?php include 'modal_nhanvien.php' ?>
     </div>
 
 </body>

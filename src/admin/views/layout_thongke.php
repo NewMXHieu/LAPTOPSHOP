@@ -40,6 +40,18 @@
                             <option value="9">MSI</option>
                         </select>
                     </div>
+                    <div class="content-main-select-nhaphang">
+                        <div class="centerText">
+                            <p>Từ</p>
+                        </div>
+                        <input type="date" id='admin-thongke-dateStart' name='admin-thongke-dateStart' onchange="showThongKe()">
+                    </div>
+                    <div class="content-main-select-nhaphang">
+                        <div class="centerText">
+                            <p>Đến</p>
+                        </div>
+                        <input type="date" id='admin-thongke-dateEnd' name='admin-thongke-dateEnd' onchange="showThongKe()">
+                    </div>
                     <div class="content-main-searchbar">
                         <form action="searchbar.php" method="get">
                             <input type="text" id="content-main-searchbar-thongke" oninput="showThongKe()">

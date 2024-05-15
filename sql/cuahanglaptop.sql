@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 15, 2024 at 09:03 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th5 14, 2024 lúc 08:34 PM
+-- Phiên bản máy phục vụ: 10.4.32-MariaDB
+-- Phiên bản PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -90,9 +90,7 @@ CREATE TABLE `chitiethoadon` (
 INSERT INTO `chitiethoadon` (`MAHD`, `MASP`, `MASERI`) VALUES
 (1, 1, 'SN0001299525'),
 (1, 1, 'SN0001658558'),
-(1, 7, 'SN0007010801'),
-(1, 7, 'SN0007089558'),
-(1, 7, 'SN0007271982');
+(1, 3, 'SN0003303775');
 
 -- --------------------------------------------------------
 
@@ -160,11 +158,11 @@ CREATE TABLE `chitietsanpham` (
 
 INSERT INTO `chitietsanpham` (`MASP`, `TENSP`, `CPU`, `SCREEN`, `RAM`, `VGA`, `STORAGE`, `OS`, `PIN`, `WEIGHT`, `MOTA`, `MATHUONGHIEU`, `MAU`, `GIATIEN`) VALUES
 (1, 'Laptop HP Pavilion 14-dv2075TU (7C0W2PA) (i5-1235U) (Bạc)', 'Intel Core i5-1235U', '14\" IPS (1920 x 1080)', '2 x 4GB DDR4 3200MHz', 'Onboard Intel Iris Xe Graphics', '512GB SSD M.2 NVMe /', 'Windows 11 Home SL', '3 cell 41 Wh Pin liền', '1.4kg', 'Laptop HP Pavilion 14-dv2075TU đã lâu đã trở thành một lựa chọn hàng đầu cho người dùng có nhu cầu văn phòng, doanh nghiệp và học sinh - sinh viên. Với thương hiệu đáng tin cậy của HP và chế độ bảo hành 12 tháng, model HP của chiếc laptop này mang đến sự an tâm và tin cậy cho người dùng. Với cấu hình mạnh mẽ và tính năng đáng chú ý, Laptop HP Pavilion đảm bảo hiệu suất ổn định và trải nghiệm tuyệt vời. Hãy khám phá chi tiết về Laptop HP Pavilion để hiểu rõ hơn về những lí do vì sao nó xứng đáng trở thành người bạn đồng hành tin cậy của bạn.', 6, 'Bạc', 19690000.00),
-(2, 'Laptop HP 15s-fq5144TU (7C0R8PA) (i7-1255U) (Bạc)', 'Intel Core i7-1255U', '15.6\" IPS (1920 x 1080)', '2 x 8GB DDR4 3200MHz', 'Onboard Intel Iris Xe Graphics', '512GB SSD M.2 NVMe /', 'Windows 11 Home SL', '3 cell 41 Wh Pin liền', '1.7kg', 'HP 15s-fq5144TU (7C0R8PA) (i7-1255U) là một chiếc laptop tầm trung được thiết kế dành cho người dùng văn phòng và học sinh, sinh viên. Máy sở hữu cấu hình mạnh mẽ với bộ vi xử lý Intel Core i7 thế hệ thứ 12, RAM 16GB, ổ cứng SSD 512GB và màn hình Full HD 15.6 inch.', 6, 'BẠC', 22890000.00),
+(2, 'Laptop HP 15s-fq5144TU (7C0R8PA) (i7-1255U) (Bạc)', 'Intel Core i7-1255U', '15.6&amp;quot; IPS (1920 x 1080)', '2 x 8GB DDR4 3200MHz', 'Onboard Intel Iris Xe Graphics', '512GB SSD M.2 NVMe /', 'Windows 11 Home SL', '3 cell 41 Wh Pin liền', '1.7kg', 'HP 15s-fq5144TU (7C0R8PA) (i7-1255U) là một chiếc laptop tầm trung được thiết kế dành cho người dùng văn phòng và học sinh, sinh viên. Máy sở hữu cấu hình mạnh mẽ với bộ vi xử lý Intel Core i7 thế hệ thứ 12, RAM 16GB, ổ cứng SSD 512GB và màn hình Full HD 15.6 inch.', 6, 'BẠC', 24990000.00),
 (3, 'Laptop ACER Aspire 3 A315-59-51X8 (NX.K6TSV.00F) (i5-1235U/RAM 8GB/512GB SSD/ Windows 11)', 'Intel Core i5-1235U', '15.6\" (1920 x 1080)', '1 x 8GB DDR4 2400MHz', 'Onboard Intel UHD Graphics', '512GB SSD M.2 NVMe /', 'Windows 11 Home', '3 cell 40 Wh Pin liền', '1.7kg', 'Laptop Acer Aspire 3 A315-59-51X8 được biết đến là mẫu laptop văn phòng do thương hiệu Acer mới ra mắt gần đây. Ưu điểm của sản phẩm là cấu hình vượt trội và giá thành rẻ so với các mẫu máy tính khác cùng hiệu năng. Do đó, Acer Aspire 3 A315-59-51X8 rất phù hợp với đối tượng là học sinh, sinh viên và dân văn phòng. ', 1, 'Bạc', 15490000.00),
 (4, 'MacBook Air 15.3 inch (M2/ 16GB/ 512GB SSD)', 'Apple M2', '15.3\" (2880 x 1864) Liquid Retina', '16GB', 'onboard', '512GB SSD', 'macOS', '70 Wh', '1.5 kg | 1.15 x 34.04 x 23.76 cm', 'MacBook Air M2 2023 15 inch (16GB/512GB SSD) là một sản phẩm của Apple, thương hiệu nổi tiếng với sự kết hợp tinh tế giữa thiết kế và hiệu suất đỉnh cao. Trong đó, MacBook Air M2 2023 15 inch (16GB/512GB SSD) nổi bật với sự mạnh mẽ và tính di động cao, là sản phẩm phục vụ tốt cho nhu cầu văn phòng, đồ họa - kỹ thuật, doanh nghiệp và doanh nhân.', 2, 'Bạc', 45290000.00),
 (5, 'Laptop ASUS TUF Gaming FA506ICB-HN355W (Ryzen 5 4600H/RAM 8GB/RTX 3050/512GB SSD/ Windows 11)', 'AMD Ryzen 5 4600H', '15.6\" IPS (1920 x 1080),144Hz', '1 x 8GB DDR4 3200MHz', 'RTX 3050 4GB GDDR6 / AMD Radeon Graphics', '512GB SSD M.2 NVMe /', 'Windows 11 Home', '3 cell 48 Wh Pin liền', '2.3kg', 'Laptop ASUS TUF DashFA506ICB - HN355W đến từ thương hiệu Asus nổi tiếng được khá nhiều khách hàng ưa thích và tin dùng bởi sự chất lượng, hiệu năng làm việc vượt trội cùng với mức giá hợp lý. Ngoài ra, với thiết kế bắt mắt thu hút ánh nhìn nhiều đối tượng khách hàng, đặc biệt là giới game thủ. Hãy cùng Phong Vũ khám phá xem chiếc máy tính xách tay này có gì đặc biệt nhé!', 3, 'Đen', 21990000.00),
-(6, 'Laptop Dell Inspiron 14 T7420 N4I5021W (i5-1235U/RAM 8GB/512GB SSD/ Windows 11 + Office)', 'Intel Core i5-1235U', '14\" WVA (1920 x 1200)', '1 x 8GB DDR4 3200MHz', 'Onboard Intel UHD Graphics', '512GB SSD M.2 NVMe /', 'Windows 11 Home SL + Office Home & Student 2021', '4 cell 54 Wh Pin liền', '1.6kg', NULL, 4, 'Bạc', 24890000.00),
+(6, 'Laptop Dell Inspiron 14 T7420 N4I5021W (i5-1235U/RAM 8GB/512GB SSD/ Windows 11 + Office)', 'Intel Core i5-1235U', '14&quot; WVA (1920 x 1200)', '1 x 8GB DDR4 3200MHz', 'Onboard Intel UHD Graphics', '512GB SSD M.2 NVMe /', 'Windows 11 Home SL + Office Home &amp; Student 2021', '4 cell 54 Wh Pin liền', '1.6kg', '', 4, 'Bạc', 24990000.00),
 (7, 'Laptop GIGABYTE G5 ME (i5-12500H/RAM 8GB/RTX 3050Ti/512GB SSD/ Windows 11)', 'Intel Core i5-12500H', '15.6\" IPS (1920 x 1080),144Hz', '1 x 8GB DDR4 3200MHz', 'RTX 3050Ti 4GB GDDR6 / Intel Iris Xe Graphics', '512GB SSD M.2 NVMe /', 'Windows 11 Home SL', '54 Wh Pin liền', '2kg', 'Laptop GIGABYTE G5 ME 51VN263SH là sự lựa chọn phù hợp cho các game thủ, tín đồ mê game. Máy tính sở hữu cấu hình mạnh mẽ từ bộ vi xử lý Intel Core i5 thế hệ thứ 12, màn hình lớn kết hợp tấm nền IPS cho hiển thị sắc nét mang đến trải nghiệm chơi game đồ họa khủng với chất lượng mượt mà, lôi cuốn. Cùng Phong Vũ điểm qua một vài tính năng nổi bật của chiếc laptop này nhé!', 5, 'Đen', 27090000.00),
 (8, 'Laptop Lenovo Legion 5 Pro 16IAH7H-82RF0045VN (i7-12700H/RAM 16GB/512GB SSD/ Windows 11)', 'Intel Core i7-12700H', '16\" IPS (2560 x 1600),165Hz', '2 x 8GB DDR5 4800MHz', 'RTX 3070Ti 8GB GDDR6 / Intel Iris Xe Graphics', '512GB SSD M.2 NVMe /', 'Windows 11 Home', '4 cell 80 Wh Pin liền', '2.5kg', 'Laptop Lenovo Legion 5 Pro 16IAH7H 82RF0045VN là một trong những dòng laptop cao cấp đến từ thương hiệu Lenovo nổi tiếng. Chiếc laptop này sở hữu thiết kế với các đường nét cá tính, mạnh mẽ cùng hiệu năng hoạt động nổi bật. Máy được trang bị card đồ họa RTX 3070Ti 8GB GDDR6 siêu khủng hỗ trợ người dùng những trải nghiệm làm việc đồ họa hay chơi game cấu hình cao tuyệt vời. ', 8, 'Trắng', 56990000.00),
 (9, 'Laptop MSI Summit E14 Flip Evo A12MT-210VN (i7-1280P/RAM 16GB/512GB SSD/ Windows 11)', 'Intel Core i7-1280P', '14\" IPS (2880 x 1800)', '16GB Onboard LPDDR5 4800MHz', 'Onboard Intel Iris Xe Graphics', '512GB SSD M.2 NVMe /', 'Windows 11 Home', '4 cell 72 Wh Pin liền', '1.6kg', NULL, 9, 'Đen', 30990000.00),
@@ -946,7 +944,7 @@ CREATE TABLE `hoadon` (
 --
 
 INSERT INTO `hoadon` (`MAHD`, `MAKH`, `MANV`, `MASHIPPER`, `NGAYTAO`, `TRANGTHAI`) VALUES
-(1, 1, 1, 3, '2024-04-02', 4);
+(1, 2, 1, NULL, '2024-04-02', 0);
 
 -- --------------------------------------------------------
 
@@ -969,7 +967,10 @@ CREATE TABLE `khachhang` (
 --
 
 INSERT INTO `khachhang` (`MAKH`, `TEN`, `NGAYSINH`, `SDT`, `DIACHI`, `MATK`, `EMAIL`) VALUES
-(1, 'Nguyễn Minh Kiệt', '2002-04-06', '0932667135', 'B16 Phan Huy Ich, p.15, q.TB', 2, 'nguyenminhkiet642002@gmail.com');
+(1, 'Nguyễn Minh Kiệt', '2002-04-06', '0932667135', 'B16 Phan Huy Ich, p.15, q.TB', 2, 'nguyenminhkiet642002@gmail.com'),
+(2, 'Hồ Công Đệ', '0000-00-00', '', '', 4, ''),
+(3, 'Hồ Công Đệ', '0000-00-00', '', '', 5, ''),
+(4, 'Hồ Công Đệ', '0000-00-00', '', '', 9, '');
 
 -- --------------------------------------------------------
 
@@ -988,7 +989,30 @@ CREATE TABLE `khuyenmai` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `nhacungcap`
+-- Cấu trúc bảng cho bảng `motanhomquyen`
+--
+
+CREATE TABLE `motanhomquyen` (
+  `MANHOMQUYEN` int(11) NOT NULL,
+  `MOTA` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `motanhomquyen`
+--
+
+INSERT INTO `motanhomquyen` (`MANHOMQUYEN`, `MOTA`) VALUES
+(6, 'đơn hàng, khách hàng, nhóm quyền'),
+(5, 'Mua hàng'),
+(4, 'Quản lý nhập hàng'),
+(2, 'Quản lý nhân viên, khách hàng, đơn hàng'),
+(3, 'Xem thống kê, quản lý phiếu bảo hành'),
+(1, 'Toàn quyền');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `nhacungcap`
 --
 
 CREATE TABLE `nhacungcap` (
@@ -1037,7 +1061,8 @@ CREATE TABLE `nhanvien` (
 
 INSERT INTO `nhanvien` (`MANV`, `TEN`, `NGAYSINH`, `SDT`, `DIACHI`, `MATK`, `EMAIL`, `CHUCVU`) VALUES
 (1, 'Nguyễn Minh Kiệt', '2002-04-06', '0932667135', 'B16 Phan Huy Ich, p.15, q.TB', 1, 'nguyenminhkiet642002@gmail.com', 'ADMIN'),
-(2, 'Phạm Minh Tuấn', '1994-04-09', '0932667222', ' Võ Văn Ngân, q.Bình Tân', 3, 'phamminhtuan12091994@gmail.com', 'QUẢN LÝ');
+(2, 'Phạm Minh Tuấn', '1994-04-09', '0932667222', 'Võ Văn Ngân, q.Bình Tân', 3, 'phamminhtuan12091994@gmail.com', 'QUẢN LÝ'),
+(3, 'Hồ Công Đệ', '2024-05-16', '821038021', 'Bình Thuận', 6, 'Congde@gmail.com', 'QUẢN LÝ');
 
 -- --------------------------------------------------------
 
@@ -1110,18 +1135,103 @@ INSERT INTO `nhomquyen` (`MANHOMQUYEN`, `MAQUYEN`, `TENNHOMQUYEN`) VALUES
 (1, 23, 'ADMIN'),
 (1, 24, 'ADMIN'),
 (1, 25, 'ADMIN'),
+(1, 26, 'ADMIN'),
+(1, 27, 'ADMIN'),
+(1, 28, 'ADMIN'),
+(1, 29, 'ADMIN'),
+(2, 2, 'QUẢN LÝ'),
+(2, 3, 'QUẢN LÝ'),
+(2, 4, 'QUẢN LÝ'),
+(2, 5, 'QUẢN LÝ'),
+(2, 6, 'QUẢN LÝ'),
+(2, 7, 'QUẢN LÝ'),
+(2, 8, 'QUẢN LÝ'),
+(2, 9, 'QUẢN LÝ'),
+(2, 10, 'QUẢN LÝ'),
+(2, 11, 'QUẢN LÝ'),
+(2, 12, 'QUẢN LÝ'),
+(2, 13, 'QUẢN LÝ'),
+(2, 14, 'QUẢN LÝ'),
 (2, 15, 'QUẢN LÝ'),
 (2, 16, 'QUẢN LÝ'),
+(2, 18, 'QUẢN LÝ'),
+(2, 19, 'QUẢN LÝ'),
+(2, 20, 'QUẢN LÝ'),
+(2, 22, 'QUẢN LÝ'),
 (2, 23, 'QUẢN LÝ'),
 (2, 24, 'QUẢN LÝ'),
+(2, 26, 'QUẢN LÝ'),
+(2, 27, 'QUẢN LÝ'),
+(2, 28, 'QUẢN LÝ'),
+(3, 2, 'THU NGÂN'),
+(3, 3, 'THU NGÂN'),
+(3, 4, 'THU NGÂN'),
+(3, 6, 'THU NGÂN'),
+(3, 7, 'THU NGÂN'),
+(3, 8, 'THU NGÂN'),
+(3, 10, 'THU NGÂN'),
+(3, 11, 'THU NGÂN'),
+(3, 12, 'THU NGÂN'),
+(3, 14, 'THU NGÂN'),
 (3, 15, 'THU NGÂN'),
 (3, 16, 'THU NGÂN'),
+(3, 18, 'THU NGÂN'),
+(3, 19, 'THU NGÂN'),
+(3, 20, 'THU NGÂN'),
+(3, 22, 'THU NGÂN'),
 (3, 23, 'THU NGÂN'),
+(3, 24, 'THU NGÂN'),
+(3, 25, 'THU NGÂN'),
+(3, 26, 'THU NGÂN'),
+(3, 27, 'THU NGÂN'),
+(3, 28, 'THU NGÂN'),
+(3, 29, 'THU NGÂN'),
+(4, 1, 'KHO'),
+(4, 2, 'KHO'),
+(4, 3, 'KHO'),
+(4, 4, 'KHO'),
+(4, 5, 'KHO'),
+(4, 6, 'KHO'),
+(4, 7, 'KHO'),
+(4, 8, 'KHO'),
+(4, 9, 'KHO'),
+(4, 10, 'KHO'),
+(4, 11, 'KHO'),
+(4, 12, 'KHO'),
+(4, 13, 'KHO'),
+(4, 14, 'KHO'),
 (4, 15, 'KHO'),
 (4, 16, 'KHO'),
+(4, 17, 'KHO'),
+(4, 18, 'KHO'),
+(4, 19, 'KHO'),
+(4, 20, 'KHO'),
+(4, 21, 'KHO'),
+(4, 22, 'KHO'),
+(4, 23, 'KHO'),
 (4, 24, 'KHO'),
-(5, 16, 'KHÁCH HÀNG'),
-(5, 19, 'KHÁCH HÀNG');
+(4, 25, 'KHO'),
+(4, 26, 'KHO'),
+(4, 27, 'KHO'),
+(4, 28, 'KHO'),
+(4, 29, 'KHO'),
+(5, 30, 'KHÁCH HÀNG'),
+(6, 5, 'QUẢN LÝ 2'),
+(6, 6, 'QUẢN LÝ 2'),
+(6, 7, 'QUẢN LÝ 2'),
+(6, 8, 'QUẢN LÝ 2'),
+(6, 9, 'QUẢN LÝ 2'),
+(6, 10, 'QUẢN LÝ 2'),
+(6, 11, 'QUẢN LÝ 2'),
+(6, 12, 'QUẢN LÝ 2'),
+(6, 13, 'QUẢN LÝ 2'),
+(6, 14, 'QUẢN LÝ 2'),
+(6, 15, 'QUẢN LÝ 2'),
+(6, 16, 'QUẢN LÝ 2'),
+(6, 17, 'QUẢN LÝ 2'),
+(6, 18, 'QUẢN LÝ 2'),
+(6, 19, 'QUẢN LÝ 2'),
+(6, 20, 'QUẢN LÝ 2');
 
 -- --------------------------------------------------------
 
@@ -1164,7 +1274,11 @@ CREATE TABLE `phanquyen` (
 INSERT INTO `phanquyen` (`MATK`, `MANHOMQUYEN`) VALUES
 (1, 1),
 (3, 2),
-(2, 5);
+(6, 2),
+(5, 4),
+(2, 5),
+(4, 5),
+(9, 5);
 
 -- --------------------------------------------------------
 
@@ -1285,31 +1399,36 @@ CREATE TABLE `quyen` (
 --
 
 INSERT INTO `quyen` (`MAQUYEN`, `TENQUYEN`) VALUES
-(1, 'THÊM THÔNG TIN SẢN PHẨM'),
-(2, 'THÊM THÔNG TIN NHÂN VIÊN'),
-(3, 'THÊM THÔNG TIN TÀI KHOẢN'),
-(4, 'THÊM THÔNG TIN QUYỀN'),
-(5, 'THÊM THÔNG TIN NHÓM QUYỀN'),
-(6, 'THÊM THÔNG TIN BẢO HÀNH'),
-(7, 'THÊM THÔNG TIN KHUYẾN MÃI'),
-(8, 'THÊM THÔNG TIN KHÁCH HÀNG'),
-(9, 'ẨN THÔNG TIN SẢN PHẨM'),
-(10, 'ẨN THÔNG TIN NHÂN VIÊN'),
-(11, 'ẨN THÔNG TIN TÀI KHOẢN'),
-(12, 'ẨN THÔNG TIN KHUYẾN MÃI'),
-(13, 'ẨN THÔNG TIN BẢO HÀNH'),
-(14, 'SỬA THÔNG TIN SẢN PHẨM'),
-(15, 'SỬA THÔNG TIN NHÂN VIÊN'),
-(16, 'SỬA THÔNG TIN TÀI KHOẢN'),
-(17, 'SỬA THÔNG TIN QUYỀN'),
-(18, 'SỬA THÔNG TIN NHÓM QUYỀN'),
-(19, 'SỬA THÔNG TIN KHÁCH HÀNG'),
-(20, 'SỬA THÔNG TIN KHUYẾN MÃI'),
-(21, 'SỬA THÔNG TIN BẢO HÀNH'),
-(22, 'THỐNG KÊ SẢN PHẨM'),
-(23, 'XUẤT HÓA ĐƠN'),
-(24, 'LẬP PHIẾU NHẬP SẢN PHẨM'),
-(25, 'VÀO TRANG ADMIN');
+(1, 'truy cập sản phẩm'),
+(2, 'thêm sản phẩm'),
+(3, 'sửa sản phẩm'),
+(4, 'xóa sản phẩm'),
+(5, 'truy cập nhân viên'),
+(6, 'thêm nhân viên'),
+(7, 'sửa nhân viên'),
+(8, 'vô hiệu hóa nhân viên'),
+(9, 'truy cập khách hàng'),
+(10, 'thêm khách hàng'),
+(11, 'sửa khách hàng'),
+(12, 'vô hiệu hóa khách hàng'),
+(13, 'truy cập đơn hàng'),
+(14, 'thêm đơn hàng'),
+(15, 'sửa đơn hàng'),
+(16, 'xóa đơn hàng'),
+(17, 'truy cập phân quyền'),
+(18, 'thêm phân quyền'),
+(19, 'sửa phân quyền'),
+(20, 'xóa phân quyền'),
+(21, 'truy cập nhập hàng'),
+(22, 'thêm phiếu nhập'),
+(23, 'sửa phiếu nhập'),
+(24, 'xóa phiếu nhập'),
+(25, 'truy cập bảo hành'),
+(26, 'thêm phiếu bảo hành'),
+(27, 'sửa phiếu bảo hành'),
+(28, 'xóa phiếu bảo hành'),
+(29, 'truy cập thống kê'),
+(30, 'mua hàng');
 
 -- --------------------------------------------------------
 
@@ -1331,7 +1450,7 @@ CREATE TABLE `sanpham` (
 
 INSERT INTO `sanpham` (`MASP`, `HINHSP`, `SOLUONG`, `MANCC`, `TRANGTHAI`) VALUES
 (1, 'HP_1.PNG', 2, 6, 1),
-(2, 'HP_2.PNG', 2, 6, 1),
+(2, 'HP_2.PNG', 1, 6, 1),
 (3, 'ACER_1.PNG', 3, 1, 1),
 (4, 'APPLE_1.PNG', 4, 2, 1),
 (5, 'ASUS_1.PNG', 1, 3, 1),
@@ -1441,9 +1560,13 @@ CREATE TABLE `taikhoan` (
 --
 
 INSERT INTO `taikhoan` (`MATK`, `NGAYTAO`, `TENDN`, `MATKHAU`, `TRANGTHAI`) VALUES
-(1, '2024-01-04', 'admin1234', 'admin1234', 1),
+(1, '2024-01-04', 'admin', '999999', 1),
 (2, '2024-01-04', 'kh1234', 'kh1234', 1),
-(3, '2024-01-04', 'ql1234', 'ql1234', 1);
+(3, '2024-01-04', 'ql1234', 'ql1234', 1),
+(4, '2024-04-29', 'de123', '123', 1),
+(5, '2024-04-29', '123', '111', 1),
+(6, '2024-05-08', 'congde', '123', 1),
+(9, '2024-05-13', 'deho123', '123', 1);
 
 -- --------------------------------------------------------
 
@@ -1558,7 +1681,13 @@ ALTER TABLE `khuyenmai`
   ADD KEY `MANV` (`MANV`);
 
 --
--- Indexes for table `nhacungcap`
+-- Chỉ mục cho bảng `motanhomquyen`
+--
+ALTER TABLE `motanhomquyen`
+  ADD KEY `MANHOMQUYEN` (`MANHOMQUYEN`);
+
+--
+-- Chỉ mục cho bảng `nhacungcap`
 --
 ALTER TABLE `nhacungcap`
   ADD PRIMARY KEY (`MANCC`);
@@ -1675,13 +1804,13 @@ ALTER TABLE `district`
 -- AUTO_INCREMENT for table `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `MAHD` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `MAHD` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `khachhang`
 --
 ALTER TABLE `khachhang`
-  MODIFY `MAKH` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `MAKH` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `khuyenmai`
@@ -1699,7 +1828,7 @@ ALTER TABLE `nhacungcap`
 -- AUTO_INCREMENT for table `nhanvien`
 --
 ALTER TABLE `nhanvien`
-  MODIFY `MANV` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `MANV` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `nhomloaisanpham`
@@ -1729,7 +1858,7 @@ ALTER TABLE `province`
 -- AUTO_INCREMENT for table `quyen`
 --
 ALTER TABLE `quyen`
-  MODIFY `MAQUYEN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `MAQUYEN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `sanpham`
@@ -1741,13 +1870,13 @@ ALTER TABLE `sanpham`
 -- AUTO_INCREMENT for table `shipper`
 --
 ALTER TABLE `shipper`
-  MODIFY `MASHIPPER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `MASHIPPER` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  MODIFY `MATK` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `MATK` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `thuonghieu`
@@ -1835,7 +1964,13 @@ ALTER TABLE `khuyenmai`
   ADD CONSTRAINT `khuyenmai_ibfk_2` FOREIGN KEY (`MANV`) REFERENCES `nhanvien` (`MANV`);
 
 --
--- Constraints for table `nhanvien`
+-- Các ràng buộc cho bảng `motanhomquyen`
+--
+ALTER TABLE `motanhomquyen`
+  ADD CONSTRAINT `motanhomquyen_ibfk_1` FOREIGN KEY (`MANHOMQUYEN`) REFERENCES `nhomquyen` (`MANHOMQUYEN`);
+
+--
+-- Các ràng buộc cho bảng `nhanvien`
 --
 ALTER TABLE `nhanvien`
   ADD CONSTRAINT `nhanvien_ibfk_1` FOREIGN KEY (`MATK`) REFERENCES `taikhoan` (`MATK`);

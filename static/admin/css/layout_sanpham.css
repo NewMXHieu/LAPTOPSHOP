@@ -228,8 +228,14 @@
 .table-control button i {
     color:#fff;
 }
+.table-control button:hover i {
+    color: rgb(188, 188, 184);
+}
 .item-btn button i {
     color: #fff;
+}
+.item-btn button:hover i {
+    color: rgb(188, 188, 184);
 }
 
 i,
@@ -237,13 +243,6 @@ img,
 a {
     background-color: initial;
 }
-
-/* .item-btn-edit{
-    margin-left: 10px;
-}
-.item-btn-delete{
-    width: 100px;
-} */
 
 .product-all,
 .user {
@@ -541,7 +540,7 @@ fieldset:disabled .btn {
 }
 
 .btn-primary {
-    padding: 5px 30px;
+    padding: 7px 30px;
     color: #fff;
     background-color: #0d6efd;
     border-color: #0d6efd;
@@ -587,7 +586,7 @@ fieldset:disabled .btn {
 }
 
 .btn-danger {
-    padding: 5px 30px;
+    padding: 7px 30px;
     color: #fff;
     background-color: #dc3545;
     border-color: #dc3545;
@@ -634,4 +633,17 @@ fieldset:disabled .btn {
 
 .item-center-bottom{
     display: flex;
+    
+}
+.addTK .detail_product-items .detail_product-items-item {
+    grid-template-columns: 1fr 2fr;
+}
+.addTK .detail_product-items .detail_product-items-item label {
+    padding-left: 40px;
+}
+.addTK .detail_product-items .detail_product-items-item input {
+    width: 80%;
+}
+.addTK .detail_product-items .detail_product-items-item select {
+    width: 80%;
 }

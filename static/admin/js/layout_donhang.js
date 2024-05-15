@@ -118,6 +118,14 @@ if (arr.length === 0) {
         } else{
             trangthai = 'Đã hủy';
         }
+        let BtnEdit ='';
+        let BtnDelete ='';
+        if(quyen.includes(String(15))){
+            BtnEdit = `<button class="btn btn-primary" onclick="editDonHang(${product.MAHD})"><i class="fa-solid fa-pen-to-square"></i></button>`;
+        }
+        if(quyen.includes(String(16))){
+            BtnDelete = `<button class="btn btn-danger" onclick="deleteDonHang(${product.MAHD})"><i class="fa-solid fa-trash"></i></button>`;
+        }
 
 
         productHtml +=
@@ -128,8 +136,8 @@ if (arr.length === 0) {
             <td>${product.NGAYTAO}</td>
             <td>${trangthai}</td>
             <td class="table-control">
-            <button class="btn btn-primary" onclick="editDonHang(${product.MAHD})"><i class="fa-solid fa-pen-to-square"></i></button>
-            <button class="btn btn-danger" onclick="deleteDonHang(${product.MAHD})"><i class="fa-solid fa-trash"></i></button>
+                ${BtnEdit}
+                ${BtnDelete}
             </td>
         </tr>`;
 

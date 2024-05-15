@@ -14,12 +14,12 @@
 
     <!-- Thêm Nhóm Quyền -->
     <div class="modal AddPhanQuyen">
-        <form action="" method="POST">
-            <h2 style="">Thông tin chi tiết</h2>
+        <form class="addNQ" action="" method="POST">
+            <h2 style="height: 50px">Thông tin chi tiết</h2>
             <div class="detail-info">
                 <div class="form-group1">
                     <label for="permission-id">ID Quyền:</label>
-                    <input type="text" id="permission-id">
+                    <input type="text" id="permission-id" readonly>
                 </div>
                 <div class="form-group2">
                     <label for="permission-name">Tên nhóm quyền:</label>
@@ -107,17 +107,23 @@
                             <td>8</td>
                             <td>Thống kê</td>
                             <td><input type="checkbox" id="add-permission-29"></td>
+                            <td style="text-align: center;">x</td>
+                            <td style="text-align: center;">x</td>
+                            <td style="text-align: center;">x</td>
                         </tr>
                         <tr>
                             <td>9</td>
                             <td>Mua hàng</td>
                             <td><input type="checkbox" id="add-permission-30"></td>
+                            <td style="text-align: center;">x</td>
+                            <td style="text-align: center;">x</td>
+                            <td style="text-align: center;">x</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <div class="form-control">
-                <button class="control-btn-form addproduct_btn_cancel" type="Button" onclick="finish()"
+            <div class="form-control" style="height: 50px">
+                <button class="control-btn-form addproduct_btn_cancel" type="Button" onclick="onClose('add')"
                     value="Hủy">Hủy</button>
                 <button class="control-btn-form addproduct_btn_save" type="Button" onclick="AddNhomQuyen()"
                     value="Lưu">Thêm</button>
@@ -128,12 +134,12 @@
 
     <!-- edit NHÂN VIÊN -->
     <div class="modal editPhanQuyen">
-        <form action="" method="POST">
-            <h2 style="">Thông tin chi tiết</h2>
+        <form class="editNQ" action="" method="POST">
+            <h2 style="height: 50px">Thông tin chi tiết</h2>
             <div class="detail-info">
                 <div class="form-group1">
                     <label for="permission-id">ID Quyền:</label>
-                    <input type="text" id="edit-permission-id">
+                    <input type="text" id="edit-permission-id" readonly>
                 </div>
                 <div class="form-group2">
                     <label for="permission-name">Tên nhóm quyền:</label>
@@ -222,17 +228,23 @@
                             <td>8</td>
                             <td>Thống kê</td>
                             <td><input type="checkbox" id="edit-permission-29"></td>
+                            <td style="text-align: center;">x</td>
+                            <td style="text-align: center;">x</td>
+                            <td style="text-align: center;">x</td>
                         </tr>
                         <tr>
                             <td>9</td>
                             <td>Mua hàng</td>
                             <td><input type="checkbox" id="edit-permission-30"></td>
+                            <td style="text-align: center;">x</td>
+                            <td style="text-align: center;">x</td>
+                            <td style="text-align: center;">x</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <div class="form-control">
-                <button class="control-btn-form addproduct_btn_cancel" type="Button" onclick="finish()"
+            <div class="form-control" style="height: 50px">
+                <button class="control-btn-form addproduct_btn_cancel" type="Button" onclick="onClose('edit')"
                     value="Hủy">Hủy</button>
                 <button class="control-btn-form addproduct_btn_save" type="Button" onclick="saveEditNhomQuyen()"
                     value="Lưu">Lưu</button>

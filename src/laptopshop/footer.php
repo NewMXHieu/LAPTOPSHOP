@@ -41,9 +41,4 @@
             <p>Liên hệ báo giá</p>
         </div>
     </div>
-
-    
-    <div class="footer-bottom">
-
-    </div>
 </div>

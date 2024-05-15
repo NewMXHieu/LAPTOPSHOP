@@ -14,7 +14,8 @@ chitiethoadon.MASP,
 chitietsanpham.TENSP,
 COUNT(chitiethoadon.MASP) AS TONGSOLUONG,
 chitietsanpham.GIATIEN AS DONGIA,
-chitietsanpham.GIATIEN * subquery.TONGSOLUONG AS TONGGIATIEN
+chitietsanpham.GIATIEN * subquery.TONGSOLUONG AS TONGGIATIEN,
+hoadon.NGAYTAO 
 FROM HOADON
 INNER JOIN chitiethoadon ON chitiethoadon.MAHD = hoadon.MAHD
 INNER JOIN chitietsanpham ON chitietsanpham.MASP = chitiethoadon.MASP 
@@ -42,7 +43,8 @@ if ($result->num_rows > 0) {
             'TENSP' => $row['TENSP'],
             'TONGSOLUONG' => $row['TONGSOLUONG'],
             'DONGIA' => $row['DONGIA'],
-            'TONGGIATIEN' => $row['TONGGIATIEN']
+            'TONGGIATIEN' => $row['TONGGIATIEN'],
+            'NGAYTAO' => $row['NGAYTAO']
         ];
         $thongkes[] = $tk;
     }

@@ -13,9 +13,9 @@
 
     <!-- add Tài Khoản -->
     <div class="modal addTaiKhoan">
-        <form action="" method="POST">
-            <H2 class="add-product-title">Thêm Tài Khoản</H2>
-            <div class="">
+        <form action="" method="POST" class="addTKform">
+            <H2 class="add-product-title" style="height: 50px">Thêm Tài Khoản</H2>
+            <div class="addTK">
                 <input type="date" id="addTaiKhoan_ngaytao" name="addTaiKhoan_ngaytao" style="display: none">
                 <div class="detail_product-items">
                     <div class="detail_product-items-item">
@@ -47,7 +47,7 @@
                     </div>
                 </div>
             </div>
-            <div class="form-control">
+            <div class="form-control" style="height: 50px">
                 <button class="control-btn-form addproduct_btn_cancel" type="Button" onclick="finish()"
                     value="Hủy">Hủy</button>
                 <button class="control-btn-form addproduct_btn_save" type="Button" onclick="saveTaiKhoan()"
@@ -58,14 +58,14 @@
 
     <!-- edit Tài Khoản -->
     <div class="modal editTaiKhoan">
-        <form action="" method="POST">
+        <form class="editTKform" action="" method="POST">
             <input type="text" id="idTaiKhoan" name="idTaiKhoan" style="display:none">
-            <H2 class="edit-product-title">Sửa Tài Khoản</H2>
-            <div class="">
+            <H2 class="edit-product-title" style="height: 50px">Sửa Tài Khoản</H2>
+            <div class="addTK">
                 <div class="detail_product-items">
                     <div class="detail_product-items-item">
                         <label for="ten">MÃ TÀI KHOẢN</label>
-                        <input type="text" id="editTaiKhoan_id" name="addTaiKhoan_id">
+                        <input type="text" id="editTaiKhoan_id" name="addTaiKhoan_id" readonly>
                     </div>
                     <div class="detail_product-items-item">
                         <label for="ten">TÊN ĐĂNG NHẬP</label>
@@ -96,7 +96,7 @@
                     </div>
                 </div>
             </div>
-            <div class="form-control">
+            <div class="form-control" style="height: 50px">
                 <button class="control-btn-form addproduct_btn_cancel" type="Button" onclick="finish()"
                     value="Hủy">Hủy</button>
                 <button class="control-btn-form addproduct_btn_save" type="Button" onclick="saveEditTaiKhoan()"
