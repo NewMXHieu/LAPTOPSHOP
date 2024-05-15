@@ -9,7 +9,6 @@ function getDsTaiKhoan() {
             taikhoans.sort(function (a, b) {
                 return a.MATK - b.MATK;
             });
-            console.log(taikhoans);
             showTaiKhoan();
         },
         error: function (jqXHR, textStatus, errorThrown) {
