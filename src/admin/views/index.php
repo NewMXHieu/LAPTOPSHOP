@@ -2,7 +2,42 @@
 session_start();
 include '../functions/getDsQuyenTheoTaiKhoan.php';
 
+function maQuyenTonTai($maquyen, $maquyenCanKiemTra)
+{
+    foreach ($maquyen as $key => $value) {
+        if ($value == $maquyenCanKiemTra) {
+            return true;
+        }
+    }
+    return false;
+}
 ?>
+<script>
+    var quyen = <?php echo json_encode($maquyen); ?>;
+    const fragment = window.location.hash
+
+    const listFragmentsWithPermission = {
+        1: '#content-sanpham',
+        5: '#content-nhanvien',
+        9: '#content-khachhang',
+        13: '#content-donhang',
+        17: '#content-phanquyen',
+        21: '#content-nhaphang',
+        25: '#content-baohanh',
+        29: '#content-thongke',
+    }
+    const permittedFragments = quyen.map(permission => listFragmentsWithPermission[permission])
+    if(!permittedFragments.includes(fragment)){
+        window.location.hash = ''   
+    }
+    window.onhashchange = () => {
+        const fragment = window.location.hash
+        if(!permittedFragments.includes(fragment)){
+            window.location.hash = ''
+        }
+    }
+
+</script>
 <!DOCTYPE html>
 <html lang="vi">
 
@@ -15,11 +50,6 @@ include '../functions/getDsQuyenTheoTaiKhoan.php';
 </head>
 
 <body>
-    <div class="hidden-sidebar">
-        <div class="nav-toggle">
-            <i class="fa fa-bars"></i>
-        </div>
-    </div>
 
     <!-- sidebar -->
     <div class="sidebar">
@@ -27,7 +57,7 @@ include '../functions/getDsQuyenTheoTaiKhoan.php';
         <div class="sidebar-header">
             <a href="#">
                 <div class="sidebar-header-image">
-                    <i class="fa-solid fa-laptop"></i>
+                    <img src="static/image/laptoplogo.png" alt="">
                 </div>
                 <p class="sidebar-header-name">Cửa hàng laptop</p>
             </a>
@@ -215,6 +245,10 @@ include '../functions/getDsQuyenTheoTaiKhoan.php';
                 </li>
             </ul>
         </div>
+    </div>
+    <div class="toggler">
+        <i class="fa-solid fa-bars" id="toggle-bars"></i>
+        <i class="fa-solid fa-xmark" id="toggle-cross"></i>
     </div>
 
     <!-- content -->

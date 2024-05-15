@@ -41,15 +41,28 @@
             </div>
             <div class="promotion">
                 <h5>Khuyến mãi</h5>
+                <?php
+                $promo_query = "SELECT * FROM chitietkhuyenmai";
+                $promo_result = mysqli_query($conn,$promo_query);
+                
+                ?>
                 <ul>
-                    <li>Tặng balo khi mua hàng có hóa đơn trên 1tr</li>
+                    <?php
+                
+                while($promo = mysqli_fetch_assoc($promo_result)){
+                    echo $promo['QUATANG'];
+                    echo '<br>';
+                }
+                        
+                    ?>
+                    <!-- <li>Tặng balo khi mua hàng có hóa đơn trên 1tr</li>
                     <li>Giảm giá sốc khi mua nhiều mặt hàng</li>
                     <li>Giao hàng nhanh ngay trong ngày</li>
-                    <li>Miễn phí đổi trả nếu có bất kỳ vấn đề trong vòng 1 tháng từ khi mua hàng</li>
+                    <li>Miễn phí đổi trả nếu có bất kỳ vấn đề trong vòng 1 tháng từ khi mua hàng</li> -->
                 </ul>
             </div>
             <div class="paying-product">
-                <a href="#"></a><button>Mua ngay</button></a>
+                <a href="#"></a><button class="sell-button">Mua ngay</button></a>
                 <a href="#"></a><button>Thêm vào giỏ hàng</button></a>
             </div>
         </div>
@@ -62,7 +75,8 @@
             <table class="table table-striped table-bordered">
                 <tr>
                     <td class="detail-name">Mã sản phẩm:</td>
-                    <td class="detail-content"> <?php echo $product['MASP'] ?></td>
+                    <td class="detail-content"> <?php echo $product['MASP'] ?>
+                    </td>
                 </tr>
                 <tr>
                     <td class="detail-name">CPU:</td>
