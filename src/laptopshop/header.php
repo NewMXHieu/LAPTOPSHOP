@@ -59,9 +59,6 @@ include "../../config/function.php";
 </div>
 <script>
     $('.danhmuc').click(function () {
-        // if (window.location.href !== "/laptopshop/trangchu#") {
-        //     window.location.href = "http://localhost/laptopshop/trangchu#";
-        // }
         $('.menu-left-1').toggle();
         $('.overplay').toggle();
     });
@@ -80,7 +77,7 @@ include "../../config/function.php";
         }
         delayLoad();
         $('html, body').animate({
-            scrollTop: $(".main").offset().top - 70 // Thay ".main" bằng selector của phần hiện sản phẩm của bạn
+            scrollTop: $(".main").offset().top - 110 // Thay ".main" bằng selector của phần hiện sản phẩm của bạn
         }, 'slow');
     })
 

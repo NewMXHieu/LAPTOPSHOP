@@ -208,7 +208,7 @@ include '../../config/connect.php';
         page = 1;
         delayLoad();
         $('html, body').animate({
-            scrollTop: $(".main").offset().top - 70 // Thay ".main" bằng selector của phần hiện sản phẩm của bạn
+            scrollTop: $(".main").offset().top - 110 // Thay ".main" bằng selector của phần hiện sản phẩm của bạn
         }, 'slow');
     });
     $(".pagination ").on("click", "a", function(e) {
