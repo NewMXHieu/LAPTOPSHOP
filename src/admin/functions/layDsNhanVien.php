@@ -23,6 +23,7 @@ if ($result->num_rows > 0) {
             'DIACHI' => $row['DIACHI'],
             'MATK' => $row['MATK'],
             'EMAIL' => $row['EMAIL'],
+            'CHUCVU' => $row['CHUCVU'],
             'NGAYTAOTK' => $row['NGAYTAO'],
             'TRANGTHAI' => $row['TRANGTHAI'],
 

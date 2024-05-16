@@ -53,6 +53,7 @@
                                 <th>ĐỊA CHỈ</th>
                                 <th>MÃ TK</th>
                                 <th>EMAIL</th>
+                                <th>CHỨC VỤ</th>
                                 <th>TRẠNG THÁI</th>
                                 <th>CHỨC NĂNG</th>
                             </tr>
@@ -60,7 +61,6 @@
 
                         <tbody id="dataNhanVien">
                             <tr>
-                                <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>

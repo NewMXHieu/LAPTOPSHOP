@@ -33,7 +33,7 @@ if (isset($_SESSION["id"])) {
     <div class="item">
       Đã có tài khoản? <a href="sign-in">Đăng nhập ngay</a>
     </div>
-    <button onclick="submitData()" type="button" value="button">Đăng ký</button>
+    <button class="btn-sign_up" onclick="submitData()" type="button" value="button">Đăng ký</button>
     <link rel="stylesheet" href="static/css/popup.css">
     <div class="popup_button" id="popup-register-successful">
       <img src="static/image/404-tick.png" alt="">

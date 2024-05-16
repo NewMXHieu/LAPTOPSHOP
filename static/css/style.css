@@ -139,6 +139,7 @@ li {
     margin: 0 10px;
     text-align: center;
     display: flex;
+
 }
 
 .login {
@@ -147,6 +148,7 @@ li {
 .cart {
     margin: 0 30px;
 }
+
 
 .header-top-right div span {
     /* width: 35px; */
@@ -225,6 +227,7 @@ a {
     padding: 10px 150px;
     display: flex;
     justify-content: space-around;
+    background-color: var(--mycolor2);
 }
 
 .footer-top div {
@@ -585,8 +588,7 @@ h1 {
     color: #03a9f4;
     font-size: 12px;
 }
-
-button[type="button"] {
+.btn-sign_in, .btn-sign_up{
     border: none;
     outline: none;
     margin-top: 30px;

@@ -1,141 +1,200 @@
 <?php
-include '../../config/connect.php';
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-if (isset($_SESSION['id'])) {
-    $ID = $_SESSION['id'];
-    $checkout_query = "SELECT sanpham.MASP, chitietsanpham.TENSP, chitietsanpham.GIATIEN, sanpham.HINHSP, chitietgiohang.SOLUONG
-                FROM taikhoan
-                JOIN giohang ON taikhoan.MATK = giohang.MATK
-                JOIN chitietgiohang ON giohang.MAGH = chitietgiohang.MAGH
-                JOIN chitietsanpham ON chitietgiohang.MASP = chitietsanpham.MASP
-                JOIN sanpham ON chitietsanpham.MASP = sanpham.MASP
-                WHERE taikhoan.MATK = $ID";
+$userId = $_SESSION['id'];
+global $conn;
 
-    $employee_query = "SELECT nhanvien.MATK, nhanvien.TEN, nhanvien.NGAYSINH, nhanvien.SDT, nhanvien.DIACHI, nhanvien.EMAIL,  nhanvien.MANV
-                FROM taikhoan
-                JOIN nhanvien ON taikhoan.MATK = nhanvien.MATK
-                WHERE taikhoan.MATK = $ID";
+// create the SQL query
 
-    // Truy vấn để lấy thông tin từ bảng khách hàng
-    $customer_query = "SELECT khachhang.MATK, khachhang.MAKH, khachhang.TEN, khachhang.NGAYSINH, khachhang.DIACHI, khachhang.SDT
-                FROM taikhoan
-                JOIN khachhang ON taikhoan.MATK = khachhang.MATK
-                WHERE taikhoan.MATK = $ID";
+$query = "SELECT khachhang.TEN, khachhang.SDT, khachhang.EMAIL, khachhang.DIACHI, khachhang.MAKH
+          FROM  khachhang
+          WHERE MATK = $userId";
+// execute the query
+$result = mysqli_query($conn, $query);
+// fetch the data
+$userData = mysqli_fetch_assoc($result);
 
-    $province_query = "SELECT * FROM province";
-    $result_province = mysqli_query($conn, $province_query);
+$query = "SELECT giohang.MAGH, giohang.MAKH, chitietgiohang.MASP, chitietgiohang.SOLUONG AS SLGH, sanpham.MASP, sanpham.HINHSP, sanpham.SOLUONG AS SLSP, chitietsanpham.TENSP, chitietsanpham.STORAGE, chitietsanpham.GIATIEN, chitietsanpham.MAU
+FROM giohang, chitietgiohang, sanpham, khachhang, chitietsanpham
+WHERE khachhang.MATK = $userId 
+AND khachhang.MAKH = giohang.MAKH
+AND giohang.MAGH = chitietgiohang.MAGH 
+AND chitietgiohang.masp = sanpham.masp
+AND chitietsanpham.masp = sanpham.masp
+";
 
-    $result_employee = mysqli_query($conn, $employee_query);
-    $result_customer = mysqli_query($conn, $customer_query);
+$resultSP = mysqli_query($conn, $query);
 
-    $result_checkout = mysqli_query($conn, $checkout_query);
-    if (!$result_checkout) {
-        printf("Error: %s\n", mysqli_error($conn));
-        exit();
-    }
-    if (mysqli_num_rows($result_employee) > 0) {
-        $taikhoan = $result_employee->fetch_all(MYSQLI_ASSOC);
-    } elseif (mysqli_num_rows($result_customer) > 0) {
-        $taikhoan = $result_customer->fetch_all(MYSQLI_ASSOC);
-    }
-    $GIOHANG = $result_checkout->fetch_all(MYSQLI_ASSOC);
 
-    // Kiểm tra xem $GIOHANG có rỗng không
-    if (empty($GIOHANG)) {
-        echo '<span>Không thấy sản phẩm</span>';
-    } else {
 ?>
-        <link rel="stylesheet" href="laptopshop/static/css/checkout.css">
-        <script src="laptopshop/static/js/address.js"></script>
-        <div class="my-store-checkout-content">
-            <div class="checkout-info">
-                <h3>Thông tin người nhận</h3>
-                <form id="checkout-form">
-                    <div class="form-group">
-                        <?php
-                        $dia_chi_parts = explode(',', $taikhoan[0]['DIACHI']);
-                        $dia_chi_parts = array_pad($dia_chi_parts, 3, '');
-                        $dia_chi_cu_the = isset($dia_chi_parts[0]) ? trim($dia_chi_parts[0]) : '';
-                        $phuong_xa = isset($dia_chi_parts[1]) ? trim($dia_chi_parts[1]) : '';
-                        $quan_huyen = isset($dia_chi_parts[2]) ? trim($dia_chi_parts[2]) : '';
-                        $tinh_tp = isset($dia_chi_parts[3]) ? trim($dia_chi_parts[3]) : '';
-                        ?>
-                        <label for="recipient-name">Họ và tên:</label>
-                        <input type="text" id="recipient-name" name="recipient-name" value="<?php echo $taikhoan[0]['TEN']; ?>" required>
-                    </div>
 
-                    <select name="calc_shipping_provinces" required="" class="combobox form-group" title="Tỉnh / Thành">
-                        <option value="">Tỉnh / Thành</option>
-                        <?php
-                        foreach ($result_province as $province) {
-                            echo "<option value='{$province['id']}'>{$province['name']}</option>";
-                        }
-                        ?>
-                    </select>
-                    <select name="calc_shipping_district" required="" class="combobox form-group" title="Quận / Huyện">
-                        <option value="">Quận / Huyện</option>
-                    </select>
-                    <div class="form-group">
-                        <label for="address">Địa chỉ cụ thể:</label>
-                        <input type="text" id="address" name="address" value="<?php echo $dia_chi_cu_the; ?>" required>
-                    </div>
 
-                    <div class="form-group">
-                        <label>Phương thức thanh toán:</label><br>
-                        <input type="radio" id="payment-cod" name="payment-method" value="cod" checked>
-                        <label for="payment-cod">Thanh toán khi nhận hàng</label><br>
-                        <input type="radio" id="payment-online" name="payment-method" value="online">
-                        <label for="payment-online">Thanh toán trực tuyến</label>
-                    </div>
-                </form>
-            </div>
-            <div class="cart-checkout">
-                <div class="checkout-header">
-                    <h2 class="checkout-title">SẢN PHẨM</h2>
-                </div>
-                <div class="checkout-container">
-                    <div class="checkout-items">
-                        <?php foreach ($GIOHANG as $item) { ?>
-                            <div class="checkout-item">
-                                <img alt="LAPTOP <?php echo $item['TENSP']; ?>" src="static/image/products/<?php echo $item['HINHSP']; ?>" class="checkout-product-image">
-                                <div class="product-details">
-                                    <div class="product-name"><?php echo $item['TENSP']; ?></div>
-                                    <div class="product-price"><?php echo number_format($item['GIATIEN']); ?>đ</div>
-                                    <div class="product-quantity">
-                                        <div class="quanlity">
-                                            <p style="float: left; margin-top: 10px"><?php echo $item['SOLUONG']; ?></p>
-                                        </div>
-                                    </div>
-                                    <div class="product-total"><?php echo number_format($item['GIATIEN'] * $item['SOLUONG']); ?>đ</div>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/css/checkout.css">
+</head>
+
+<body>
+    <div class="row" style="margin: 100px 100px 50px 100px">
+        <div class="col-75">
+            <div class="container">
+                <form action="">
+
+                    <div class="row">
+                        <div class="col-50">
+                            <h3>Billing Address</h3>
+                            <input type="hidden" name="userId" value="<?php echo $userData['MAKH'] ?>">
+                            <label for="fname"><i class="fa fa-user"></i> Họ và tên</label>
+                            <input type="text" id="fname" name="fullname" value="<?php echo $userData['TEN'] ?>">
+                            <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                            <input type="text" id="email" name="email" placeholder="john@example.com"
+                                value="<?php echo $userData['EMAIL'] ?>">
+                            <label for="phone"><i class="fa fa-phone"></i> Số điện thoại</label>
+                            <input type="text" id="phone" name="phone" placeholder="650-555-1234"
+                                value="<?php echo $userData['SDT'] ?>">
+                            <label for="adr"><i class="fa fa-address-card-o"></i> Địa chỉ</label>
+                            <div class="row" style="padding-bottom: 20px">
+                                <div class="col-30">
+                                    <select class="form-select" name="" id="province">
+                                        <option disabled selected hidden value="">Tỉnh/TP</option>
+                                    </select>
+                                </div>
+                                <div class="col-30">
+                                    <select class="form-select" name="" id="district">
+                                        <option disabled selected hidden value="">Quận/huyện</option>
+                                    </select>
+                                </div>
+                                <div class="col-30">
+                                    <select class="form-select" name="" id="ward">
+                                        <option disabled selected hidden value="">Phường/xã</option>
+                                    </select>
                                 </div>
                             </div>
-                        <?php } ?>
-                    </div>
-                    <div class="checkout-buyside">
-                        <div class="checkout-summary">
-                            <?php
-                            // Tính tổng tiền hàng
-                            $tongtien = 0;
-                            foreach ($GIOHANG as $item) {
-                                $tongtien += $item['GIATIEN'] * $item['SOLUONG'];
-                            }
-                            ?>
-                            <div class="total-amount">Tổng tiền hàng: <?php echo number_format($tongtien); ?>đ</div>
-                            <div class="shipping-fee">Phí vận chuyển: Miễn phí</div>
-                            <div class="total-price">Tổng cộng: <?php echo number_format($tongtien); ?>đ</div>
+                            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street"
+                                value="<?php echo $userData['DIACHI'] ?>">
                         </div>
-                        <button type="button" class="checkout-btn" style="height: 30px;background: black;color: white;font-size: 18px;border-radius: 12px;">Thanh toán</button>
-                    </div>
+                        <div class="col-50">
+                            <div class="container">
+                                <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i>
+                                        <b>4</b></span></h4>
+                                <?php
+                                $totalAll = 0;
+                                $cart_detail = [];
+                                while ($product = mysqli_fetch_assoc($resultSP)) {
+                                    $id = $product['MASP'];
+                                    $name = $product['TENSP'];
+                                    $image = $product['HINHSP'];
+                                    $price = $product['GIATIEN'];
+                                    $quantity = $product['SLGH'];
+                                    $total = $price * $quantity;
+                                    $totalAll = $totalAll + $total;
 
+                                    array_push(
+                                        $cart_detail,
+                                        array(
+                                            'id' => $id,
+                                            'quantity' => $quantity,
+                                        )
+                                    );
+                                    ?>
+                                    <p class="cart_detail">
+                                        <img src="static/image/products/<?php echo $image ?>" alt="product"
+                                            style="width:20%">
+                                        <a href="#"><?php echo $name ?></a>
+                                    <div class="PQ">
+                                        <span class="price"><?php echo $price ?></span>
+                                        <span> x </span>
+                                        <span class="quantity"> <?php echo $quantity ?></span>
+                                    </div>
+                                    </p>
+                                <?php }
+                                $cart_detail_json = json_encode($cart_detail);
+                                ?>
+                                <hr>
+                                <p>Total <span class="price" style="color:black"><b><?php echo $totalAll ?></b></span>
+                                </p>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <input type="submit" value="Đặt hàng" class="btn">
+                </form>
+                <link rel="stylesheet" href="static/css/popup.css">
+                <div class="popup_button" id="popup-order-successful">
+                    <img src="static/image/404-tick.png" alt="">
+                    <h2>Thông báo</h2>
+                    <p></p>
+                    <div class="action-btn">
+                        <button><a href="orderstatus" class="button-link">OK</a></button>
+                    </div>
                 </div>
             </div>
         </div>
-<?php
-    }
-} else {
-    header('Location: sign-in');
-    exit();
-}
-?>
+    </div>
+    <?php
+    echo "<script>var cartDetail = $cart_detail_json;</script>";
+    ?>
+    <script>
+        $(document).ready(function () {
+            $('form').on('submit', function (event) {
+                console.log('sadsa');
+                event.preventDefault();
+
+                var formData = $(this).serialize();
+                console.log(formData);
+                var formDataObject = {};
+                $.each($(this).serializeArray(), function (i, field) {
+                    formDataObject[field.name] = field.value;
+                });
+                var selectedProvince = $('#province').val();
+                var selectedDistrict = $('#district').val();
+                var selectedWard = $('#ward').val();
+
+                formDataObject['cart_detail'] = cartDetail;
+
+                // Add the selected option values to the formDataObject
+                formDataObject['province'] = selectedProvince;
+                formDataObject['district'] = selectedDistrict;
+                formDataObject['ward'] = selectedWard;
+
+                console.log(formDataObject);
+
+                $.ajax({
+                    type: 'POST',
+                    url: 'api/order_confirm.php',
+                    data: formDataObject,
+                    success: function (response) {
+                        console.log(response);
+                        respone = JSON.parse(response);
+                        if (respone.message === "Đặt hàng thành công!") {
+                            var popup = document.getElementById('popup-order-successful');
+                            popup.querySelector('p').textContent = respone.message;
+                            popup.classList.add("open-popup");
+                            return;
+                        }
+                        console.log(response);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"
+        integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module" src="static/js/address.js"></script>
+    <script src="static/js/popup.js"></script>
+
+</body>
+
+</html>

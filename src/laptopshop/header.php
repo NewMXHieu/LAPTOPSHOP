@@ -62,7 +62,7 @@ include "../../config/function.php";
         $('.menu-left-1').toggle();
         $('.overplay').toggle();
     });
-    
+
 
     $(document).ready(function () {
 
@@ -91,7 +91,7 @@ include "../../config/function.php";
         $("#txtSearch").val(search);
         readData(search);
         Pagination(search);
-        
+
     }
     document.onkeydown = function () {
         if (window.event.keyCode == '13') {
