@@ -6,7 +6,7 @@ include "../../config/function.php";
 
 <div id="header">
     <div class="logo">
-        <a href="trangchu"><img width="80" height="80" src="static/image/logo.jpg" alt="laptop--v1" /></a>
+        <a href="trangchu"><img width="80" height="80" src="static/image/laptoplogo.png" alt="laptop--v1" /></a>
     </div>
 
     <!-- <div id="nav">
@@ -105,6 +105,7 @@ include "../../config/function.php";
         $('html, body').animate({
             scrollTop: $(".main").offset().top - 160 // Thay ".main" bằng selector của phần hiện sản phẩm của bạn
         }, 'slow');
+        $("#resetBtn").click();
         delayLoad();
     })
 
