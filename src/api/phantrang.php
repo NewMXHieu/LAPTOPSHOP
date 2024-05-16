@@ -45,5 +45,8 @@
     $count = mysqli_num_rows($query_sanpham);
 
     $page = $count % $sanpham_tren_trang == 0 ? $count / $sanpham_tren_trang : floor($count / $sanpham_tren_trang) + 1;
-    echo $page;
+    echo json_encode(array(
+        'page' => $page,
+        'count' => $count
+    ))
 ?>

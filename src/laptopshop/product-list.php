@@ -6,6 +6,14 @@ include '../../config/connect.php';
     <div class="menu menu-left menu-left-2">
         <button id="resetBtn">Xóa bộ lọc</button>
         <div class="loc">
+            <h3>Sắp xếp</h3>
+            <div class="checkItems checkItem-7">
+                <p><input type="checkbox" checked value="0"> Mặc định</p>
+                <p><input type="checkbox" value="ASC"> Giá tăng dần</p>
+                <p><input type="checkbox" value="DESC"> Giá giảm dần</p>
+            </div>
+        </div>
+        <div class="loc">
             <h3>Hãng sản xuất</h3>
             <div class="checkItems checkItem-1">
                 <p><input type="checkbox" checked value="0"> Tất cả</p>
@@ -34,22 +42,9 @@ include '../../config/connect.php';
             </div>
         </div>
 
-        <!-- <div class="loc">
-            <h3>Màn hình</h3>
-            <div class="checkItems">
-                <p><input type="checkbox" checked> Tất cả</p>
-                <p><input type="checkbox"> Khoảng 13 inch</p>
-                <p><input type="checkbox"> Khoảng 14 inch</p>
-                <p><input type="checkbox"> Trên 15 inch</p>
-            </div>
-        </div> -->
-
         <div class="loc">
             <h3>CPU</h3>
             <div class="checkItems checkItem-3">
-                <p><input type="checkbox" checked value="0"> Tất cả</p>
-                <!-- <p><input type="checkbox"> Intel Celeron</p>
-                <p><input type="checkbox"> Intel Pentium</p> -->
                 <p><input type="checkbox" value="Intel Core i3"> Intel Core i3</p>
                 <p><input type="checkbox" value="Intel Core i5"> Intel Core i5</p>
                 <p><input type="checkbox" value="Intel Core i7"> Intel Core i7</p>
@@ -70,16 +65,6 @@ include '../../config/connect.php';
             </div>
         </div>
 
-        <!-- <div class="loc">
-            <h3>Card đồ họa</h3>
-            <div class="checkItems">
-                <p title="Tất cả" for="check"><input type="checkbox" checked id="check"> Tất cả</p>
-                <p><input type="checkbox"> NVIDIA GeForce Series</p>
-                <p><input type="checkbox"> AMD Radeon Series</p>
-                <p><input type="checkbox"> Card Onboard</p>
-            </div>
-        </div> -->
-
         <div class="loc">
             <h3>Ổ cứng</h3>
             <div class="checkItems checkItem-5">
@@ -89,22 +74,6 @@ include '../../config/connect.php';
                 <p><input type="checkbox" value="128"> SSD 128 GB</p>
             </div>
         </div>
-
-        <!-- <div class="loc">
-            <h3>Tính năng đặc biệt</h3>
-            <div class="checkItems">
-                <p><input type="checkbox" checked> Tất cả</p>
-                <p><input type="checkbox"> CPU Intel</p>
-                <p><input type="checkbox"> CPU Intel Gen 13</p>
-                <p><input type="checkbox"> CPU AMD</p>
-                <p><input type="checkbox"> Card NVIDIA RTX Series 4000</p>
-                <p><input type="checkbox"> Sử dụng tấm nền IPS</p>
-                <p><input type="checkbox"> Windows bản quyền</p>
-                <p><input type="checkbox"> Mở khóa vân tay</p>
-                <p><input type="checkbox"> Đèn nền bàn phím</p>
-                <p><input type="checkbox"> Bảo vệ trẻ em</p>
-            </div>
-        </div> -->
 
         <div class="loc">
             <h3>Nhu cầu</h3>
@@ -130,12 +99,13 @@ include '../../config/connect.php';
 <script>
     let page = 1;
     let search = '';
-    let cost = '';
+    let cost = 0;
     let brand = 0;
-    let cpu = '';
-    let ram = '';
-    let storage = '';
+    let cpu = 0;
+    let ram = 0;
+    let storage = 0;
     let loai = 0;
+    let sapxep = 0;
 
     function readData(search) {
         $.ajax({
@@ -149,14 +119,15 @@ include '../../config/connect.php';
                 cpu : cpu,
                 ram : ram,
                 storage : storage,
-                loai : loai
+                loai : loai,
+                sapxep : sapxep
             },
             success: function(data) {
                 if (data == null || data == '') {
                     $('.thongbao').html("KHÔNG CÓ SẢN PHẨM THEO YÊU CẦU!");
                     $('.main').empty();
                 } else {
-                    $('.thongbao').empty();
+                    // $('.thongbao').empty();
                     $(".main").empty();
                     $(".main").append(data);
                 }
@@ -176,13 +147,18 @@ include '../../config/connect.php';
                 cpu : cpu,
                 ram : ram,
                 storage : storage,
-                loai : loai
+                loai : loai,
+                sapxep : sapxep
 
             },
-            success: function(data) {
+            success: function(response) {
+                response = JSON.parse(response);
+                let data = response.page;
+                let count = response.count;
                 if (data < 1) {
                     $(".pagination").hide();
                 } else {
+                    $('.thongbao').html("Số sản phẩm hiện có: " + count);
                     $(".pagination").show();
                     $(".pagination").empty();
                     let pagi = '';
@@ -207,9 +183,14 @@ include '../../config/connect.php';
         localStorage.setItem('searchValue', search);
         page = 1;
         delayLoad();
+        $("#resetBtn").click();
         $('html, body').animate({
-            scrollTop: $(".main").offset().top - 110 // Thay ".main" bằng selector của phần hiện sản phẩm của bạn
+            scrollTop: $(".main").offset().top - 160 // Thay ".main" bằng selector của phần hiện sản phẩm của bạn
         }, 'slow');
+    });
+    $(".menu-left-1").on("click", "li a", function(e) {
+        $(".list").on();
+        $('.danhmuc').click();
     });
     $(".pagination ").on("click", "a", function(e) {
         e.preventDefault();
@@ -235,7 +216,6 @@ include '../../config/connect.php';
         $(this).find('input').prop("checked", true);
         cpu = $(this).find('input').val();
         delayLoad();
-        // console.log(cpu);
     });
     $(".checkItem-4").on("click", "p", function(e) {
         $(".checkItem-4 input").prop("checked", false);
@@ -254,7 +234,12 @@ include '../../config/connect.php';
         $(this).find('input').prop("checked", true);
         loai = $(this).find('input').val();
         delayLoad();
-        // console.log(cpu);
+    });
+    $(".checkItem-7").on("click", "p", function(e) {
+        $(".checkItem-7 input").prop("checked", false);
+        $(this).find('input').prop("checked", true);
+        sapxep = $(this).find('input').val();
+        delayLoad();
     });
     $("#resetBtn").click(function() {
         $(".checkItems input[type='checkbox']").each(function() {
@@ -270,6 +255,7 @@ include '../../config/connect.php';
         ram = 0;
         storage = 0;
         loai = 0;
+        sapxep = 0;
         delayLoad();
     })
 </script>

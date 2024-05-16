@@ -145,6 +145,7 @@ li {
 .login {
     margin: 0 15px;
 }
+
 .cart {
     margin: 0 30px;
 }
@@ -391,7 +392,7 @@ a {
 .slider {
     border-radius: 12px;
     height: 500px;
-    width: 998px;
+    width: 98%;
     overflow: hidden;
     position: relative;
     margin: 0 8px;
@@ -404,7 +405,8 @@ a {
 }
 
 .list-img img {
-    width: auto;
+    height: 554px;
+    width: 103%;
 }
 
 .btn-left {
@@ -473,6 +475,7 @@ a {
 }
 
 .main .product {
+    height: 420px;
     border: 1px solid #c4baba;
     width: calc(25%);
 }
@@ -507,9 +510,8 @@ a {
 
 .thongbao {
     font-size: xx-large;
-    color: red;
     text-align: center;
-    font-weight: bolder;
+    font-weight: lighter;
 }
 
 /*====================================Log in, log out================================*/
@@ -706,7 +708,7 @@ button[type="button"]:hover {
     min-height: 410px;
 }
 
-.menu-left-1{
+.menu-left-1 {
     width: 276px;
     display: none;
     position: fixed;
@@ -811,35 +813,71 @@ h3 {
     height: 100px;
 }
 
+.product-name .danhgia {
+    color: rgb(244, 182, 66);
+}
+
 .product-name p {
-    margin: 10px 0;
+    margin: 5px 0;
     font-size: 25px;
     color: red;
 }
 
+.product-name .past-price {
+    font-size: 18px;
+    color: grey;
+    text-decoration: line-through;
+    margin-left: 5px;
+}
+
 .thongtinsp .promotion {
-    margin: 30px 30px 0;
+    margin: 80px 30px 0;
+    padding: 10px;
+    border: solid #000;
+    border-radius: 8px;
 }
 
 .thongtinsp .promotion h5 {
     text-align: center;
     margin-bottom: 10px;
     font-size: 18px;
+    border-bottom: 1px solid #000;
 }
 
 .paying-product button {
     padding: 20px 15px;
     border: 1px solid blue;
-    margin-top: 30px;
+    margin-top: 40px;
     width: 49%;
     font-size: 15px;
     border-radius: 5px;
+    transition: transform 0.3s ease;
 }
+
+.paying-product button:hover {
+    cursor: pointer;
+    transform: translateY(-8px);
+}
+
 
 .sell-button {
     background-color: blue;
     color: white;
 
+}
+
+@media (max-width: 1200px) {
+
+    .product-name,
+    .promotion {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 900px) {
+    .product-name {
+        font-size: 9px;
+    }
 }
 
 
@@ -912,12 +950,16 @@ h3 {
 .recommend-row {
     display: flex;
     /* height: 300px; */
-    width: 4393px;
+    /* width: 4540px; */
     position: absolute;
     left: 0;
     /* right: 60px; */
     /* bottom: 20px; */
     /* top: 62px; */
+}
+
+.recommend-row .product {
+    border: 1px solid #c4baba;
 }
 
 @media (max-width: 1715px) {
@@ -974,25 +1016,31 @@ h3 {
         margin-bottom: 30px;
         overflow: auto;
     }
-    .menu-left-3{
+
+    .menu-left-3 {
         display: none;
     }
+
     .loc {
         min-width: 140px;
         border: none;
     }
-    .loc:nth-child(5){
+
+    .loc:nth-child(6) {
         min-width: 62px;
     }
-    .loc:nth-child(7){
+
+    .loc:nth-child(8) {
         min-width: 160px;
     }
 }
+
 @media (max-width: 888px) {
     .main .product {
         width: calc(33%);
     }
-    .footer-top{
+
+    .footer-top {
         padding: 10px 70px;
     }
 }
@@ -1001,7 +1049,8 @@ h3 {
     .main .product {
         width: calc(50%);
     }
-    .footer-top{
+
+    .footer-top {
         padding: 10px 0;
         overflow: hidden;
     }
@@ -1012,10 +1061,12 @@ h3 {
         margin: auto;
         width: 80%;
     }
+
     .main .product {
         width: calc(100%);
     }
 }
+
 .table {
     --bs-table-bg: transparent;
     --bs-table-accent-bg: transparent;

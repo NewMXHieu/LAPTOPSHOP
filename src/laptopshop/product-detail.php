@@ -36,34 +36,30 @@
         </div>
         <div class="thongtinsp">
             <div class="product-name">
-                <h2>Laptop <?php echo $product['TENSP'];?> </h2>
-                <p>Giá tiền: <?php echo number_format($product['GIATIEN'], 0, "", ".")?> Vnd</p>
+                <h2><?php echo $product['TENSP'];?> </h2>
+                <p class="danhgia"><?php echo rand(1,5).'.0'; ?> <img width="22" height="22"
+                        src="https://img.icons8.com/emoji/48/star-emoji.png" alt="star-emoji" /></p>
+                <p class="present-price"><?php echo number_format($product['GIATIEN'], 0, "", ".")?>đ</p>
+                <p class="past-price"><?php echo number_format($product['GIATIEN'] + 2130000, 0, "", ".")?>đ</p>
             </div>
             <div class="promotion">
                 <h5>Khuyến mãi</h5>
                 <?php
                 $promo_query = "SELECT * FROM chitietkhuyenmai";
                 $promo_result = mysqli_query($conn,$promo_query);
-                
                 ?>
                 <ul>
                     <?php
-                
-                while($promo = mysqli_fetch_assoc($promo_result)){
-                    echo $promo['QUATANG'];
-                    echo '<br>';
-                }
-                        
+                        while($promo = mysqli_fetch_assoc($promo_result)){
+                            echo $promo['QUATANG'];
+                            echo '<br>';
+                        }    
                     ?>
-                    <!-- <li>Tặng balo khi mua hàng có hóa đơn trên 1tr</li>
-                    <li>Giảm giá sốc khi mua nhiều mặt hàng</li>
-                    <li>Giao hàng nhanh ngay trong ngày</li>
-                    <li>Miễn phí đổi trả nếu có bất kỳ vấn đề trong vòng 1 tháng từ khi mua hàng</li> -->
                 </ul>
             </div>
             <div class="paying-product">
-                <a href="#"></a><button class="sell-button">Mua ngay</button></a>
-                <a href="#"></a><button>Thêm vào giỏ hàng</button></a>
+                <a href="checkout"><button class="sell-button">Mua ngay</button></a>
+                <a href="cart"><button>Thêm vào giỏ hàng</button></a>
             </div>
         </div>
     </div>
