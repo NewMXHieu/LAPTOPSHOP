@@ -58,8 +58,8 @@
                 </ul>
             </div>
             <div class="paying-product">
-                <a href="#"></a><button class="sell-button">Mua ngay</button></a>
-                <a href="#"></a><button>Thêm vào giỏ hàng</button></a>
+                <a href="checkout"><button class="sell-button">Mua ngay</button></a>
+                <a href="cart"><button>Thêm vào giỏ hàng</button></a>
             </div>
         </div>
     </div>
