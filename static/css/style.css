@@ -865,8 +865,16 @@ h3 {
 }
 
 @media (max-width: 1200px) {
-    .product-name {
+
+    .product-name,
+    .promotion {
         font-size: 12px;
+    }
+}
+
+@media (max-width: 900px) {
+    .product-name {
+        font-size: 9px;
     }
 }
 
