@@ -29,6 +29,10 @@ function register()
     echo json_encode(array("message" => "Vui lòng nhập đầy đủ thông tin"));
     exit;
   }
+  if (strlen($password) < 6) {
+    echo json_encode(array("message" => "Mật khẩu phải có ít nhất 6 ký tự"));
+    exit;
+  }
   if ($password != $confirm_password) {
     echo json_encode(array("message" => "Mật khẩu không khớp"));
     exit;
@@ -63,11 +67,17 @@ function login()
       exit;
     }
     $user = mysqli_query($conn, "SELECT * FROM taikhoan WHERE tendn = '$username'");
-  
+
+
 
     if (mysqli_num_rows($user) > 0) {
 
       $row = mysqli_fetch_assoc($user);
+      // Check if account is locked
+      if ($row['TRANGTHAI'] == 0) {
+        echo json_encode(array("message" => "Tài khoản đã bị khóa. Vui lòng liên hệ với quản trị viên."));
+        exit;
+      }
 
 
       if ($password == $row['MATKHAU']) {
@@ -83,7 +93,7 @@ function login()
 
         // check if user not exists
         if (mysqli_num_rows($userInfoSQLResult) <= 0) {
-          echo "Tài khoản chưa được kích hoạt hoặc không tồn hoạt. Vui lòng liên hệ với quản trị viên.";
+          echo json_encode(array("message" => "Tài khoản không tồn tại"));
           exit;
         }
 
@@ -94,9 +104,9 @@ function login()
         $result = $conn->query($sql);
         $maquyens = [];
         if ($result->num_rows > 0) {
-            while ($row2 = $result->fetch_assoc()) {
-                $maquyens[] = $row2['MAQUYEN'];
-            }
+          while ($row2 = $result->fetch_assoc()) {
+            $maquyens[] = $row2['MAQUYEN'];
+          }
         }
         // response with userInfo and loginRoute
         $dataRespone = json_encode(array("message" => "Login Successful", "loginRoute" => $permission['MANHOMQUYEN'], "quyen" => $maquyens));

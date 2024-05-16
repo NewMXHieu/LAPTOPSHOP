@@ -29,7 +29,11 @@
                         </form>
                     </div>
                     <div class="content-main-control-filter">
-                        <button id="addNewKhachHang"><i class="fa-solid fa-plus"></i></button>
+                        <?php
+                        if (maQuyenTonTai($maquyen, 10)) {
+                            echo '<button id="addNewKhachHang"><i class="fa-solid fa-plus"></i></button>';
+                        }
+                        ?>
                         <button id="resetBtnKhachHang" onclick="resetDataKhachHang()"><i class="fa-solid fa-arrows-rotate"></i></button>
                         <button id="filterByBotToTopBtnKhachHang" onclick="filterByBotToTopKH()"><i class="fa-solid fa-sort-up"></i></button>
                         <button id="filterByToptoBotBtnKhachHang" onclick="filterByTopToBotKH()"><i class="fa-solid fa-sort-down"></i></button>

@@ -108,14 +108,20 @@ if (arr.length === 0) {
 
     
     arr.forEach(product => {
-        let btnCtl = product.TRANGTHAI == 1 ?
+        let BtnEdit = '';
+        let btnCtl = '';
+        let btnTrangThai = product.TRANGTHAI == 1 ?
+        `Hoạt động` :
+        `Đã khóa`;
+        if(quyen.includes(String(11))) {
+            BtnEdit = `<button class="btn btn-primary" onclick="editKhachHang(${product.MAKH})"><i class="fa-solid fa-pen-to-square"></i></button>`;
+        }
+        if(quyen.includes(String(12))) {
+            btnCtl = product.TRANGTHAI == 1 ?
             `<button class="btn btn-danger" onclick="changeStatusTKKHOff(${product.MAKH})"><i class="fa-solid fa-trash"></i></button>` :
             `<button class="btn btn-danger undo-btn" onclick="changeStatusTKKHOn(${product.MAKH})"><i class="fa-solid fa-trash"></i></button>`;
         
-            
-            let btnTrangThai = product.TRANGTHAI == 1 ?
-            `Hoạt động` :
-            `Đã khóa`;
+        }
 
 
         productHtml +=
@@ -128,7 +134,10 @@ if (arr.length === 0) {
             <td>${product.MATK}</td>
             <td>${product.EMAIL}</td>
             <td>${btnTrangThai}</td>
-            <td class="table-control"><button class="btn btn-primary" onclick="editKhachHang(${product.MAKH})"><i class="fa-solid fa-pen-to-square"></i></button> ${btnCtl}</td>
+            <td class="table-control">
+                ${BtnEdit}
+                ${btnCtl}
+            </td>
         </tr>`;
 
     });

@@ -14,12 +14,12 @@
 
     <!-- Thêm Nhóm Quyền -->
     <div class="modal AddPhanQuyen">
-        <form action="" method="POST">
+        <form class="addNQ" action="" method="POST">
             <h2 style="height: 50px">Thông tin chi tiết</h2>
             <div class="detail-info">
                 <div class="form-group1">
                     <label for="permission-id">ID Quyền:</label>
-                    <input type="text" id="permission-id">
+                    <input type="text" id="permission-id" readonly>
                 </div>
                 <div class="form-group2">
                     <label for="permission-name">Tên nhóm quyền:</label>
@@ -134,12 +134,12 @@
 
     <!-- edit NHÂN VIÊN -->
     <div class="modal editPhanQuyen">
-        <form action="" method="POST">
+        <form class="editNQ" action="" method="POST">
             <h2 style="height: 50px">Thông tin chi tiết</h2>
             <div class="detail-info">
                 <div class="form-group1">
                     <label for="permission-id">ID Quyền:</label>
-                    <input type="text" id="edit-permission-id">
+                    <input type="text" id="edit-permission-id" readonly>
                 </div>
                 <div class="form-group2">
                     <label for="permission-name">Tên nhóm quyền:</label>

@@ -107,14 +107,19 @@ if (arr.length === 0) {
 
     
     arr.forEach(product => {
-        let btnCtl = product.TRANGTHAI == 1 ?
+        let btnCtl ='';
+        btnTrangThai = product.TRANGTHAI == 1 ?
+        `Hoạt động` :
+        `Đã khóa`;
+        let BtnEdit ='';
+        if(quyen.includes(String(7))) {
+            BtnEdit = `<button class="btn btn-primary" onclick="editNhanVien(${product.MANV})"><i class="fa-solid fa-pen-to-square"></i></button>`;
+        }
+        if(quyen.includes(String(8))) {
+            btnCtl = product.TRANGTHAI == 1 ?
             `<button class="btn btn-danger" onclick="changeStatusTKNVOff(${product.MANV})"><i class="fa-solid fa-trash"></i></button>` :
             `<button class="btn btn-danger undo-btn" onclick="changeStatusTKNVOn(${product.MANV})"><i class="fa-solid fa-trash"></i></button>`;
-        
-            
-            let btnTrangThai = product.TRANGTHAI == 1 ?
-            `Hoạt động` :
-            `Đã khóa`;
+        }
 
 
         productHtml +=
@@ -128,7 +133,10 @@ if (arr.length === 0) {
             <td>${product.EMAIL}</td>
             <td>${product.CHUCVU}</td>
             <td>${btnTrangThai}</td>
-            <td class="table-control"><button class="btn btn-primary" onclick="editNhanVien(${product.MANV})"><i class="fa-solid fa-pen-to-square"></i></button> ${btnCtl}</td>
+            <td class="table-control">
+            ${BtnEdit}
+            ${btnCtl}
+            </td>
         </tr>`;
 
     });

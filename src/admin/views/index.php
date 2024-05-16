@@ -2,7 +2,42 @@
 session_start();
 include '../functions/getDsQuyenTheoTaiKhoan.php';
 
+function maQuyenTonTai($maquyen, $maquyenCanKiemTra)
+{
+    foreach ($maquyen as $key => $value) {
+        if ($value == $maquyenCanKiemTra) {
+            return true;
+        }
+    }
+    return false;
+}
 ?>
+<script>
+    var quyen = <?php echo json_encode($maquyen); ?>;
+    const fragment = window.location.hash
+
+    const listFragmentsWithPermission = {
+        1: '#content-sanpham',
+        5: '#content-nhanvien',
+        9: '#content-khachhang',
+        13: '#content-donhang',
+        17: '#content-phanquyen',
+        21: '#content-nhaphang',
+        25: '#content-baohanh',
+        29: '#content-thongke',
+    }
+    const permittedFragments = quyen.map(permission => listFragmentsWithPermission[permission])
+    if(!permittedFragments.includes(fragment)){
+        window.location.hash = ''   
+    }
+    window.onhashchange = () => {
+        const fragment = window.location.hash
+        if(!permittedFragments.includes(fragment)){
+            window.location.hash = ''
+        }
+    }
+
+</script>
 <!DOCTYPE html>
 <html lang="vi">
 
@@ -15,11 +50,6 @@ include '../functions/getDsQuyenTheoTaiKhoan.php';
 </head>
 
 <body>
-    <div class="hidden-sidebar">
-        <div class="nav-toggle">
-            <i class="fa fa-bars"></i>
-        </div>
-    </div>
 
     <!-- sidebar -->
     <div class="sidebar">
@@ -27,7 +57,7 @@ include '../functions/getDsQuyenTheoTaiKhoan.php';
         <div class="sidebar-header">
             <a href="#">
                 <div class="sidebar-header-image">
-                    <i class="fa-solid fa-laptop"></i>
+                    <img src="static/image/laptoplogo.png" alt="">
                 </div>
                 <p class="sidebar-header-name">Cửa hàng laptop</p>
             </a>
@@ -60,34 +90,34 @@ include '../functions/getDsQuyenTheoTaiKhoan.php';
                     </li>',
                     9 => '
                     <!-- layout khách hàng -->
-                <li class="sidebar-control-list-item" id="admin-khachhang-layout" name="admin-khachhang-layout">
-                    <a href="#content-khachhang">
-                        <div class="sidebar-item-image">
-                            <i class="fa-solid fa-users"></i>
-                        </div>
-                        <div class="sidebar-item-name">Quản lý khách hàng</div>
-                    </a>
-                </li>',
+                    <li class="sidebar-control-list-item" id="admin-khachhang-layout" name="admin-khachhang-layout">
+                        <a href="#content-khachhang">
+                            <div class="sidebar-item-image">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <div class="sidebar-item-name">Quản lý khách hàng</div>
+                        </a>
+                    </li>',
                     1 => '
-                <!-- layout sản phẩm -->
-                <li class="sidebar-control-list-item" id="admin-sanpham-layout" name="admin-sanpham-layout">
-                    <a href="#content-sanpham">
-                        <div class="sidebar-item-image">
-                            <i class="fa-solid fa-laptop"></i>
-                        </div>
-                        <div class="sidebar-item-name">Quản lý sản phẩm</div>
-                    </a>
-                </li>',
+                    <!-- layout sản phẩm -->
+                    <li class="sidebar-control-list-item" id="admin-sanpham-layout" name="admin-sanpham-layout">
+                        <a href="#content-sanpham">
+                            <div class="sidebar-item-image">
+                                <i class="fa-solid fa-laptop"></i>
+                            </div>
+                            <div class="sidebar-item-name">Quản lý sản phẩm</div>
+                        </a>
+                    </li>',
                     13 => '
-                <!-- layout đơn hàng -->
-                <li class="sidebar-control-list-item" id="admin-sanpham-layout" name="admin-sanpham-layout">
-                    <a href="#content-donhang">
-                        <div class="sidebar-item-image">
-                            <i class="fa-solid fa-truck-fast"></i>
-                        </div>
-                        <div class="sidebar-item-name">Quản lý đơn hàng</div>
-                    </a>
-                </li>',
+                    <!-- layout đơn hàng -->
+                    <li class="sidebar-control-list-item" id="admin-sanpham-layout" name="admin-sanpham-layout">
+                        <a href="#content-donhang">
+                            <div class="sidebar-item-image">
+                                <i class="fa-solid fa-truck-fast"></i>
+                            </div>
+                            <div class="sidebar-item-name">Quản lý đơn hàng</div>
+                        </a>
+                    </li>',
                     17 => '
                 <!-- layout phân quyền -->
                 <li class="sidebar-control-list-phanquyen" id="admin-phanquyen-layout" name="admin-phanquyen-layout">
@@ -134,20 +164,9 @@ include '../functions/getDsQuyenTheoTaiKhoan.php';
                     }
 
                 </script>',
-                    29 => '
-                <!-- layout thống kê -->
-                <li class="sidebar-control-list-item" id="admin-thongke-layout" name="admin-thongke-layout">
-                    <a href="#content-thongke">
-                        <div class="sidebar-item-image">
-                            <i class="fa-solid fa-chart-line"></i>
-                        </div>
-                        <div class="sidebar-item-name">Thống kê</div>
-                    </a>
-                </li>',
                     21 => '
-
                 <!-- layout nhập hàng -->
-                <li class="sidebar-control-list-item" id="admin-thongke-layout" name="admin-thongke-layout">
+                <li class="sidebar-control-list-item" id="admin-nhaphang-layout" name="admin-thongke-layout">
                     <a href="#content-nhaphang">
                         <div class="sidebar-item-image">
                             <i class="fa-solid fa-parachute-box"></i>
@@ -157,12 +176,22 @@ include '../functions/getDsQuyenTheoTaiKhoan.php';
                 </li>',
                     25 => '
                 <!-- layout bảo hành -->
-                <li class="sidebar-control-list-item" id="admin-thongke-layout" name="admin-thongke-layout">
+                <li class="sidebar-control-list-item" id="admin-baohanh-layout" name="admin-thongke-layout">
                     <a href="#content-baohanh">
                         <div class="sidebar-item-image">
                             <i class="fa-solid fa-circle-notch"></i>
                         </div>
                         <div class="sidebar-item-name">Bảo hành</div>
+                    </a>
+                </li>',
+                29 => '
+                <!-- layout thống kê -->
+                <li class="sidebar-control-list-item" id="admin-thongke-layout" name="admin-thongke-layout">
+                    <a href="#content-thongke">
+                        <div class="sidebar-item-image">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <div class="sidebar-item-name">Thống kê</div>
                     </a>
                 </li>',
                 ];
@@ -215,6 +244,10 @@ include '../functions/getDsQuyenTheoTaiKhoan.php';
                 </li>
             </ul>
         </div>
+    </div>
+    <div class="toggler">
+        <i class="fa-solid fa-bars" id="toggle-bars"></i>
+        <i class="fa-solid fa-xmark" id="toggle-cross"></i>
     </div>
 
     <!-- content -->

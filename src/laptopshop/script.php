@@ -64,6 +64,7 @@
           if (message === "Registration Successful") {
             var popup = document.getElementById('popup-register-successful');
             popup.classList.add("open-popup");
+            return;
           }
 
           // Handling login failure messages
@@ -74,7 +75,7 @@
           }
 
           // Handling registration failure messages
-          else if (["Vui lòng nhập đầy đủ thông tin", "Mật khẩu không khớp", "Tên tài khoản đã tồn tại"].includes(message)) {
+          else if (["Vui lòng nhập đầy đủ thông tin", "Mật khẩu phải có ít nhất 6 ký tự", "Mật khẩu không khớp", "Tên tài khoản đã tồn tại"].includes(message)) {
             var popup = document.getElementById('popup-register-fail');
             popup.querySelector('p').textContent = message;
             popup.classList.add("open-popup");

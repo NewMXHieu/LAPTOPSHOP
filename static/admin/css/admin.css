@@ -23,6 +23,11 @@ ul {
 a {
     text-decoration: none;
 }
+img{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
 
 body {
     display: flex;
@@ -31,24 +36,8 @@ body {
     background-color: var(--body-color);
 }
 
-.hidden-sidebar {
-    background-color: var(--main-color);
-    height: 11%;
-}
-
-/* Định nghĩa nút 3 gạch nhưng ẩn nó trên màn hình lớn */
-.nav-toggle {
-    display: none;
-    font-size: 30px;
-    cursor: pointer;
-    height: 35px;
-    width: 35px;
-    border-radius: 0 0 10px;
-
-}
-
 .sidebar {
-    width: 15%;
+    width: 60px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -76,7 +65,7 @@ body {
 }
 
 .sidebar-header-image {
-    height: 80%;
+    height: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -85,11 +74,9 @@ body {
 
 .sidebar-header-name {
     font-size: 25px;
+    opacity: 0;
 }
 
-.sidebar-header-image i {
-    font-size: 4rem;
-}
 
 .sidebar-footer-name,
 .sidebar-content-name {
@@ -101,6 +88,7 @@ body {
     flex-direction: column;
     overflow: hidden;
     flex-grow: 1;
+    transition: all 0.5s ease;
 }
 .sidebar-footer{
     display: flex;
@@ -133,6 +121,11 @@ body {
     padding: 10px;
     cursor: pointer;
     background-color: transparent;
+}
+.sidebar-item-name {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    height: 20px;
 }
 
 
@@ -187,7 +180,7 @@ body {
     flex: 1;
     height: 100vh;
     overflow: hidden;
-    margin-left: 15.7%;
+    margin-left: 65px;
 }
 
 .content-item {
@@ -288,31 +281,6 @@ body {
     height: 100%;
 }
 
-@media screen and (min-width: 768px) {
-    .nav-toggle {
-        display: none;
-    }
-}
-
-@media screen and (max-width: 930px),
-screen and (max-height: 600px) {
-
-    /* Ẩn thanh sidebar */
-    .sidebar {
-        display: none;
-        ;
-    }
-
-    .content {
-        margin: 0;
-    }
-
-    /* Hiển thị nút 3 gạch */
-    .nav-toggle {
-        display: block;
-    }
-}
-
 .dropdown-btn {
     display: flex;
     padding: 10px;
@@ -335,7 +303,48 @@ screen and (max-height: 600px) {
 .sidebar-control-list-phanquyen .dropdown-content a:hover .sidebar-item-image i {
     color: rgb(77, 124, 165);
 }
-.active {
+.dropdown-btn .active {
     background-color: var(--main-color);
 
+}
+
+.toggler{
+    position: absolute;
+    top: 0;
+    left: 60px;
+    padding: 10px 15px;
+    font-size: 1.4rem;
+    transition: all 0.5s ease;
+}
+.toggler #toggle-cross {
+    display: none;
+}
+
+
+
+.active.toggler #toggle-cross {
+    display: block;
+}
+
+.active.toggler #toggle-bars {
+    display: none;
+}
+
+.active.toggler {
+    left: 14%;
+    z-index: 1;
+}
+
+.active.sidebar {
+    width: 16%;
+}
+
+.active.sidebar .sidebar-item-name {
+    opacity: 1;
+}
+.active.sidebar .sidebar-header-name {
+    opacity: 1;
+}
+.active.content {
+    margin-left: 17%;
 }
