@@ -13,9 +13,6 @@
 <body>
     <!-- add phiếu nhập -->
     <div class="modal addphieunhap">
-        <div class="modal-close modal-close-phieunhap">
-            <i class="fa-solid fa-xmark"></i>
-        </div>
         <form id="editphieunhapform" action="" method="POST">
             <input type="text" id="addphieunhap_id" name="addphieunhap_id" style="display:none">
             <input type="text" id="addphieunhap_tongtien" name="addphieunhap_tongtien" style="display:none">
@@ -82,9 +79,6 @@
 
     <!-- edit phiếu nhập -->
     <div class="modal editphieunhap">
-        <div class="modal-close modal-close-phieunhap">
-            <i class="fa-solid fa-xmark"></i>
-        </div>
         <form id="editphieunhapform" action="" method="POST">
             <input type="text" id="editphieunhap_idphieunhap" name="editphieunhap_idphieunhap" style="display:none">
             <H2 class="edit-product-title">CHI TIẾT PHIẾU NHẬP</H2>
