@@ -60,7 +60,7 @@
                     $data.= '<a href="product-detail?id=' .$row_sanpham['MASP']. '">' .$row_sanpham['TENSP']. '</a>';
                     $data.= '<h2>' .$row_sanpham['TENTHUONGHIEU']. '</h2>';
                     $data.= '<div class="price">' . number_format($row_sanpham['GIATIEN'], 0, "", ".") . " Vnd". '</div>';
-                    $data.= '<button class="addCart">Thêm <i class="fa-solid fa-plus"></i></button>';
+                    $data.= '<button class="addCart" data-id = "'.$row_sanpham['MASP'].'">Thêm <i class="fa-solid fa-plus"></i></button>';
                 $data.= '</div>';
             $data.= '</a>';
         $data.= '</div>';

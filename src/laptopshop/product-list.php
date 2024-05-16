@@ -116,11 +116,11 @@ include '../../config/connect.php';
                 page: page,
                 cost: cost,
                 brand: brand,
-                cpu : cpu,
-                ram : ram,
-                storage : storage,
-                loai : loai,
-                sapxep : sapxep
+                cpu: cpu,
+                ram: ram,
+                storage: storage,
+                loai: loai,
+                sapxep: sapxep
             },
             success: function(data) {
                 if (data == null || data == '') {
@@ -130,6 +130,7 @@ include '../../config/connect.php';
                     // $('.thongbao').empty();
                     $(".main").empty();
                     $(".main").append(data);
+                    handleAddCartClick();
                 }
 
             }
@@ -144,11 +145,11 @@ include '../../config/connect.php';
                 search: search,
                 cost: cost,
                 brand: brand,
-                cpu : cpu,
-                ram : ram,
-                storage : storage,
-                loai : loai,
-                sapxep : sapxep
+                cpu: cpu,
+                ram: ram,
+                storage: storage,
+                loai: loai,
+                sapxep: sapxep
 
             },
             success: function(response) {
@@ -259,3 +260,4 @@ include '../../config/connect.php';
         delayLoad();
     })
 </script>
+<script src = "static/js/cart.js"></script>

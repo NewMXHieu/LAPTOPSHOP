@@ -3,7 +3,7 @@ $(document).ready(function() {
     $('select[name="calc_shipping_provinces"]').change(function() {
         var province_id = $(this).val();
         $.ajax({
-            url: '/laptopshop/config/fetch_district.php',
+            url: 'src/api/fetch_district.php',
             method: 'POST',
             data: { province_id: province_id },
             dataType: 'json',

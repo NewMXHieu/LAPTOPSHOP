@@ -24,10 +24,10 @@ function getProductById(id) {
     return products.find(product => product.id === id);
 }
 
-function updateCart(productId, quantity, method, isChecked = null) {
+function updateCart(productId = null, quantity = null, method = null, isChecked = null) {
     console.log('updateCart:', productId, quantity, method, isChecked);
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', '/laptopshop/config/update_cart.php', true);
+    xhr.open('POST', 'laptopshop/src/api/update_cart.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onload = function () {
         if (this.status === 200) {
@@ -51,18 +51,18 @@ function updateCart(productId, quantity, method, isChecked = null) {
                         totalElement.textContent = Number(product.total).toLocaleString('vi-VN') + 'đ';
                     }
                     let tienElement = document.querySelector('.total-price');
-                    if (tienElement && isChecked !==null || tienElement && product.isChecked === true) {
+                    if (tienElement && isChecked !== null || tienElement && product.isChecked === true) {
                         let totalprice = parseInt(tienElement.textContent.replace(/\D/g, ''));
                         console.log('totalprice:', totalprice);
                         if (product) {
                             if (product.isChecked) {
                                 console.log('isChecked:', product.isChecked);
-                                if(method === 'checkbox'){
+                                if (method === 'checkbox') {
                                     totalprice = totalprice + product.total;
-                                }else if(method === 'plus'){
-                                    totalprice = totalprice + product.total/product.quantity;
-                                }else if(method === 'minus'){
-                                    totalprice = totalprice - product.total/product.quantity;
+                                } else if (method === 'plus') {
+                                    totalprice = totalprice + product.total / product.quantity;
+                                } else if (method === 'minus') {
+                                    totalprice = totalprice - product.total / product.quantity;
                                 }
                                 tienElement.textContent = 'Tổng cộng:' + Number(totalprice).toLocaleString('vi-VN') + 'đ';
                             } else {
@@ -103,9 +103,9 @@ document.querySelectorAll('.minus, .plus').forEach(button => {
             if (event.target.classList.contains('minus')) {
                 let b = quantity;
                 quantity = Math.max(1, quantity - 1);
-                b=b-1;
+                b = b - 1;
                 method = 'minus';
-                if(b >= 1){
+                if (b >= 1) {
                     updateCart(productId, quantity, method);
                 }
             } else {
@@ -115,7 +115,7 @@ document.querySelectorAll('.minus, .plus').forEach(button => {
             }
             quantityElement.textContent = quantity;
             console.log(productId, quantity, method);
-            
+
         }
     });
 });
@@ -134,3 +134,15 @@ document.querySelectorAll('.checkbox').forEach(checkbox => {
     });
 });
 
+// document.querySelectorAll('.delete-all-btn').addEventListener('click', (event) => {
+// });
+
+function handleAddCartClick() {
+    $(".addCart").on("click", function (event) {
+        const productId = event.target.getAttribute('data-id');
+        console.log("davao")
+        const method = 'addCart';
+        const quantity = 0;
+        updateCart(productId, quantity, method, isChecked = null);
+    });
+}
