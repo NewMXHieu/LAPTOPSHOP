@@ -7,6 +7,7 @@
     $ram = $_GET['ram'];
     $storage = $_GET['storage'];
     $loai = $_GET['loai'];
+    $sapxep = $_GET['sapxep'];
     $sanpham_tren_trang = 16;
     $current_page = $_GET['page'];
     $offset = ($current_page - 1) * $sanpham_tren_trang;
@@ -44,6 +45,9 @@
         AND phanloaisanpham.MALOAISP = ".$loai."";
     }
     
+    if($sapxep != 0){
+        $sql_sanpham.= " ORDER BY chitietsanpham.GIATIEN ".$sapxep."";
+    }
 
     $sql_sanpham .= " LIMIT $offset, $sanpham_tren_trang";
     $query_sanpham = mysqli_query($conn, $sql_sanpham);

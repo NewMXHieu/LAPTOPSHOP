@@ -388,7 +388,7 @@ a {
 .slider {
     border-radius: 12px;
     height: 500px;
-    width: 998px;
+    width: 98%;
     overflow: hidden;
     position: relative;
     margin: 0 8px;
@@ -401,7 +401,8 @@ a {
 }
 
 .list-img img {
-    width: auto;
+    height: 554px;
+    width: 103%;
 }
 
 .btn-left {
@@ -470,6 +471,7 @@ a {
 }
 
 .main .product {
+    height: 420px;
     border: 1px solid #c4baba;
     width: calc(25%);
 }
