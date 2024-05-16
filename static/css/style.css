@@ -948,12 +948,16 @@ h3 {
 .recommend-row {
     display: flex;
     /* height: 300px; */
-    width: 8540px;
+    /* width: 4540px; */
     position: absolute;
     left: 0;
     /* right: 60px; */
     /* bottom: 20px; */
     /* top: 62px; */
+}
+
+.recommend-row .product {
+    border: 1px solid #c4baba;
 }
 
 @media (max-width: 1715px) {
