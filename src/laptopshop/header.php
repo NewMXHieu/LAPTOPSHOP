@@ -6,7 +6,7 @@ include "../../config/function.php";
 
 <div id="header">
     <div class="logo">
-        <a href="trangchu"><img width="80" height="80" src="static/image/logo.jpg" alt="laptop--v1" /></a>
+        <a href="trangchu"><img width="80" height="80" src="static/image/laptoplogo.jpg" alt="laptop--v1" /></a>
     </div>
 
     <!-- <div id="nav">
