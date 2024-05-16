@@ -55,10 +55,6 @@
                 }
                         
                     ?>
-                    <!-- <li>Tặng balo khi mua hàng có hóa đơn trên 1tr</li>
-                    <li>Giảm giá sốc khi mua nhiều mặt hàng</li>
-                    <li>Giao hàng nhanh ngay trong ngày</li>
-                    <li>Miễn phí đổi trả nếu có bất kỳ vấn đề trong vòng 1 tháng từ khi mua hàng</li> -->
                 </ul>
             </div>
             <div class="paying-product">

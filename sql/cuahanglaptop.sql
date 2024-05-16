@@ -87,6 +87,15 @@ CREATE TABLE `chitietkhuyenmai` (
   `QUATANG` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `chitietkhuyemai`
+--
+
+INSERT INTO `chitietkhuyenmai` (`MAKM`, `NGAYBATDAU`, `NGAYKETTHUC`, `GIAMGIA`, `QUATANG`) VALUES
+(1, '2024-05-08', '2024-05-23', 10.00, 'Giảm ngay 10% giá trị sản phẩm nếu có kèm theo mã giảm giá'),
+(2, '2024-05-08', '2024-05-24', NULL, 'Giao hàng nhanh trong vòng 1 ngày kể từ khi đặt hàng'),
+(3, '2024-05-15', '2024-05-15', NULL, 'Tặng thêm 1 balo nếu có giá trị hóa đơn trên 1 triệu');
+
 -- --------------------------------------------------------
 
 --
@@ -216,6 +225,15 @@ CREATE TABLE `khuyenmai` (
   `TENKM` varchar(255) DEFAULT NULL,
   `TRANGTHAI` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `khuyenmai`
+--
+
+INSERT INTO `khuyenmai` (`MAKM`, `MASP`, `MANV`, `TENKM`, `TRANGTHAI`) VALUES
+(1, 3, 1, 'Giảm giá', NULL),
+(2, 14, 1, 'Giao hàng nhanh', NULL),
+(3, 15, 1, 'Quà tặng', NULL);
 
 -- --------------------------------------------------------
 
