@@ -36,24 +36,24 @@
         </div>
         <div class="thongtinsp">
             <div class="product-name">
-                <h2>Laptop <?php echo $product['TENSP'];?> </h2>
-                <p>Giá tiền: <?php echo number_format($product['GIATIEN'], 0, "", ".")?> Vnd</p>
+                <h2><?php echo $product['TENSP'];?> </h2>
+                <p class="danhgia"><?php echo rand(1,5).'.0'; ?> <img width="22" height="22"
+                        src="https://img.icons8.com/emoji/48/star-emoji.png" alt="star-emoji" /></p>
+                <p class="present-price"><?php echo number_format($product['GIATIEN'], 0, "", ".")?>đ</p>
+                <p class="past-price"><?php echo number_format($product['GIATIEN'] + 2130000, 0, "", ".")?>đ</p>
             </div>
             <div class="promotion">
                 <h5>Khuyến mãi</h5>
                 <?php
                 $promo_query = "SELECT * FROM chitietkhuyenmai";
                 $promo_result = mysqli_query($conn,$promo_query);
-                
                 ?>
                 <ul>
                     <?php
-                
-                while($promo = mysqli_fetch_assoc($promo_result)){
-                    echo $promo['QUATANG'];
-                    echo '<br>';
-                }
-                        
+                        while($promo = mysqli_fetch_assoc($promo_result)){
+                            echo $promo['QUATANG'];
+                            echo '<br>';
+                        }    
                     ?>
                 </ul>
             </div>

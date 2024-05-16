@@ -789,35 +789,67 @@ h3 {
     height: 100px;
 }
 
-.product-name p {
-    margin: 10px;
+.product-name .danhgia {
+    color: rgb(227, 199, 129);
+    font-weight: bold;
+    font-size: 20px;
+    margin: 10px 0 0 20px;
+}
+
+.product-name h2 {
+    font-size: 23px;
+}
+
+.product-name .present-price {
+    margin-top: 10px;
+    margin-left: 20px;
     font-size: 25px;
     color: red;
 }
 
+.product-name .past-price {
+    color: grey;
+    font-size: 16px;
+    margin-left: 25px;
+    text-decoration: line-through;
+    /* margin-bottom: 20px; */
+}
+
 .thongtinsp .promotion {
-    margin: 30px 30px 0;
+    margin: 90px 30px 0;
+    border: solid #000;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 .thongtinsp .promotion h5 {
     text-align: center;
     margin-bottom: 10px;
     font-size: 18px;
+    padding: 0 0 5px;
+    border-bottom: 1px solid #000;
 }
 
 .paying-product button {
     padding: 20px 15px;
     border: 1px solid blue;
-    margin-top: 30px;
+    margin-top: 70px;
     width: 45%;
     font-size: 15px;
     border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.paying-product button:hover {
+    cursor: pointer;
+    transform: translateY(-8px);
 }
 
 .sell-button {
     background-color: blue;
     color: white;
     margin-left: 20px;
+    margin-right: 10px;
 }
 
 @media (max-width: 1200px) {
@@ -835,7 +867,7 @@ h3 {
 
 .information h5 {
     text-align: center;
-    font-size: 15px;
+    font-size: 20px;
     margin-bottom: 20px;
 }
 
@@ -850,6 +882,7 @@ h3 {
 
 .detail-name {
     width: 30%;
+    font-weight: 600;
 }
 
 .detail-content {
