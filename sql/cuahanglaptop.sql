@@ -175,7 +175,25 @@ INSERT INTO `chitietsanpham` (`MASP`, `TENSP`, `CPU`, `SCREEN`, `RAM`, `VGA`, `S
 (16, 'Laptop Dell Inspiron 15 3520-5810BLK 102F0', 'Intel Core i5-1155G7 (15 W, 4 lõi / 8 luồng, 2.50 GHz to 4.50 GHz, 8 MB)\r\n', '15.6 inches, 1920 x 1080 pixels (FullHD), 120 Hz', '8GB DDR4 2666 MHz', 'Intel Iris Xe Graphics', '256 GB\r\n', 'Windows 11\r\n', 'lithium-polymer', '1.90 kg', 'Là chiếc laptop Dell Inspiron tầm trung, Dell Inspiron 15 3520-5810BLK 102F0 gây ấn tượng với thiết kế màn hình cảm ứng thời thượng và hiệu năng mạnh mẽ, xử lý tác vụ êm mượt với Core i5-1155G7.', 4, 'Đen', 11990000.00),
 (17, 'Laptop ASUS Zenbook 14 OLED UM3402YA-KM405W', 'AMD Ryzen 5 7530U (2.0GHz, 6 lõi / 12 luồng, 16MB cache, up to 4.5 GHz max boost)', '14 inches, 2880 x 1800 pixels, 90 Hz', '16GB LPDDR4X Onboard', 'AMD Radeon Graphics', '512GB M.2 NVMe PCIe 3.0 SSD', 'Windows 11 Home', '75WHrs, 2S2P, 4-cell Li-ion', '1.35 kg', 'Nếu bạn đang muốn sở hữu một chiếc laptop vừa mỏng nhẹ vừa có hiệu suất mạnh mẽ, thì ASUS Zenbook 14 OLED (UM3402YA-KM405W) là một sự lựa chọn đáng cân nhắc. Chiếc laptop này không chỉ mang lại sức mạnh xử lý kiệt sức mà còn thiết kế mỏng nhẹ, phù hợp với nhu cầu di động của người dùng văn phòng. ', 3, 'Đen', 20490000.00),
 (18, 'Laptop MSI Gaming GF63 12UC-887VN', 'Intel Core i7-12650H 3.5GHz up to 4.70GHz 24MB, 10 nhân, 16 luồng', '15.6 inches,  Full HD (1920x1080), 144Hz', '8GB (8x1) DDR4 3200MHz', 'Nvidia Geforce RTX 3050 4GB GDDR6', '512GB NVMe PCIe Gen 4x4 SSD (Còn trống 1 khe 2.5\" SATA)', 'Windows 11', '3 Cell 52.4 WHr', '1.85 kg', NULL, 9, 'Đen', 18990000.00),
-(19, 'Laptop ASUS Gaming ROG Zephyrus G14 GA402NJ-L4056W', 'AMD Ryzen 7 7735HS (8 lõi / 16 luồng, 16MB L3 cache, up to 4.7 GHz max boost)', '14 inches, 1920 x 1200 pixels (WUXGA), 144Hz', '8GB DDR5 Onboard\r\n8GB DDR5-4800 SO-DIMM (có thể tháo ra nâng cấp tối đa 24GB)', 'NVIDIA GeForce RTX 3050 6GB GDDR6', '512GB PCIe 4.0 NVMe M.2 SSD (1 khe SSD M.2 trống nâng cấp tối đa đến 1TB)', 'Windows 11 Home', '76WHrs, 4S1P, 4-cell Li-ion', '1.72 Kg', 'Laptop Asus Gaming ROG Zephyrus G14 GA402NJ-L4056W nổi bật với kích thước thon gọn đi kèm với hiệu suất hoạt động mạnh mẽ. Cấu hình laptop Asus gaming này được trang bị con chip thế hệ mới của nhà AMD cùng dung lượng bộ nhớ vượt trội giúp xử lý mượt mà mọi tác vụ chiến game.', 3, 'Xám', 30490000.00);
+(19, 'Laptop ASUS Gaming ROG Zephyrus G14 GA402NJ-L4056W', 'AMD Ryzen 7 7735HS (8 lõi / 16 luồng, 16MB L3 cache, up to 4.7 GHz max boost)', '14 inches, 1920 x 1200 pixels (WUXGA), 144Hz', '8GB DDR5 Onboard\r\n8GB DDR5-4800 SO-DIMM (có thể tháo ra nâng cấp tối đa 24GB)', 'NVIDIA GeForce RTX 3050 6GB GDDR6', '512GB PCIe 4.0 NVMe M.2 SSD (1 khe SSD M.2 trống nâng cấp tối đa đến 1TB)', 'Windows 11 Home', '76WHrs, 4S1P, 4-cell Li-ion', '1.72 Kg', 'Laptop Asus Gaming ROG Zephyrus G14 GA402NJ-L4056W nổi bật với kích thước thon gọn đi kèm với hiệu suất hoạt động mạnh mẽ. Cấu hình laptop Asus gaming này được trang bị con chip thế hệ mới của nhà AMD cùng dung lượng bộ nhớ vượt trội giúp xử lý mượt mà mọi tác vụ chiến game.', 3, 'Xám', 30490000.00),
+(20, 'Laptop ACER Gaming Nitro V ANV15-51-53DM', 'Intel Core i5-13420H ( 2.1 GHz - 4.6 GHz / 12MB / 8 nhân, 12 luồng )', '15.6" ( 1920 x 1080 ) Full HD IPS 144Hz , không cảm ứng , HD webcam', '2 x 8GB DDR5 5200MHz ( 2 Khe cắm / Hỗ trợ tối đa 32GB )', 'RTX 3050 6GB GDDR6 / Intel Iris Xe Graphics', '512GB SSD M.2 NVMe', 'Windows 11 Home SL', '4 cell 54 Wh , Pin liền', '2.1 kg', 'Acer Nitro V ANV15 51 53DM là sản phẩm laptop chuyên game siêu cháy với hiệu năng cực kỳ mạnh mẽ và thiết kế không kém phần hầm hố. ', 1, 'Đen', 23990000.00),
+(21, 'Laptop Acer Predator Helios Neo PHN16-71-53M7', 'Intel Core i5-13500HX ( 2.5 GHz - 4.7 GHz / 24MB / 14 nhân, 20 luồng )', '16" ( 1920 x 1200 ) WUXGA IPS 165Hz , HD webcam', '2 x 8GB DDR5 4800MHz ( 2 Khe cắm / Hỗ trợ tối đa 32GB )', 'RTX 4060 8GB GDDR6 / Intel UHD Graphics 710', '512GB SSD M.2 NVMe', 'Windows 11 Home', '4 cell 90 Wh , Pin liền', '2.6 kg', 'Laptop Acer Predator Helios Neo 16 PHN16 71 53M7 được ra đời như một biểu tượng laptop gaming mạnh mẽ của nhà Acer. Hứa hẹn sẽ mang lại nhiều trải nghiệm thú vị cho các game thủ trên chặng đường sắp tới. Cùng GEARVN tìm hiểu đánh giá về sản phẩm này nhé!', 1, 'Đen', 35990000.00),
+(22, 'Laptop Acer Nitro 5 AN515-58-5193', 'Intel Core i5-12450H ( 2.0 GHz - 4.4 GHz / 18MB / 8 nhân, 12 luồng )', '15.6" ( 1920 x 1080 ) Full HD IPS 144Hz , HD webcam', '2 x 8GB DDR5 4800MHz ( 2 Khe cắm / Hỗ trợ tối đa 32GB )', 'RTX 4050 6GB GDDR6 / Intel UHD Graphics', '512GB SSD M.2 NVMe', 'Windows 11 Home', '4 cell 57 Wh , Pin liền', '2.5 kg', 'Laptop Acer Nitro 5 AN515-58-5193 là sự kết hợp tinh tế giữa hiệu suất và thiết kế đẳng cấp, sang trọng. Đặc biệt  RTX 4050 6GB GDDR6 hiệu suất đồ họa vượt trội cộng với RAM 16GB chiếc laptop sẵn sàng đáp ứng mọi nhu cầu giải trí, thiết kế đồ họa hay công việc đa nhiệm một cách dễ dàng, nhanh chóng.', 1, 'Đen', 25990000.00),
+(23, 'Laptop Acer Nitro 5 Tiger AN515-58-52SP', 'Intel Core i5-12500H ( 2.5 GHz - 4.5 GHz / 18MB / 12 nhân, 16 luồng )', '15.6" ( 1920 x 1080 ) Full HD IPS 144Hz , không cảm ứng , HD webcam', '1 x 8GB DDR4 3200MHz ( 2 Khe cắm / Hỗ trợ tối đa 32GB )', 'RTX 3050 4GB GDDR6 / Intel UHD Graphics', '512GB SSD M.2 NVMe', 'Windows 11 Home', '4 cell 57 Wh', '2.5 kg', 'Laptop ACER Nitro 5 AN515 -58 -52SP NH.QFHSV.001 được ACER cho ra mắt với vẻ ngoài thu hút hơn bởi thiết kế đậm chất gaming, các cạnh được vát theo khối hình học đầy mạnh mẽ. Đối với những ai là fan của nhà Acer đang muốn tìm hiểu về những dòng laptop Acer gaming Nitro 5 Tiger 2022 mới nhất thì đây sẽ cỗ máy với bộ vi xử lý Intel tuyệt vời nhất dành cho bạn.', 1, 'Đen', 21490000.00),
+(24, 'MacBook Air M3 13 inch', 'Apple M3 ( 8-Core CPU / 8-Core GPU )', '13.6" ( 2560 x 1664 ) | IPSFHD webcam', '8GB', 'Apple GPU (8-core)', '256GB SSD', 'macOS', 'Pin lithium-polymer 52,6 Wh', '1.24 kg | 21.5 x 30.41 x 1.13 cm','MacBook Air M3 13 inch (8GB/256GB SSD) là phiên bản mới nhất của dòng MacBook Air nổi tiếng từ Apple. Máy được trang bị chip M3 mạnh mẽ, màn hình Liquid Retina sắc nét, thời lượng pin ấn tượng cùng thiết kế mỏng nhẹ.. Đây là lựa chọn hoàn hảo cho những ai đang tìm kiếm một chiếc laptop di động, hiệu năng cao để phục vụ cho công việc, học tập và giải trí. Hiện những dòng MacBook đều đang được Phong Vũ phân phối chính hãng từ Apple với mức giá cực kỳ tốt, liên hệ chúng tôi ngay để được tư vấn tận tình nhất!', 2, 'Space Grey', 27490000.00),
+(25, 'MacBook Pro M2 Pro 2023 16 inch', 'Apple M2 Pro ( 12-Core CPU / 19-Core GPU )', '16.2" ( 3456 x 2234 ) | Liquid Retina XDRFHD webcam', '16GB', 'Apple M2 Pro chip with 12-core CPU and 19-core GPU, 16-core Neural Engine', '512GB SSD', 'macOs', '100 Wh', '2.1 kg | 35.57 x 24.81 x 1.68 cm', 'MacBook Pro M2 Pro 2023 16 inch (16GB/512GB SSD) là một chiếc máy tính xách tay mạnh mẽ được Apple ra mắt vào năm 2023. MacBook Pro M2 Pro được trang bị chip M2 Pro mạnh mẽ mang lại hiệu năng vượt trội so với các thế hệ trước. Bên cạnh đó, máy cũng có màn hình Liquid Retina XDR 16 inch tuyệt đẹp, bàn phím Magic Keyboard thoải mái và thời lượng pin dài. Hiện sản phẩm đang được Phong Vũ phân phối chính hãng với mức giá cực kỳ tốt, liên hệ Phong Vũ ngay để được tư vấn tận tình nhất.', 2, 'Space Grey', 48990000.00),
+(26, 'Laptop MacBook Air 13.6 inch', 'Apple M2 ( 8-Core CPU / 8-Core GPU )', '13.6" ( 2560 x 1664 ) | Liquid RetinaFHD webcam', '8GB', 'Apple M2 chip with 8-core CPU and 8-core GPU', '256GB SSD', 'MacOS', '52.6-watt‑hour lithium‑polymer battery', '1.3 kg | 30.41 x 21.5 x 1.13 cm', 'MacBook Air luôn là dòng sản phẩm tiêu biểu của Apple được rất nhiều người dùng lựa chọn. Trong đó, MacBook Air M2 2022 13 inch (8GB/256GB SSD) nổi trội với một mức giá cực kỳ tốt bên cạnh đó là có cấu hình mạnh mẽ và ngoại hình sang trọng.', 2, 'Space Grey', 24390000.00),
+(27, 'MacBook Pro M3 Pro 2023 14 inch', 'Apple M3 Pro chip 11‑core CPU', '14" ( 3024 x 1964 ) | Liquid Retina XDR FHD webcam', '18GB', 'onboard', '512GB SSD', 'MacOS', '72 Wh', '1.6 kg | 31.26 x 22.12 x 1.55 cm', 'MacBook Pro M3 Pro 2023 14 inch (18GB/ 512GB SSD) là một chiếc laptop cao cấp của Apple, được trang bị chip M3 Pro mới nhất cùng với màn hình Liquid Retina XDR 14 inch, bàn phím Magic Keyboard và nhiều tính năng vượt trội khác. Máy là sự lựa chọn hoàn hảo cho những người dùng cần một chiếc máy tính xách tay mạnh mẽ và đa năng.', 2, 'Space Black', 49290000.00),
+(28,'Laptop Gigabyte AORUS 15 9MF-E2VN583SH','Intel Core i5-12500H ( 2.5 GHz - 4.5 GHz / 18MB / 12 nhân, 16 luồng )','15.6" ( 1920 x 1080 ) Full HD IPS 360Hz , không cảm ứng , FHD webcam','1 x 8GB DDR5 4800MHz ( 2 Khe cắm / Hỗ trợ tối đa 64GB )','RTX 4050 6GB GDDR6 / Intel Iris Xe Graphics','512GB SSD M.2 NVMe','Windows 11 Home SL','99 Wh , Pin liền','2.4 kg','Laptop GIGABYTE, một trong những thương hiệu hàng đầu trong lĩnh vực sản xuất laptop chơi game và máy tính cao cấp, đã cho ra mắt dòng sản phẩm Laptop Gigabyte AORUS 15 9MF-E2VN583SH với sức mạnh và hiệu suất vượt trội.', 5,'Đen', 28690000.00),
+(29,'Laptop GIGABYTE G5 KF-E3PH333SH','Intel Core i5-12500H ( 2.5 GHz - 4.5 GHz / 18MB / 12 nhân, 16 luồng )','15.6" ( 1920 x 1080 ) Full HD IPS 144Hz , HD webcam','1 x 8GB DDR4 3200MHz ( 2 Khe cắm / Hỗ trợ tối đa 64GB )','RTX 4060 8GB GDDR6 / Intel Iris Xe Graphics','512GB SSD M.2 NVMe','Windows 11 Home SL','54 Wh , Pin liền','1.9 kg','Laptop GIGABYTE, một trong những thương hiệu hàng đầu trong lĩnh vực sản xuất laptop chơi game và máy tính cao cấp, đã cho ra mắt dòng sản phẩm Laptop Gigabyte AORUS 15 9MF-E2VN583SH với sức mạnh và hiệu suất vượt trội.', 5,'Đen', 24690000.00),
+(30,'Laptop Gigabyte AORUS 5 SE4-73VN313SH','Intel Core i7-12700H ( 2.3 GHz - 4.7GHz / 24MB / 14 nhân, 20 luồng )','15.6" ( 1920 x 1080 ) Full HD IPS 240Hz , HD webcam','2 x 8GB DDR4 3200MHz ( 2 Khe cắm / Hỗ trợ tối đa 64GB )','RTX 3070 8GB GDDR6 / Intel Iris Xe Graphics','512GB SSD M.2 NVMe','Windows 11 Home SL','99 Wh , Pin liền','2.4 kg','Laptop GIGABYTE, một trong những thương hiệu hàng đầu trong lĩnh vực sản xuất laptop chơi game và máy tính cao cấp, đã cho ra mắt dòng sản phẩm Laptop Gigabyte AORUS 15 9MF-E2VN583SH với sức mạnh và hiệu suất vượt trội.', 5,'Đen', 39190000.00),
+(31,'Laptop Gigabyte G6 KF-H3VN853SH','Intel Core i7-13620H ( 2.4 GHz - 4.9 GHz / 24MB / 10 nhân, 16 luồng )','16" ( 1920 x 1080 ) Full HD IPS 165Hz , không cảm ứng , HD webcam','2 x 8GB DDR5 4800MHz ( 2 Khe cắm / Hỗ trợ tối đa 64GB )','RTX 4060 8GB GDDR6 / Intel UHD Graphics 770','512GB SSD M.2 NVMe','Windows 11 Home SL','54 Wh , Pin liền','2.3 kg','Laptop GIGABYTE, một trong những thương hiệu hàng đầu trong lĩnh vực sản xuất laptop chơi game và máy tính cao cấp, đã cho ra mắt dòng sản phẩm Laptop Gigabyte AORUS 15 9MF-E2VN583SH với sức mạnh và hiệu suất vượt trội.', 5,'Đen', 28290000.00),
+(32,'Laptop Gigabyte A5 K1-AVN1030SB','AMD Ryzen 5 5600H ( 3.3 GHz - 4.2 GHz / 16MB / 6 nhân, 12 luồng )','15.6" ( 1920 x 1080 ) Full HD IPS 144Hz , không cảm ứng , Màn hình chống lóa , HD webcam','1 x 8GB DDR4 3200MHz ( 2 Khe cắm / Hỗ trợ tối đa 64GB )','RTX 3060 6GB GDDR6 / AMD Radeon Graphics','512GB SSD M.2 NVMe','Windows 11 Home SL','49 Wh , Pin rời','2.2 kg','Laptop GIGABYTE, một trong những thương hiệu hàng đầu trong lĩnh vực sản xuất laptop chơi game và máy tính cao cấp, đã cho ra mắt dòng sản phẩm Laptop Gigabyte AORUS 15 9MF-E2VN583SH với sức mạnh và hiệu suất vượt trội.', 5,'Đen', 20690000.00),
+(33,'Laptop LG Gram 2023 14T90R-G.AH55A5','Intel Core i5-1340P ( 1.9 GHz - 4.6 GHz / 18MB / 12 nhân, 16 luồng )','14" ( 1920 x 1200 ) WUXGA IPS cảm ứng , Màn hình chống lóa , FHD webcam','1 x 8GB DDR4 3200MHz ( 2 Khe cắm / Hỗ trợ tối đa 64GB )','Onboard Intel Iris Xe Graphics','512GB SSD M.2 NVMe','Windows 11 Home','72 Wh , Pin liền','1.3 kg','Laptop LG Gram 2023 14T90R-G.AH55A5 2 trong 1 - bạn đồng hành đáng tin cậy cho dân văn phòng. Mẫu thiết kế laptop 2 trong 1 như Laptop LG Gram 2023 14T90R-G.AH55A5 không phải đến bây giờ mới xuất hiện nhưng có thể tối ưu cả 2 tính năng như nó thì không phải dễ kiếm trên thị trường.', 7,'Đen', 30590000.00),
+(34,'Laptop Laptop LG Gram 14ZD90Q-G.AX31A5','Intel Core i3-1220P ( 1.5 GHz - 4.4GHz / 12MB / 10 nhân, 12 luồng )','14" ( 1920 x 1200 ) WUXGA IPS Màn hình chống lóa , FHD webcam','1 x 8GB LPDDR5 5200MHz','Onboard Intel UHD Graphics','256GB SSD M.2 NVMe','Free DOS','72 Wh , Pin liền','1 kg','Laptop LG Gram 2023 14T90R-G.AH55A5 2 trong 1 - bạn đồng hành đáng tin cậy cho dân văn phòng. Mẫu thiết kế laptop 2 trong 1 như Laptop LG Gram 2023 14T90R-G.AH55A5 không phải đến bây giờ mới xuất hiện nhưng có thể tối ưu cả 2 tính năng như nó thì không phải dễ kiếm trên thị trường.', 7,'Đen', 21090000.00),
+(35,'Laptop LG Gram 16ZD90Q-G.AX55A5','Intel Core i5-1240P ( 1.7 GHz - 4.4 GHz / 12MB / 12 nhân, 16 luồng )','16" ( 2560 x 1600 ) WQXGA IPS Màn hình chống lóa , FHD webcam','16GB LPDDR5 5200MHz','Onboard Intel Iris Xe Graphics','512GB SSD M.2 NVMe','Free DOS','80 Wh , Pin liền','1.2 kg','Laptop LG Gram 2023 14T90R-G.AH55A5 2 trong 1 - bạn đồng hành đáng tin cậy cho dân văn phòng. Mẫu thiết kế laptop 2 trong 1 như Laptop LG Gram 2023 14T90R-G.AH55A5 không phải đến bây giờ mới xuất hiện nhưng có thể tối ưu cả 2 tính năng như nó thì không phải dễ kiếm trên thị trường.', 7,'Đen', 22990000.00),
+(36,'Laptop LG Gram 17ZD90Q-G.AX73A5','Intel Core i7 1260P ( 2.1 GHz - 4.7 GHz / 18MB / 12 nhân, 16 luồng )','17" ( 2560 x 1600 ) WQXGA IPS Màn hình chống lóa , FHD webcam','16GB LPDDR5 5200MHz','Onboard Intel Iris Xe Graphics','256GB SSD M.2 NVMe','Free DOS','80 Wh , Pin liền','1.3 kg','Laptop LG Gram 2023 14T90R-G.AH55A5 2 trong 1 - bạn đồng hành đáng tin cậy cho dân văn phòng. Mẫu thiết kế laptop 2 trong 1 như Laptop LG Gram 2023 14T90R-G.AH55A5 không phải đến bây giờ mới xuất hiện nhưng có thể tối ưu cả 2 tính năng như nó thì không phải dễ kiếm trên thị trường.', 7,'Đen', 24990000.00);
+
 
 -- --------------------------------------------------------
 
@@ -1091,7 +1109,57 @@ INSERT INTO `nhomloaisanpham` (`MASP`, `MALOAISP`) VALUES
 (8, 3),
 (9, 1),
 (10, 1),
-(10, 3);
+(10, 3),
+(11, 4),
+(11, 6),
+(11, 5),
+(12, 3),
+(12, 2),
+(12, 1),
+(13, 5),
+(13, 3),
+(14, 2),
+(14, 6),
+(15, 1),
+(16, 1),
+(16, 3),
+(17, 4),
+(18, 5),
+(19, 6),
+(19, 3),
+(20, 2),
+(20, 6),
+(20, 1),
+(21, 1),
+(21, 4),
+(22, 4),
+(23, 4),
+(23, 5),
+(24, 5),
+(25, 5),
+(25, 6),
+(26, 6),
+(26, 2),
+(27, 2),
+(28, 2),
+(29, 2),
+(30, 3),
+(30, 4),
+(31, 5),
+(31, 6),
+(31, 2),
+(32, 5),
+(32, 6),
+(32, 1),
+(33, 2),
+(33, 1),
+(34, 1),
+(35, 5),
+(35, 2),
+(36, 3),
+(36, 4),
+(36, 5);
+
 
 -- --------------------------------------------------------
 
@@ -1467,7 +1535,27 @@ INSERT INTO `sanpham` (`MASP`, `HINHSP`, `SOLUONG`, `MANCC`, `TRANGTHAI`) VALUES
 (16, 'DELL_2.PNG', 1, 4, 1),
 (17, 'ASUS_2.PNG', 1, 3, 1),
 (18, 'MSI_3.PNG', 1, 9, 1),
-(19, 'ASUS_2.PNG', 1, 3, 1);
+(19, 'ASUS_2.PNG', 1, 3, 1),
+(20, 'ACER_3.PNG', 1, 1, 1),
+(21, 'ACER_4.PNG', 1, 1, 1),
+(22, 'ACER_5.PNG', 1, 1, 1),
+(23, 'ACER_6.PNG', 1, 1, 1),
+(24, 'APPLE_3.PNG', 1, 2, 1),
+(25, 'APPLE_4.PNG', 1, 2, 1),
+(26, 'APPLE_5.PNG', 1, 2, 1),
+(27, 'APPLE_6.PNG', 1, 2, 1),
+(28,'GIGABYTE_2.PNG', 1, 5, 1),
+(29,'GIGABYTE_3.PNG', 1, 5, 1),
+(30,'GIGABYTE_4.PNG', 1, 5, 1),
+(31,'GIGABYTE_5.PNG', 1, 5, 1),
+(32,'GIGABYTE_6.PNG', 1, 5, 1),
+(33,'LG_2.PNG', 10, 7, 1),
+(34,'LG_3.PNG', 10, 7, 1),
+(35,'LG_4.PNG', 10, 7, 1),
+(36,'LG_5.PNG', 10, 7, 1);
+
+
+
 
 -- --------------------------------------------------------
 

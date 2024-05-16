@@ -269,6 +269,7 @@ a {
 }
 
 .list li {
+    padding: 3px 0;
     border-radius: 20px;
 }
 
@@ -505,10 +506,10 @@ a {
 }
 
 .thongbao {
+    margin-bottom: 10px;
     font-size: xx-large;
-    color: red;
     text-align: center;
-    font-weight: bolder;
+    font-weight: lighter;
 }
 
 /*====================================Log in, log out================================*/
@@ -912,7 +913,7 @@ h3 {
 .recommend-row {
     display: flex;
     /* height: 300px; */
-    width: 4393px;
+    width: 8540px;
     position: absolute;
     left: 0;
     /* right: 60px; */
@@ -981,10 +982,10 @@ h3 {
         min-width: 140px;
         border: none;
     }
-    .loc:nth-child(5){
+    .loc:nth-child(6){
         min-width: 62px;
     }
-    .loc:nth-child(7){
+    .loc:nth-child(8){
         min-width: 160px;
     }
 }

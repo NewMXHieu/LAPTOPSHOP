@@ -99,13 +99,13 @@ include '../../config/connect.php';
 <script>
     let page = 1;
     let search = '';
-    let cost = '';
+    let cost = 0;
     let brand = 0;
-    let cpu = '';
-    let ram = '';
-    let storage = '';
+    let cpu = 0;
+    let ram = 0;
+    let storage = 0;
     let loai = 0;
-    let sapxep = '';
+    let sapxep = 0;
 
     function readData(search) {
         $.ajax({
@@ -127,7 +127,7 @@ include '../../config/connect.php';
                     $('.thongbao').html("KHÔNG CÓ SẢN PHẨM THEO YÊU CẦU!");
                     $('.main').empty();
                 } else {
-                    $('.thongbao').empty();
+                    // $('.thongbao').empty();
                     $(".main").empty();
                     $(".main").append(data);
                 }
@@ -151,10 +151,14 @@ include '../../config/connect.php';
                 sapxep : sapxep
 
             },
-            success: function(data) {
+            success: function(response) {
+                response = JSON.parse(response);
+                let data = response.page;
+                let count = response.count;
                 if (data < 1) {
                     $(".pagination").hide();
                 } else {
+                    $('.thongbao').html("Số sản phẩm hiện có: " + count);
                     $(".pagination").show();
                     $(".pagination").empty();
                     let pagi = '';
@@ -181,8 +185,12 @@ include '../../config/connect.php';
         delayLoad();
         $("#resetBtn").click();
         $('html, body').animate({
-            scrollTop: $(".main").offset().top - 110 // Thay ".main" bằng selector của phần hiện sản phẩm của bạn
+            scrollTop: $(".main").offset().top - 160 // Thay ".main" bằng selector của phần hiện sản phẩm của bạn
         }, 'slow');
+    });
+    $(".menu-left-1").on("click", "li a", function(e) {
+        $(".list").on();
+        $('.danhmuc').click();
     });
     $(".pagination ").on("click", "a", function(e) {
         e.preventDefault();
@@ -247,6 +255,7 @@ include '../../config/connect.php';
         ram = 0;
         storage = 0;
         loai = 0;
+        sapxep = 0;
         delayLoad();
     })
 </script>

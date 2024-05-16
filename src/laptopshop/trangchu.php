@@ -34,7 +34,8 @@ $query2 = mysqli_query($conn, $sql );
 </div>
 <script>
     $('.overplay').click(function () {
-        $('.menu-left-1').toggle();
-        $('.overplay').toggle();
+        // $('.menu-left-1').toggle();
+        // $('.overplay').toggle();
+        $('.danhmuc').click();
     });
 </script>
