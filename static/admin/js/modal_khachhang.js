@@ -88,8 +88,7 @@ function saveKhachHang(){
         success: function(data) {
             getDsKhachHang();
             showKhachHang();
-            finish();
-            alert("Đã thêm thông tin khách hàng " + ten);
+            alert(data);
         },
         error: function(xhr, status, error) {
             console.error('Lỗi khi gửi yêu cầu đến trang PHP:', error);

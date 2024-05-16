@@ -131,7 +131,6 @@ if (arr.length === 0) {
             <td>${product.DIACHI}</td>
             <td>${product.MATK}</td>
             <td>${product.EMAIL}</td>
-            <td>${product.CHUCVU}</td>
             <td>${btnTrangThai}</td>
             <td class="table-control">
             ${BtnEdit}

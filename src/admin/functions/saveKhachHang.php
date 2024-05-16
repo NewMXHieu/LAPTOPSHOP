@@ -22,17 +22,17 @@
         $trangthai = 1;
 
         // Hiển thị các giá trị đã lấy được để kiểm tra
-        echo "Tên : " . $tennv . "<br>";
-        echo "ngày sinh: " . $ngaysinh . "<br>";
-        echo "sdt: " . $sdt . "<br>";
-        echo "matk: " . $matk . "<br>";
-        echo "email: " . $email . "<br>";
-        echo "diachi: " . $diachi . "<br>";
-        echo "chucvu: " . $nhomquyen . "<br>";
-        echo "ngày tạo tk: " . $ngaytaotk . "<br>";
-        echo "tendn: " . $tendn . "<br>";
-        echo "matkhau: " . $matkhau . "<br>";
-        echo "trangthai: " . $trangthai . "<br>";
+        // echo "Tên : " . $tennv . "<br>";
+        // echo "ngày sinh: " . $ngaysinh . "<br>";
+        // echo "sdt: " . $sdt . "<br>";
+        // echo "matk: " . $matk . "<br>";
+        // echo "email: " . $email . "<br>";
+        // echo "diachi: " . $diachi . "<br>";
+        // echo "chucvu: " . $nhomquyen . "<br>";
+        // echo "ngày tạo tk: " . $ngaytaotk . "<br>";
+        // echo "tendn: " . $tendn . "<br>";
+        // echo "matkhau: " . $matkhau . "<br>";
+        // echo "trangthai: " . $trangthai . "<br>";
 
         $conn = connectToDatabase();
 

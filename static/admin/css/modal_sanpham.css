@@ -18,7 +18,9 @@
 .modal form{
     background-color: rgb(148, 182, 212);
 }
-
+.sanphamh2{
+    height: 5% !important;
+}
 .modal.AddSanPham form, .modal.editSanPham form{
     width: 70%;
     height: 97%;
@@ -43,7 +45,7 @@
     height: 90%;
 }
 .sanpham{
-    height: 80% !important;
+    height: 85% !important;
 }
 
 .sanpham-control{

@@ -196,7 +196,277 @@
                 }
             });
         }
-        
+
+        // function checkInput(){
+        //     let valid = true;
+        //     let regex = /^.{5,}$/;
+        //     let regexOnLyText = /^.[^\d]{2,}$/
+        //     TEN = document.getElementById("addProduct_tensanpham");
+        //     GIATIEN = document.getElementById("addProduct_giatien");
+        //     CPU = document.getElementById("addProduct_detail_cpu");
+        //     SCREEN = document.getElementById("addProduct_detail_screen");
+        //     RAM = document.getElementById('addProduct_detail_ram');
+        //     VGA = document.getElementById("addProduct_detail_vga");
+        //     STORAGE = document.getElementById("addProduct_detail_storage");
+        //     OS = document.getElementById("addProduct_detail_os");
+        //     PIN = document.getElementById("addProduct_detail_pin");
+        //     WEIGHT = document.getElementById("addProduct_detail_weight");
+        //     MAU = document.getElementById("addProduct_detail_mau");
+
+        //     if(!regex.test(TEN.value)){
+        //         TEN.style.border='2px solid red';
+        //         // alert('Vui lòng nhập tên ít nhất 5 ký tự');
+        //         valid = false;
+        //     } else{
+        //         TEN.style.border='';
+        //         valid = true;
+        //     }
+
+        //     if(!regex.test(GIATIEN.value)){
+        //         GIATIEN.style.border='2px solid red';
+        //         // alert('Vui lòng nhập tên ít nhất 5 ký tự');
+        //         valid = false;
+        //     }else{
+        //         GIATIEN.style.border='';
+        //         valid = true;
+        //     }
+
+        //     if(!regex.test(CPU.value)){
+        //         CPU.style.border='2px solid red';
+        //         // alert('Vui lòng nhập tên ít nhất 5 ký tự');
+        //         valid = false;
+        //     }else{
+        //         RAM.style.border='';
+        //         valid = true;
+        //     }
+
+        //     if(!regex.test(SCREEN.value)){
+        //         SCREEN.style.border='2px solid red';
+        //         // alert('Vui lòng nhập tên ít nhất 5 ký tự');
+        //         valid = false;
+        //     }else{
+        //         RAM.style.border='';
+        //         valid = true;
+        //     }
+
+        //     if(!regex.test(RAM.value)){
+        //         RAM.style.border='2px solid red';
+        //         // alert('Vui lòng nhập tên ít nhất 5 ký tự');
+        //         valid = false;
+        //     }else{
+        //         RAM.style.border='';
+        //         valid = true;
+        //     }
+
+        //     if(!regex.test(VGA.value)){
+        //         VGA.style.border='2px solid red';
+        //         // alert('Vui lòng nhập tên ít nhất 5 ký tự');
+        //         valid = false;
+        //     }else{
+        //         VGA.style.border='';
+        //         valid = true;
+        //     }
+
+        //     if(!regex.test(STORAGE.value)){
+        //         STORAGE.style.border='2px solid red';
+        //         // alert('Vui lòng nhập tên ít nhất 5 ký tự');
+        //         valid = false;
+        //     }else{
+        //         STORAGE.style.border='';
+        //         valid = true;
+        //     }
+
+        //     if(!regex.test(OS.value)){
+        //         OS.style.border='2px solid red';
+        //         // alert('Vui lòng nhập tên ít nhất 5 ký tự');
+        //         valid = false;
+        //     }else{
+        //         OS.style.border='';
+        //         valid = true;
+        //     }
+
+        //     if(!regex.test(PIN.value)){
+        //         PIN.style.border='2px solid red';
+        //         // alert('Vui lòng nhập tên ít nhất 5 ký tự');
+        //         valid = false;
+        //     }else{
+        //         PIN.style.border='';
+        //         valid = true;
+        //     }
+
+        //     if(!regex.test(WEIGHT.value)){
+        //         WEIGHT.style.border='2px solid red';
+        //         // alert('Vui lòng nhập tên ít nhất 5 ký tự');
+        //         valid = false;
+        //     }else{
+        //         WEIGHT.style.border='';
+        //         valid = true;
+        //     }
+
+        //     if(!regex.test(STORAGE.value)){
+        //         STORAGE.style.border='2px solid red';
+        //         // alert('Vui lòng nhập tên ít nhất 5 ký tự');
+        //         valid = false;
+        //     }else{
+        //         STORAGE.style.border='';
+        //         valid = true;
+        //     }
+
+        //     if(!regexOnLyText.test(MAU.value)){
+        //         MAU.style.border='2px solid red';
+        //         // alert('Vui lòng nhập màu sắc ít nhất 2 ký tự và không chứa số');/
+        //         valid = false;
+        //     } else{
+        //         MAU.style.boder = '';
+        //         valid = true;
+        //     }
+        //     return valid;
+        // }
+
+        function checkTEN(){
+            const inputText = document.getElementById("addProduct_tensanpham").value;
+            const pattern = /^.{1,}/; // Mẫu để tìm tất cả các số (các dãy chữ số liên tiếp)
+            const isValid = pattern.test(inputText);
+            const inputElement = document.getElementById("addProduct_tensanpham");
+             
+            if (isValid) {
+                inputElement.style.border = ""; // Reset border
+            } else {
+                inputElement.style.border = "2px solid red"; // Đổi màu border thành đỏ
+            }
+        }
+
+        function checkGIATIEN(){
+            const inputText = document.getElementById("addProduct_giatien").value;
+            const pattern = /^[0-9]{6,}/; // Mẫu để tìm tất cả các số (các dãy chữ số liên tiếp)
+            const isValid = pattern.test(inputText);
+            const inputElement = document.getElementById("addProduct_giatien");
+             
+            if (isValid) {
+                inputElement.style.border = ""; // Reset border
+            } else {
+                inputElement.style.border = "2px solid red"; // Đổi màu border thành đỏ
+            }
+        }
+
+        function checkCPU(){
+            const inputText = document.getElementById("addProduct_detail_cpu").value;
+            const pattern = /^.{1,}/; // Mẫu để tìm tất cả các số (các dãy chữ số liên tiếp)
+            const isValid = pattern.test(inputText);
+            const inputElement = document.getElementById("addProduct_detail_cpu");
+             
+            if (isValid) {
+                inputElement.style.border = ""; // Reset border
+            } else {
+                inputElement.style.border = "2px solid red"; // Đổi màu border thành đỏ
+            }
+        }
+
+        function checkSCREEN(){
+            const inputText = document.getElementById("addProduct_detail_screen").value;
+            const pattern = /^.{1,}/; // Mẫu để tìm tất cả các số (các dãy chữ số liên tiếp)
+            const isValid = pattern.test(inputText);
+            const inputElement = document.getElementById("addProduct_detail_screen");
+             
+            if (isValid) {
+                inputElement.style.border = ""; // Reset border
+            } else {
+                inputElement.style.border = "2px solid red"; // Đổi màu border thành đỏ
+            }
+        }
+
+        function checkRAM(){
+            const inputText = document.getElementById("addProduct_detail_ram").value;
+            const pattern = /^.{1,}/; // Mẫu để tìm tất cả các số (các dãy chữ số liên tiếp)
+            const isValid = pattern.test(inputText);
+            const inputElement = document.getElementById("addProduct_detail_ram");
+             
+            if (isValid) {
+                inputElement.style.border = ""; // Reset border
+            } else {
+                inputElement.style.border = "2px solid red"; // Đổi màu border thành đỏ
+            }
+        }
+
+        function checkVGA(){
+            const inputText = document.getElementById("addProduct_detail_vga").value;
+            const pattern = /^.{1,}/; // Mẫu để tìm tất cả các số (các dãy chữ số liên tiếp)
+            const isValid = pattern.test(inputText);
+            const inputElement = document.getElementById("addProduct_detail_vga");
+             
+            if (isValid) {
+                inputElement.style.border = ""; // Reset border
+            } else {
+                inputElement.style.border = "2px solid red"; // Đổi màu border thành đỏ
+            }
+        }
+
+        function checkSTORAGE(){
+            const inputText = document.getElementById("addProduct_detail_storage").value;
+            const pattern = /^.{1,}/; // Mẫu để tìm tất cả các số (các dãy chữ số liên tiếp)
+            const isValid = pattern.test(inputText);
+            const inputElement = document.getElementById("addProduct_detail_storage");
+             
+            if (isValid) {
+                inputElement.style.border = ""; // Reset border
+            } else {
+                inputElement.style.border = "2px solid red"; // Đổi màu border thành đỏ
+            }
+        }
+
+        function checkOS(){
+            const inputText = document.getElementById("addProduct_detail_os").value;
+            const pattern = /^.{1,}/; // Mẫu để tìm tất cả các số (các dãy chữ số liên tiếp)
+            const isValid = pattern.test(inputText);
+            const inputElement = document.getElementById("addProduct_detail_os");
+             
+            if (isValid) {
+                inputElement.style.border = ""; // Reset border
+            } else {
+                inputElement.style.border = "2px solid red"; // Đổi màu border thành đỏ
+            }
+        }
+
+        function checkPIN(){
+            const inputText = document.getElementById("addProduct_detail_pin").value;
+            const pattern = /^.{1,}/; // Mẫu để tìm tất cả các số (các dãy chữ số liên tiếp)
+            const isValid = pattern.test(inputText);
+            const inputElement = document.getElementById("addProduct_detail_pin");
+             
+            if (isValid) {
+                inputElement.style.border = ""; // Reset border
+            } else {
+                inputElement.style.border = "2px solid red"; // Đổi màu border thành đỏ
+            }
+        }
+
+        function checkWEIGHT(){
+            const inputText = document.getElementById("addProduct_detail_weight").value;
+            const pattern = /^.{1,}/; // Mẫu để tìm tất cả các số (các dãy chữ số liên tiếp)
+            const isValid = pattern.test(inputText);
+            const inputElement = document.getElementById("addProduct_detail_weight");
+             
+            if (isValid) {
+                inputElement.style.border = ""; // Reset border
+            } else {
+                inputElement.style.border = "2px solid red"; // Đổi màu border thành đỏ
+            }
+        }
+
+        function checkMAU(){
+            const inputText = document.getElementById("addProduct_detail_mau").value;
+            const pattern = /^.[^\d]{1,}$/; // Mẫu để tìm tất cả các số (các dãy chữ số liên tiếp)
+            const isValid = pattern.test(inputText);
+            const inputElement = document.getElementById("addProduct_detail_mau");
+             
+            if (isValid) {
+                inputElement.style.border = ""; // Reset border
+            } else {
+                inputElement.style.border = "2px solid red"; // Đổi màu border thành đỏ
+            }
+        }
+
+
         function saveAddProduct(){
             let loaisp = [];
             // Lặp qua các checkbox để lấy loại sản phẩm được chọn
@@ -224,38 +494,37 @@
             MOTA = document.getElementById("addProduct_detail_mota").value;
             MAU = document.getElementById("addProduct_detail_mau").value;
 
-        $.ajax({
-            url: 'api/admin/saveAddProduct.php', // Đường dẫn đến trang PHP
-            type: 'POST', // Phương thức POST sẽ gửi dữ liệu qua body
-            data: { 
-                tensp: TEN,
-                mathuonghieu: MATHUONGHIEU,
-                loaisp: LOAISP,
-                hinhsp: HINHSP,
-                mancc: MANCC,
-                mabaohanh: MABAOHANH,
-                giatien: GIATIEN,
-                cpu: CPU,
-                screen: SCREEN,
-                ram: RAM,
-                vga: VGA,
-                storage: STORAGE,
-                os: OS,
-                pin: PIN,
-                weight: WEIGHT,
-                mota: MOTA,
-                mau: MAU, }, // Dữ liệu gửi đi (id sản phẩm)
-            success: function(data) {
-                getDsPhanLoaiSP();
-                getDsSanPham();
-                showProduct();
-                alert("Thêm thông tin sản phẩm mới thành công");
-                finish();
-            },
-            error: function(xhr, status, error) {
-                console.error('Lỗi khi gửi yêu cầu đến trang PHP:', error);
-            }
-        });
+            $.ajax({
+                url: 'api/admin/saveAddProduct.php', // Đường dẫn đến trang PHP
+                type: 'POST', // Phương thức POST sẽ gửi dữ liệu qua body
+                data: { 
+                    tensp: TEN,
+                    mathuonghieu: MATHUONGHIEU,
+                    loaisp: LOAISP,
+                    hinhsp: HINHSP,
+                    mancc: MANCC,
+                    mabaohanh: MABAOHANH,
+                    giatien: GIATIEN,
+                    cpu: CPU,
+                    screen: SCREEN,
+                    ram: RAM,
+                    vga: VGA,
+                    storage: STORAGE,
+                    os: OS,
+                    pin: PIN,
+                    weight: WEIGHT,
+                    mota: MOTA,
+                    mau: MAU, }, // Dữ liệu gửi đi (id sản phẩm)
+                success: function(data) {
+                    getDsPhanLoaiSP();
+                    getDsSanPham();
+                    showProduct();
+                    alert(data);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Lỗi khi gửi yêu cầu đến trang PHP:', error);
+                }
+            });
     }
 
     function updateStatusProduct(id, status) {
