@@ -13,6 +13,7 @@
 select {
     cursor: pointer;
 }
+
 /*============================= pop up ======================*/
 /* .modal {
     display: none; 
@@ -611,7 +612,9 @@ h1 {
     color: #03a9f4;
     font-size: 12px;
 }
-.btn-sign_in, .btn-sign_up{
+
+.btn-sign_in,
+.btn-sign_up {
     border: none;
     outline: none;
     margin-top: 30px;
@@ -881,7 +884,7 @@ h3 {
 }
 
 
-#sell-button {
+.sell-button {
     background-color: blue;
     color: white;
 
