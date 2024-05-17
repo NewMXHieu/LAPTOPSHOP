@@ -226,7 +226,7 @@ function savephieunhap(){
             getDsPhieuNhap();
             resetData();
             showPhieuNhap();
-            finish();
+            alert("Nhập sản phẩm thành công");
         },
         error: function(xhr, status, error) {
             console.error('Lỗi khi gửi yêu cầu đến trang PHP:', error);
@@ -241,7 +241,7 @@ function saveEditphieunhap(){
     document.querySelectorAll('input[name="listSpNhap[]"]:checked').forEach(function(checkbox) {
         let masp = checkbox.value;
         let soluong = document.getElementById("soluong_" + masp).value;
-
+        
         // Kiểm tra nếu số lượng nhập vào là không hợp lệ
         if (soluong < 1) {
             console.log("Vui lòng nhập số lượng cho sản phẩm có mã " + masp + " trước khi nhập hàng");

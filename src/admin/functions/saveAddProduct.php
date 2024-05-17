@@ -54,7 +54,7 @@
         
         // Hàm thêm sản phẩm
         function themSanPham($conn, $hinhsp, $nhacungcap) {
-            $sql_sanpham = "INSERT INTO SANPHAM(HINHSP,SOLUONG,MANCC,TRANGTHAI) VALUES ('$hinhsp',1,'$nhacungcap',1)";
+            $sql_sanpham = "INSERT INTO SANPHAM(HINHSP,SOLUONG,MANCC,TRANGTHAI) VALUES ('$hinhsp',0,'$nhacungcap',1)";
             if ($conn->query($sql_sanpham) === TRUE) {
                 // echo "Thêm sản phẩm thành công";
             } else {
@@ -97,17 +97,17 @@
             }
         }
 
-        function themSerial($conn,$soluong,$masp,$ngaysanxuat,$mabaohanh){
-            // Tạo số seri cho mỗi sản phẩm
-            $serial_prefix = 'SN' . str_pad($masp, 4, '0', STR_PAD_LEFT);
-            while ($soluong > 0) {
-                $serial_no = $serial_prefix . str_pad(rand(0, 999999), 6, '0', STR_PAD_LEFT);        
-                // Thêm số seri vào bảng serial
-                $insert_query = "INSERT INTO serial (MASERI, MASP, NGAYSANXUAT, MABAOHANH, TRANGTHAI) VALUES ('$serial_no', '$masp', '$ngaysanxuat',$mabaohanh,1)";
-                $conn->query($insert_query);
-                $soluong--;
-            }
-        }
+        // function themSerial($conn,$soluong,$masp,$ngaysanxuat,$mabaohanh){
+        //     // Tạo số seri cho mỗi sản phẩm
+        //     $serial_prefix = 'SN' . str_pad($masp, 4, '0', STR_PAD_LEFT);
+        //     while ($soluong > 0) {
+        //         $serial_no = $serial_prefix . str_pad(rand(0, 999999), 6, '0', STR_PAD_LEFT);        
+        //         // Thêm số seri vào bảng serial
+        //         $insert_query = "INSERT INTO serial (MASERI, MASP, NGAYSANXUAT, MABAOHANH, TRANGTHAI) VALUES ('$serial_no', '$masp', '$ngaysanxuat',$mabaohanh,1)";
+        //         $conn->query($insert_query);
+        //         $soluong--;
+        //     }
+        // }
         
         if($tensanpham == ''){
             echo 'thiếu tên sản phẩm';
@@ -153,7 +153,7 @@
             $ngaysanxuat = new DateTime();
             $ngaysanxuat = $ngaysanxuat->format('Y-m-d');;
             $soluong = 0;
-            themSerial($conn,$soluong,$masp_moi,$ngaysanxuat,$mabaohanh);
+            // themSerial($conn,$soluong,$masp_moi,$ngaysanxuat,$mabaohanh);
             echo 'thêm sản phẩm thành công';
         }
         

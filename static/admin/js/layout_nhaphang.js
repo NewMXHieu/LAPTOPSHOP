@@ -189,20 +189,19 @@ function filterByTopToBotPhieuNhap(){
 
 
 // function tinhTongTien(mapn){
-//     $.ajax({
-//         url: 'api/admin/tinhTongTienPhieuNhap.php', // Đường dẫn đến trang PHP
-//         type: 'POST', // Phương thức POST sẽ gửi dữ liệu qua body
-//         data: {idLoaiSP: mapn}, // Dữ liệu gửi đi (id sản phẩm)
-//         dataType: 'json',
-//         success: function(data) {
-//             if(data.total === null){
-//                 data.total = 0;
-//             }
-//         },
-//         error: function(xhr, status, error) {
-//             console.error('Lỗi khi gửi yêu cầu đến trang PHP:', error);
-//         }
-//     });
+    // $.ajax({
+    //     url: 'api/admin/tinhTongTienPhieuNhap.php', // Đường dẫn đến trang PHP
+    //     type: 'POST', // Phương thức POST sẽ gửi dữ liệu qua body
+    //     data: {idLoaiSP: mapn}, // Dữ liệu gửi đi (id sản phẩm)
+    //     dataType: 'json',
+    //     success: function(data) {
+    //         if(data.total === null){
+    //             data.total = 0;
+    //         }
+    //     },
+    //     error: function(xhr, status, error) {
+    //         console.error('Lỗi khi gửi yêu cầu đến trang PHP:', error);
+    //     }
+    // });
 // }
-
 
