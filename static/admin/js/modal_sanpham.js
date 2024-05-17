@@ -184,9 +184,9 @@
                     mota: document.getElementById("editproduct_detail_mota").value,
                     mau: document.getElementById("editproduct_detail_mau").value, }, // Dữ liệu gửi đi (id sản phẩm)
                 success: function(data) {
-                    layout_sanpham.getDsPhanLoaiSP();
-                    layout_sanpham.getDsSanPham();
-                    layout_sanpham.showProduct();
+                    getDsPhanLoaiSP();
+                    getDsSanPham();
+                    showProduct();
                     alert(data);
                 },
                 error: function(xhr, status, error) {
