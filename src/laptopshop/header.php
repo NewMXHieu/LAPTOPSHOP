@@ -9,14 +9,6 @@ include "../../config/function.php";
         <a href="trangchu"><img width="80" height="80" src="static/image/laptoplogo.png" alt="laptop--v1" /></a>
     </div>
 
-    <!-- <div id="nav">
-        <ul>
-            <li><a class="nav-link active" href="?action=trangchu">Trang chủ</a></li>
-            <li><a class="nav-link" href="?action=sanpham">Sản phẩm</a></li>
-            <li><a class="nav-link" href="about">Giới thiệu</a></li>
-            <li><a class="nav-link" href="contact">Liên hệ</a></li>
-        </ul>
-    </div> -->
     <div class="danhmuc"><i class="fa-solid fa-bars"></i> Danh mục</div>
     <div class="search">
         <input class="input-search1" id="txtSearch" type="text" name="fseacrh" placeholder="Nhập từ khóa cần tìm">
@@ -29,8 +21,8 @@ include "../../config/function.php";
         <div class="cart">
             <a href="cart">
                 <i class="fa-solid fa-cart-shopping"></i><br>
-                <!-- <img src="https://img.icons8.com/ios-glyphs/30/shopping-cart--v1.png" alt="shopping-cart--v1"/><br> -->
                 <span>Giỏ hàng</span>
+                <div id="quantity">0</div>
             </a>
         </div>
 
@@ -65,8 +57,6 @@ include "../../config/function.php";
 
 
     $(document).ready(function () {
-
-        // $("#bthSearch").click();
         delayLoad();
     });
     $("#bthSearch").click(function () {
@@ -92,12 +82,14 @@ include "../../config/function.php";
         $("#txtSearch").val(search);
         readData(search);
         Pagination(search);
-
+        Quantity();
     }
     document.onkeydown = function () {
-        if (window.event.keyCode == '13') {
-            $("#bthSearch").click();
-        }
+        $("#txtSearch").keydown(function(event){
+            if (event.keyCode == 13) {
+                $("#bthSearch").click();
+            }
+        })
     }
     $(".fa-circle-xmark").click(function () {
         search = '';
@@ -109,6 +101,21 @@ include "../../config/function.php";
         delayLoad();
     })
 
-
+    let id = <?php echo $_SESSION['id']; ?>;
+    function Quantity(){
+        $.ajax({
+            url: 'api/so_luong_trong_cart.php',
+            type: 'GET',
+            data: {
+                'id': id
+            },
+            success: function (data) {
+                $("#quantity").empty();
+                $("#quantity").html(data);
+            }
+        })
+    }
+    
 
 </script>
+<script src = "static/js/cart.js"></script>

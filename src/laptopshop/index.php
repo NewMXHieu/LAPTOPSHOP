@@ -20,5 +20,9 @@
     ?>
 </body>
 <script src="static/js/app.js"></script>
-
+<script>
+    $(document).ready(function () {
+        Quantity();
+    });
+</script>
 </html>

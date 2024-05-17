@@ -169,9 +169,19 @@ li {
 }
 
 .cart {
+    position: relative;
     margin: 0 30px;
 }
 
+#quantity {
+    position: absolute;
+    bottom: 25px;
+    right: -6px;
+    background: red;
+    border-radius: 16px;
+    padding: 4px;
+    /* color: white; */
+}
 
 .header-top-right div span {
     /* width: 35px; */
