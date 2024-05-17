@@ -1,6 +1,10 @@
 <?php
 include "../../config/connect.php";
 include "../../config/function.php";
+$cartCount = 0;
+if (isset($_SESSION['product_cart'])) {
+    $cartCount = count($_SESSION['product_cart']);
+}
 ?>
 
 
@@ -27,6 +31,7 @@ include "../../config/function.php";
 
     <div class="header-top-right">
         <div class="cart">
+            <div class="notify-cart"><?php echo $cartCount; ?></div>
             <a href="cart">
                 <i class="fa-solid fa-cart-shopping"></i><br>
                 <!-- <img src="https://img.icons8.com/ios-glyphs/30/shopping-cart--v1.png" alt="shopping-cart--v1"/><br> -->
@@ -57,6 +62,24 @@ include "../../config/function.php";
         <?php } ?>
     </div>
 </div>
+<script>
+    var count = 0;
+    function updateCartCount() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'api/get_cart_count.php', true);
+        xhr.onload = function () {
+            if (this.status == 200) {
+                count = this.responseText;
+                console.log(count);
+                var cartNotification = document.querySelector('.notify-cart');
+                if (cartNotification) {
+                    cartNotification.textContent = count;
+                }
+            }
+        };
+        xhr.send();
+    }
+</script>
 <script>
     $('.danhmuc').click(function () {
         $('.menu-left-1').toggle();
@@ -108,7 +131,5 @@ include "../../config/function.php";
         $("#resetBtn").click();
         delayLoad();
     })
-
-
 
 </script>
