@@ -245,20 +245,24 @@ a {
 
 /* ==============================Footter============================*/
 .footer-top {
-    border-top: solid rgb(233, 165, 165);
-    border-bottom: solid rgb(233, 165, 165);
-    padding: 10px 150px;
+    border-top: solid blue;
+    padding: 14px 150px;
     display: flex;
     justify-content: space-around;
-    background-color: var(--mycolor2);
+    /* background-color: var(--mycolor2); */
+    /* background-color: rgb(233, 237, 242); */
+
 }
 
 .footer-top div {
     margin: 0 20px;
+    font-size: 12px;
 }
 
 .footer-top div h4 {
     font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 15px;
 }
 
 /*============================TrangChu============================*/
@@ -946,7 +950,7 @@ h3 {
     padding: 0 15%;
     height: 500px;
     border-top: solid #000;
-    margin: 20px auto;
+    margin: 20px auto 80px;
     border-radius: 15px;
     position: relative;
     box-shadow: 5px 7px 22px;
