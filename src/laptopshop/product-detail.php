@@ -1,20 +1,20 @@
 <?php
-    // include 'header.php';
-    include '../../config/connect.php';
+// include 'header.php';
+include '../../config/connect.php';
 
-    $id = isset($_GET['id']) ? $_GET['id'] : '';
-    if (empty($id)){
-        exit('Không tìm thấy mã sản phẩm');
-    }
+$id = isset($_GET['id']) ? $_GET['id'] : '';
+if (empty($id)) {
+    exit('Không tìm thấy mã sản phẩm');
+}
 
-    $product_query = "SELECT * FROM chitietsanpham WHERE MASP = '$id'";
-    $product_result = mysqli_query($conn,$product_query);
-        
-    if(mysqli_num_rows($product_result) == 0) {
-        // Xử lý khi không tìm thấy sản phẩm
-        exit('Không tìm thấy sản phẩm.');
-    }
-    $product = mysqli_fetch_assoc($product_result);
+$product_query = "SELECT * FROM chitietsanpham WHERE MASP = '$id'";
+$product_result = mysqli_query($conn, $product_query);
+
+if (mysqli_num_rows($product_result) == 0) {
+    // Xử lý khi không tìm thấy sản phẩm
+    exit('Không tìm thấy sản phẩm.');
+}
+$product = mysqli_fetch_assoc($product_result);
 
 ?>
 
@@ -27,39 +27,40 @@
     <div class="product-detail">
         <div class="product-image">
             <?php
-                $query_imageProduct = "SELECT * FROM sanpham WHERE MASP = " . $product['MASP'];
-                $result_imageProduct = mysqli_query($conn, $query_imageProduct);
-                $imageProduct = mysqli_fetch_assoc($result_imageProduct); 
+            $query_imageProduct = "SELECT * FROM sanpham WHERE MASP = " . $product['MASP'];
+            $result_imageProduct = mysqli_query($conn, $query_imageProduct);
+            $imageProduct = mysqli_fetch_assoc($result_imageProduct);
             ?>
             <img alt="LAPTOP <?php echo $brand['TENTHUONGHIEU']; ?>"
                 src="static/image/products/<?php echo $imageProduct['HINHSP']; ?>">
         </div>
         <div class="thongtinsp">
             <div class="product-name">
-                <h2><?php echo $product['TENSP'];?> </h2>
-                <p class="danhgia"><?php echo rand(1,5).'.0'; ?> <img width="22" height="22"
+                <h2><?php echo $product['TENSP']; ?> </h2>
+                <p class="danhgia"><?php echo rand(1, 5) . '.0'; ?> <img width="22" height="22"
                         src="https://img.icons8.com/emoji/48/star-emoji.png" alt="star-emoji" /></p>
-                <p class="present-price"><?php echo number_format($product['GIATIEN'], 0, "", ".")?>đ</p>
-                <p class="past-price"><?php echo number_format($product['GIATIEN'] + 2130000, 0, "", ".")?>đ</p>
+                <p class="present-price"><?php echo number_format($product['GIATIEN'], 0, "", ".") ?>đ</p>
+                <p class="past-price"><?php echo number_format($product['GIATIEN'] + 2130000, 0, "", ".") ?>đ</p>
             </div>
             <div class="promotion">
                 <h5>Khuyến mãi</h5>
                 <?php
                 $promo_query = "SELECT * FROM chitietkhuyenmai";
-                $promo_result = mysqli_query($conn,$promo_query);
+                $promo_result = mysqli_query($conn, $promo_query);
                 ?>
                 <ul>
                     <?php
-                        while($promo = mysqli_fetch_assoc($promo_result)){
-                            echo $promo['QUATANG'];
-                            echo '<br>';
-                        }    
+                    while ($promo = mysqli_fetch_assoc($promo_result)) {
+                        echo $promo['QUATANG'];
+                        echo '<br>';
+                    }
                     ?>
                 </ul>
             </div>
             <div class="paying-product">
-                <a href="checkout"><button class="sell-button">Mua ngay</button></a>
-                <a href="cart"><button>Thêm vào giỏ hàng</button></a>
+                <a href="checkout"><button id="sell-button" class="addCart" data-id="<?php echo $product['MASP'] ?> ">Mua ngay</button></a>
+                <a href="#"><button class="addCart" data-id="<?php echo $product['MASP'] ?> ">Thêm vào giỏ
+                        hàng</button></a>
             </div>
         </div>
     </div>
@@ -132,35 +133,36 @@
     <div class="bip">
         <div class="recommend-row">
             <?php
-                $recommend_query = "SELECT * FROM sanpham
+            $recommend_query = "SELECT * FROM sanpham
                 INNER JOIN chitietsanpham ON sanpham.MASP = chitietsanpham.MASP
                 INNER JOIN thuonghieu ON chitietsanpham.MATHUONGHIEU = thuonghieu.MATHUONGHIEU";
 
-                $recommend_result = mysqli_query($conn,$recommend_query);
+            $recommend_result = mysqli_query($conn, $recommend_query);
 
-                $data = '';
-                // $list = '<div class="recommend-list>"';
-                
-                while($row_recommend = mysqli_fetch_assoc($recommend_result)){
-                    if ($_GET['id'] != $row_recommend['MASP']){
-                        $data.= '<div class="product">';
-                        $data.= '<a href="product-detail?id=' .$row_recommend['MASP']. '">';
-                            $data.= '<img src="static/image/products/'.$row_recommend['HINHSP'].'"alt="">';
-                            $data.= '<div class="clear">';
-                                $data.= '<a href="product-detail?id=' .$row_recommend['MASP']. '">' .$row_recommend['TENSP']. '</a>';
-                                $data.= '<h2>' .$row_recommend['TENTHUONGHIEU']. '</h2>';
-                                $data.= '<div class="price">' . number_format($row_recommend['GIATIEN'], 0, "", ".") . " Vnd". '</div>';
-                                $data.= '<button class="addCart">Thêm <i class="fa-solid fa-plus"></i></button>';
-                            $data.= '</div>';
-                        $data.= '</a>';
-                    $data.= '</div>';
-                    }
-                    // $list .= $data;
+            $data = '';
+            // $list = '<div class="recommend-list>"';
+            
+            while ($row_recommend = mysqli_fetch_assoc($recommend_result)) {
+                if ($_GET['id'] != $row_recommend['MASP']) {
+                    $data .= '<div class="product">';
+                    $data .= '<a href="product-detail?id=' . $row_recommend['MASP'] . '">';
+                    $data .= '<img src="static/image/products/' . $row_recommend['HINHSP'] . '"alt="">';
+                    $data .= '<div class="clear">';
+                    $data .= '<a href="product-detail?id=' . $row_recommend['MASP'] . '">' . $row_recommend['TENSP'] . '</a>';
+                    $data .= '<h2>' . $row_recommend['TENTHUONGHIEU'] . '</h2>';
+                    $data .= '<div class="price">' . number_format($row_recommend['GIATIEN'], 0, "", ".") . " Vnd" . '</div>';
+                    $data .= '<button class="addCart" data-id="' . $row_recommend['MASP'] . '">Thêm <i class="fa-solid fa-plus"></i></button>';
+                    $data .= '</div>';
+                    $data .= '</a>';
+                    $data .= '</div>';
                 }
-                // $list .= '</div>';
-                echo $data;
+                // $list .= $data;
+            }
+            // $list .= '</div>';
+            echo $data;
             ?>
         </div>
     </div>
-
 </div>
+<script src="static/js/add_to_cart.js">
+</script>

@@ -49,6 +49,9 @@ function register()
   $last_id = mysqli_insert_id($conn);
   $query = "INSERT INTO khachhang VALUES('','$fullname','','','','$last_id','')";
   mysqli_query($conn, $query);
+  $last_khachhang_id = mysqli_insert_id($conn);
+  $query = "INSERT INTO giohang (MAKH) VALUES ('$last_khachhang_id')";
+  mysqli_query($conn, $query);
   $query = "INSERT INTO phanquyen VALUES('$last_id','5')";
   mysqli_query($conn, $query);
   echo json_encode(array("message" => "Registration Successful"));

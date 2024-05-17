@@ -67,21 +67,6 @@
     }
     echo $data;
 ?>
-<script>
-    $(document).ready(function() {
-    $('.addCart').click(function() {
-        var productId = $(this).data('id');
-
-        $.ajax({
-            url: 'api/add_to_cart.php',
-            method: 'POST',
-            data: { product_id: productId },
-            success: function(response) {
-                
-                alert(response);
-            }
-        });
-    });
-});
+<script src="static/js/add_to_cart.js">
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

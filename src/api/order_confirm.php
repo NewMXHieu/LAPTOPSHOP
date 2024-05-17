@@ -15,6 +15,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ward = $formData['ward'];
     $cart_detail = $formData['cart_detail'];
 
+    $errors = [];
+
+    if (!preg_match("/\S+/", $fullname)) {
+        $errors[] = "Fullname cannot be empty";
+    }
+
+    if (!preg_match("/\S+/", $email)) {
+        $errors[] = "Email cannot be empty";
+    }
+
+    if (!preg_match("/\S+/", $phone)) {
+        $errors[] = "Phone cannot be empty";
+    }
+
+    if (!preg_match("/\S+/", $address)) {
+        $errors[] = "Address cannot be empty";
+    }
+
+    if (!preg_match("/\S+/", $provine)) {
+        $errors[] = "Province cannot be empty";
+    }
+
+    if (!preg_match("/\S+/", $district)) {
+        $errors[] = "District cannot be empty";
+    }
+
+    if (!preg_match("/\S+/", $ward)) {
+        $errors[] = "Ward cannot be empty";
+    }
+
+    if (!preg_match("/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/", $email)) {
+        $errors[] = "Invalid email format";
+    }
+
+    if (!empty($errors)) {
+        echo json_encode(['errors' => $errors]);
+        exit;
+    }
+
     $response = ['message' => ''];
 
     $allQueriesSuccessful = true;

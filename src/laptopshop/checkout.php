@@ -79,7 +79,7 @@ $resultSP = mysqli_query($conn, $query);
                         <div class="col-50">
                             <div class="container">
                                 <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i>
-                                        <b>4</b></span></h4>
+                                        <b></b></span></h4>
                                 <?php
                                 $totalAll = 0;
                                 $cart_detail = [];
@@ -170,16 +170,22 @@ $resultSP = mysqli_query($conn, $query);
                     data: formDataObject,
                     success: function (response) {
                         console.log(response);
-                        respone = JSON.parse(response);
-                        if (respone.message === "Đặt hàng thành công!") {
-                            var popup = document.getElementById('popup-order-successful');
-                            popup.querySelector('p').textContent = respone.message;
-                            popup.classList.add("open-popup");
-                            return;
+                        response = JSON.parse(response);
+                        if (response.errors) {
+                            console.log(response.errors);
+                            alert(response.errors.join('\n'));
+                        } else if (response.message) {
+                            // Handle success message here
+                            if (response.message === "Đặt hàng thành công!") {
+                                var popup = document.getElementById('popup-order-successful');
+                                popup.querySelector('p').textContent = response.message;
+                                popup.classList.add("open-popup");
+                            }
                         }
-                        console.log(response);
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
+                        // Handle AJAX error here
+                        console.log('AJAX error:', textStatus, errorThrown);
                     }
                 });
             });
