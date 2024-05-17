@@ -39,6 +39,14 @@ if (isset($_SESSION['id'])) {
             </div>
             <div class="cart-container">
                 <div class="cart-items">
+                    <div class="title">
+                        <div class="product-details">
+                            <div class="product-name">Sản phẩm</div>
+                            <div class="product-price">Giá</div>
+                            <div class="product-quantity">Số lượng</div>
+                            <div class="product-total">Tổng tiền</div>
+                        </div>
+                    </div>
                     <?php foreach ($GIOHANG as $item) { ?>
                         <div class="cart-item">
                             <div class="cart-checkbox">

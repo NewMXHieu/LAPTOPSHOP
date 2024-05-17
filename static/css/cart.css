@@ -1,14 +1,18 @@
 .my-store-cart-content {
-    padding-top: 150px;
-    min-height: 500px;
+    position: relative;
+    padding: 150px 0 0 0;
+    height:auto;
 }
 
 /* CSS cho container chứa giỏ hàng */
 .cart-container {
+    height: auto;
+    min-height: 400px;
     border: none;
     border-radius: 5px;
     padding: 20px;
     margin-bottom: 20px;
+    overflow-y: auto;
 }
 .cart-header{
     padding-bottom: 30px;
@@ -32,16 +36,20 @@
 }
 
 /* CSS cho từng sản phẩm trong giỏ hàng */
+.cart-items {
+    width: 70%;
+    min-height: 500px;
+    overflow-y: auto;
+    display: block;
+    float: left;
+    padding-bottom: 20px;
+}
+
 .cart-item {
     display: flex;
     margin-bottom: 10px;
 }
-.cart-items {
-    width: 70%;
-    height: fit-content;
-    display: block;
-    float: left;
-}
+
 
 .cart-checkbox {
     display: flex;
@@ -219,4 +227,8 @@ button[type="button"].plus {
 .product-quantity button:hover,
 .quantity:hover {
     background-color: #e0e0e0; /* Màu nền khi di chuột vào */
+}
+
+.title{
+    padding-bottom: 30px;
 }
