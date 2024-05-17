@@ -45,6 +45,7 @@ include '../../config/connect.php';
         <div class="loc">
             <h3>CPU</h3>
             <div class="checkItems checkItem-3">
+                <p><input type="checkbox" checked value="0"> Tất cả</p>
                 <p><input type="checkbox" value="Intel Core i3"> Intel Core i3</p>
                 <p><input type="checkbox" value="Intel Core i5"> Intel Core i5</p>
                 <p><input type="checkbox" value="Intel Core i7"> Intel Core i7</p>
@@ -124,7 +125,6 @@ include '../../config/connect.php';
             },
             success: function(data) {
                 if (data == null || data == '') {
-                    $('.thongbao').html("KHÔNG CÓ SẢN PHẨM THEO YÊU CẦU!");
                     $('.main').empty();
                 } else {
                     // $('.thongbao').empty();
@@ -156,10 +156,14 @@ include '../../config/connect.php';
                 response = JSON.parse(response);
                 let data = response.page;
                 let count = response.count;
-                if (data < 1) {
-                    $(".pagination").hide();
+                if(count == 0) {
+                    $('.thongbao').html("KHÔNG CÓ SẢN PHẨM THEO YÊU CẦU!");
                 } else {
                     $('.thongbao').html("Số sản phẩm hiện có: " + count);
+                }
+                if (data == 1) {
+                    $(".pagination").hide();
+                } else {
                     $(".pagination").show();
                     $(".pagination").empty();
                     let pagi = '';

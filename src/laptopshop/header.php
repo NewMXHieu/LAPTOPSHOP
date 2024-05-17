@@ -13,14 +13,6 @@ if (isset($_SESSION['product_cart'])) {
         <a href="trangchu"><img width="80" height="80" src="static/image/laptoplogo.png" alt="laptop--v1" /></a>
     </div>
 
-    <!-- <div id="nav">
-        <ul>
-            <li><a class="nav-link active" href="?action=trangchu">Trang chủ</a></li>
-            <li><a class="nav-link" href="?action=sanpham">Sản phẩm</a></li>
-            <li><a class="nav-link" href="about">Giới thiệu</a></li>
-            <li><a class="nav-link" href="contact">Liên hệ</a></li>
-        </ul>
-    </div> -->
     <div class="danhmuc"><i class="fa-solid fa-bars"></i> Danh mục</div>
     <div class="search">
         <input class="input-search1" id="txtSearch" type="text" name="fseacrh" placeholder="Nhập từ khóa cần tìm">
@@ -34,8 +26,8 @@ if (isset($_SESSION['product_cart'])) {
             <div class="notify-cart"><?php echo $cartCount; ?></div>
             <a href="cart">
                 <i class="fa-solid fa-cart-shopping"></i><br>
-                <!-- <img src="https://img.icons8.com/ios-glyphs/30/shopping-cart--v1.png" alt="shopping-cart--v1"/><br> -->
                 <span>Giỏ hàng</span>
+                <div id="quantity">0</div>
             </a>
         </div>
 
@@ -88,8 +80,6 @@ if (isset($_SESSION['product_cart'])) {
 
 
     $(document).ready(function () {
-
-        // $("#bthSearch").click();
         delayLoad();
     });
     $("#bthSearch").click(function () {
@@ -115,12 +105,13 @@ if (isset($_SESSION['product_cart'])) {
         $("#txtSearch").val(search);
         readData(search);
         Pagination(search);
-
     }
     document.onkeydown = function () {
-        if (window.event.keyCode == '13') {
-            $("#bthSearch").click();
-        }
+        $("#txtSearch").keydown(function(event){
+            if (event.keyCode == 13) {
+                $("#bthSearch").click();
+            }
+        })
     }
     $(".fa-circle-xmark").click(function () {
         search = '';

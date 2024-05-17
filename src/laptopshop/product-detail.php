@@ -85,7 +85,7 @@ $product = mysqli_fetch_assoc($product_result);
             </div>
             <div class="paying-product">
                 <a href="checkout"><button class="sell-button">Mua ngay</button></a>
-                <a href="cart"><button>Thêm vào giỏ hàng</button></a>
+                <button class="addCart" data-id="<?php echo $id?>">Thêm vào giỏ hàng</button>
             </div>
         </div>
     </div>
@@ -170,15 +170,15 @@ $product = mysqli_fetch_assoc($product_result);
             while ($row_recommend = mysqli_fetch_assoc($recommend_result)) {
                 if ($_GET['id'] != $row_recommend['MASP']) {
                     $data .= '<div class="product">';
-                    $data .= '<a href="product-detail?id=' . $row_recommend['MASP'] . '">';
-                    $data .= '<img src="static/image/products/' . $row_recommend['HINHSP'] . '"alt="">';
-                    $data .= '<div class="clear">';
-                    $data .= '<a href="product-detail?id=' . $row_recommend['MASP'] . '">' . $row_recommend['TENSP'] . '</a>';
-                    $data .= '<h2>' . $row_recommend['TENTHUONGHIEU'] . '</h2>';
-                    $data .= '<div class="price">' . number_format($row_recommend['GIATIEN'], 0, "", ".") . " Vnd" . '</div>';
-                    $data .= '<button class="addCart" data-id="' . $row_recommend['MASP'] . '">Thêm <i class="fa-solid fa-plus"></i></button>';
-                    $data .= '</div>';
-                    $data .= '</a>';
+                        $data .= '<a href="product-detail?id=' . $row_recommend['MASP'] . '">';
+                            $data .= '<img src="static/image/products/' . $row_recommend['HINHSP'] . '"alt="">';
+                                $data .= '<div class="clear">';
+                                    $data .= '<a href="product-detail?id=' . $row_recommend['MASP'] . '">' . $row_recommend['TENSP'] . '</a>';
+                                    $data .= '<h2>' . $row_recommend['TENTHUONGHIEU'] . '</h2>';
+                                    $data .= '<div class="price">' . number_format($row_recommend['GIATIEN'], 0, "", ".") . " Vnd" . '</div>';
+                                $data .= '<button class="addCart" data-id="' . $row_recommend['MASP'] . '">Thêm <i class="fa-solid fa-plus"></i></button>';
+                            $data .= '</div>';
+                        $data .= '</a>';
                     $data .= '</div>';
                 }
                 // $list .= $data;
@@ -189,3 +189,17 @@ $product = mysqli_fetch_assoc($product_result);
         </div>
     </div>
 </div>
+<script src="static/js/add_to_cart.js"></script>
+<script>
+    document.querySelectorAll('.addCart').forEach(button => {
+        button.addEventListener('click', (event) => {
+            const productId = event.target.getAttribute('data-id');
+            console.log("davao");
+            const method = 'addCart';
+            const quantity = 0;
+            updateCart(productId, quantity, method, isChecked = null);
+            Quantity();
+        });
+    });
+
+</script>
