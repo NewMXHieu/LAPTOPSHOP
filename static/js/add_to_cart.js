@@ -7,8 +7,7 @@ $(document).ready(function() {
             method: 'POST',
             data: { product_id: productId },
             success: function(response) {
-                
-                alert(response);
+                console.log('Product added to cart');
             }
         });
     });

@@ -6,7 +6,7 @@ global $conn;
 $query = "SELECT hoadon.* , shipper.TEN, shipper.SDT
           FROM khachhang 
           INNER JOIN hoadon ON khachhang.makh = hoadon.makh
-          INNER JOIN shipper ON hoadon.mashipper = shipper.mashipper
+          LEFT JOIN shipper ON hoadon.mashipper = shipper.mashipper
           WHERE khachhang.matk = $userId
                         AND hoadon.trangthai != 3";
 $result = mysqli_query($conn, $query);
@@ -25,8 +25,8 @@ if (mysqli_num_rows($result) > 0 && $order['TRANGTHAI'] != 3) {
                         <div class="col"> <strong>Ngày đặt hàng</strong>
                             <br><?= date('d/m/Y', strtotime($order['NGAYTAO'])) ?> <br>
                         </div>
-                        <div class="col"> <strong>Được giao bởi</strong> <br> <?= $order['TEN'] ?><i class="fa fa-phone"></i>
-                            <?= $order['SDT'] ?> </div>
+                        <div class="col"> <strong>Được giao bởi</strong> <br> <?= isset($order['TEN']) ? $order['TEN'] : '' ?><i class="fa fa-phone"></i>
+                            <?= isset($order['SDT']) ? $order['SDT'] : ''  ?> </div>
                         <div class="col"> <strong>Tình trạng</strong> <br>
                             <?php
                             switch ($order['TRANGTHAI']) {

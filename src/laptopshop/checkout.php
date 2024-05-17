@@ -45,7 +45,7 @@ $resultSP = mysqli_query($conn, $query);
 
                     <div class="row">
                         <div class="col-50">
-                            <h3>Billing Address</h3>
+                            <h3>Thông tin đặt hàng</h3>
                             <input type="hidden" name="userId" value="<?php echo $userData['MAKH'] ?>">
                             <label for="fname"><i class="fa fa-user"></i> Họ và tên</label>
                             <input type="text" id="fname" name="fullname" value="<?php echo $userData['TEN'] ?>">
@@ -53,7 +53,7 @@ $resultSP = mysqli_query($conn, $query);
                             <input type="text" id="email" name="email" placeholder="john@example.com"
                                 value="<?php echo $userData['EMAIL'] ?>">
                             <label for="phone"><i class="fa fa-phone"></i> Số điện thoại</label>
-                            <input type="text" id="phone" name="phone" placeholder="650-555-1234"
+                            <input type="text" id="phone" name="phone" placeholder="0987654321"
                                 value="<?php echo $userData['SDT'] ?>">
                             <label for="adr"><i class="fa fa-address-card-o"></i> Địa chỉ</label>
                             <div class="row" style="padding-bottom: 20px">
@@ -78,7 +78,7 @@ $resultSP = mysqli_query($conn, $query);
                         </div>
                         <div class="col-50">
                             <div class="container">
-                                <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i>
+                                <h4>Giỏ hàng <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i>
                                         <b></b></span></h4>
                                 <?php
                                 $totalAll = 0;
@@ -180,6 +180,9 @@ $resultSP = mysqli_query($conn, $query);
                                 var popup = document.getElementById('popup-order-successful');
                                 popup.querySelector('p').textContent = response.message;
                                 popup.classList.add("open-popup");
+                            }
+                            else {
+                                alert(response.message);
                             }
                         }
                     },

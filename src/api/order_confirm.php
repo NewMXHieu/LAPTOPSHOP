@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     global $conn;
 
-    $sql = "INSERT INTO hoadon (MAKH, MASHIPPER, MANV, NGAYTAO, TRANGTHAI) VALUES ('$userId','1', '1', NOW(), '0')";
+    $sql = "INSERT INTO hoadon (MAKH, MANV, NGAYTAO, TRANGTHAI) VALUES ('$userId', '1', NOW(), '0')";
     // execute the query
     mysqli_query($conn, $sql);
     $last_id = mysqli_insert_id($conn);

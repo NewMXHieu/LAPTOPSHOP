@@ -65,8 +65,8 @@
                     </div>
                 </div>
                 <div class="dataThongKeShow">
-                    <h1>Loại sản phẩm: </h1>
-                    <h2>1.000.000đ</h2>
+                    <h1>Doanh thu: </h1>
+                    <h2 id="tonggiatien">1.000.000đ</h2>
                 </div>
                 <div class="content-main-table">
                     <table style="width:100%">

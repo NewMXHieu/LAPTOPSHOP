@@ -14,7 +14,8 @@
 
     $sql_sanpham = "SELECT * FROM sanpham
     INNER JOIN chitietsanpham ON sanpham.MASP = chitietsanpham.MASP
-    INNER JOIN thuonghieu ON chitietsanpham.MATHUONGHIEU = thuonghieu.MATHUONGHIEU";
+    INNER JOIN thuonghieu ON chitietsanpham.MATHUONGHIEU = thuonghieu.MATHUONGHIEU
+    WHERE sanpham.TRANGTHAI = 1";
 
     $sql_sanpham .= " AND chitietsanpham.TENSP LIKE '%".$search."%'";
 

@@ -157,6 +157,7 @@ function saveEditDonHang() {
             showDonHang();
             resetDataThongKe();
             layDsSP(maDonHang,true);
+            getSoDoanhThu();
             finish();
         },
         error: function (xhr, status, error) {
@@ -178,6 +179,7 @@ function deleteDonHang(id) {
         deleteStatusDonHang(donhangs[index].MAHD);
         getDsDonHang();
         showDonHang();
+        getSoDoanhThu();
         // resetDataAmountProduct();
         alert("Đã Xóa hóa đơn " + donhangs[index].MAHD + " thành công");
     }

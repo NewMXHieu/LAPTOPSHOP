@@ -17,9 +17,7 @@ $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
     echo json_encode(array("total_doanhThu" => $row["total"]));
-} else {
-    echo json_encode(array("total_doanhThu" => 0));
-}
+} 
 
 // Đóng kết nối
 mysqli_close($conn);

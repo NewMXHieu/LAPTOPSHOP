@@ -96,6 +96,7 @@ getDsThongKe();
 
 // Hiển thị danh sách sản phẩm
 function showArrayThongKe(arr) {
+    let tongtien = 0;
 let productHtml = "";
 if (arr.length === 0) {
     productHtml = `<tr >
@@ -106,6 +107,7 @@ if (arr.length === 0) {
 
     
     arr.forEach(product => {
+        tongtien += parseFloat(product.TONGGIATIEN);
         productHtml +=
             `<tr>
             <td>${product.TENLOAISP}</td>
@@ -118,6 +120,7 @@ if (arr.length === 0) {
 
     });
 }
+document.getElementById('tonggiatien').innerHTML = tongtien + ' đ'; 
 document.getElementById("dataThongKe").innerHTML = productHtml;
 }
 
@@ -134,7 +137,7 @@ function showThongKe(){
     } else if (selectOp >= "1" && selectOp <= "6") {
         resultThongKe = thongkes.filter((item) => item.MALOAISP == parseInt(selectOp));
     }
-    tinhTongTien(selectOp);
+    // tinhTongTien(selectOp);
 
     if (selectThuongHieu !== "0") {
         resultThongKe = resultThongKe.filter((item) => item.MATHUONGHIEU == parseInt(selectThuongHieu));
@@ -145,10 +148,7 @@ function showThongKe(){
         resultThongKe = resultThongKe.filter(item => new Date(item.NGAYTAO) <= dayEnd);
     } else if(dayStart !== '' && dayEnd === ''){
         dayStart = new Date(dayStart)
-        console.log(dayStart >= new Date('2024-04-02'));
-        console.log(resultThongKe);
         resultThongKe = resultThongKe.filter(item => dayStart <= new Date(item.NGAYTAO));
-        console.log(resultThongKe);
     } else if(dayStart !== '' && dayEnd !== ''){
         dayStart = new Date(dayStart);
         dayEnd = new Date(dayEnd);
@@ -214,20 +214,20 @@ function changeDataType(maloaisp,giatien){
     document.querySelector(".dataThongKeShow h2").textContent = giatien + "đ";
 }
 
-function tinhTongTien(maloaisp){
-    $.ajax({
-        url: 'api/admin/tinhTongTienLoaiSP.php', // Đường dẫn đến trang PHP
-        type: 'POST', // Phương thức POST sẽ gửi dữ liệu qua body
-        data: {idLoaiSP: maloaisp}, // Dữ liệu gửi đi (id sản phẩm)
-        dataType: 'json',
-        success: function(data) {
-            if(data.total === null){
-                data.total = 0;
-            }
-            changeDataType(maloaisp,data.total);
-        },
-        error: function(xhr, status, error) {
-            console.error('Lỗi khi gửi yêu cầu đến trang PHP:', error);
-        }
-    });
-}
+// function tinhTongTien(maloaisp){
+//     $.ajax({
+//         url: 'api/admin/tinhTongTienLoaiSP.php', // Đường dẫn đến trang PHP
+//         type: 'POST', // Phương thức POST sẽ gửi dữ liệu qua body
+//         data: {idLoaiSP: maloaisp}, // Dữ liệu gửi đi (id sản phẩm)
+//         dataType: 'json',
+//         success: function(data) {
+//             if(data.total === null){
+//                 data.total = 0;
+//             }
+//             changeDataType(maloaisp,data.total);
+//         },
+//         error: function(xhr, status, error) {
+//             console.error('Lỗi khi gửi yêu cầu đến trang PHP:', error);
+//         }
+//     });
+// }

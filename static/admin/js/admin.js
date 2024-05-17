@@ -62,7 +62,11 @@ function getSoDoanhThu(){
             if (response.error) {
                 console.error(response.error);
             } else {
-                document.getElementById("datadoanhthu").innerHTML = response["total_doanhThu"] + " đ";
+                if(response['total_doanhThu'] == null){
+                    document.getElementById("datadoanhthu").innerHTML ="0 đ";
+                } else{
+                    document.getElementById("datadoanhthu").innerHTML = response["total_doanhThu"] + " đ";
+                }
             }
         }
     };

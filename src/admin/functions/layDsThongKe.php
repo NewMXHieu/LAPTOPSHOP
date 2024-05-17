@@ -14,7 +14,7 @@ chitiethoadon.MASP,
 chitietsanpham.TENSP,
 COUNT(chitiethoadon.MASP) AS TONGSOLUONG,
 chitietsanpham.GIATIEN AS DONGIA,
-chitietsanpham.GIATIEN * subquery.TONGSOLUONG AS TONGGIATIEN,
+chitietsanpham.GIATIEN * COUNT(chitiethoadon.MASP) AS TONGGIATIEN,
 hoadon.NGAYTAO 
 FROM HOADON
 INNER JOIN chitiethoadon ON chitiethoadon.MAHD = hoadon.MAHD

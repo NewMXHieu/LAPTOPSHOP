@@ -106,7 +106,7 @@
                 
                 <div class="detail_product-items-item">
                     <label for="giatien">GIÁ TIỀN</label>
-                    <input type="number" id="addProduct_giatien" name="addProduct_giatien" oninput="checkGIATIEN()">
+                    <input type="number" id="addProduct_giatien" name="addProduct_giatien" oninput="checkGIATIEN()" value='0' min='0'>
                 </div>
             </div>
 
@@ -272,7 +272,7 @@
                 
                 <div class="detail_product-items-item">
                     <label for="giatien">GIÁ TIỀN</label>
-                    <input type="number" id="editProduct_giatien" name="editProduct_giatien" oninput="checkGIATIENedit()">
+                    <input type="number" id="editProduct_giatien" name="editProduct_giatien" oninput="checkGIATIENedit()" value='0' min='0'>
                 </div>
             </div>
 

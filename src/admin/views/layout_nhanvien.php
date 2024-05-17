@@ -53,7 +53,6 @@
                                 <th>ĐỊA CHỈ</th>
                                 <th>MÃ TK</th>
                                 <th>EMAIL</th>
-                                <th>CHỨC VỤ</th>
                                 <th>TRẠNG THÁI</th>
                                 <th>CHỨC NĂNG</th>
                             </tr>

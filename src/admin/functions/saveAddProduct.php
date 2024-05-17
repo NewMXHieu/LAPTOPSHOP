@@ -54,7 +54,7 @@
         
         // Hàm thêm sản phẩm
         function themSanPham($conn, $hinhsp, $nhacungcap) {
-            $sql_sanpham = "INSERT INTO SANPHAM(HINHSP,SOLUONG,MANCC,TRANGTHAI) VALUES ('$hinhsp',1,'$nhacungcap',1)";
+            $sql_sanpham = "INSERT INTO SANPHAM(HINHSP,SOLUONG,MANCC,TRANGTHAI) VALUES ('$hinhsp',0,'$nhacungcap',1)";
             if ($conn->query($sql_sanpham) === TRUE) {
                 // echo "Thêm sản phẩm thành công";
             } else {
@@ -153,7 +153,7 @@
             $ngaysanxuat = new DateTime();
             $ngaysanxuat = $ngaysanxuat->format('Y-m-d');;
             $soluong = 0;
-            themSerial($conn,$soluong,$masp_moi,$ngaysanxuat,$mabaohanh);
+            // themSerial($conn,$soluong,$masp_moi,$ngaysanxuat,$mabaohanh);
             echo 'thêm sản phẩm thành công';
         }
         
