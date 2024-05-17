@@ -162,7 +162,6 @@
         document.querySelectorAll('input[name="group[]"]:checked').forEach(function(checkbox) {
             loaisp.push(checkbox.value);
         });
-        console.log(loaisp);
             $.ajax({
                 url: 'api/admin/saveEditProduct.php', // Đường dẫn đến trang PHP
                 type: 'POST', // Phương thức POST sẽ gửi dữ liệu qua body
@@ -188,8 +187,7 @@
                     getDsPhanLoaiSP();
                     getDsSanPham();
                     showProduct();
-                    alert("Update thông tin sản phẩm thành công");
-                    finish();
+                    alert(data);
                 },
                 error: function(xhr, status, error) {
                     console.error('Lỗi khi gửi yêu cầu đến trang PHP:', error);
@@ -458,6 +456,150 @@
             const pattern = /^.[^\d]{1,}$/; // Mẫu để tìm tất cả các số (các dãy chữ số liên tiếp)
             const isValid = pattern.test(inputText);
             const inputElement = document.getElementById("addProduct_detail_mau");
+             
+            if (isValid) {
+                inputElement.style.border = ""; // Reset border
+            } else {
+                inputElement.style.border = "2px solid red"; // Đổi màu border thành đỏ
+            }
+        }
+
+        // edit
+        function checkTENedit(){
+            const inputText = document.getElementById("editProduct_tensanpham").value;
+            const pattern = /^.{1,}/; // Mẫu để tìm tất cả các số (các dãy chữ số liên tiếp)
+            const isValid = pattern.test(inputText);
+            const inputElement = document.getElementById("editProduct_tensanpham");
+             
+            if (isValid) {
+                inputElement.style.border = ""; // Reset border
+            } else {
+                inputElement.style.border = "2px solid red"; // Đổi màu border thành đỏ
+            }
+        }
+
+        function checkGIATIENedit(){
+            const inputText = document.getElementById("editProduct_giatien").value;
+            const pattern = /^[0-9]{6,}/; // Mẫu để tìm tất cả các số (các dãy chữ số liên tiếp)
+            const isValid = pattern.test(inputText);
+            const inputElement = document.getElementById("editProduct_giatien");
+             
+            if (isValid) {
+                inputElement.style.border = ""; // Reset border
+            } else {
+                inputElement.style.border = "2px solid red"; // Đổi màu border thành đỏ
+            }
+        }
+
+        function checkCPUedit(){
+            const inputText = document.getElementById("editProduct_detail_cpu").value;
+            const pattern = /^.{1,}/; // Mẫu để tìm tất cả các số (các dãy chữ số liên tiếp)
+            const isValid = pattern.test(inputText);
+            const inputElement = document.getElementById("editProduct_detail_cpu");
+             
+            if (isValid) {
+                inputElement.style.border = ""; // Reset border
+            } else {
+                inputElement.style.border = "2px solid red"; // Đổi màu border thành đỏ
+            }
+        }
+
+        function checkSCREENedit(){
+            const inputText = document.getElementById("editProduct_detail_screen").value;
+            const pattern = /^.{1,}/; // Mẫu để tìm tất cả các số (các dãy chữ số liên tiếp)
+            const isValid = pattern.test(inputText);
+            const inputElement = document.getElementById("editProduct_detail_screen");
+             
+            if (isValid) {
+                inputElement.style.border = ""; // Reset border
+            } else {
+                inputElement.style.border = "2px solid red"; // Đổi màu border thành đỏ
+            }
+        }
+
+        function checkRAMedit(){
+            const inputText = document.getElementById("editProduct_detail_ram").value;
+            const pattern = /^.{1,}/; // Mẫu để tìm tất cả các số (các dãy chữ số liên tiếp)
+            const isValid = pattern.test(inputText);
+            const inputElement = document.getElementById("editProduct_detail_ram");
+             
+            if (isValid) {
+                inputElement.style.border = ""; // Reset border
+            } else {
+                inputElement.style.border = "2px solid red"; // Đổi màu border thành đỏ
+            }
+        }
+
+        function checkVGAedit(){
+            const inputText = document.getElementById("editProduct_detail_vga").value;
+            const pattern = /^.{1,}/; // Mẫu để tìm tất cả các số (các dãy chữ số liên tiếp)
+            const isValid = pattern.test(inputText);
+            const inputElement = document.getElementById("editProduct_detail_vga");
+             
+            if (isValid) {
+                inputElement.style.border = ""; // Reset border
+            } else {
+                inputElement.style.border = "2px solid red"; // Đổi màu border thành đỏ
+            }
+        }
+
+        function checkSTORAGEedit(){
+            const inputText = document.getElementById("editProduct_detail_storage").value;
+            const pattern = /^.{1,}/; // Mẫu để tìm tất cả các số (các dãy chữ số liên tiếp)
+            const isValid = pattern.test(inputText);
+            const inputElement = document.getElementById("editProduct_detail_storage");
+             
+            if (isValid) {
+                inputElement.style.border = ""; // Reset border
+            } else {
+                inputElement.style.border = "2px solid red"; // Đổi màu border thành đỏ
+            }
+        }
+
+        function checkOSedit(){
+            const inputText = document.getElementById("editProduct_detail_os").value;
+            const pattern = /^.{1,}/; // Mẫu để tìm tất cả các số (các dãy chữ số liên tiếp)
+            const isValid = pattern.test(inputText);
+            const inputElement = document.getElementById("editProduct_detail_os");
+             
+            if (isValid) {
+                inputElement.style.border = ""; // Reset border
+            } else {
+                inputElement.style.border = "2px solid red"; // Đổi màu border thành đỏ
+            }
+        }
+
+        function checkPINedit(){
+            const inputText = document.getElementById("editProduct_detail_pin").value;
+            const pattern = /^.{1,}/; // Mẫu để tìm tất cả các số (các dãy chữ số liên tiếp)
+            const isValid = pattern.test(inputText);
+            const inputElement = document.getElementById("editProduct_detail_pin");
+             
+            if (isValid) {
+                inputElement.style.border = ""; // Reset border
+            } else {
+                inputElement.style.border = "2px solid red"; // Đổi màu border thành đỏ
+            }
+        }
+
+        function checkWEIGHTedit(){
+            const inputText = document.getElementById("editProduct_detail_weight").value;
+            const pattern = /^.{1,}/; // Mẫu để tìm tất cả các số (các dãy chữ số liên tiếp)
+            const isValid = pattern.test(inputText);
+            const inputElement = document.getElementById("editProduct_detail_weight");
+             
+            if (isValid) {
+                inputElement.style.border = ""; // Reset border
+            } else {
+                inputElement.style.border = "2px solid red"; // Đổi màu border thành đỏ
+            }
+        }
+
+        function checkMAUedit(){
+            const inputText = document.getElementById("editProduct_detail_mau").value;
+            const pattern = /^.[^\d]{1,}$/; // Mẫu để tìm tất cả các số (các dãy chữ số liên tiếp)
+            const isValid = pattern.test(inputText);
+            const inputElement = document.getElementById("editProduct_detail_mau");
              
             if (isValid) {
                 inputElement.style.border = ""; // Reset border
