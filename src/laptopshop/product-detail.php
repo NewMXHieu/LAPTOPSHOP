@@ -44,7 +44,29 @@ $product = mysqli_fetch_assoc($product_result);
                 <p class="danhgia"><?php echo rand(1, 5) . '.0'; ?> <img width="22" height="22"
                         src="https://img.icons8.com/emoji/48/star-emoji.png" alt="star-emoji" /></p>
                 <p class="present-price"><?php echo number_format($product['GIATIEN'], 0, "", ".") ?>đ</p>
-                <p class="past-price"><?php echo number_format($product['GIATIEN'] + 2130000, 0, "", ".") ?>đ</p>
+                <p class="past-price">
+                    <?php 
+                        // Query to get the discount for the product
+                        $khuyenmai_query = "SELECT * FROM sanphamkhuyenmai WHERE MASP = '$id'";
+                        $khuyenmai_result = mysqli_query($conn, $khuyenmai_query);
+
+                        // Check if the query executed successfully and returned a result
+                        if ($khuyenmai_result && mysqli_num_rows($khuyenmai_result) > 0) {
+                            // Fetch the discount details
+                            $khuyenmai = mysqli_fetch_assoc($khuyenmai_result);
+
+                            // Calculate the past price
+                            $original_price = $product['GIATIEN'];
+                            $discount_percentage = $khuyenmai['GIAMGIA'];
+                            $discount_amount = $original_price * ($discount_percentage / 100);
+                            $past_price = $original_price + $discount_amount;
+
+                            // Output the past price formatted with thousands separator
+                            echo number_format($past_price, 0, "", ".") . "đ"; 
+                        }
+                        // If no discount is found or no product is found, do nothing
+                    ?>
+                </p>
             </div>
             <div class="promotion">
                 <h5>Khuyến mãi</h5>
