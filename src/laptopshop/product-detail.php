@@ -59,7 +59,7 @@
             </div>
             <div class="paying-product">
                 <a href="checkout"><button class="sell-button">Mua ngay</button></a>
-                <a href="cart"><button>Thêm vào giỏ hàng</button></a>
+                <button class="addCart" data-id="<?php echo $id?>">Thêm vào giỏ hàng</button>
             </div>
         </div>
     </div>
@@ -164,3 +164,4 @@
     </div>
 
 </div>
+<script src="laptopshop/static/js/cart.js"></script>

@@ -146,3 +146,11 @@ function handleAddCartClick() {
         updateCart(productId, quantity, method, isChecked = null);
     });
 }
+
+document.querySelector('.addCart').addEventListener('click', (event) => {
+    const productId = event.target.getAttribute('data-id');
+    console.log("davao")
+    const method = 'addCart';
+    const quantity = 0;
+    updateCart(productId, quantity, method, isChecked = null);
+})
