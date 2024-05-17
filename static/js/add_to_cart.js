@@ -7,7 +7,11 @@ $(document).ready(function() {
             method: 'POST',
             data: { product_id: productId },
             success: function(response) {
-                console.log('Product added to cart');
+                if(response =="Bạn cần đăng nhập để thêm sản phẩm vào giỏ hàng"){
+                    alert("Bạn cần đăng nhập để thêm sản phẩm vào giỏ hàng");
+                    window.location.href = "sign-in";
+                }
+                updateCartCount();
             }
         });
     });

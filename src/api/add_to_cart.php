@@ -4,6 +4,10 @@ global $conn;
 
 // Start the session
 session_start();
+if(!isset($_SESSION["id"])){
+    echo "Bạn cần đăng nhập để thêm sản phẩm vào giỏ hàng";
+    exit;
+}
 
 // Check if the product_id is set
 if (isset($_POST['product_id'])) {

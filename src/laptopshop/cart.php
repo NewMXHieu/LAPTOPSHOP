@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 if (isset($_SESSION['id'])) {
     $userId = $_SESSION['id'];
@@ -73,7 +72,7 @@ if (isset($_SESSION['id'])) {
                                 return '₫';
                             }
                             function format_money($amount, $currency = false) {
-                                return $currency ? number_format($amount, 0, '.', '.') . ' ' . get_currency() : number_format($amount, 0, '.', '.');
+                                return $currency ? number_format($amount, 0, '.', '.') . '' . get_currency() : number_format($amount, 0, '.', '.');
                             }
                             foreach ($products as $product) {
                                 $cart_id = $product['MAGH'];
@@ -108,7 +107,7 @@ if (isset($_SESSION['id'])) {
                                         </div>
                                     </div>
                                 </td>
-                                <td class="text-right font-weight-semibold align-middle p-4"><?= format_money($price, true) ?></td>
+                                <td class="text-right font-weight-semibold align-middle p-4"><?=  format_money($price, true) ?></td>
                                 <td class="align-middle p-4"><input type="text" class="form-control text-center" value="<?= htmlspecialchars($quantity) ?>" readonly></td>
                                 <td class="text-right font-weight-semibold align-middle p-4"><?= format_money($total, true) ?></td>
                                 <td class="text-center align-middle px-0">

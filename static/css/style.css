@@ -161,7 +161,8 @@ li {
     margin: 0 10px;
     text-align: center;
     display: flex;
-
+    align-items: flex-end;
+    padding-bottom: 10px;
 }
 
 .login {
@@ -172,15 +173,20 @@ li {
     position: relative;
     margin: 0 30px;
 }
-
-#quantity {
-    position: absolute;
-    bottom: 25px;
-    right: -6px;
-    background: red;
-    border-radius: 16px;
-    padding: 4px;
-    /* color: white; */
+.notify-cart {
+    width: 18px;
+    height: 18px;
+    position: relative;
+    z-index: 10;
+    background-color: #aa1934;
+    border-radius: 4px;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 70%;
+    top: 8px;
+    color: #fff;
 }
 
 .header-top-right div span {

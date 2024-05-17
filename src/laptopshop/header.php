@@ -1,6 +1,10 @@
 <?php
 include "../../config/connect.php";
 include "../../config/function.php";
+$cartCount = 0;
+if (isset($_SESSION['product_cart'])) {
+    $cartCount = count($_SESSION['product_cart']);
+}
 ?>
 
 
@@ -19,6 +23,7 @@ include "../../config/function.php";
 
     <div class="header-top-right">
         <div class="cart">
+            <div class="notify-cart"><?php echo $cartCount; ?></div>
             <a href="cart">
                 <i class="fa-solid fa-cart-shopping"></i><br>
                 <span>Giỏ hàng</span>
@@ -49,6 +54,24 @@ include "../../config/function.php";
         <?php } ?>
     </div>
 </div>
+<script>
+    var count = 0;
+    function updateCartCount() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'api/get_cart_count.php', true);
+        xhr.onload = function () {
+            if (this.status == 200) {
+                count = this.responseText;
+                console.log(count);
+                var cartNotification = document.querySelector('.notify-cart');
+                if (cartNotification) {
+                    cartNotification.textContent = count;
+                }
+            }
+        };
+        xhr.send();
+    }
+</script>
 <script>
     $('.danhmuc').click(function () {
         $('.menu-left-1').toggle();
@@ -82,7 +105,6 @@ include "../../config/function.php";
         $("#txtSearch").val(search);
         readData(search);
         Pagination(search);
-        Quantity();
     }
     document.onkeydown = function () {
         $("#txtSearch").keydown(function(event){
@@ -101,21 +123,4 @@ include "../../config/function.php";
         delayLoad();
     })
 
-    let id = <?php echo $_SESSION['id']; ?>;
-    function Quantity(){
-        $.ajax({
-            url: 'api/so_luong_trong_cart.php',
-            type: 'GET',
-            data: {
-                'id': id
-            },
-            success: function (data) {
-                $("#quantity").empty();
-                $("#quantity").html(data);
-            }
-        })
-    }
-    
-
 </script>
-<script src = "static/js/cart.js"></script>
