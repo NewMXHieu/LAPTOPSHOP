@@ -28,28 +28,27 @@
         $mau = isset($_POST['mau']) ? check_input($_POST['mau']) : '';
         $mabaohanh = isset($_POST['mabaohanh']) ? check_input($_POST['mabaohanh']) : '';
         // Hiển thị các giá trị đã lấy được để kiểm tra
-        echo "Mã SP: " . $masp . "<br>";
-        echo "Tên sản phẩm: " . $tensanpham . "<br>";
-        echo "Thương hiệu: " . $thuonghieu . "<br>";
-        echo "Loại sản phẩm: ";
-        foreach ($loaisanpham as $selected) {
-            echo $selected . " ";
-        }
-        echo "<br>";
-        echo "Hình sản phẩm: " . $hinhsp . "<br>";
-        echo "Nhà cung cấp: " . $nhacungcap . "<br>";
-        echo "CPU: " . $cpu . "<br>";
-        echo "Screen: " . $screen . "<br>";
-        echo "RAM: " . $ram . "<br>";
-        echo "VGA: " . $vga . "<br>";
-        echo "Storage: " . $storage . "<br>";
-        echo "OS: " . $os . "<br>";
-        echo "PIN: " . $pin . "<br>";
-        echo "Weight: " . $weight . "<br>";
-        echo "Mô tả: " . $mota . "<br>";
-        echo "Màu: " . $mau . "<br>";
-        $giatien = number_format($giatien, 0, '.', '');
-        echo "Giá tiền: " . $giatien . "<br>";
+        // echo "Mã SP: " . $masp . "<br>";
+        // echo "Tên sản phẩm: " . $tensanpham . "<br>";
+        // echo "Thương hiệu: " . $thuonghieu . "<br>";
+        // echo "Loại sản phẩm: ";
+        // foreach ($loaisanpham as $selected) {
+        //     echo $selected . " ";
+        // }
+        // echo "<br>";
+        // echo "Hình sản phẩm: " . $hinhsp . "<br>";
+        // echo "Nhà cung cấp: " . $nhacungcap . "<br>";
+        // echo "CPU: " . $cpu . "<br>";
+        // echo "Screen: " . $screen . "<br>";
+        // echo "RAM: " . $ram . "<br>";
+        // echo "VGA: " . $vga . "<br>";
+        // echo "Storage: " . $storage . "<br>";
+        // echo "OS: " . $os . "<br>";
+        // echo "PIN: " . $pin . "<br>";
+        // echo "Weight: " . $weight . "<br>";
+        // echo "Mô tả: " . $mota . "<br>";
+        // echo "Màu: " . $mau . "<br>";
+        // echo "Giá tiền: " . $giatien . "<br>";
 
 
         $conn = connectToDatabase();
@@ -62,7 +61,7 @@
             SET HINHSP = '$hinhsp',SOLUONG = 1,MANCC = '$nhacungcap'
             WHERE MASP = '$masp'";
             if ($conn->query($sql_sanpham) === TRUE) {
-                echo "Thêm sản phẩm thành công";
+                // echo "Thêm sản phẩm thành công";
             } else {
                 echo "Lỗi: " . $conn->error;
             }
@@ -107,23 +106,49 @@
                                     WHERE MASP = $masp;
             ";
             if ($conn->query($sql_chitietsanpham) === TRUE) {
-                echo "Thêm chi tiết sản phẩm thành công";
+                // echo "Thêm chi tiết sản phẩm thành công";
             } else {
                 echo "Lỗi: " . $conn->error;
             }
         }
 
+        if($tensanpham == ''){
+            echo 'thiếu tên sản phẩm';
+        } else if($hinhsp == ''){
+            echo 'thiếu hình sp';
+        } else if($nhacungcap == ''){
+            echo 'thiếu nhà cung cấp';
+        } else if($cpu == ''){
+            echo 'thiếu cpu';
+        } else if($screen == ''){
+            echo 'thiếu screen';
+        } else if($ram == ''){
+            echo 'thiếu ram';
+        } else if($vga == ''){
+            echo 'thiếu vga';
+        } else if($storage == ''){
+            echo 'thiếu storage';
+        } else if($os == ''){
+            echo 'thiếu os';
+        } else if($pin == ''){
+            echo 'thiếu pin';
+        } else if($weight == ''){
+            echo 'thiếu weight';
+        } else if($mau == ''){
+            echo 'thiếu mau';
+        } else if($giatien == ''){
+            echo 'thiếu giatien';
+        } else{
         // Sử dụng các hàm trên
-        // Thêm sản phẩm
-        themSanPham($conn, $masp, $hinhsp, $nhacungcap);
+            // Thêm sản phẩm
+            themSanPham($conn, $masp, $hinhsp, $nhacungcap);
 
-        // Thêm nhóm loại sản phẩm
-        themNhomLoaiSanPham($conn, $masp, $loaisanpham);
-
-        // Thêm chi tiết sản phẩm
-        themChiTietSanPham($conn, $masp, $tensanpham, $cpu, $screen, $ram, $vga, $storage, $os, $pin, $weight, $mota, $thuonghieu, $mau, $giatien);
-
-    } else{
-        echo "không nhận được";
+            // Thêm nhóm loại sản phẩm
+            themNhomLoaiSanPham($conn, $masp, $loaisanpham);
+            $giatien = number_format($giatien, 0, '.', '');
+            // Thêm chi tiết sản phẩm
+            themChiTietSanPham($conn, $masp, $tensanpham, $cpu, $screen, $ram, $vga, $storage, $os, $pin, $weight, $mota, $thuonghieu, $mau, $giatien);
+            echo 'Update thông tin sản phẩm thành công';
+        }
     }
 ?>

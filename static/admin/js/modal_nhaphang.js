@@ -179,6 +179,7 @@ function showArraySanPhamCoTheNhap(arr) {
 function savephieunhap(){
     let listIdSPSelected = [];
     let currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() + 1);
     // Lặp qua các checkbox để lấy loại sản phẩm được chọn
     document.querySelectorAll('input[name="listSpNhap[]"]:checked').forEach(function(checkbox) {
         let masp = checkbox.value;
@@ -206,10 +207,9 @@ function savephieunhap(){
     else{
         let tongtien = 0;
         let ngaynhap = currentDate.toISOString().slice(0, 10);
-        let trangthai = 0;
         let mancc = document.getElementById("detail_nhaphang_nhacungcap_select").value;
         let manv = document.getElementById("addphieunhap_manv").value;
-
+        let trangthai = 0;
         $.ajax({
         url: 'api/admin/savePhieuNhap.php', // Đường dẫn đến trang PHP
         type: 'POST', // Phương thức POST sẽ gửi dữ liệu qua body
@@ -289,5 +289,6 @@ function saveEditphieunhap(){
     });
     
 }
+
 
 

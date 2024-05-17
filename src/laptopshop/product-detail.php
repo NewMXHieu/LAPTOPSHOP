@@ -58,9 +58,8 @@ $product = mysqli_fetch_assoc($product_result);
                 </ul>
             </div>
             <div class="paying-product">
-                <a href="checkout"><button id="sell-button" class="addCart" data-id="<?php echo $product['MASP'] ?> ">Mua ngay</button></a>
-                <a href="#"><button class="addCart" data-id="<?php echo $product['MASP'] ?> ">Thêm vào giỏ
-                        hàng</button></a>
+                <a href="checkout"><button class="sell-button">Mua ngay</button></a>
+                <a href="cart"><button>Thêm vào giỏ hàng</button></a>
             </div>
         </div>
     </div>
@@ -164,5 +163,3 @@ $product = mysqli_fetch_assoc($product_result);
         </div>
     </div>
 </div>
-<script src="static/js/add_to_cart.js">
-</script>

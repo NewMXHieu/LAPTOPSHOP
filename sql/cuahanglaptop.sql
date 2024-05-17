@@ -25,6 +25,9 @@ SET time_zone = "+00:00";
 
 --
 -- Table structure for table `baohanh`
+
+CREATE Database cuahanglaptop;
+USE cuahanglaptop;
 --
 
 CREATE TABLE `baohanh` (

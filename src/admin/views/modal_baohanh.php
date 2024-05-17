@@ -13,9 +13,6 @@
 <body>
     <!-- add phiếu nhập -->
     <div class="modal addbaohanh">
-        <div class="modal-close modal-close-baohanh">
-            <i class="fa-solid fa-xmark"></i>
-        </div>
         <form id="addbaohanhform" action="" method="POST">
             <H2 class="edit-product-title">THÊM BẢO HÀNH</H2>
             <div class="detail_product chitiethd">
@@ -87,9 +84,6 @@
 
     <!-- edit phiếu nhập -->
     <div class="modal editbaohanh">
-        <div class="modal-close modal-close-baohanh">
-            <i class="fa-solid fa-xmark"></i>
-        </div>
         <form id="editbaohanhform" action="" method="POST">
             <input type="text" id="editbaohanh_idbaohanh" name="editbaohanh_idbaohanh" style="display:none">
             <H2 class="edit-product-title">CHI TIẾT BẢO HÀNH</H2>
