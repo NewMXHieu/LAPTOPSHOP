@@ -183,7 +183,7 @@
             <div class="detail_product-items">
                 <div class="detail_product-items-item">
                     <label for="tensp">TÊN SẢN PHẨM</label>
-                    <input type="text" id="editProduct_tensanpham" name="editProduct_tensanpham" oninput="checkTEN()">
+                    <input type="text" id="editProduct_tensanpham" name="editProduct_tensanpham" oninput="checkTENedit()">
                 </div>
                 <div class="detail_product-items-item">
                     <label for="thuonghieu">THƯƠNG HIỆU</label>
@@ -272,49 +272,49 @@
                 
                 <div class="detail_product-items-item">
                     <label for="giatien">GIÁ TIỀN</label>
-                    <input type="number" id="editProduct_giatien" name="editProduct_giatien" oninput="checkGIATIEN()">
+                    <input type="number" id="editProduct_giatien" name="editProduct_giatien" oninput="checkGIATIENedit()">
                 </div>
             </div>
 
             <div class="detail_product-items">
                 <div class="detail_product-items-item">
                     <label for="cpu">CPU</label>
-                    <input type="text" id="editproduct_detail_cpu" name="editproduct_detail_cpu" oninput="checkCPU()">
+                    <input type="text" id="editproduct_detail_cpu" name="editproduct_detail_cpu" oninput="checkCPUedit()">
                 </div>
 
                 <div class="detail_product-items-item">
                     <label for="screen">SCREEN</label>
-                    <input type="text" id="editproduct_detail_screen" name="editproduct_detail_screen" oninput="checkSCREEN()">
+                    <input type="text" id="editproduct_detail_screen" name="editproduct_detail_screen" oninput="checkSCREENedit()">
                 </div>
 
                 <div class="detail_product-items-item">
                     <label for="ram">RAM</label>
-                    <input type="text" id="editproduct_detail_ram" name="editproduct_detail_ram" oninput="checkRAM()">
+                    <input type="text" id="editproduct_detail_ram" name="editproduct_detail_ram" oninput="checkRAMedit()">
                 </div>
 
                 <div class="detail_product-items-item">
                     <label for="vga">VGA</label>
-                    <input type="text" id="editproduct_detail_vga" name="editproduct_detail_vga" oninput="checkVGA()">
+                    <input type="text" id="editproduct_detail_vga" name="editproduct_detail_vga" oninput="checkVGAedit()">
                 </div>
 
                 <div class="detail_product-items-item">
                     <label for="storage">STORAGE</label>
-                    <input type="text" id="editproduct_detail_storage" name="editproduct_detail_storage" oninput="checkSTORAGE()">
+                    <input type="text" id="editproduct_detail_storage" name="editproduct_detail_storage" oninput="checkSTORAGEedit()">
                 </div>
 
                 <div class="detail_product-items-item">
                     <label for="os">OS</label>
-                    <input type="text" id="editproduct_detail_os" name="editproduct_detail_os" oninput="checkOS()">
+                    <input type="text" id="editproduct_detail_os" name="editproduct_detail_os" oninput="checkOSedit()">
                 </div>
 
                 <div class="detail_product-items-item">
                     <label for="pin">PIN</label>
-                    <input type="text" id="editproduct_detail_pin" name="editproduct_detail_pin" oninput="checkPIN()">
+                    <input type="text" id="editproduct_detail_pin" name="editproduct_detail_pin" oninput="checkPINedit()">
                 </div>
 
                 <div class="detail_product-items-item">
                     <label for="weight">WEIGHT</label>
-                    <input type="text" id="editproduct_detail_weight" name="editproduct_detail_weight" oninput="checkWEIGHT()">
+                    <input type="text" id="editproduct_detail_weight" name="editproduct_detail_weight" oninput="checkWEIGHTedit()">
                 </div>
 
                 <div class="detail_product-items-item">
@@ -324,7 +324,7 @@
 
                 <div class="detail_product-items-item">
                     <label for="mau">MÀU</label>
-                    <input type="text" id="editproduct_detail_mau" name="editproduct_detail_mau" oninput="checkMAU()">
+                    <input type="text" id="editproduct_detail_mau" name="editproduct_detail_mau" oninput="checkMAUedit()">
                 </div>
             </div>
         </div>
