@@ -660,6 +660,7 @@
                 success: function(data) {
                     getDsPhanLoaiSP();
                     getDsSanPham();
+                    getSoSanPham();
                     showProduct();
                     alert(data);
                 },

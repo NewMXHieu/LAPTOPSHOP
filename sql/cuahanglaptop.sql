@@ -1580,6 +1580,36 @@ INSERT INTO `sanpham` (`MASP`, `HINHSP`, `SOLUONG`, `MANCC`, `TRANGTHAI`) VALUES
 
 -- --------------------------------------------------------
 
+
+--
+-- Table structure for table `sanphamkhuyenmai`
+--
+
+CREATE TABLE `sanphamkhuyenmai` (
+  `MASP` int(11) NOT NULL,
+  `MAKM` int(11) NOT NULL,
+  `GIAMGIA` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `sanphamkhuyenmai`
+--
+
+INSERT INTO `sanphamkhuyenmai` (`MASP`, `MAKM`, `GIAMGIA`) VALUES
+(1, 1, 10),
+(2, 1, 6),
+(3, 1, 11),
+(4, 1, 11),
+(5, 1, 11),
+(6, 1, 14),
+(7, 1, 15),
+(8, 1, 10),
+(9, 1, 19),
+(10, 1, 19)
+
+
+-- --------------------------------------------------------
+
 --
 -- Table structure for table `serial`
 --

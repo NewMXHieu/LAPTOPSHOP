@@ -97,17 +97,17 @@
             }
         }
 
-        function themSerial($conn,$soluong,$masp,$ngaysanxuat,$mabaohanh){
-            // Tạo số seri cho mỗi sản phẩm
-            $serial_prefix = 'SN' . str_pad($masp, 4, '0', STR_PAD_LEFT);
-            while ($soluong > 0) {
-                $serial_no = $serial_prefix . str_pad(rand(0, 999999), 6, '0', STR_PAD_LEFT);        
-                // Thêm số seri vào bảng serial
-                $insert_query = "INSERT INTO serial (MASERI, MASP, NGAYSANXUAT, MABAOHANH, TRANGTHAI) VALUES ('$serial_no', '$masp', '$ngaysanxuat',$mabaohanh,1)";
-                $conn->query($insert_query);
-                $soluong--;
-            }
-        }
+        // function themSerial($conn,$soluong,$masp,$ngaysanxuat,$mabaohanh){
+        //     // Tạo số seri cho mỗi sản phẩm
+        //     $serial_prefix = 'SN' . str_pad($masp, 4, '0', STR_PAD_LEFT);
+        //     while ($soluong > 0) {
+        //         $serial_no = $serial_prefix . str_pad(rand(0, 999999), 6, '0', STR_PAD_LEFT);        
+        //         // Thêm số seri vào bảng serial
+        //         $insert_query = "INSERT INTO serial (MASERI, MASP, NGAYSANXUAT, MABAOHANH, TRANGTHAI) VALUES ('$serial_no', '$masp', '$ngaysanxuat',$mabaohanh,1)";
+        //         $conn->query($insert_query);
+        //         $soluong--;
+        //     }
+        // }
         
         if($tensanpham == ''){
             echo 'thiếu tên sản phẩm';

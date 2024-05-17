@@ -16,6 +16,10 @@ if (mysqli_num_rows($product_result) == 0) {
 }
 $product = mysqli_fetch_assoc($product_result);
 
+
+    
+    
+
 ?>
 
 

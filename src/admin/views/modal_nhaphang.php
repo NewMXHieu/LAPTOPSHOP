@@ -24,13 +24,13 @@
                 <div class="detail_product-items">
                     <div class="detail_product-items-item">
                         <label for="TENNV">MÃ NHÂN VIÊN</label>
-                        <input type="text" id="addphieunhap_manv" name="addphieunhap_manv">
+                        <input type="number" id="addphieunhap_manv" name="addphieunhap_manv">
                     </div>
 
                     <div class="detail_product-items-item">
                         <label for="MANCC">NHÀ CUNG CẤP</label>
                         <select name="detail_nhaphang_nhacungcap_select" id="detail_nhaphang_nhacungcap_select" onchange="getDataSPCodeNhap()">
-                            <option value="1" selected>ACER</option>
+                            <option value="1">ACER</option>
                             <option value="2">APPLE</option>
                             <option value="3">ASUS</option>
                             <option value="4">DELL</option>
