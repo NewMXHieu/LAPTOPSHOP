@@ -18,35 +18,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors = [];
 
     if (!preg_match("/\S+/", $fullname)) {
-        $errors[] = "Fullname cannot be empty";
+        $errors[] = "Tên không được để trống";
     }
 
     if (!preg_match("/\S+/", $email)) {
-        $errors[] = "Email cannot be empty";
+        $errors[] = "Email không được để trống";
     }
 
     if (!preg_match("/\S+/", $phone)) {
-        $errors[] = "Phone cannot be empty";
+        $errors[] = "Số điện thoại không được để trống";
     }
 
     if (!preg_match("/\S+/", $address)) {
-        $errors[] = "Address cannot be empty";
+        $errors[] = "Địa chỉ không được để trống";
     }
 
     if (!preg_match("/\S+/", $provine)) {
-        $errors[] = "Province cannot be empty";
+        $errors[] = "Tỉnh/Thành phố không được để trống";
     }
 
     if (!preg_match("/\S+/", $district)) {
-        $errors[] = "District cannot be empty";
+        $errors[] = "Quận/Huyện không được để trống";
     }
 
     if (!preg_match("/\S+/", $ward)) {
-        $errors[] = "Ward cannot be empty";
+        $errors[] = "Phường/Xã không được để trống";
     }
 
     if (!preg_match("/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/", $email)) {
-        $errors[] = "Invalid email format";
+        $errors[] = "Email không hợp lệ";
+    }
+    if (!preg_match("/^0[0-9]{9,10}$/", $phone)) {
+        $errors[] = "Số điện thoại không hợp lệ";
     }
 
     if (!empty($errors)) {

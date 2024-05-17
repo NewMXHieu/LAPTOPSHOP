@@ -1,6 +1,10 @@
 <?php
 include "../../config/connect.php";
 include "../../config/function.php";
+$cartCount = 0;
+if (isset($_SESSION['product_cart'])) {
+    $cartCount = count($_SESSION['product_cart']);
+}
 ?>
 
 
@@ -9,14 +13,6 @@ include "../../config/function.php";
         <a href="trangchu"><img width="80" height="80" src="static/image/laptoplogo.png" alt="laptop--v1" /></a>
     </div>
 
-    <!-- <div id="nav">
-        <ul>
-            <li><a class="nav-link active" href="?action=trangchu">Trang chủ</a></li>
-            <li><a class="nav-link" href="?action=sanpham">Sản phẩm</a></li>
-            <li><a class="nav-link" href="about">Giới thiệu</a></li>
-            <li><a class="nav-link" href="contact">Liên hệ</a></li>
-        </ul>
-    </div> -->
     <div class="danhmuc"><i class="fa-solid fa-bars"></i> Danh mục</div>
     <div class="search">
         <input class="input-search1" id="txtSearch" type="text" name="fseacrh" placeholder="Nhập từ khóa cần tìm">
@@ -27,10 +23,11 @@ include "../../config/function.php";
 
     <div class="header-top-right">
         <div class="cart">
+            <div class="notify-cart"><?php echo $cartCount; ?></div>
             <a href="cart">
                 <i class="fa-solid fa-cart-shopping"></i><br>
-                <!-- <img src="https://img.icons8.com/ios-glyphs/30/shopping-cart--v1.png" alt="shopping-cart--v1"/><br> -->
                 <span>Giỏ hàng</span>
+                <div id="quantity">0</div>
             </a>
         </div>
 
@@ -58,6 +55,24 @@ include "../../config/function.php";
     </div>
 </div>
 <script>
+    var count = 0;
+    function updateCartCount() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'api/get_cart_count.php', true);
+        xhr.onload = function () {
+            if (this.status == 200) {
+                count = this.responseText;
+                console.log(count);
+                var cartNotification = document.querySelector('.notify-cart');
+                if (cartNotification) {
+                    cartNotification.textContent = count;
+                }
+            }
+        };
+        xhr.send();
+    }
+</script>
+<script>
     $('.danhmuc').click(function () {
         $('.menu-left-1').toggle();
         $('.overplay').toggle();
@@ -65,8 +80,6 @@ include "../../config/function.php";
 
 
     $(document).ready(function () {
-
-        // $("#bthSearch").click();
         delayLoad();
     });
     $("#bthSearch").click(function () {
@@ -92,12 +105,13 @@ include "../../config/function.php";
         $("#txtSearch").val(search);
         readData(search);
         Pagination(search);
-
     }
     document.onkeydown = function () {
-        if (window.event.keyCode == '13') {
-            $("#bthSearch").click();
-        }
+        $("#txtSearch").keydown(function(event){
+            if (event.keyCode == 13) {
+                $("#bthSearch").click();
+            }
+        })
     }
     $(".fa-circle-xmark").click(function () {
         search = '';
@@ -108,7 +122,5 @@ include "../../config/function.php";
         $("#resetBtn").click();
         delayLoad();
     })
-
-
 
 </script>
